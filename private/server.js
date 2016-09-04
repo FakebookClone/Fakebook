@@ -3,8 +3,10 @@ var cors = require('cors');
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var connectionString = "postgres://root@localhost/root"
+var connectionString = "postgres://postgres:password@localhost/root"
 var massiveInstance = massive.connectSync({connectionString : connectionString});
+
+var app = express();
 
 
 app.listen(3000, function() { console.log('Server initiated on port 3000'); })
