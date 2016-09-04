@@ -4,6 +4,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
 var connectionString = "postgres://postgres:password@localhost/fakebook"
+// var connectionString = "postgres://jameslemire@localhost/fakebook";
+// var connectionString = "postgres://michaellecke@localhost/fakebook";
 var massiveInstance = massive.connectSync({connectionString : connectionString});
 
 var app = express();
