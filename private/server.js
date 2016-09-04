@@ -14,8 +14,6 @@ var config = require('./config.js');
 var app = module.exports = express();
 app.set('db', massiveInstance);
 
-//test
-
 app.use(cors(config.corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('../public'));
