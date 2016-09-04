@@ -3,7 +3,7 @@ var cors = require('cors');
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var connectionString = "postgres://postgres:password@localhost/root"
+var connectionString = "postgres://postgres:password@localhost/fakebook"
 var massiveInstance = massive.connectSync({connectionString : connectionString});
 
 var app = express();
