@@ -1,7 +1,7 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 
-require('../../stylesheets/login.scss');
+require('../../../stylesheets/login.scss');
 
 export default class FbLogin extends React.Component {
   constructor(props) {
