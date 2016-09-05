@@ -26,7 +26,7 @@ export default class Login extends React.Component {
           : <FacebookLogin
               appId="145051979269944"
               autoLoad={false}
-              fields="name,first_name,last_name,email,picture,link,about,birthday,cover,relationship_status,significant_other,website,work"
+              fields="name,first_name,last_name,email,picture,cover"
               cssClass="test"
               textButton="Login"
               callback={this.responseFacebook.bind(this)}
@@ -41,5 +41,5 @@ export default class Login extends React.Component {
     localStorage.clear();
     this.setState({ user: null })
   }
-      
+
 }
