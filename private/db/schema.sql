@@ -7,6 +7,7 @@ CREATE TABLE profiles (
   profile_id SERIAL PRIMARY KEY,
   facebook_id INT,
   profile_pic varchar(100),
+  name varchar(80),
   first_name varchar(40),
   last_name varchar(40),
   email varchar(80)
