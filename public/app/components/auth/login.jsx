@@ -3,7 +3,7 @@ import FacebookLogin from 'react-facebook-login';
 
 require('../../../stylesheets/login.scss');
 
-export default class FbLogin extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')) }
