@@ -26,7 +26,7 @@ export default class Login extends React.Component {
           : <FacebookLogin
               appId="145051979269944"
               autoLoad={false}
-              fields="name,email,picture"
+              fields="name,first_name,last_name,email,picture,age_range,link,about,birthday,cover,relationship_status,significant_other,website,work"
               cssClass="test"
               textButton="Login"
               callback={this.responseFacebook.bind(this)}
