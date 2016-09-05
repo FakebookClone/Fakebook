@@ -52,6 +52,7 @@ CREATE TABLE likes (
 
 CREATE TABLE shares (
   share_id SERIAL PRIMARY KEY,
-  post_id REFERENCES posts (post_id),
+  post_id INT,
+  photo_id INT,
   share_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
