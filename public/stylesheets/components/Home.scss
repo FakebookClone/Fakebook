@@ -2,59 +2,6 @@
   display: inline-block;
 }
 
-.home-header {
-  background: #3B5998;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 12px;
-  position: relative;
-  z-index: 2;
-}
-
-.home-header-find-friends-input {
-  width: 448px;
-  height: 20px;
-  border-radius: 3px;
-  border: none;
-}
-
-.home-search-button {
-  color: #4E5665;
-}
-
-.home-header-nav-container {
-  height: 28px;
-  width: 98px;
-  border-right: 1px solid #365089;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-header-profile-picture {
-  width: 24px;
-  height: 24px;
-}
-
-.home-header-nav-image {
-  height: 18px;
-  margin-right: 5px;
-}
-
-.home-header-nav-image-small {
-  height: 11px;
-  margin-right: 5px;
-}
-
-.home-header-nav-image-smallest {
-  height: 7px;
-  margin-right: 5px;
-}
-
 .home-main-content-wrapper {
   background: #E9EBEE;
   width: 100%;
