@@ -10,7 +10,8 @@ CREATE TABLE profiles (
   name varchar(80),
   first_name varchar(40),
   last_name varchar(40),
-  email varchar(80)
+  email varchar(80),
+  cover varchar(200),
 );
 
 CREATE TABLE friends (
