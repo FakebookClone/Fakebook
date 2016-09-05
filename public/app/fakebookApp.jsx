@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
+import { Router, Route, browserHistory, Link } from 'react-router';
+
+import Login from './components/auth/Login.jsx';
+import Home from './components/home/Home.jsx';
 
 class FakebookApp extends React.Component {
   constructor() {
@@ -9,9 +12,10 @@ class FakebookApp extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Hello From The Fakebook App</p>
-      </div>
+      <Router history={browserHistory}>
+        <Route path="/" component={Login} />
+        <Route path="/test" component={Home} />
+      </Router>
     )
   }
 }
