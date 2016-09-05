@@ -14,7 +14,7 @@ class FakebookApp extends React.Component {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Login} />
-        <Route path="/test" component={Home} />
+        <Route path="/home" component={Home} />
       </Router>
     )
   }
