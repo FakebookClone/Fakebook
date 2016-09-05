@@ -5,7 +5,7 @@ CREATE TABLE users (
 
 CREATE TABLE profiles (
   profile_id SERIAL PRIMARY KEY,
-  facebook_id REFERENCES users (facebook_id),
+  facebook_id INT,
   profile_pic varchar(100),
   first_name varchar(40),
   last_name varchar(40),
@@ -20,35 +20,37 @@ CREATE TABLE friends (
 
 CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
-  user_id REFERENCES users (facebook_id),
-  post text,
-  image varchar(100),
+  profile_id INT,
+  post_text text,
+  post_image varchar(100),
   post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE comments (
   comment_id SERIAL PRIMARY KEY,
-  image varchar(100),
-  comment text,
+  comment_text text,
+  comment_image varchar(100),
   comment_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE photos (
   photo_id SERIAL PRIMARY KEY,
-  user_id REFERENCES users (facebook_id),
-  post_id REFERENCES posts (post_id),
+  profile_id INT,
   image varchar(100),
   photo_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE likes (
   like_id SERIAL PRIMARY KEY,
-  user_id REFERENCES users (facebook_id),
-  post_id REFERENCES posts (post_id)
+  profile_id INT,
+  post_id INT,
+  comment_id INT,
+  photo_id INT
 );
 
 CREATE TABLE shares (
   share_id SERIAL PRIMARY KEY,
-  post_id REFERENCES posts (post_id),
+  post_id INT,
+  photo_id INT,
   share_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
