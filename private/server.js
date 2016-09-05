@@ -3,8 +3,8 @@ var cors = require('cors');
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var connectionString = "postgres://postgres:password@localhost/fakebook"
-// var connectionString = "postgres://jameslemire@localhost/fakebook";
+// var connectionString = "postgres://postgres:password@localhost/fakebook"
+var connectionString = "postgres://jameslemire@localhost/fakebook";
 // var connectionString = "postgres://michaellecke@localhost/fakebook";
 // var connectionString = "postgres://LonnieMcGill@localhost/fakebook";
 // Brandon's connectionString here
