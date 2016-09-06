@@ -21,6 +21,7 @@ app.use(express.static('../public'));
 app.post('/api/user/create/:facebook_id', userCtrl.createUser);
 
 //Profile Endpoints
+app.get('/api/profile/:facebook_id', profileCtrl.getProfile);
 app.post('/api/profile/create/:facebook_id', profileCtrl.createProfile);
 
 //Post Endpoints
