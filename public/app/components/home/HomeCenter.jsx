@@ -13,13 +13,11 @@ export default class HomeCenter extends React.Component {
 
   componentWillMount() {
     Axios.get(`/api/posts/${this.props.user.id}`).then( r => {
-      console.log('Home Center, posted, ', r.data);
       this.setState({ posted: r.data });
     })
   }
 
   render() {
-    console.log('HOME CENTER POSTED', this.state.posted);
     return (
       <div>
         <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
