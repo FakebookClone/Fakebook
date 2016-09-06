@@ -11,6 +11,14 @@ export default class HomePosted extends React.Component {
         <img src="#" />
         <p>No posts to show</p>
         <button>Find Friends</button>
+        {this.props.posts.map( (value) => {
+          console.log(value.post_id);
+          return (
+            <div key={'post_container_' + value.post_id}>
+              <p key={value.post_id}>{value.post_text}</p>
+            </div>
+          )
+        })}
       </div>
     )
   }
