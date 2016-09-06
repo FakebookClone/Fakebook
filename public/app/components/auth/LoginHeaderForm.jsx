@@ -6,6 +6,9 @@ import { browserHistory } from 'react-router';
 export default class LoginHeaderForm extends React.Component {
 	constructor() {
 		super()
+		if(localStorage.getItem('fakebook_user')) {
+			browserHistory.push('/home');
+		}
 	}
 
   responseFacebook(response) {
@@ -27,7 +30,6 @@ export default class LoginHeaderForm extends React.Component {
 					<a href="#">Forgot account?</a>
 				</div>
         <FacebookLogin appId="145051979269944" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
-
 			</div>
 		)
 	}
