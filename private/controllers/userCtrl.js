@@ -6,7 +6,7 @@ module.exports = {
     console.log('USER LOGGING IN', req.params);
     db.users.getUser([req.params.facebook_id], function(err, r) {
       if(r.length === 0) {
-        db.users.createUser([req.params.facebook_id], function(err, r) { res.status(200).send('ok') })
+        db.users.createUser([req.params.facebook_id], function(err, r) { res.status(200).send('User created') })
       } else {
         res.status(200).send('User already in database');
       }
