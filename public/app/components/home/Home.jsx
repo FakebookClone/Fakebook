@@ -12,15 +12,17 @@ export default class Home extends React.Component {
     super()
     if( !(localStorage.getItem('fakebook_user')) ) {
       browserHistory.push('/');
+    } else {
+      this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')) }
     }
   }
 
   render() {
     return (
       <div>
-        <GlobalHeader />
+        <GlobalHeader user={this.state.user} />
         <div className="home-main-content-wrapper">
-          <HomeLeft />
+          <HomeLeft user={this.state.user} />
           <HomeCenter />
           <HomeRight />
         </div>
