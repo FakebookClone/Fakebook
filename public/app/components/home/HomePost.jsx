@@ -3,7 +3,8 @@ import Axios from 'axios';
 
 export default class HomePost extends React.Component {
   constructor() {
-    super()
+    super();
+    this.state = { post: "" };
   }
 
   render() {
@@ -15,7 +16,7 @@ export default class HomePost extends React.Component {
         </div>
         <div className="post-container-middle">
           <img src={this.props.user.picture.data.url} />
-          <input placeholder="What's on your mind?" />
+          <input onChange={this.postCatcher.bind(this)} value={this.state.post} placeholder="What's on your mind?" />
         </div>
         <div className="post-container-bottom">
           <img src="#" />
@@ -28,10 +29,13 @@ export default class HomePost extends React.Component {
     )
   }
 
+  postCatcher(e) {
+    this.setState({ post: e.target.value });
+  }
+
   post() {
-    console.log('POST FUNCTION FIRED');
-    Axios.post(`/api/post/test`).then(function(r) {
-      console.log('API hit');
+    Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+      this.props.updatePosted(r.data);
     })
   }
 }

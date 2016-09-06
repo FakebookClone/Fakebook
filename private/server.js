@@ -20,7 +20,8 @@ app.use(express.static('../public'));
 app.post('/api/user/create/:facebook_id', userCtrl.createUser);
 
 //Profile Endpoints
-app.post('/api/post/:profileId', profilePostCtrl.createPost);
+app.get('/api/posts/:profile_id', profilePostCtrl.getPosts);
+app.post('/api/post/:profile_id', profilePostCtrl.createPost);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });
