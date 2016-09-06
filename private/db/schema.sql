@@ -1,6 +1,6 @@
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  facebook_id INT
+  facebook_id VARCHAR(20)
 );
 
 CREATE TABLE profiles (

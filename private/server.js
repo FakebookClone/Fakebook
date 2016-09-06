@@ -9,9 +9,18 @@ var massiveInstance = massive.connectSync({connectionString : config.connectionS
 var app = module.exports = express();
 app.set('db', massiveInstance);
 
+var userCtrl = require('./controllers/userCtrl.js');
+var profilePostCtrl = require('./controllers/profilePostCtrl.js');
+
 app.use(cors(config.corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('../public'));
+
+//User Endpoints
+app.post('/api/user/create/:facebook_id', userCtrl.createUser);
+
+//Profile Endpoints
+app.post('/api/post/:profileId', profilePostCtrl.createPost);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });

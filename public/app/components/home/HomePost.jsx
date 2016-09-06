@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 export default class HomePost extends React.Component {
   constructor() {
@@ -21,9 +22,16 @@ export default class HomePost extends React.Component {
           <img src="#" />
           <img src="#" />
           <button><img src="#" />Friends</button>
-          <button>Post</button>
+          <button onClick={this.post.bind(this)}>Post</button>
         </div>
       </div>
     )
+  }
+
+  post() {
+    console.log('POST FUNCTION FIRED');
+    Axios.post(`/api/post/test`).then(function(r) {
+      console.log('API hit');
+    })
   }
 }
