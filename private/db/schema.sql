@@ -1,6 +1,6 @@
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  facebook_id INT
+  facebook_id VARCHAR(20)
 );
 
 CREATE TABLE profiles (
@@ -22,7 +22,7 @@ CREATE TABLE friends (
 
 CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
-  profile_id INT,
+  profile_id VARCHAR(20),
   post_text text,
   post_image varchar(100),
   post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
