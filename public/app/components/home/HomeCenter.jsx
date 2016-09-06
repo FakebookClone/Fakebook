@@ -3,7 +3,7 @@ import Axios from 'axios';
 import HomePost from './HomePost.jsx';
 import HomePosted from './HomePosted.jsx';
 
-require('../../../stylesheets/components/HomeCenter.scss');
+require('../../../stylesheets/components/home/HomeCenter.scss');
 
 export default class HomeCenter extends React.Component {
   constructor() {

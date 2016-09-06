@@ -3,8 +3,8 @@ import LoginHeaderForm from './LoginHeaderForm.jsx';
 import LoggedOutMainSection from './LoggedOutMainSection.jsx';
 import LoggedOutFooter from './LoggedOutFooter.jsx';
 
-require('../../../stylesheets/components/login.scss');
-require('../../../stylesheets/components/loggedOut.scss');
+require('../../../stylesheets/components/auth/login.scss');
+require('../../../stylesheets/components/auth/loggedOut.scss');
 
 export default class LoggedOut extends React.Component {
 	constructor(props) {
