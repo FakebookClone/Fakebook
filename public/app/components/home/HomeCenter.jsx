@@ -1,39 +1,32 @@
 import React from 'react';
+import Axios from 'axios';
+import HomePost from './HomePost.jsx';
+import HomePosted from './HomePosted.jsx';
 
-require('../../../stylesheets/components/HomeCenter.scss');
+require('../../../stylesheets/components/home/HomeCenter.scss');
 
 export default class HomeCenter extends React.Component {
   constructor() {
     super()
+    this.state = { posted: [] };
+  }
+
+  componentWillMount() {
+    Axios.get(`/api/posts/${this.props.user.id}`).then( r => {
+      this.setState({ posted: r.data });
+    })
   }
 
   render() {
     return (
       <div>
-        <div className="home-center-post-container">
-          <div className="post-container-top">
-            <img src="#" /><p>Photo/Video</p>
-            <img src="#" /><p>Photo Album</p>
-          </div>
-          <div className="post-container-middle">
-            <img src="#" />
-            <input placeholder="What's on your mind?" />
-          </div>
-          <div className="post-container-bottom">
-            <img src="#" />
-            <img src="#" />
-            <img src="#" />
-            <button><img src="#" />Friends</button>
-            <button>Post</button>
-          </div>
-        </div>
-
-        <div className="home-center-posted-container">
-          <img src="#" />
-          <p>No posts to show</p>
-          <button>Find Friends</button>
-        </div>
+        <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
+        <HomePosted posts={this.state.posted} />
       </div>
     )
+  }
+
+  updatePosted(posts) {
+    this.setState({ posted: posts });
   }
 }

@@ -1,17 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
+// colors **************
+
 $backgroundColor: #E9EBEE;
 $signInBackgroundColor: #F1F4F7;
 $faceBookBlue: #3B5998;
 $faceBookWhite: #fff;
 
 
-$borderColorGrey: #E5E5E5 .5px solid;
+// borders **************
+
+$borderColorGrey: .5px solid #E5E5E5;
 $borderColorBlue: 1px solid #133783;
 $inputBorderBox: .5px solid #1D2A5B;
 $buttonBorder: .5px solid #29487D;
+$headerInternalBorder: .5px solid #365089;
 
+
+// fonts *****************
 
 $faceBookFont: 'Merriweather', serif;
 $faceBookFonth: helvetica;
