@@ -16,8 +16,8 @@ export default class GlobalHeader extends React.Component {
         <input className="same-line global-header-find-friends-input" placeholder="Find Friends" />
         <button><i className="fa fa-search same-line global-search-button"></i></button>
         <div className="same-line global-header-nav-container">
-          <img className="same-line global-header-profile-picture" src="broken-img" />
-          <p className="same-line">name</p>
+          <img className="same-line global-header-profile-picture" src={this.props.user.picture.data.url} />
+          <p className="same-line">{this.props.user.first_name}</p>
         </div>
         <div className="same-line global-header-nav-container">
           <p className="same-line">Home</p>

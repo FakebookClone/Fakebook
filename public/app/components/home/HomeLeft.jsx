@@ -9,7 +9,7 @@ export default class HomeLeft extends React.Component {
     return (
       <div className="home-left-column">
         <ul>
-          <li><img src="#" />Profile Name</li>
+          <li><img src={this.props.user.picture.data.url} />{this.props.user.first_name}</li>
           <li><img src="#" />Edit Profile</li>
           <h4>FAVORITES</h4>
           <li><img src="#" />News Feed</li>
