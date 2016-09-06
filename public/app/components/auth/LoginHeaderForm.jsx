@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'react-router';
 import FacebookLogin from 'react-facebook-login';
 import { browserHistory } from 'react-router';
+import Axios from 'axios';
 
 export default class LoginHeaderForm extends React.Component {
 	constructor() {
@@ -14,7 +15,7 @@ export default class LoginHeaderForm extends React.Component {
   responseFacebook(response) {
     console.log(response);
     localStorage.setItem('fakebook_user', JSON.stringify(response));
-		
+		Axios.post(`/api/user/create/${JSON.parse(localStorage.getItem('fakebook_user')).id}`);
 		browserHistory.push('/home');
   }
 
