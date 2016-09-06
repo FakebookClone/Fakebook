@@ -4,7 +4,6 @@ import HomeLeft from './HomeLeft.jsx';
 import HomeCenter from './HomeCenter.jsx';
 import HomeRight from './HomeRight.jsx';
 
-var images = './images/home/';
 require('../../../stylesheets/components/Home.scss');
 
 export default class Home extends React.Component {

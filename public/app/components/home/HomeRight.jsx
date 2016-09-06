@@ -1,6 +1,7 @@
-import 'React' from 'react';
+import React from 'react';
 
-var images = './images/home/';
+var images = '../../../images/home/';
+require('../../../stylesheets/components/HomeRight.scss');
 
 export default class HomeRight extends React.Component {
   constructor() {
@@ -9,8 +10,9 @@ export default class HomeRight extends React.Component {
 
   render() {
     return (
-      <div>
-        <img src={images + 'home-right-container'} />
+      <div className="home-right-container">
+        <img src={images + 'home-right-container.png'} />
+        <img className="home-right-middle" src={images + 'home-right-container-2.png'} />
       </div>
     )
   }
