@@ -16,7 +16,7 @@ export default class HomeCenter extends React.Component {
             <img src="#" /><p>Photo Album</p>
           </div>
           <div className="post-container-middle">
-            <img src="#" />
+            <img src={this.props.user.picture.data.url} />
             <input placeholder="What's on your mind?" />
           </div>
           <div className="post-container-bottom">
