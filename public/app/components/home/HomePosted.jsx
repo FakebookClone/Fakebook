@@ -21,7 +21,9 @@ export default class HomePosted extends React.Component {
         {this.props.posts.map( (value) => {
           return (
             <div className="home-posted-post-container" key={'post_container_' + value.post_id}>
-              <p key={value.post_id}>{value.post_text}</p>
+              <img key={'post_profile_pic_' + value.post_id} src={value.profile_picture} />
+              <p key={'post_profile_name_' + value.post_id}>Profile Name</p>
+              <p key={'post_' + value.post_id}>{value.post_text}</p>
             </div>
           )
         })}

@@ -4,7 +4,7 @@ var db = app.get('db');
 module.exports = {
   createPost: function(req, res) {
     console.log('New post', req.params, req.body);
-    db.profiles.createPost([req.params.profile_id, req.body.post_text, req.body.post_image], function(err, r) {
+    db.profiles.createPost([req.params.profile_id, req.body.post_text, req.body.post_image, req.body.profile_picture], function(err, r) {
       db.profiles.getPosts([req.params.profile_id], function(err, r) { res.json(r) });
     })
   },
