@@ -1,5 +1,7 @@
 import React from 'react';
 
+require('../../../stylesheets/components/home/HomeLeft.scss');
+
 export default class HomeLeft extends React.Component {
   constructor() {
     super()

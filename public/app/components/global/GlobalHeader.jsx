@@ -1,45 +1,51 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import {browserHistory} from 'react-router';
 
 var images = './images/main/';
 require('../../../stylesheets/components/global/main.scss');
 
 export default class GlobalHeader extends React.Component {
-  constructor() {
-    super()
-  }
+	constructor() {
+		super()
+	}
 
-  render() {
-    return (
-      <div className="global-header">
-        <img onClick={this.logout} className="same-line" src={images + 'facebook_logo.jpg'} />
-        <input className="same-line global-header-find-friends-input" placeholder="Find Friends" />
-        <button><i className="fa fa-search same-line global-search-button"></i></button>
-        <div className="same-line global-header-nav-container">
-          <img className="same-line global-header-profile-picture" src={this.props.user.picture.data.url} />
-          <p className="same-line">{this.props.user.first_name}</p>
-        </div>
-        <div className="same-line global-header-nav-container">
-          <p className="same-line">Home</p>
-        </div>
-        <div className="same-line global-header-nav-container">
-          <p className="same-line">Find Friends</p>
-        </div>
-        <div className="same-line global-header-nav-container">
-          <img className="global-header-nav-image same-line" src={images + 'friend_request_not_selected.png'} />
-          <img className="global-header-nav-image same-line" src={images + 'messages_not_selected.png'} />
-          <img className="global-header-nav-image same-line" src={images + 'notifications_not_selected.png'} />
-        </div>
-        <div className="same-line global-header-nav-container">
-          <img className="global-header-nav-image-small same-line" src={images + 'lock_not_selected.png'} />
-          <img className="global-header-nav-image-smallest same-line" src={images + 'down_arrow_not_selected.png'} />
-        </div>
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="global-header-wrapper">
+				<div className="global-header-container">
+					<img onClick={this.logout} className="same-line" src={images + 'facebook_logo.jpg'}/>
+					<input className="same-line-global-header-find-friends-input" placeholder="Search Facebook"/>
+					<button className="same-line global-search-button">
+						<i className="fa fa-search"></i>
+					</button>
+					<div className="header-profile-container">
+						<img src={this.props.user.picture.data.url}/>
+						<p>{this.props.user.first_name}</p>
+					</div>
+					<div className="header-home-redirect">
+						<p>Home</p>
+					</div>
+					<div className="header-friends-redirect">
+						<p>Find Friends</p>
+					</div>
+					<div className="header-nav-section">
+						<img src={images + 'friend_request_not_selected.png'}/>
+						<img src={images + 'messages_not_selected.png'}/>
+						<img src={images + 'notifications_not_selected.png'}/>
+					</div>
+					<div className="header-lock-down-section">
+						<div className="header-lock-down-img">
+							<img className="lock" src={images + 'lock_not_selected.png'}/>
+							<img className="down-arrow" src={images + 'down_arrow_not_selected.png'}/>
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
 
-  logout() {
-    localStorage.clear();
-    browserHistory.push('/');
-  }
+	logout() {
+		localStorage.clear();
+		browserHistory.push('/');
+	}
 }
