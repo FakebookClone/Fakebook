@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 var images = './images/main/';
 require('../../../stylesheets/components/global/main.scss');
@@ -11,7 +12,7 @@ export default class GlobalHeader extends React.Component {
   render() {
     return (
       <div className="global-header">
-        <img className="same-line" src={images + 'facebook_logo.jpg'} />
+        <img onClick={this.logout} className="same-line" src={images + 'facebook_logo.jpg'} />
         <input className="same-line global-header-find-friends-input" placeholder="Find Friends" />
         <button><i className="fa fa-search same-line global-search-button"></i></button>
         <div className="same-line global-header-nav-container">
@@ -35,5 +36,10 @@ export default class GlobalHeader extends React.Component {
         </div>
       </div>
     )
+  }
+
+  logout() {
+    localStorage.clear();
+    browserHistory.push('/');
   }
 }
