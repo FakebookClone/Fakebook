@@ -9,7 +9,7 @@
 .home-main-content-wrapper {
   background: $backgroundColor;
   width: 100%;
-  height: calc(100vh - 42px);
+  min-height: 100vh;
 }
 
 .home-main-content-container {
