@@ -1,0 +1,98 @@
+@import '../utilities';
+
+.loggedOut-main-section-wrapper {
+    display: flex;
+    background-color: $signInBackgroundColor;
+}
+
+.loggedOut-main-section-left {
+    width: 15%;
+    margin-left: 575px;
+    margin-top: 40px;
+    font-family: $faceBookFontr;
+}
+
+.loggedOut-main-section-right {
+    margin-left: 190px;
+    margin-top: 30px;
+    font-family: $faceBookFontr;
+
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 15px;
+    }
+    button {
+      margin-top: 30px;
+      width: 190px;
+      height: 35px;
+      border-radius: 5px;
+    }
+}
+.text-thanks-for-stopping-by {
+  margin-top: 20px;
+  margin-left: 30px;
+  text-align: center;
+  font-size: 28px;
+}
+.text-we-hope-to-see-you-again-soon {
+  margin-top: 20px;
+  text-align: center;
+  margin-left: 30px;
+  font-size: 18px;
+}
+.text-its-free-and-always-will-be {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+.input-box-type-1 {
+    width: 192px;
+    height: 37px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: none;
+    border: #BDC7D8 solid .5px;
+    font-size: 18px;
+    padding-left: 10px;
+    color: #99ACC5
+}
+.input-box-type-2 {
+    width: 395px;
+    height: 37px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    border: #BDC7D8 solid .5px;
+    font-size: 18px;
+    padding-left: 10px;
+    color: #99ACC5
+}
+.text-birthday {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.text-why-do-I-need-to-provide-my-birthday {
+  font-size: 11px;
+  margin-left: 10px;
+}
+.radio-button-1 {
+  margin-top: 20px;
+}
+.radio-button-2 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.text-by-clicking-sign-up {
+  margin-top: 20px;
+  font-size: 11px;
+}
+.create-a-page {
+  margin-top: 30px;
+}
+.bottom-footer-image {
+  margin-left: 520px;
+  margin-top: 30px;
+}

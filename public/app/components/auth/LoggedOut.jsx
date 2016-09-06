@@ -14,16 +14,16 @@ export default class LoggedOut extends React.Component {
 	render() {
 		return (
 			<div className="login-main-wrapper">
-					<div className="login-header-container">
-          <img className="login-logo" src="../../../images/login/login-logo.png" alt="facebook logo"/>
-          <LoginHeaderForm />
-					</div>
-          <div className="logged-out-main-section">
-            <LoggedOutMainSection />
-          </div>
-					<div>
-						<LoggedOutFooter />
-					</div>
+				<div className="login-header-container">
+					<img className="login-logo" src="../../../images/login/login-logo.png" alt="facebook logo"/>
+					<LoginHeaderForm/>
+				</div>
+				<div className="logged-out-main-section">
+					<LoggedOutMainSection/>
+				</div>
+				<div>
+					<LoggedOutFooter/>
+				</div>
 			</div>
 		)
 	}

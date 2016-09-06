@@ -7,31 +7,27 @@ export default class LoggedOutMainSection extends React.Component {
 
 	render() {
 		return (
-			<div className="login-main-section-wrapper">
+			<div className="loggedOut-main-section-wrapper">
 				<div className="loggedOut-main-section-left">
-					<h1>Connect with friends and the world around you on Facebook.</h1>
-					<img src="./images/login/loggedOut-main-section-left-1.png"/>
-					<h6>See photos and updates</h6>
-					<p>from friends in News Feed.</p>
-					<img src="./images/login/loggedOut-main-section-left-2.png"/>
-					<h6>Share what's new</h6>
-					<p>in your life on your Timeline.</p>
-					<img src="./images/login/loggedOut-main-section-left-3.png"/>
-					<h6>Find more</h6>
-					<p>of what you're looking for with Facebook Search.</p>
+					<div className="thumbs-up-image-left"><img src="../../images/login/login-loggedOut.png"/></div>
+					<p className="text-thanks-for-stopping-by">Thanks for stopping by!</p>
+					<p className="text-we-hope-to-see-you-again-soon">We hope to see you again soon.</p>
 				</div>
-
 				<div className="loggedOut-main-section-right">
 					<h1>Sign Up</h1>
-					<p>It’s free and always will be.</p>
+					<p className="text-its-free-and-always-will-be">It’s free and always will be.</p>
 					<form>
-						<input placeholder="First name"/>
-						<input placeholder="Last name"/>
-						<input placeholder="Mobile number or email"/>
-						<input placeholder="Re-enter mobile number or email"/>
-						<input placeholder="New password"/>
-						<p>Birthday</p>
-						<select>
+						<input className="input-box-type-1" placeholder="First name"/>
+						<input className="input-box-type-1" placeholder="Last name"/>
+						<br />
+						<input className="input-box-type-2" placeholder="Mobile number or email"/>
+						<br />
+						<input className="input-box-type-2" placeholder="Re-enter mobile number or email"/>
+						<br />
+						<input className="input-box-type-2" placeholder="New password"/>
+						<br />
+						<p className="text-birthday">Birthday</p>
+						<select className="month">
 							<option value="0" defaultValue="1">Month</option>
 							<option value="1">Jan</option>
 							<option value="2">Feb</option>
@@ -46,7 +42,7 @@ export default class LoggedOutMainSection extends React.Component {
 							<option value="11">Nov</option>
 							<option value="12">Dec</option>
 						</select>
-						<select>
+						<select className="day">
 							<option value="0" defaultValue="1">Day</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -80,7 +76,7 @@ export default class LoggedOutMainSection extends React.Component {
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-						<select>
+						<select className="year">
 							<option value="0" defaultValue="1">Year</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
@@ -195,19 +191,21 @@ export default class LoggedOutMainSection extends React.Component {
 							<option value="1906">1906</option>
 							<option value="1905">1905</option>
 						</select>
-						<a href="#">Why do I need to provide my birthday?</a>
-						<input type="radio"/>Female
-						<input type="radio"/>Male
-						<p>By clicking Sign Up, you agree to our
+						<a className="text-why-do-I-need-to-provide-my-birthday" href="#">Why do I need to provide my birthday?</a>
+						<br />
+						<input className="radio-button-1" type="radio"/>Female
+						<input className="radio-button-2" type="radio"/>Male
+						<p className="text-by-clicking-sign-up">By clicking Sign Up, you agree to our
 							<a href="#">Terms</a>
-							and that you have read our
+							and that you have <br /> read our
 							<a href="#">DataPolicy</a>, including our
 							<a href="#">Cookie Use.</a>
 						</p>
 						<button>Sign Up</button>
 					</form>
-					<p>
-						<a href="#">Create a Page</a> for a celebrity, band or business.</p>
+					<p className="create-a-page">
+						<a href="#">Create a Page</a>
+						 for a celebrity, band or business.</p>
 				</div>
 
 			</div>
