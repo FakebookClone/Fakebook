@@ -23,7 +23,7 @@ export default class Home extends React.Component {
         <GlobalHeader user={this.state.user} />
         <div className="home-main-content-wrapper">
           <HomeLeft user={this.state.user} />
-          <HomeCenter />
+          <HomeCenter user={this.state.user} />
           <HomeRight />
         </div>
       </div>
