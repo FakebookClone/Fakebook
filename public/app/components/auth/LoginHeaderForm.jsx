@@ -14,6 +14,7 @@ export default class LoginHeaderForm extends React.Component {
   responseFacebook(response) {
     console.log(response);
     localStorage.setItem('fakebook_user', JSON.stringify(response));
+		
 		browserHistory.push('/home');
   }
 
