@@ -1,20 +1,17 @@
 import React from 'react';
 import Link from 'react-router';
 import FacebookLogin from 'react-facebook-login';
+import { browserHistory } from 'react-router';
 
 export default class LoginHeaderForm extends React.Component {
 	constructor() {
 		super()
-    this.state = {
-      user: JSON.parse(localStorage.getItem('fakebook_user'))
-    }
 	}
+
   responseFacebook(response) {
     console.log(response);
     localStorage.setItem('fakebook_user', JSON.stringify(response));
-    this.setState({
-      user: JSON.parse(localStorage.getItem('fakebook_user'))
-    });
+		browserHistory.push('/home');
   }
 
 	render() {
