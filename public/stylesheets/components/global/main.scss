@@ -1,0 +1,52 @@
+.global-header {
+  background: #3B5998;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.global-header-find-friends-input {
+  width: 448px;
+  height: 20px;
+  border-radius: 3px;
+  border: none;
+}
+
+.global-search-button {
+  color: #4E5665;
+}
+
+.global-header-nav-container {
+  height: 28px;
+  width: 98px;
+  border-right: 1px solid #365089;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.global-header-profile-picture {
+  width: 24px;
+  height: 24px;
+}
+
+.global-header-nav-image {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.global-header-nav-image-small {
+  height: 11px;
+  margin-right: 5px;
+}
+
+.global-header-nav-image-smallest {
+  height: 7px;
+  margin-right: 5px;
+}
