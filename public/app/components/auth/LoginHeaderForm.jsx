@@ -19,17 +19,18 @@ export default class LoginHeaderForm extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div>
+			<div className="login-input-wrapper">
+				<div className="email-input-wrapper">
 					<label htmlFor="email">Email or Phone</label>
 					<input className="login-header-input-text" type="text" name="email" tabIndex="1"/>
 				</div>
-				<div>
+				<div className="password-input-wrapper">
 					<label htmlFor="pass">Password</label>
 					<input className="login-header-input-text" type="password" name="pass" tabIndex="2"/>
+					<a href="#">Forgot account?</a>
 				</div>
         <FacebookLogin appId="145051979269944" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
-				<a href="#">Forgot account?</a>
+
 			</div>
 		)
 	}
