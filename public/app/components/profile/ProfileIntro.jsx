@@ -10,8 +10,9 @@ export default class ProfileIntro extends React.Component {
   render () {
     return (
       <div>
-        <img src="../../../images/profile/profile-sprite1.png"  />
-        <div className="profile-intro-icon"></div>
+        <img src="/images/profile/blue-plus.png" />
+        <img src="/images/profile/intro-globe.png" />
+        <img src="/images/profile/add-photo.png" />
         <h1>Intro</h1>
       </div>
     )

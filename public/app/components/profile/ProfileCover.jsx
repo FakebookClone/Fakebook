@@ -11,6 +11,8 @@ export default class ProfileCover extends React.Component {
     return (
       <div>
         <h1>Profile Name</h1>
+        <img src="/images/profile/gray-camera.png" />
+        <img src="/images/profile/gray-elipsis.png" />
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/ProfilePhoto.scss');
+require('../../../stylesheets/components/profile/ProfileAddPhoto.scss');
 
 export default class ProfilePhoto extends React.Component {
   constructor () {
@@ -10,7 +10,8 @@ export default class ProfilePhoto extends React.Component {
   render () {
     return (
       <div>
-        Profile Photo
+      <img src="/images/profile/gray-camera.png" />
+        <p>Add Photo</p>
       </div>
     )
   }
