@@ -12,5 +12,8 @@ module.exports = {
         res.status(200).send('Profile already created');
       }
     })
+  },
+  getProfile: function(req, res) {
+    db.profiles.getProfile([req.params.facebook_id], function(err, r) { res.json(r[0]) });
   }
 }
