@@ -1,10 +1,12 @@
 import React from 'react';
 import LoginHeaderForm from './LoginHeaderForm.jsx';
-import LoginMainSection from './LoginMainSection.jsx';
+import LoggedOutMainSection from './LoggedOutMainSection.jsx';
+import LoggedOutFooter from './LoggedOutFooter.jsx';
 
 require('../../../stylesheets/components/login.scss');
+require('../../../stylesheets/components/loggedOut.scss');
 
-export default class Login extends React.Component {
+export default class LoggedOut extends React.Component {
 	constructor(props) {
 		super(props)
 	}
@@ -16,9 +18,12 @@ export default class Login extends React.Component {
           <img className="login-logo" src="../../../images/login/login-logo.png" alt="facebook logo"/>
           <LoginHeaderForm />
 					</div>
-          <div className="login-main-section">
-            <LoginMainSection />
+          <div className="logged-out-main-section">
+            <LoggedOutMainSection />
           </div>
+					<div>
+						<LoggedOutFooter />
+					</div>
 			</div>
 		)
 	}
