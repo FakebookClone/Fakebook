@@ -1,0 +1,128 @@
+@import '../../utilities';
+
+.global-header-wrapper{
+  background: $faceBookBlue;
+  width: 100%;
+
+}
+
+
+.global-header-container {
+  background: $faceBookBlue;
+  margin-left: 349px;
+  width: 1008px;
+  display: flex;
+  flex-direction: row;
+  height: 42px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+  img{
+    margin-top: 9px;
+    height: 24px;
+    width: 24px;
+  }
+  input{
+    margin-top: 9px;
+    margin-left: 7px;
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: lighter;
+    width: 401px;
+    height: 22px;
+    border-radius: 3px;
+    border: none;
+  }
+  button{
+    margin-top: 9px;
+    margin-left: -3px;
+    margin-right: 110px;
+    height: 24px;
+    width: 46px;
+    background-color: $faceBookWhite;
+    border: none;
+    border-radius: 3px;
+    i{
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+}
+
+.header-profile-container{
+  width: 84px;
+  display: flex;
+  flex-direction: row;
+  img{
+    margin-right: 6px;
+  }
+  p{
+    margin-top: 12px;
+    padding-top: 4px;
+    height: 18px;
+    width: 50px;
+    border-right: $headerInternalBorder;
+  }
+}
+
+.header-home-redirect{
+  p{
+    margin-top: 12px;
+    padding-top: 4px;
+    padding-left: 11px;
+    height: 18px;
+    width: 55px;
+    border-right: $headerInternalBorder;
+  }
+}
+
+.header-friends-redirect{
+  p{
+    margin-top: 12px;
+    padding-top: 4px;
+    padding-left: 11px;
+    height: 18px;
+    width: 92px;
+  }
+}
+
+.header-nav-section{
+  height: 18px;
+  width: 127px;
+  img{
+    max-height: 19px;
+    max-width:30px;
+    margin-top: 12px;
+    margin-left: 13px;
+  }
+}
+
+.header-lock-down-section{
+  margin-top: 12px;
+  height: 18px;
+  border-left: $headerInternalBorder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-lock-down-img{
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.lock{
+  margin-left: 18px;
+  max-height: 12px;
+  max-width: 17px;
+}
+
+.down-arrow{
+  padding-top: 3px;
+  margin-left: 12px;
+  max-height: 8px;
+  max-width: 10px;
+}
