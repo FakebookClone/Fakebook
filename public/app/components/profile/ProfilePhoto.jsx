@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/profilePhoto.scss');
+require('../../../stylesheets/components/profile/ProfilePhoto.scss');
 
 export default class ProfilePhoto extends React.Component {
   constructor () {

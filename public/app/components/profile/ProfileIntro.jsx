@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/profileIntro.scss');
+require('../../../stylesheets/components/profile/ProfileIntro.scss');
 
 export default class ProfileIntro extends React.Component {
   constructor () {
@@ -10,7 +10,8 @@ export default class ProfileIntro extends React.Component {
   render () {
     return (
       <div>
-        <img src="#" className="profile-intro-icon" />
+        <img src="../../../images/profile/profile-sprite1.png"  />
+        <div className="profile-intro-icon"></div>
         <h1>Intro</h1>
       </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/profileNav.scss');
+require('../../../stylesheets/components/profile/ProfileNav.scss');
 
 export default class ProfileNav extends React.Component {
   constructor () {

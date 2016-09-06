@@ -5,7 +5,7 @@ import ProfilePhoto from './ProfilePhoto.jsx';
 import ProfileNav from './ProfileNav.jsx';
 import ProfileIntro from './ProfileIntro.jsx';
 
-require('../../../stylesheets/components/profile/profile.scss');
+require('../../../stylesheets/components/profile/Profile.scss');
 
 export default class Profile extends React.Component {
 	constructor() {
@@ -15,7 +15,7 @@ export default class Profile extends React.Component {
 		return (
 			<div>
 				<div>
-					<GlobalHeader/>
+					{/* <GlobalHeader/> */}
           <ProfileCover />
           <ProfilePhoto />
           <ProfileNav />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/profileCover.scss');
+require('../../../stylesheets/components/profile/ProfileCover.scss');
 
 export default class ProfileCover extends React.Component {
   constructor () {
