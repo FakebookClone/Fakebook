@@ -1,7 +1,7 @@
 import React from 'react';
 
 var images = '../../../images/home/';
-require('../../../stylesheets/components/HomeRight.scss');
+require('../../../stylesheets/components/home/HomeRight.scss');
 
 export default class HomeRight extends React.Component {
   constructor() {
