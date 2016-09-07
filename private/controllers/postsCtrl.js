@@ -16,14 +16,12 @@ module.exports = {
       profile_ids.push( String(req.body.friends[i]) );
     }
 
-    console.log(profile_ids);
-
     for(var i in profile_ids) {
+      console.log('GETTING POSTS FOR PROFILE ID', profile_ids[i]);
       db.posts.getPosts(profile_ids[i], function(err, r) {
         neededPosts = neededPosts.concat(r);
       })
     }
-
 
     setTimeout(function() {
       function compare(a,b) {
@@ -34,7 +32,8 @@ module.exports = {
         return 0;
       }
       var x = neededPosts.sort(compare);
+      console.log('POSTS TO SEND BACK', x);
       res.json(neededPosts);
-    }, 30);
+    }, 25);
   }
 }
