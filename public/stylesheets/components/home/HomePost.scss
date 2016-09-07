@@ -1,71 +1,67 @@
-
 @import '../../base/utilities';
 
 .home-center-post-container {
-  margin-top: 10px;
-  height: 163px;
-  width: 503px;
-  background: #FFF;
-  position: relative;
-  z-index: 3;
+    margin-top: 10px;
+    height: 163px;
+    width: 503px;
+    background: #FFF;
+    position: relative;
+    z-index: 3;
 }
 
 .post-container-top {
-  display: flex;
-  flex-direction: row;
-  min-height: 36px;
-  width: 476px;
-  border-bottom: $borderColorGrey;
-  margin-left: 12px;
-}
-
-.camera-icon{
-  max-height: 22px;
-  max-width: 30px;
-}
-
-.album-icon{
-  max-height: 20px;
-  max-width: 30px;
-}
-
-.closeDiv{
-  margin-left: 219px;
-  cursor: pointer;
-}
-
-
-.post-container-middle{
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 21px;
-  height: 73px;
-  border-bottom: $borderColorGrey;
-  display: flex;
-  flex-direction: row;
-}
-
-.imgStatusDiv{
-
-}
-
-.inputStatusDiv{
-  textarea{
-    min-height: 20px;
-    max-width: 400px;
-    margin-top: 17px;
+    display: flex;
+    flex-direction: row;
+    min-height: 36px;
+    width: 476px;
+    border-bottom: $borderColorGrey;
     margin-left: 12px;
-    border: none;
-    outline: none;
-    resize: none;
-    font-size: 14px;
-    overflow: scroll;
-  }
+}
+
+.camera-icon {
+    max-height: 22px;
+    max-width: 30px;
+}
+
+.album-icon {
+    max-height: 20px;
+    max-width: 30px;
+}
+
+.closeDiv {
+    margin-left: 219px;
+    cursor: pointer;
+}
+
+.post-container-middle {
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-bottom: 21px;
+    height: 73px;
+    border-bottom: $borderColorGrey;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgStatusDiv {}
+
+.inputStatusDiv {
+    textarea {
+        min-height: 20px;
+        max-width: 400px;
+        margin-top: 17px;
+        margin-left: 12px;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 14px;
+        overflow: scroll;
+    }
+}
 
 .home-posted-post-container {
-  min-height: 192px;
-  width: 502px;
-  margin-top: 10px;
-  background: #FFF;
-
+    min-height: 192px;
+    width: 502px;
+    margin-top: 10px;
+    background: #FFF;
 }

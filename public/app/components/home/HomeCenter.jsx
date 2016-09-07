@@ -7,7 +7,7 @@ require('../../../stylesheets/components/home/HomeCenter.scss');
 
 export default class HomeCenter extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = { posted: [] };
   }
 
