@@ -1,20 +1,24 @@
 import React from 'react';
 import Link from 'react-router';
 import FacebookLogin from 'react-facebook-login';
+import { browserHistory } from 'react-router';
+import Axios from 'axios';
 
 export default class LoginHeaderForm extends React.Component {
 	constructor() {
 		super()
-    this.state = {
-      user: JSON.parse(localStorage.getItem('fakebook_user'))
-    }
+		if(localStorage.getItem('fakebook_user')) {
+			browserHistory.push('/home');
+		}
 	}
+
   responseFacebook(response) {
     console.log(response);
     localStorage.setItem('fakebook_user', JSON.stringify(response));
-    this.setState({
-      user: JSON.parse(localStorage.getItem('fakebook_user'))
-    });
+		Axios.post(`/api/user/create/${response.id}`).then( r => {
+			Axios.post(`/api/profile/create/${response.id}`, {name: response.name, first_name: response.first_name, last_name: response.last_name, email: response.email, profile_pic: response.picture.data.url});
+		});
+		browserHistory.push('/home');
   }
 
 	render() {
@@ -30,7 +34,6 @@ export default class LoginHeaderForm extends React.Component {
 					<a href="#">Forgot account?</a>
 				</div>
         <FacebookLogin appId="145051979269944" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
-
 			</div>
 		)
 	}

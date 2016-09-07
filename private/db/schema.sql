@@ -1,28 +1,28 @@
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  facebook_id INT
+  facebook_id VARCHAR(20)
 );
 
 CREATE TABLE profiles (
   profile_id SERIAL PRIMARY KEY,
-  facebook_id INT,
-  profile_pic varchar(100),
+  facebook_id VARCHAR(20),
+  profile_pic varchar(200),
   name varchar(80),
   first_name varchar(40),
   last_name varchar(40),
   email varchar(80),
-  cover varchar(200)
+  cover VARCHAR(200)
 );
 
 CREATE TABLE friends (
   friend_id SERIAL PRIMARY KEY,
-  requested_id INT,
-  accepted_id INT
+  requested_id VARCHAR(20),
+  accepted_id VARCHAR(20)
 );
 
 CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
-  profile_id INT,
+  profile_id VARCHAR(20),
   post_text text,
   post_image varchar(100),
   post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()

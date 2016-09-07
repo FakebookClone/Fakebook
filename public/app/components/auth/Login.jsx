@@ -2,7 +2,7 @@ import React from 'react';
 import LoginHeaderForm from './LoginHeaderForm.jsx';
 import LoginMainSection from './LoginMainSection.jsx';
 
-require('../../../stylesheets/components/login.scss');
+require('../../../stylesheets/components/auth/LoggedIn.scss');
 
 export default class Login extends React.Component {
 	constructor(props) {

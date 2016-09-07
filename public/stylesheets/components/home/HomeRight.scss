@@ -1,6 +1,10 @@
+@import '../../base/utilities';
+
 .home-right-container {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+  margin-left: 12px;
 }
 
 .home-right-middle {
