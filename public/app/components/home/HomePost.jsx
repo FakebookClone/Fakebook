@@ -3,6 +3,7 @@ import Axios from 'axios';
 import ToggleDisplay from 'react-toggle-display';
 
 var images = './images/home/';
+var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
@@ -11,9 +12,9 @@ export default class HomePost extends React.Component {
 		super();
 		this.state = {
 			post: "",
-      dimmerVisible: false,
-      toggleClose: false
-		};
+			dimmerVisible: false,
+			toggleClose: false
+		}
 	}
 
 	render() {
@@ -33,6 +34,7 @@ export default class HomePost extends React.Component {
 							<div className="closeDiv">X</div>
 						</ToggleDisplay>
 					</div>
+
 					<div className="post-container-middle">
 						<div className="imgStatusDiv">
 							<img src={this.props.user.picture.data.url}/>
@@ -41,14 +43,26 @@ export default class HomePost extends React.Component {
 							<textarea rows="2" cols="80" onChange={this.postCatcher.bind(this)} value={this.state.post} placeholder="What's on your mind?" type="text"/>
 						</div>
 					</div>
-					<div className="post-container-bottom">
-						<img src="#"/>
-						<img src="#"/>
-						<img src="#"/>
-						<button><img src="#"/>Friends</button>
-						<button onClick={this.post.bind(this)}>Post</button>
-					</div>
+
+
+						<div className="post-container-bottom">
+
+							<div className="lower-post-icon-container">
+								<img src="#"/>
+								<img src="#"/>
+								<img src="#"/>
+							</div>
+
+							<div className="lower-post-button-container">
+								<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+								<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+							</div>
+
+						</div>
+
+
 				</div>
+
 			</div>
 		)
 	}
@@ -73,45 +87,5 @@ export default class HomePost extends React.Component {
 
 		});
 	}
-
-
-  constructor() {
-    super();
-    this.state = { post: "" };
-  }
-
-  render() {
-    return (
-      <div className="home-center-post-container">
-        <div className="post-container-top">
-          <img src="#" /><p>Photo/Video</p>
-          <img src="#" /><p>Photo Album</p>
-        </div>
-        <div className="post-container-middle">
-          <img src={this.props.user.picture.data.url} />
-          <input onChange={this.postCatcher.bind(this)} value={this.state.post} placeholder="What's on your mind?" />
-        </div>
-        <div className="post-container-bottom">
-          <img src="#" />
-          <img src="#" />
-          <img src="#" />
-          <button><img src="#" />Friends</button>
-          <button onClick={this.post.bind(this)}>Post</button>
-        </div>
-      </div>
-    )
-  }
-
-  postCatcher(e) {
-    this.setState({ post: e.target.value });
-  }
-
-  post() {
-    Axios.get(`/api/profile/${this.props.user.id}`).then( r => {
-      Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_picture: r.data.profile_pic}).then( r => {
-        this.props.updatePosted(r.data);
-      })
-    })
-  }
 
 }
