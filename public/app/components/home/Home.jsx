@@ -1,5 +1,7 @@
 import React from 'react';
 import GlobalHeader from '../global/GlobalHeader.jsx';
+import GlobalFooter from '../global/GlobalFooter.jsx';
+import GlobalChat from '../global/GlobalChat.jsx';
 import HomeLeft from './HomeLeft.jsx';
 import HomeCenter from './HomeCenter.jsx';
 import HomeRight from './HomeRight.jsx';
@@ -12,7 +14,7 @@ export default class Home extends React.Component {
 		super(props)
 		this.state = {
 			user: JSON.parse(localStorage.getItem('fakebook_user')),
-		
+
 		}
 	}
 
@@ -34,6 +36,12 @@ export default class Home extends React.Component {
 									<HomeCenter user={this.state.user}/>
 									<HomeRight/>
 								</div>
+							</div>
+							<div>
+								<GlobalFooter />
+							</div>
+							<div>
+								<GlobalChat />
 							</div>
 						</div>
 					: null
