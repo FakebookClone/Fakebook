@@ -19,7 +19,7 @@ export default class LoginHeaderForm extends React.Component {
 			Axios.post(`/api/profile/create/${response.id}`, {name: response.name, first_name: response.first_name, last_name: response.last_name, email: response.email, profile_pic: response.picture.data.url});
 		});
 		browserHistory.push('/home');
-  }
+	}
 
 	render() {
 		return (

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 
 // colors **************
@@ -7,11 +8,18 @@ $backgroundColor: #E9EBEE;
 $signInBackgroundColor: #F1F4F7;
 $faceBookBlue: #3B5998;
 $faceBookWhite: #fff;
+$faceBookDarkerGradientColor: #D3D8E8;
+$signUpTextBlack: #333333;
+$signUpButtonGradientOne: #67ae55;
+$signUpButtonGradientTwo: #578843;
+$signUpButtonBackgroundColor: #69a74e;
+$signUpButtonBoxShadow: #a4e388;
+$textColorOfAgreeingtoSignup: #777798;
+$textColorforCreatingAPageforOrganizations: #746666;
 $postBttnBlue: #4267b2;
 $postBttnHoverBlue: #365899;
 $friendsBttnGray: #61646B;
 $iconHover: #e5e5e5;
-
 
 // borders **************
 
@@ -22,10 +30,14 @@ $inputBorderBox: .5px solid #1D2A5B;
 $buttonBorder: .5px solid #29487D;
 $buttonBorderGray: .5px solid #CED0D4;
 $headerInternalBorder: .5px solid #365089;
-
+$signUpButtonBorderColorOne: #3b6e22;
+$signUpButtonBorderColorTwo: #2c5115;
+$inputBoxBorderColor: #BDC7D8;
+$inputBoxTextColor: #99ACC5;
 
 // fonts *****************
 
 $faceBookFont: 'Merriweather', serif;
 $faceBookFonth: helvetica;
+$faceBookFontr: 'Roboto';
 $facebookFontA: -apple-system, BlinkMacSystemFont;
