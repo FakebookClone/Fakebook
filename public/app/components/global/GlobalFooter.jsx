@@ -1,8 +1,8 @@
 import React from 'react';
 
-require('../../../stylesheets/components/profile/ProfileFooter.scss');
+require('../../../stylesheets/components/global/GlobalFooter.scss');
 
-export default class ProfileFooter extends React.Component {
+export default class GlobalFooter extends React.Component {
 	constructor() {
 		super()
 	}
@@ -10,7 +10,7 @@ export default class ProfileFooter extends React.Component {
 	render() {
 		return (
 			<div>
-				<img src="/images/profile/dark-plus.png"/>
+				<img src="/images/main/dark-plus.png"/>
 				<div>
 					<p>English (US)<span>
 							·
@@ -44,7 +44,7 @@ export default class ProfileFooter extends React.Component {
             <span>
               ·
             </span>
-            <a href="#">Ad Choices</a><img src="/images/profile/footer-ads.png"/>
+            <a href="#">Ad Choices</a><img src="/images/main/footer-ads.png"/>
             <span>
               ·
             </span>
@@ -52,7 +52,7 @@ export default class ProfileFooter extends React.Component {
             <span>
               ·
             </span>
-            <a href="#">More</a><img src="/images/profile/gray-down-arrow-small.png"/>
+            <a href="#">More<i className="fa fa-caret-down"></i></a>
 					</p>
           <p>Facebook <i className="fa fa-copyright"></i> 2016</p>
 				</div>
