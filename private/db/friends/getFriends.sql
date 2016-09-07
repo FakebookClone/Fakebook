@@ -1,3 +1,3 @@
-SELECT accepted_id
+SELECT *
 FROM friends
-WHERE requested_id = '127813377672001'
+WHERE requested_id = $1 OR accepted_id = $1;
