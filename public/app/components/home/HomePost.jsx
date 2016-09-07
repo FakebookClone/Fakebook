@@ -7,7 +7,10 @@ var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 	constructor() {
 		super();
 		this.state = {
@@ -23,7 +26,7 @@ export default class HomePost extends React.Component {
 				{this.state.dimmerVisible
 					? <div className="dimmer"></div>
 					: null
-}
+				}
 				<div onClick={this.toggleDimmer.bind(this)} className="home-center-post-container">
 
 					<div className="post-container-top">
@@ -68,7 +71,6 @@ export default class HomePost extends React.Component {
 					</div>
 
 				</div>
-
 			</div>
 		)
 	}
@@ -92,7 +94,6 @@ export default class HomePost extends React.Component {
 		this.setState({
 			dimmerVisible: !this.state.dimmerVisible,
 			toggleClose: !this.state.toggleClose
-
 		});
 	}
 }
