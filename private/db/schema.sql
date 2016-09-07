@@ -25,7 +25,8 @@ CREATE TABLE posts (
   profile_id VARCHAR(20),
   post_text text,
   post_image varchar(100),
-  post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+  post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  profile_picture text
 );
 
 CREATE TABLE comments (

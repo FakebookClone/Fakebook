@@ -1,36 +1,41 @@
 import React from 'react';
 import Axios from 'axios';
 import ToggleDisplay from 'react-toggle-display';
-
-var images = './images/home/';
+var imageshome = './images/home/';
 var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
+
 	constructor() {
 		super();
 		this.state = {
 			post: "",
 			dimmerVisible: false,
-			toggleClose: false
+			toggleClose: false,
+			iconClose: false
 		}
 	}
-
 	render() {
 		return (
 			<div>
 				{this.state.dimmerVisible
-					? <div className="dimmer"></div>
+					? <div onClick={this.toggleDimmer.bind(this)} className="dimmer"></div>
 					: null
 				}
-				<div onClick={this.toggleDimmer.bind(this)} className="home-center-post-container">
+				<div className="home-center-post-container">
+
 					<div className="post-container-top">
-						<img className="camera-icon" src={images + 'camera.png'}/>
-						<p>Photo/Video</p>
-						<img className="album-icon" src={images + 'album.png'}/>
-						<p>Photo Album</p>
+						<div className="insert-photo-div">
+							<img className="camera-icon" src={imageshome + 'photo-video.png'}/>
+							<p>Photo/Video</p>
+						</div>
+						<div className="album-div">
+							<img src={imageshome + 'photo-video-album.png'}/>
+							<p>Photo/Video Album</p>
+						</div>
 						<ToggleDisplay show={this.state.toggleClose}>
-							<div className="closeDiv">X</div>
+							<div onClick={this.toggleDimmer.bind(this)} className="closeDiv"><img src={imageshome + 'gray-x.png'}/></div>
 						</ToggleDisplay>
 					</div>
 
@@ -38,45 +43,71 @@ export default class HomePost extends React.Component {
 						<div className="imgStatusDiv">
 							<img src={this.props.user.picture.data.url}/>
 						</div>
-						<div className="inputStatusDiv">
+						<div onClick={this.toggleDimmer.bind(this)} className="inputStatusDiv">
 							<textarea rows="2" cols="80" onChange={this.postCatcher.bind(this)} value={this.state.post} placeholder="What's on your mind?" type="text"/>
 						</div>
 					</div>
 
+					<div className="post-container-bottom">
 
-						<div className="post-container-bottom">
-							<div className="lower-post-icon-container">
-								<img src="#"/>
-								<img src="#"/>
-								<img src="#"/>
-							</div>
+						<div className="lower-post-icon-container">
+							<ToggleDisplay show={this.state.iconClose}>
+								<div>
+									<img src={imageshome + 'tag-people.png'}/>
+								</div>
+							</ToggleDisplay>
+							<ToggleDisplay show={this.state.iconClose}>
+								<div>
+									<img src={imageshome + 'smiley2.png'}/>
+								</div>
+							</ToggleDisplay>
+							<ToggleDisplay show={this.state.iconClose}>
+								<div>
+									<img src={imageshome + 'check-in2.png'}/>
+								</div>
+							</ToggleDisplay>
 
-							<div className="lower-post-button-container">
-								<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
-								<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
-							</div>
 						</div>
+
+						<div className="lower-post-button-container">
+							<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+							<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 		)
 	}
 
-	postCatcher(e) {
-		this.setState({post: e.target.value});
-	}
+	postCatcher(e) {this.setState({post: e.target.value});}
 
 	post() {
-		Axios.get(`/api/profile/${this.props.user.id}`).then( r => {
-			Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
-				this.props.updatePosted(r.data);
+		this.setState({ post: '' })
+		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.props.updatePosted(r.data);
+				})
 			})
 		})
 	}
 
 	toggleDimmer() {
-		this.setState({
-			dimmerVisible: !this.state.dimmerVisible,
-			toggleClose: !this.state.toggleClose
-		});
+		if(this.state.dimmerVisible === true) {
+			if(this.state.post == "") {
+				this.setState({
+					dimmerVisible: !this.state.dimmerVisible,
+					toggleClose: !this.state.toggleClose
+				});
+			}
+		} else if(this.state.dimmerVisible === false) {
+			this.setState({
+				dimmerVisible: !this.state.dimmerVisible,
+				toggleClose: !this.state.toggleClose,
+				iconClose: this.state.Icon
+			});
+		}
 	}
 }
