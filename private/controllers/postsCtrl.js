@@ -9,7 +9,8 @@ module.exports = {
     })
   },
   getPosts: function(req, res) {
-    console.log('Get posts', req.params);
-    db.posts.getPosts([req.params.profile_id], function(err, r) { res.json(r) });
+    console.log('Get posts', req.params, req.body);
+    // db.posts.getPosts([req.params.profile_id], function(err, r) { res.json(r) });
+    res.status(200).send('ok');
   }
 }
