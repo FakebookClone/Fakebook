@@ -32,25 +32,29 @@
     height: 18px;
     width: 103px;
     border-right: $borderColorDarkGrey;
+    cursor: pointer;
 
     img {
+        margin-top: -3px;
+        margin-right: 3px;
         max-height: 18px;
-        max-width: 30px;
+        max-width: 35px;
     }
 }
 
 .album-div {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     margin-top: 10px;
     height: 18px;
     width: 155px;
+    cursor: pointer;
 
     img {
         margin-top: -3px;
         margin-left: 8px;
-        max-height: 30px;
+        margin-right: 3px;
+        max-height: 18px;
         max-width: 20px;
     }
 }
@@ -58,6 +62,12 @@
 .closeDiv {
     margin-left: 219px;
     cursor: pointer;
+
+    img {
+        margin-top: 10px;
+        height: 17px;
+        width: 17px;
+    }
 }
 // Middle Status Section *******
 
@@ -65,7 +75,6 @@
     margin-top: 12px;
     margin-left: 12px;
     height: 73px;
-    border-bottom: $borderColorGrey;
     display: flex;
     flex-direction: row;
 }
@@ -83,6 +92,9 @@
         resize: none;
         font-size: 14px;
     }
+    &:hover{
+      color: #9094BA;
+    }
 }
 // Lower Status Section *******
 
@@ -91,6 +103,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: $borderColorGrey;
+}
+
+.lower-post-icon-container {
+    height: 40px;
+    width: 120px;
+    display: flex;
+    flex-direction: row;
+
+    div {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            background-color: $iconHover;
+        }
+    }
 }
 
 .lower-post-button-container {
@@ -116,6 +148,7 @@
     outline: none;
     border: $buttonBorderGray;
     border-radius: 2px;
+    cursor: pointer;
 
     img {
         max-height: 50px;
@@ -138,6 +171,7 @@
     text-decoration: none;
     border: none;
     outline: none;
+    cursor: pointer;
 
     &:hover {
         background-color: $postBttnHoverBlue;
