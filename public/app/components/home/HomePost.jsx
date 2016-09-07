@@ -20,9 +20,9 @@ export default class HomePost extends React.Component {
 		return (
 			<div>
 				{this.state.dimmerVisible
-					? <div className="dimmer"></div>
+					? <div onClick={this.toggleDimmer.bind(this)} className="dimmer"></div>
 					: null
-}
+				}
 				<div className="home-center-post-container">
 
 					<div className="post-container-top">
@@ -77,25 +77,37 @@ export default class HomePost extends React.Component {
 					</div>
 
 				</div>
-				< /div>
+			</div>
+		)
+	}
 
+	postCatcher(e) {this.setState({post: e.target.value});}
 
-					) } postCatcher(e) {this.setState({post: e.target.value});
+	post() {
+		this.setState({ post: '' })
+		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.props.updatePosted(r.data);
+				})
+			})
+		})
+	}
 
-}
-					post() {Axios.get(`/api / profile / $ {this.props.user.id}`).then(r => {
-						Axios.post(` / api / post / $ {this.props.user.id}`, {
-							post_text: this.state.post,
-							post_image: null
-						}).then(r => {
-							this.props.updatePosted(r.data);
-						})
-					})
-}
-					toggleDimmer() {this.setState({
-						dimmerVisible: !this.state.dimmerVisible,
-						toggleClose: !this.state.toggleClose,
-						iconClose: this.state.Icon
-					});
-}
+	toggleDimmer() {
+		if(this.state.dimmerVisible === true) {
+			if(this.state.post == "") {
+				this.setState({
+					dimmerVisible: !this.state.dimmerVisible,
+					toggleClose: !this.state.toggleClose
+				});
+			}
+		} else if(this.state.dimmerVisible === false) {
+			this.setState({
+				dimmerVisible: !this.state.dimmerVisible,
+				toggleClose: !this.state.toggleClose,
+				iconClose: this.state.Icon
+			});
+		}
+	}
 }
