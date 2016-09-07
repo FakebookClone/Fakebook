@@ -12,8 +12,10 @@ export default class HomeCenter extends React.Component {
   }
 
   componentWillMount() {
-    Axios.get(`/api/posts/${this.props.user.id}`).then( r => {
-      this.setState({ posted: r.data });
+    Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+      Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+        this.setState({ posted: r.data });
+      })
     })
   }
 
