@@ -77,9 +77,11 @@ export default class HomePost extends React.Component {
 	}
 
 	toggleDimmer() {
-		this.setState({
-			dimmerVisible: !this.state.dimmerVisible,
-			toggleClose: !this.state.toggleClose
-		});
+		if(this.state.post == "") {
+			this.setState({
+				dimmerVisible: !this.state.dimmerVisible,
+				toggleClose: !this.state.toggleClose
+			});
+		}
 	}
 }
