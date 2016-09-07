@@ -14,15 +14,16 @@ export default class ProfileNav extends React.Component {
         <div>
           <button>Update Info</button>
           <button>View Activity Log</button>
-          <button>add ... image. Also, tooltip</button>
+          <button><img src="/images/profile/gray-elipsis.png" /></button>
 
         </div>
         <div>
           <div>Timeline</div>
+          <img src="/images/profile/select-indicator-arrow.png" />
           <div>About</div>
           <div>Friends</div>
           <div>Photos</div>
-          <div>More</div>
+          <div>More<i className="fa fa-caret-down"></i></div>
         </div>
       </div>
     )
