@@ -196,15 +196,15 @@ export default class LoggedOutMainSection extends React.Component {
 						<input className="radio-button-1" type="radio"/>Female
 						<input className="radio-button-2" type="radio"/>Male
 						<p className="text-by-clicking-sign-up">By clicking Sign Up, you agree to our
-							<a href="#">Terms</a>
+							<a href="#"> Terms </a>
 							and that you have <br /> read our
-							<a href="#">DataPolicy</a>, including our
-							<a href="#">Cookie Use.</a>
+							<a href="#"> DataPolicy</a>, including our
+							<a href="#"> Cookie Use.</a>
 						</p>
 						<button>Sign Up</button>
 					</form>
 					<p className="create-a-page">
-						<a href="#">Create a Page</a>
+						<a href="#">Create a Page </a>
 						 for a celebrity, band or business.</p>
 				</div>
 
