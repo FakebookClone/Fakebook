@@ -7,8 +7,6 @@ var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
-<<<<<<< HEAD
-
 	constructor() {
 		super();
 		this.state = {
@@ -24,7 +22,7 @@ export default class HomePost extends React.Component {
 				{this.state.dimmerVisible
 					? <div className="dimmer"></div>
 					: null
-}
+				}
 				<div onClick={this.toggleDimmer.bind(this)} className="home-center-post-container">
 					<div className="post-container-top">
 						<img className="camera-icon" src={images + 'camera.png'}/>
@@ -47,7 +45,6 @@ export default class HomePost extends React.Component {
 
 
 						<div className="post-container-bottom">
-
 							<div className="lower-post-icon-container">
 								<img src="#"/>
 								<img src="#"/>
@@ -58,12 +55,8 @@ export default class HomePost extends React.Component {
 								<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
 								<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
 							</div>
-
 						</div>
-
-
 				</div>
-
 			</div>
 		)
 	}
@@ -84,6 +77,6 @@ export default class HomePost extends React.Component {
 		this.setState({
 			dimmerVisible: !this.state.dimmerVisible,
 			toggleClose: !this.state.toggleClose
-
 		});
 	}
+}
