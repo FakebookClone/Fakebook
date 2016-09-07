@@ -79,6 +79,7 @@ export default class HomePost extends React.Component {
 				</div>
 				< /div>
 
+
 					) } postCatcher(e) {this.setState({post: e.target.value});
 
 }
