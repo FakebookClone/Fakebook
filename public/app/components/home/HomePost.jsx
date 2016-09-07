@@ -7,6 +7,7 @@ var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
+<<<<<<< HEAD
 
 	constructor() {
 		super();
@@ -72,11 +73,10 @@ export default class HomePost extends React.Component {
 	}
 
 	post() {
-		Axios.post(`/api/post/${this.props.user.id}`, {
-			post_text: this.state.post,
-			post_image: null
-		}).then(r => {
-			this.props.updatePosted(r.data);
+		Axios.get(`/api/profile/${this.props.user.id}`).then( r => {
+			Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+				this.props.updatePosted(r.data);
+			})
 		})
 	}
 
@@ -87,5 +87,3 @@ export default class HomePost extends React.Component {
 
 		});
 	}
-
-}
