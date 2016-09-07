@@ -78,6 +78,7 @@ export default class HomePost extends React.Component {
 
 				</div>
 				< /div>
+
 					) } postCatcher(e) {this.setState({post: e.target.value});
 }
 					post() {Axios.get(`/api / profile / $ {this.props.user.id}`).then(r => {
