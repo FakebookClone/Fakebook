@@ -11,6 +11,7 @@
     z-index: 3;
 }
 // Top Status Section ********
+
 .post-container-top {
     display: flex;
     flex-direction: row;
@@ -18,16 +19,40 @@
     width: 476px;
     border-bottom: $borderColorGrey;
     margin-left: 12px;
+    font-family: $facebookFontA;
+    font-size: 12px;
+    font-weight: 600;
+    color: $postBttnHoverBlue;
 }
 
-.camera-icon {
-    max-height: 18px;
-    max-width: 30px;
+.insert-photo-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    height: 18px;
+    width: 103px;
+    border-right: $borderColorDarkGrey;
+
+    img {
+        max-height: 18px;
+        max-width: 30px;
+    }
 }
 
-.album-icon {
-    max-height: 20px;
-    max-width: 30px;
+.album-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 10px;
+    height: 18px;
+    width: 155px;
+
+    img {
+        margin-top: -3px;
+        margin-left: 8px;
+        max-height: 30px;
+        max-width: 20px;
+    }
 }
 
 .closeDiv {
@@ -35,6 +60,7 @@
     cursor: pointer;
 }
 // Middle Status Section *******
+
 .post-container-middle {
     margin-top: 12px;
     margin-left: 12px;
@@ -60,6 +86,7 @@
     }
 }
 // Lower Status Section *******
+
 .post-container-bottom {
     width: 100%;
     display: flex;
@@ -77,24 +104,25 @@
 }
 
 .fb-bttn {
-      height: 22px;
-      width: 95px;
-      margin-top: 8px;
-      margin-right: 10px;
-      font-size: 12px;
-      font-weight: bold;
-      color: $friendsBttnGray;
-      background-color: $faceBookWhite;
-      box-shadow: none;
-      text-decoration: none;
-      outline: none;
-      border: $buttonBorderGray;
-      border-radius: 2px;
-      img{
+    height: 22px;
+    width: 95px;
+    margin-top: 8px;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $friendsBttnGray;
+    background-color: $faceBookWhite;
+    box-shadow: none;
+    text-decoration: none;
+    outline: none;
+    border: $buttonBorderGray;
+    border-radius: 2px;
+
+    img {
         max-height: 50px;
         max-width: 80px;
-      }
-  }
+    }
+}
 
 .post-bttn {
     margin-top: 8px;
@@ -104,14 +132,15 @@
     border-radius: 2px;
     font-size: 12px;
     display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont;
+    font-family: $facebookFontA;
     background-color: $postBttnBlue;
     color: $faceBookWhite;
     box-shadow: none;
     text-decoration: none;
     border: none;
     outline: none;
-    &:hover{
-      background-color: $postBttnHoverBlue;
+
+    &:hover {
+        background-color: $postBttnHoverBlue;
     }
 }

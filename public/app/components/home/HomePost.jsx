@@ -2,12 +2,11 @@ import React from 'react';
 import Axios from 'axios';
 import ToggleDisplay from 'react-toggle-display';
 
-var images = './images/home/';
+var imageshome = './images/home/';
 var images = './images/main/';
 require('../../../stylesheets/components/home/HomePost.scss');
 
 export default class HomePost extends React.Component {
-<<<<<<< HEAD
 
 	constructor() {
 		super();
@@ -26,11 +25,19 @@ export default class HomePost extends React.Component {
 					: null
 }
 				<div onClick={this.toggleDimmer.bind(this)} className="home-center-post-container">
+
 					<div className="post-container-top">
-						<img className="camera-icon" src={images + 'camera.png'}/>
-						<p>Photo/Video</p>
-						<img className="album-icon" src={images + 'album.png'}/>
-						<p>Photo Album</p>
+
+						<div className="insert-photo-div">
+							<img className="camera-icon" src={imageshome + 'camera.png'}/>
+							<p>Photo/Video</p>
+						</div>
+
+						<div className="album-div">
+							<img src={imageshome + 'album.png'}/>
+							<p>Photo/Video Album</p>
+						</div>
+
 						<ToggleDisplay show={this.state.toggleClose}>
 							<div className="closeDiv">X</div>
 						</ToggleDisplay>
@@ -45,22 +52,20 @@ export default class HomePost extends React.Component {
 						</div>
 					</div>
 
+					<div className="post-container-bottom">
 
-						<div className="post-container-bottom">
-
-							<div className="lower-post-icon-container">
-								<img src="#"/>
-								<img src="#"/>
-								<img src="#"/>
-							</div>
-
-							<div className="lower-post-button-container">
-								<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
-								<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
-							</div>
-
+						<div className="lower-post-icon-container">
+							<img src="#"/>
+							<img src="#"/>
+							<img src="#"/>
 						</div>
 
+						<div className="lower-post-button-container">
+							<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+							<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+						</div>
+
+					</div>
 
 				</div>
 
@@ -73,8 +78,11 @@ export default class HomePost extends React.Component {
 	}
 
 	post() {
-		Axios.get(`/api/profile/${this.props.user.id}`).then( r => {
-			Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+		Axios.get(`/api/profile/${this.props.user.id}`).then(r => {
+			Axios.post(`/api/post/${this.props.user.id}`, {
+				post_text: this.state.post,
+				post_image: null
+			}).then(r => {
 				this.props.updatePosted(r.data);
 			})
 		})
@@ -87,3 +95,4 @@ export default class HomePost extends React.Component {
 
 		});
 	}
+}
