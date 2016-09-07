@@ -1,3 +1,4 @@
+
 @import '../../base/utilities';
 
 .home-center-post-container {
@@ -60,4 +61,11 @@
     font-size: 14px;
     overflow: scroll;
   }
+
+.home-posted-post-container {
+  min-height: 192px;
+  width: 502px;
+  margin-top: 10px;
+  background: #FFF;
+
 }

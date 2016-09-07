@@ -1,5 +1,7 @@
 import React from 'react';
 
+require('../../../stylesheets/components/home/HomePost.scss');
+
 export default class HomePosted extends React.Component {
   constructor() {
     super()
@@ -7,14 +9,21 @@ export default class HomePosted extends React.Component {
 
   render() {
     return (
-      <div className="home-center-posted-container">
-        <img src="#" />
-        <p>No posts to show</p>
-        <button>Find Friends</button>
+      <div>
+        {this.props.posts.length === 0
+          ? <div>
+              <img src="#" />
+              <p>No posts to show</p>
+              <button>Find Friends</button>
+            </div>
+          : null
+        }
         {this.props.posts.map( (value) => {
           return (
-            <div key={'post_container_' + value.post_id}>
-              <p key={value.post_id}>{value.post_text}</p>
+            <div className="home-posted-post-container" key={'post_container_' + value.post_id}>
+              <img key={'post_profile_pic_' + value.post_id} src={value.profile_picture} />
+              <p key={'post_profile_name_' + value.post_id}>Profile Name</p>
+              <p key={'post_' + value.post_id}>{value.post_text}</p>
             </div>
           )
         })}

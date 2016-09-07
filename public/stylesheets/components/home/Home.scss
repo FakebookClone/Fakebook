@@ -5,6 +5,14 @@
 }
 
 
+
+.home-main-content-wrapper {
+  background: $backgroundColor;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
 .home-main-content-container {
   min-height: 100vh;
   display: flex;
