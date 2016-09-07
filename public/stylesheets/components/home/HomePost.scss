@@ -23,6 +23,7 @@
     font-size: 12px;
     font-weight: 600;
     color: $postBttnHoverBlue;
+    position: relative;
 }
 
 .insert-photo-div {
@@ -62,6 +63,8 @@
 .closeDiv {
     margin-left: 219px;
     cursor: pointer;
+    position: absolute;
+    right: 0px;
 
     img {
         margin-top: 10px;
