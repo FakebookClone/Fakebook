@@ -13,6 +13,7 @@ var usersCtrl = require('./controllers/usersCtrl.js');
 var postsCtrl = require('./controllers/postsCtrl.js');
 var profilesCtrl = require('./controllers/profilesCtrl.js');
 var friendsCtrl = require('./controllers/friendsCtrl.js');
+var commentsCtrl = require('./controllers/commentsCtrl.js');
 
 app.use(cors(config.corsOptions));
 app.use(bodyParser.json());
@@ -31,6 +32,9 @@ app.post('/api/post/:profile_id', postsCtrl.createPost);
 
 //Friend Endpoints
 app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
+
+//Comment Endpoints
+app.get('/api/comments/:post_id', commentsCtrl.getComments);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });

@@ -33,7 +33,8 @@ CREATE TABLE comments (
   comment_id SERIAL PRIMARY KEY,
   comment_text text,
   comment_image varchar(100),
-  comment_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+  comment_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  post_id INT
 );
 
 CREATE TABLE photos (
