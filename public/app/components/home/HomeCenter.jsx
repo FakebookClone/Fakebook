@@ -7,7 +7,7 @@ require('../../../stylesheets/components/home/HomeCenter.scss');
 
 export default class HomeCenter extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = { posted: [] };
   }
 
@@ -20,7 +20,7 @@ export default class HomeCenter extends React.Component {
   render() {
     console.log('POSTED:', this.state.posted);
     return (
-      <div>
+      <div className= "post container">
         <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
         <HomePosted posts={this.state.posted} />
       </div>

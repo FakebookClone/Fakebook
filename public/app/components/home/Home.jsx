@@ -11,7 +11,8 @@ export default class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: JSON.parse(localStorage.getItem('fakebook_user'))
+			user: JSON.parse(localStorage.getItem('fakebook_user')),
+		
 		}
 	}
 
@@ -20,7 +21,6 @@ export default class Home extends React.Component {
 			browserHistory.push('/')
 		}
 	}
-
 
 	render() {
 		return (
