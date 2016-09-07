@@ -7,19 +7,21 @@ require('../../../stylesheets/components/home/HomeCenter.scss');
 
 export default class HomeCenter extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = { posted: [] };
   }
 
   componentWillMount() {
-    Axios.get(`/api/posts/${this.props.user.id}`).then( r => {
-      this.setState({ posted: r.data });
+    Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+      Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+        this.setState({ posted: r.data });
+      })
     })
   }
 
   render() {
     return (
-      <div>
+      <div className= "post container">
         <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
         <HomePosted posts={this.state.posted} />
       </div>

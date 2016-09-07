@@ -1,0 +1,179 @@
+@import '../../base/utilities';
+
+.home-center-post-container {
+    margin-top: 10px;
+    height: 163px;
+    width: 503px;
+    background: $faceBookWhite;
+    border-radius: 5px;
+    border: $borderColorGrey;
+    position: relative;
+    z-index: 3;
+}
+// Top Status Section ********
+
+.post-container-top {
+    display: flex;
+    flex-direction: row;
+    min-height: 36px;
+    width: 476px;
+    border-bottom: $borderColorGrey;
+    margin-left: 12px;
+    font-family: $facebookFontA;
+    font-size: 12px;
+    font-weight: 600;
+    color: $postBttnHoverBlue;
+}
+
+.insert-photo-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    height: 18px;
+    width: 103px;
+    border-right: $borderColorDarkGrey;
+    cursor: pointer;
+
+    img {
+        margin-top: -3px;
+        margin-right: 3px;
+        max-height: 18px;
+        max-width: 35px;
+    }
+}
+
+.album-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    height: 18px;
+    width: 155px;
+    cursor: pointer;
+
+    img {
+        margin-top: -3px;
+        margin-left: 8px;
+        margin-right: 3px;
+        max-height: 18px;
+        max-width: 20px;
+    }
+}
+
+.closeDiv {
+    margin-left: 219px;
+    cursor: pointer;
+
+    img {
+        margin-top: 10px;
+        height: 17px;
+        width: 17px;
+    }
+}
+// Middle Status Section *******
+
+.post-container-middle {
+    margin-top: 12px;
+    margin-left: 12px;
+    height: 73px;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgStatusDiv {}
+
+.inputStatusDiv {
+    textarea {
+        min-height: 20px;
+        max-width: 400px;
+        margin-top: 17px;
+        margin-left: 12px;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 14px;
+    }
+    &:hover{
+      color: #9094BA;
+    }
+}
+// Lower Status Section *******
+
+.post-container-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: $borderColorGrey;
+}
+
+.lower-post-icon-container {
+    height: 40px;
+    width: 120px;
+    display: flex;
+    flex-direction: row;
+
+    div {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            background-color: $iconHover;
+        }
+    }
+}
+
+.lower-post-button-container {
+    display: flex;
+    flex-direction: row;
+    background-color: $faceBookWhite;
+    margin-top: 0;
+    height: 40px;
+    width: 173px;
+}
+
+.fb-bttn {
+    height: 22px;
+    width: 95px;
+    margin-top: 8px;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $friendsBttnGray;
+    background-color: $faceBookWhite;
+    box-shadow: none;
+    text-decoration: none;
+    outline: none;
+    border: $buttonBorderGray;
+    border-radius: 2px;
+    cursor: pointer;
+
+    img {
+        max-height: 50px;
+        max-width: 80px;
+    }
+}
+
+.post-bttn {
+    margin-top: 8px;
+    height: 24px;
+    width: 60px;
+    margin-right: 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    display: inline-block;
+    font-family: $facebookFontA;
+    background-color: $postBttnBlue;
+    color: $faceBookWhite;
+    box-shadow: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $postBttnHoverBlue;
+    }
+}

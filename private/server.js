@@ -9,19 +9,28 @@ var massiveInstance = massive.connectSync({connectionString : config.connectionS
 var app = module.exports = express();
 app.set('db', massiveInstance);
 
-var userCtrl = require('./controllers/userCtrl.js');
-var profilePostCtrl = require('./controllers/profilePostCtrl.js');
+var usersCtrl = require('./controllers/usersCtrl.js');
+var postsCtrl = require('./controllers/postsCtrl.js');
+var profilesCtrl = require('./controllers/profilesCtrl.js');
+var friendsCtrl = require('./controllers/friendsCtrl.js');
 
 app.use(cors(config.corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('../public'));
 
 //User Endpoints
-app.post('/api/user/create/:facebook_id', userCtrl.createUser);
+app.post('/api/user/create/:facebook_id', usersCtrl.createUser);
 
 //Profile Endpoints
-app.get('/api/posts/:profile_id', profilePostCtrl.getPosts);
-app.post('/api/post/:profile_id', profilePostCtrl.createPost);
+app.get('/api/profile/:profile_id', profilesCtrl.getProfile);
+app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
+
+//Post Endpoints
+app.post('/api/posts/:profile_id', postsCtrl.getPosts);
+app.post('/api/post/:profile_id', postsCtrl.createPost);
+
+//Friend Endpoints
+app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });
