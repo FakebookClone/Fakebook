@@ -10,7 +10,7 @@ export default class LoggedOutMainSection extends React.Component {
 			<div className="loggedOut-main-section-wrapper">
 				<div className="loggedOut-main-section-left">
 					<div className="thumbs-up-image-left"><img src="../../images/login/login-loggedOut.png"/></div>
-					<p className="text-thanks-for-stopping-by">Thanks for stopping by!</p>
+					<p className="text-thanks-for-stopping-by">Thanks for stopping <br /> by!</p>
 					<p className="text-we-hope-to-see-you-again-soon">We hope to see you again soon.</p>
 				</div>
 				<div className="loggedOut-main-section-right">
@@ -191,7 +191,7 @@ export default class LoggedOutMainSection extends React.Component {
 							<option value="1906">1906</option>
 							<option value="1905">1905</option>
 						</select>
-						<a className="text-why-do-I-need-to-provide-my-birthday" href="#">Why do I need to provide my birthday?</a>
+						<a className="text-why-do-I-need-to-provide-my-birthday" href="#">Why do I need to provide my <br /> <span className="move-birthday-to-right">birthday?</span></a>
 						<br />
 						<input className="radio-button-1" type="radio"/>Female
 						<input className="radio-button-2" type="radio"/>Male
