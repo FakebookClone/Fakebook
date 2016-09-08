@@ -39,8 +39,8 @@ app.get('/api/comments/:post_id', commentsCtrl.getComments);
 app.post('/api/comment/:post_id', commentsCtrl.postComment);
 
 //Like Endpoints
-app.get('/api/likes/:post_id', likesCtrl.getLikes);
-app.post('/api/like/:post_id', likesCtrl.likeContent);
+app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);
+app.post('/api/like/post/:post_id', likesCtrl.likePost);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });

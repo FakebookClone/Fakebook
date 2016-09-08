@@ -46,7 +46,7 @@ CREATE TABLE photos (
 
 CREATE TABLE likes (
   like_id SERIAL PRIMARY KEY,
-  profile_id INT,
+  profile_id VARCHAR(20),
   post_id INT,
   comment_id INT,
   photo_id INT
