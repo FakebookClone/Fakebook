@@ -10,15 +10,22 @@
   background: $backgroundColor;
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 
 .home-main-content-container {
   min-height: 100vh;
+  width: 1216px;
   display: flex;
-  padding-left: 349px;
+  flex-direction: row;
 }
 
+.false-right{
+  min-height: 100vh;
+  width: 196px;
+}
 
 .dimmer {
   width: 100%;

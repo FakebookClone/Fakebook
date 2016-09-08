@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import Comment from './Comment.jsx';
 
-require('../../../stylesheets/components/post/Post.scss');
+require('../../../stylesheets/components/global/Post.scss');
 
 export default class Posts extends React.Component {
   constructor() {
@@ -11,31 +11,37 @@ export default class Posts extends React.Component {
   }
 
   componentWillMount() {
-    Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
-      this.setState({ postedComments: r.data });
-    });
+  	Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
+  		this.setState({ postedComments: r.data });
+  	});
   }
 
-  render() {
-    return (
-      <div className="global-post-container">
-        <img src={this.props.post.profile_pic} />
-        <p>{this.props.post.name}</p>
-        <p>{this.props.post.post_text}</p>
-        <img onClick={this.likePost.bind(this)} src="broken-link" />
-        <p>Like</p>
-        {this.state.likes.length !== 0
-          ? <div><p>{this.state.likes.length}</p></div>
-          : null
-        }
-        <img src="broken-link" /><p>Comment</p>
-        <img src="broken-link" /><p>Share</p>
-        {this.state.postedComments.map( (value) => {
+	render() {
+		return (
+			<div className="global-post-container">
+
+				<div className="upper-posted-div">
+					<div className="user-profile-posted-div">
+						<img src={this.props.post.profile_pic}/>
+						<p>{this.props.post.name}</p>
+					</div>
+					<p className="posted-text">{this.props.post.post_text}</p>
+				</div>
+				<div className="mid-posted-icon-div">
+					<img src="broken-link"/>
+					<p>Like</p>
+					<img src="broken-link"/>
+					<p>Comment</p>
+					<img src="broken-link"/>
+					<p>Share</p>
+				</div>
+
+				{this.state.postedComments.map( (value) => {
           return (
             <Comment key={'comment_container_' + value.comment_id} comment={value} />
           )
         })}
-        <img src={this.props.post.profile_pic} />
+
         <input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
         <img src="broken-link" />
         <img src="broken-link" />

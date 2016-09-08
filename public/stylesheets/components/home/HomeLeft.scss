@@ -1,6 +1,39 @@
 @import '../../base/utilities';
 
-.home-left-column{
-  margin-top: 10px;
-  width: 187px;
+.home-left-column {
+    margin-top: 15px;
+    width: 184px;
+    margin-right: 12px;
+}
+
+.left-div {
+    li {
+        display: flex;
+        align-items: center;
+        height: 22px;
+        width: 172;
+        font-family: $facebookFontA;
+        font-size: 12px;
+
+        img {
+            height: 16px;
+            width: 16px;
+            margin-right: 6px;
+        }
+    }
+}
+
+h4 {
+    margin-bottom: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    color: $leftProfileGruopNames;
+    font-family: $facebookFontA;
+}
+
+.leftHover {
+    &:hover {
+        cursor: pointer;
+        background-color: $iconHover;
+    }
 }
