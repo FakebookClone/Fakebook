@@ -3,10 +3,10 @@ var db = app.get('db');
 
 module.exports = {
   getPostLikes: function(req, res) {
-    db.likes.getPostLikes([req.params.post_id], function(err, r) { res.json(r); })
+    db.likes.posts.getPostLikes([req.params.post_id], function(err, r) { res.json(r); })
   },
   likePost: function(req, res) {
-    db.likes.getPostLikes([req.params.post_id], function(err, r) {
+    db.likes.posts.getPostLikes([req.params.post_id], function(err, r) {
       var likes = r;
       var alreadyLiked = false;
 
@@ -17,12 +17,12 @@ module.exports = {
       }
 
       if(alreadyLiked) {
-
+        db.likes.posts.destroyPostLike([req.body.profile_id], function(err, r) {})
       } else if ( !(alreadyLiked) ) {
-        db.likes.likePost([req.body.profile_id, req.params.post_id], function(err, r) {
-          db.likes.getPostLikes([req.params.post_id], function(err, r) { res.json(r); });
-        })
+        db.likes.posts.likePost([req.body.profile_id, req.params.post_id], function(err, r) {});
       }
+
+      db.likes.posts.getPostLikes([req.params.post_id], function(err, r) { res.json(r); });
 
     })
   }
