@@ -7,7 +7,7 @@ require('../../../stylesheets/components/post/Post.scss');
 export default class Posts extends React.Component {
   constructor() {
     super()
-    this.state = { postedComments: [], comment: '' };
+    this.state = { postedComments: [], comment: '', likes: [] };
   }
 
   componentWillMount() {
@@ -22,7 +22,12 @@ export default class Posts extends React.Component {
         <img src={this.props.post.profile_pic} />
         <p>{this.props.post.name}</p>
         <p>{this.props.post.post_text}</p>
-        <img src="broken-link" /><p>Like</p>
+        <img onClick={this.likePost.bind(this)} src="broken-link" />
+        <p>Like</p>
+        {this.state.likes.length !== 0
+          ? <div><p>{this.state.likes.length}</p></div>
+          : null
+        }
         <img src="broken-link" /><p>Comment</p>
         <img src="broken-link" /><p>Share</p>
         {this.state.postedComments.map( (value) => {
@@ -30,7 +35,8 @@ export default class Posts extends React.Component {
             <Comment key={'comment_container_' + value.comment_id} comment={value} />
           )
         })}
-        <img src={this.props.post.profile_pic} /><input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
+        <img src={this.props.post.profile_pic} />
+        <input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
         <img src="broken-link" />
         <img src="broken-link" />
         <p>Press Enter to post.</p>
@@ -48,5 +54,11 @@ export default class Posts extends React.Component {
         this.setState({ postedComments: r.data, comment: '' })
       })
     }
+  }
+
+  likePost() {
+    Axios.post(`/api/like/${this.props.post.post_id}`, { profile_id: this.props.user.id, post_id: this.props.post.post_id, comment_id: null, photo_id: null }).then( r => {
+      this.setState({ likes: r.data });
+    })
   }
 }
