@@ -45,7 +45,19 @@
 }
 
 .mid-posted-icon-div{
+  height:30px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   border-bottom: $borderColorGrey;
+  p{
+    font-size: 12px;
+    font-weight: 600;
+    font-family: $facebookFontA;
+    color: $likeCommentShareGray;
+  }
+  img{
+    height: 15px;
+    width: 15px;
+  }
 }

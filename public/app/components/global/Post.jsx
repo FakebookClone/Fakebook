@@ -1,8 +1,10 @@
 import React from 'react';
 import Axios from 'axios';
 import Comment from './Comment.jsx';
+var imageshome= './images/home/';
 
 require('../../../stylesheets/components/global/Post.scss');
+
 
 export default class Posts extends React.Component {
   constructor() {
@@ -31,11 +33,11 @@ export default class Posts extends React.Component {
 					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
 				<div className="mid-posted-icon-div">
-					<img onClick={this.likePost.bind(this)} src="broken-link"/>
+					<img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
 					<p>Like</p>
-					<img src="broken-link"/>
+					<img src={imageshome + 'gray-comment-small.png'}/>
 					<p>Comment</p>
-					<img src="broken-link"/>
+					<img src={imageshome + 'gray-share-small.png'}/>
 					<p>Share</p>
 				</div>
 
