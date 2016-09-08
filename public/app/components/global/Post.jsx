@@ -14,6 +14,9 @@ export default class Posts extends React.Component {
   	Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
   		this.setState({ postedComments: r.data });
   	});
+    Axios.get(`/api/likes/post/${this.props.post.post_id}`).then( r => {
+      this.setState({ likes: r.data })
+    })
   }
 
 	render() {
@@ -28,13 +31,20 @@ export default class Posts extends React.Component {
 					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
 				<div className="mid-posted-icon-div">
-					<img src="broken-link"/>
+					<img onClick={this.likePost.bind(this)} src="broken-link"/>
 					<p>Like</p>
 					<img src="broken-link"/>
 					<p>Comment</p>
 					<img src="broken-link"/>
 					<p>Share</p>
 				</div>
+
+        {this.state.likes.length !== 0
+          ? <div>
+              <img src="broken-link" /><p>{this.state.likes.length}</p>
+            </div>
+          : null
+        }
 
 				{this.state.postedComments.map( (value) => {
           return (
@@ -63,7 +73,7 @@ export default class Posts extends React.Component {
   }
 
   likePost() {
-    Axios.post(`/api/like/${this.props.post.post_id}`, { profile_id: this.props.user.id, post_id: this.props.post.post_id, comment_id: null, photo_id: null }).then( r => {
+    Axios.post(`/api/like/post/${this.props.post.post_id}`, { profile_id: this.props.user.id }).then( r => {
       this.setState({ likes: r.data });
     })
   }
