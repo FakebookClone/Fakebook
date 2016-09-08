@@ -35,6 +35,7 @@ app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
 
 //Comment Endpoints
 app.get('/api/comments/:post_id', commentsCtrl.getComments);
+app.post('/api/comment/:post_id', commentsCtrl.postComment);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public/' });
