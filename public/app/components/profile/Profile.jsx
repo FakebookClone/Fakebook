@@ -13,6 +13,8 @@ import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 
+import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
+import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
 require('../../../stylesheets/components/profile/Profile.scss');
 
@@ -25,20 +27,28 @@ export default class Profile extends React.Component {
 			<div>
 				<div>
 					{/* <GlobalHeader/> */}
-          <ProfileCover />
-          <ProfileAddPhoto />
-          <ProfileNav />
-          <ProfileIntro />
-					<ProfilePhotos />
-					<ProfileFriends />
-					<GlobalFooter />
-					<ProfilePostStatus />
-					<ProfileStatusBox />
-					<ProfileOldPosts />
-					<ProfileBirthdayBox />
+					<ProfileCover/>
+					<ProfileAddPhoto/>
+					<ProfileNav/>
+					<ProfileIntro/>
+					<ProfilePhotos/>
+					<ProfileFriends/>
+					<GlobalFooter/>
+					<ProfilePostStatus/>
+					<ProfileStatusBox/>
+					<ProfileOldPosts/>
+					<ProfileBirthdayBox/>
 					<img src="/images/profile/gray-dot.png"/>
 
-					<GlobalChat />
+					<GlobalChat/>
+				</div>
+				<div>
+					<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+					<ProfilePhotosGallery/>
+				</div>
+				<div>
+					<p>The ProfileFriendsGallery is what shows when Friends is clicked, hiding most others.</p>
+					<ProfileFriendsGallery />
 				</div>
 			</div>
 		)
