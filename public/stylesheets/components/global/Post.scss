@@ -8,12 +8,19 @@
 }
 
 .upper-posted-div{
+  display: flex;
+  flex-direction: column;
   margin-left: 12px;
   display: flex;
-  flex-direction: row;
   min-height: 94px;
   width: 476px;
   border-bottom: $borderColorGrey;
+}
+
+.user-profile-posted-div{
+  display: flex;
+  flex-direction: row;
+  width: 200px;;
   img{
     margin-top: 12px;
     height: 40px;
@@ -27,6 +34,18 @@
     height: 40px;
     width:96px;
     font-family: $facebookFontA;
-    font-size: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: $fbTextBlue;
   }
+}
+
+.posted-text{
+  margin-top: 7px;
+}
+
+.mid-posted-icon-div{
+  display: flex;
+  flex-direction: row;
+  border-bottom: $borderColorGrey;
 }

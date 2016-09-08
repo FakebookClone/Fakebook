@@ -12,17 +12,21 @@ export default class Posts extends React.Component {
 			<div className="global-post-container">
 
 				<div className="upper-posted-div">
-					<img src={this.props.post.profile_pic}/>
-					<p>{this.props.post.name}</p>
+					<div className="user-profile-posted-div">
+						<img src={this.props.post.profile_pic}/>
+						<p>{this.props.post.name}</p>
+					</div>
+					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
-
-				<p>{this.props.post.post_text}</p>
-				<img src="broken-link"/>
-				<p>Like</p>
-				<img src="broken-link"/>
-				<p>Comment</p>
-				<img src="broken-link"/>
-				<p>Share</p>
+				<div className="mid-posted-icon-div">
+					<img src="broken-link"/>
+					<p>Like</p>
+					<img src="broken-link"/>
+					<p>Comment</p>
+					<img src="broken-link"/>
+					<p>Share</p>
+				</div>
+        
 				<img src={this.props.post.profile_pic}/><input placeholder="Write a comment..."/>
 				<img src="broken-link"/>
 				<img src="broken-link"/>
