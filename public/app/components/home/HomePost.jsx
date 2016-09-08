@@ -85,7 +85,7 @@ export default class HomePost extends React.Component {
 
 	post() {
 		this.setState({ post: '' })
-		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null}).then( r => {
+		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.id}).then( r => {
 			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
 				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
 					this.props.updatePosted(r.data);
