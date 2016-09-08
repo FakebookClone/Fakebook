@@ -1,10 +1,69 @@
-.chat-wrapper-closed {
-  height: 27px;
-  width: 274px;
-  display: flex;
+@import '../../base/utilities';
 
+.chat-wrapper-closed {
+    height: 27px;
+    width: 274px;
+    border: 1px solid rgb(221, 223, 226);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #eeeff0;
+    &:hover {
+      background-color: #f6f7f9;
+    }
 }
 
-.fa-circle-green {
-  color: green;
+.chat-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80px;
+}
+
+.chat-text {
+  font-family: $faceBookFonth;
+  font-size: .75em;
+  font-weight: bold;
+}
+
+.green-circle {
+    height: 7px;
+    width: 7px;
+    border-radius: 45px;
+    background-color: #009e1d;
+    margin-left: 14px;
+    margin-right: 6px;
+}
+
+.chat-new-message {
+    height: 13px;
+    width: 13px;
+    margin-right: 4px;
+    background-repeat: no-repeat;
+    background-image: url('/images/main/new-message-light-gray.png');
+
+    &:hover {
+        background-image: url('/images/main/new-message-dark-gray.png');
+    }
+}
+
+.chat-options {
+    height: 12px;
+    width: 12px;
+    margin-right: 4px;
+    padding-bottom: 1px;
+    background-repeat: no-repeat;
+    background-image: url('/images/main/gears-gray.png');
+
+    &:hover {
+        background-image: url('/images/main/gears-gray-dark.png');
+    }
+}
+
+.pull-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    width: 40px;
 }
