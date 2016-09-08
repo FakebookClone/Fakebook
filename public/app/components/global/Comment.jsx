@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 export default class Comment extends React.Component {
   constructor() {
@@ -6,19 +7,31 @@ export default class Comment extends React.Component {
     this.state = { likes: [] }
   }
 
+  componentWillMount() {
+    Axios.get(`/api/likes/comment/${this.props.comment.comment_id}`).then( r => {
+      this.setState({ likes: r.data });
+    })
+  }
+
   render() {
-    console.log(this.props.comment);
+    console.log(this.state.likes);
     return (
       <div>
         <img src={this.props.comment.profile_pic} />
         <p>{this.props.comment.name}</p>
         <p>{this.props.comment.comment_text}</p>
-        <p onClick={this.likeComment}>Like</p>
+        <p onClick={this.likeComment.bind(this)}>Like</p>
         {this.state.likes.length !== 0
           ? <div><img src="broken-link" /><p>{this.state.likes.length}</p></div>
           : null
         }
       </div>
     )
+  }
+
+  likeComment() {
+    Axios.post(`api/like/comment/${this.props.comment.comment_id}`, { profile_id: this.props.user.id }).then( r => {
+      this.setState({ likes: r.data });
+    })
   }
 }
