@@ -9,7 +9,7 @@ export default class GlobalChat extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="chat-wrapper-closed">
         <div><i className="fa fa-circle fa-circle-green"></i>Chat</div>
         <div>
           <img src="/images/main/new-message-light-gray.png" />
