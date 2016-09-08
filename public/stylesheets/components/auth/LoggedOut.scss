@@ -1,0 +1,154 @@
+@import '../../base/utilities';
+
+.loggedOut-main-section-wrapper {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient($faceBookWhite, $faceBookDarkerGradientColor);
+    padding-bottom: 30px;
+    // padding: 40px;
+    width: 100vw;
+}
+
+.loggedOut-main-section-left {
+    width: 20%;
+    margin-left: 150px;
+    margin-top: 55px;
+    font-family: $faceBookFontr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loggedOut-main-section-right {
+    margin-left: 200px;
+    margin-top: 30px;
+    font-family: $faceBookFontr;
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: $signUpTextBlack;
+        margin-bottom: 15px;
+    }
+    button {
+      margin-top: 20px;
+      width: 190px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      background: linear-gradient($signUpButtonGradientOne, $signUpButtonGradientTwo);
+      background-color: $signUpButtonBackgroundColor;
+      box-shadow: inset 0 1px 1px $signUpButtonBoxShadow;
+      border-color: $signUpButtonBorderColorOne $signUpButtonBorderColorOne $signUpButtonBorderColorTwo;
+      color: $faceBookWhite;
+      font-size: 20px;
+      border: black solid .5px;
+    }
+}
+.text-thanks-for-stopping-by {
+  margin-top: 20px;
+  margin-left: 30px;
+  text-align: center;
+  font-size: 28px;
+  color: $faceBookBlue;
+}
+.text-we-hope-to-see-you-again-soon {
+  margin-top: 20px;
+  text-align: center;
+  margin-left: 30px;
+  font-size: 20px;
+}
+.text-its-free-and-always-will-be {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+.input-box-type-1 {
+    width: 188px;
+    height: 37px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: none;
+    border: $inputBoxBorderColor solid .5px;
+    font-size: 18px;
+    padding-left: 10px;
+    color: $inputBoxTextColor;
+}
+.input-box-type-2 {
+    width: 395px;
+    height: 37px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    border: $inputBoxBorderColor solid .5px;
+    font-size: 18px;
+    padding-left: 10px;
+    color: $inputBoxTextColor;
+}
+.text-birthday {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+// .move-birthday-to-right {
+//   margin-left: 184px;
+//
+// }
+select {
+  border: 1px solid rgb(189, 199, 216);
+  height: 30px;
+}
+.month {
+
+}
+.day {
+
+}
+.year {
+
+}
+.parent-for-select-and-birthday {
+  display: flex;
+}
+
+.text-why-do-I-need-to-provide-my-birthday {
+  font-size: 11px;
+  margin-left: 10px;
+  margin-top: 3px;
+  text-decoration: none;
+  line-height: 12px;
+}
+.radio-button-1 {
+  // margin-top: 10px;
+}
+.radio-button-2 {
+  // margin-top: 20px;
+  margin-left: 20px;
+}
+.text-by-clicking-sign-up {
+  margin-top: 20px;
+  font-size: 11px;
+  color: $textColorOfAgreeingtoSignup;
+  line-height: 15px;
+  a {
+    text-decoration: none;
+    color: $faceBookBlue;
+  }
+}
+.create-a-page {
+  margin-top: 30px;
+  a {
+    text-decoration: none;
+    color: $faceBookBlue;
+    font-size: 16px;
+  }
+  color: $textColorforCreatingAPageforOrganizations;
+  font-size: 16px;
+}
+.footer-parent {
+  display: flex;
+  justify-content: center;
+}
+.bottom-footer-image {
+  margin-left: 200px;
+  margin-top: 5px;
+}
