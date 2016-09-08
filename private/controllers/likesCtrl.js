@@ -17,13 +17,14 @@ module.exports = {
       }
 
       if(alreadyLiked) {
-        db.likes.posts.destroyPostLike([req.body.profile_id], function(err, r) {})
+        db.likes.posts.destroyPostLike([req.body.profile_id], function(err, r) {
+          db.likes.posts.getPostLikes([req.params.post_id], function(err, r) { console.log(r); res.json(r); });
+        })
       } else if ( !(alreadyLiked) ) {
-        db.likes.posts.likePost([req.body.profile_id, req.params.post_id], function(err, r) {});
+        db.likes.posts.likePost([req.body.profile_id, req.params.post_id], function(err, r) {
+          db.likes.posts.getPostLikes([req.params.post_id], function(err, r) { console.log(r); res.json(r); });
+        });
       }
-
-      db.likes.posts.getPostLikes([req.params.post_id], function(err, r) { res.json(r); });
-
     })
   }
 }
