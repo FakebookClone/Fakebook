@@ -8,7 +8,8 @@ module.exports = {
     })
   },
   postComment: function(req, res) {
-    db.comments.postComment([req.params.post_id, req.body.comment], function(err, r) {
+    console.log(req.params, req.body);
+    db.comments.postComment([req.params.post_id, req.body.comment, req.body.profile_id], function(err, r) {
       db.comments.getComments([req.params.post_id], function(err, r) { res.json(r); });
     })
   }

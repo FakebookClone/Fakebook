@@ -48,7 +48,7 @@ export default class Posts extends React.Component {
 
 				{this.state.postedComments.map( (value) => {
           return (
-            <Comment key={'comment_container_' + value.comment_id} comment={value} />
+            <Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} />
           )
         })}
 
@@ -66,7 +66,7 @@ export default class Posts extends React.Component {
 
   postComment(e) {
     if( e.keyCode === 13 ) {
-      Axios.post(`/api/comment/${this.props.post.post_id}`, { comment: this.state.comment }).then( r => {
+      Axios.post(`/api/comment/${this.props.post.post_id}`, { comment: this.state.comment, profile_id: this.props.user.id }).then( r => {
         this.setState({ postedComments: r.data, comment: '' })
       })
     }
