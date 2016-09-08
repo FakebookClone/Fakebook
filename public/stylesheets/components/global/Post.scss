@@ -54,17 +54,51 @@
     align-items: center;
     border-bottom: $borderColorGrey;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     div {
         p {
             font-size: 12px;
             font-weight: 600;
             font-family: $facebookFontA;
             color: $likeCommentShareGray;
+            padding-bottom: 2px;
+        }
+
+        &:hover {
+            text-decoration: underline;
         }
 
         img {
             height: 15px;
             width: 15px;
+            padding-right: 6px;
         }
     }
+}
+
+.likePost {
+    height: 15px;
+    width: 67px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.commentPost {
+    height: 15px;
+    width: 108px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.sharePost {
+    height: 15px;
+    width: 86px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }

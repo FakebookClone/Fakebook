@@ -37,17 +37,17 @@ export default class Posts extends React.Component {
 				</div>
 				<div className="mid-posted-icon-div">
 
-					<div>
+					<div className="likePost">
 						<img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
 						<p>Like</p>
 					</div>
 
-					<div>
+					<div className="commentPost">
 						<img src={imageshome + 'gray-comment-small.png'}/>
 						<p>Comment</p>
 					</div>
-					
-					<div>
+
+					<div className="sharePost">
 						<img src={imageshome + 'gray-share-small.png'}/>
 						<p>Share</p>
 					</div>
