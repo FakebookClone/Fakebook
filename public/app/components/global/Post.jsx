@@ -5,17 +5,16 @@ import Comment from './Comment.jsx';
 require('../../../stylesheets/components/global/Post.scss');
 
 export default class Posts extends React.Component {
+  constructor() {
+    super()
+    this.state = { postedComments: [], comment: '', likes: [] };
+  }
 
-constructor() {
-	super()
-	this.state = { postedComments: [], comment: '' };
-}
-
-componentWillMount() {
-	Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
-		this.setState({ postedComments: r.data });
-	});
-}
+  componentWillMount() {
+  	Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
+  		this.setState({ postedComments: r.data });
+  	});
+  }
 
 	render() {
 		return (
@@ -37,14 +36,13 @@ componentWillMount() {
 					<p>Share</p>
 				</div>
 
-				{this.state.comments.map( (value) => {
-
+				{this.state.postedComments.map( (value) => {
           return (
             <Comment key={'comment_container_' + value.comment_id} comment={value} />
           )
         })}
 
-        <img src={this.props.post.profile_pic} /><input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
+        <input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
         <img src="broken-link" />
         <img src="broken-link" />
         <p>Press Enter to post.</p>
@@ -62,5 +60,11 @@ componentWillMount() {
         this.setState({ postedComments: r.data, comment: '' })
       })
     }
+  }
+
+  likePost() {
+    Axios.post(`/api/like/${this.props.post.post_id}`, { profile_id: this.props.user.id, post_id: this.props.post.post_id, comment_id: null, photo_id: null }).then( r => {
+      this.setState({ likes: r.data });
+    })
   }
 }
