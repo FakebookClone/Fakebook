@@ -39,6 +39,7 @@ export default class GlobalHeader extends React.Component {
 							<img className="down-arrow" src={images + 'down_arrow_not_selected.png'}/>
 						</div>
 					</div>
+					<div className="false-right-header"></div>
 				</div>
 			</div>
 		)

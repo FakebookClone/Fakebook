@@ -3,14 +3,14 @@
 .global-header-wrapper{
   background: $faceBookBlue;
   width: 100%;
-
+  display: flex;
+  justify-content: center;
 }
 
 
 .global-header-container {
   background: $faceBookBlue;
-  margin-left: 349px;
-  width: 1008px;
+  width: 1215px;
   display: flex;
   flex-direction: row;
   height: 42px;
@@ -124,4 +124,9 @@
   margin-left: 12px;
   max-height: 8px;
   max-width: 10px;
+}
+
+.false-right-header{
+  height: 42px;
+  width: 196px;
 }

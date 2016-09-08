@@ -1,0 +1,51 @@
+@import '../../base/utilities';
+
+.global-post-container {
+  width: 505px;
+  min-height: 190px;
+  background: #FFF;
+  margin-top: 12px;
+}
+
+.upper-posted-div{
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  display: flex;
+  min-height: 94px;
+  width: 476px;
+  border-bottom: $borderColorGrey;
+}
+
+.user-profile-posted-div{
+  display: flex;
+  flex-direction: row;
+  width: 200px;;
+  img{
+    margin-top: 12px;
+    height: 40px;
+    width: 40px;
+    border: $borderColorGrey;
+  }
+  p{
+    margin-top: 12px;
+    padding-top: 6px;
+    padding-left: 8px;
+    height: 40px;
+    width:96px;
+    font-family: $facebookFontA;
+    font-weight: bold;
+    font-size: 14px;
+    color: $fbTextBlue;
+  }
+}
+
+.posted-text{
+  margin-top: 7px;
+}
+
+.mid-posted-icon-div{
+  display: flex;
+  flex-direction: row;
+  border-bottom: $borderColorGrey;
+}

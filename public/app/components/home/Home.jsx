@@ -35,6 +35,7 @@ export default class Home extends React.Component {
 									<HomeLeft user={this.state.user}/>
 									<HomeCenter user={this.state.user}/>
 									<HomeRight/>
+									<div className= "false-right"></div>
 								</div>
 							</div>
 							<div>

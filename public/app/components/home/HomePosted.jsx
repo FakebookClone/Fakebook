@@ -21,7 +21,7 @@ export default class HomePosted extends React.Component {
         }
         {this.props.posts.map( (value) => {
           return (
-            <Posts key={'post_component_' + value.post_id} post={value} />
+            <Posts user={this.props.user} key={'post_component_' + value.post_id} post={value} />
           )
         })}
       </div>
