@@ -6,6 +6,7 @@ import Login from './components/auth/Login.jsx';
 import LoggedOut from './components/auth/LoggedOut.jsx';
 import Home from './components/home/Home.jsx';
 import Profile from './components/profile/Profile.jsx';
+import FindFriends from './components/find_friends/FindFriends.jsx';
 
 class FakebookApp extends React.Component {
   constructor() {
