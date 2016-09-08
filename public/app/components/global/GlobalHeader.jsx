@@ -47,6 +47,6 @@ export default class GlobalHeader extends React.Component {
 
 	logout() {
 		localStorage.clear();
-		browserHistory.push('/');
+		browserHistory.push('/loggedout');
 	}
 }

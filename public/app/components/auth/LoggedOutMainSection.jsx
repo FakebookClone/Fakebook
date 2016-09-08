@@ -27,6 +27,7 @@ export default class LoggedOutMainSection extends React.Component {
 						<input className="input-box-type-2" placeholder="New password"/>
 						<br />
 						<p className="text-birthday">Birthday</p>
+						<div className="parent-for-select-and-birthday">
 						<select className="month">
 							<option value="0" defaultValue="1">Month</option>
 							<option value="1">Jan</option>
@@ -191,7 +192,7 @@ export default class LoggedOutMainSection extends React.Component {
 							<option value="1906">1906</option>
 							<option value="1905">1905</option>
 						</select>
-						<a className="text-why-do-I-need-to-provide-my-birthday" href="#">Why do I need to provide my <br /> <span className="move-birthday-to-right">birthday?</span></a>
+						<a className="text-why-do-I-need-to-provide-my-birthday" href="#">Why do I need to provide my <br /> <span className="move-birthday-to-right">birthday?</span></a></div>
 						<br />
 						<input className="radio-button-1" type="radio"/>Female
 						<input className="radio-button-2" type="radio"/>Male

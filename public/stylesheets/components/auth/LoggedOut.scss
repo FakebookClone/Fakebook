@@ -2,23 +2,27 @@
 
 .loggedOut-main-section-wrapper {
     display: flex;
+    justify-content: center;
     background: linear-gradient($faceBookWhite, $faceBookDarkerGradientColor);
     padding-bottom: 30px;
-    padding: 40px;
+    // padding: 40px;
+    width: 100vw;
 }
 
 .loggedOut-main-section-left {
     width: 20%;
-    margin-left: 340px;
-    margin-top: 40px;
+    margin-left: 150px;
+    margin-top: 55px;
     font-family: $faceBookFontr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .loggedOut-main-section-right {
-    margin-left: 190px;
+    margin-left: 200px;
     margin-top: 30px;
     font-family: $faceBookFontr;
-
     h1 {
         font-size: 36px;
         font-weight: bold;
@@ -51,7 +55,7 @@
   margin-top: 20px;
   text-align: center;
   margin-left: 30px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .text-its-free-and-always-will-be {
     font-size: 20px;
@@ -85,8 +89,13 @@
   margin-bottom: 10px;
   font-size: 18px;
 }
-.move-birthday-to-right {
-  margin-left: 184px;
+// .move-birthday-to-right {
+//   margin-left: 184px;
+//
+// }
+select {
+  border: 1px solid rgb(189, 199, 216);
+  height: 30px;
 }
 .month {
 
@@ -97,21 +106,22 @@
 .year {
 
 }
-.text-why-do-I-need-to-provide-my-birthday-container {
-  width: 175px;
-  height: 8px;
-  margin-left: 180px;
+.parent-for-select-and-birthday {
+  display: flex;
 }
+
 .text-why-do-I-need-to-provide-my-birthday {
   font-size: 11px;
   margin-left: 10px;
+  margin-top: 3px;
   text-decoration: none;
+  line-height: 12px;
 }
 .radio-button-1 {
-  margin-top: 20px;
+  // margin-top: 10px;
 }
 .radio-button-2 {
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-left: 20px;
 }
 .text-by-clicking-sign-up {
@@ -134,7 +144,11 @@
   color: $textColorforCreatingAPageforOrganizations;
   font-size: 16px;
 }
+.footer-parent {
+  display: flex;
+  justify-content: center;
+}
 .bottom-footer-image {
-  margin-left: 300px;
+  margin-left: 200px;
   margin-top: 5px;
 }

@@ -7,7 +7,7 @@ export default class LoggedOutFooter extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="footer-parent">
 				<img className="bottom-footer-image" src="../images/login/lower-login.png"/>
 			</div>
 		)
