@@ -1,18 +1,19 @@
 import React from 'react';
 import Axios from 'axios';
+import Comment from './Comment.jsx';
 
 require('../../../stylesheets/components/global/Post.scss');
 
 export default class Posts extends React.Component {
-<<<<<<< HEAD
+
 constructor() {
 	super()
-	this.state = { comments: [] };
+	this.state = { postedComments: [], comment: '' };
 }
 
 componentWillMount() {
 	Axios.get(`/api/comments/${this.props.post.post_id}`).then( r => {
-		this.setState({ comments: r.data });
+		this.setState({ postedComments: r.data });
 	});
 }
 
@@ -37,18 +38,29 @@ componentWillMount() {
 				</div>
 
 				{this.state.comments.map( (value) => {
+
           return (
-            <div key={'comment_container_' + value.comment_id}>
-              <p key={'comment_' + value.comment_id}>{value.comment_text}</p>
-            </div>
+            <Comment key={'comment_container_' + value.comment_id} comment={value} />
           )
         })}
 
-				<img src={this.props.post.profile_pic}/><input placeholder="Write a comment..."/>
-				<img src="broken-link"/>
-				<img src="broken-link"/>
-				<p>Press Enter to post.</p>
-			</div>
-		)
-	}
+        <img src={this.props.post.profile_pic} /><input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)} />
+        <img src="broken-link" />
+        <img src="broken-link" />
+        <p>Press Enter to post.</p>
+      </div>
+    )
+  }
+
+  commentCatcher(e) {
+    this.setState({ comment: e.target.value })
+  }
+
+  postComment(e) {
+    if( e.keyCode === 13 ) {
+      Axios.post(`/api/comment/${this.props.post.post_id}`, { comment: this.state.comment }).then( r => {
+        this.setState({ postedComments: r.data, comment: '' })
+      })
+    }
+  }
 }
