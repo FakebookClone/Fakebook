@@ -1,4 +1,5 @@
 import React from 'react';
+var imageshome = './images/home/';
 
 require('../../../stylesheets/components/home/HomeLeft.scss');
 
@@ -7,38 +8,59 @@ export default class HomeLeft extends React.Component {
 		super()
 	}
 
-  render() {
-    return (
-      <div className="home-left-column">
-        <ul>
-          <li><img src={this.props.user.picture.data.url} />{this.props.user.name}</li>
-          <li><img src="#" />Edit Profile</li>
-          <h4>FAVORITES</h4>
-          <li><img src="#" />News Feed</li>
-          <li><img src="#" />Welcome</li>
-          <li><img src="#" />Messages</li>
-          <li><img src="#" />Events</li>
-          <h4>APPS</h4>
-          <li><img src="#" />Live Video</li>
-          <li><img src="#" />Games</li>
-          <li><img src="#" />Find Friends</li>
-          <li><img src="#" />Photos</li>
-          <li><img src="#" />Suggest Edits</li>
-          <li><img src="#" />Pokes</li>
-          <h4>PAGES</h4>
-          <li><img src="#" />Pages Feed</li>
-          <li><img src="#" />Like Pages</li>
-          <li><img src="#" />Create Pages</li>
-          <h4>FUNDRAISERS</h4>
-          <li><img src="#" />Create Fundraiser</li>
-          <li><img src="#" />Find Fundraiser</li>
-          <h4>GROUPS</h4>
-          <li><img src="#" />Discover Groups</li>
-          <li><img src="#" />Create Groups</li>
-          <h4>EVENTS</h4>
-          <li><img src="#" />Create Event</li>
-        </ul>
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="home-left-column">
+				<ul>
+					<div className="left-div">
+						<li className="leftHover"><img src={this.props.user.picture.data.url}/>{this.props.user.name}</li>
+						<li className="leftHover"><img src={imageshome + 'edit-profile.png'}/>Edit Profile</li>
+					</div>
+
+					<div className="left-div">
+						<h4>FAVORITES</h4>
+						<li className="leftHover"><img src={imageshome + 'news-feed.png'}/>News Feed</li>
+						<li className="leftHover"><img src={imageshome + 'fb-welcome.png'}/>Welcome</li>
+						<li className="leftHover"><img src={imageshome + 'messages.png'}/>Messages</li>
+						<li className="leftHover"><img src={imageshome + 'calendar.png'}/>Events</li>
+					</div>
+
+					<div className="left-div">
+						<h4>APPS</h4>
+						<li className="leftHover"><img src={imageshome + 'live-video.png'}/>Live Video</li>
+						<li className="leftHover"><img src={imageshome + 'games.png'}/>Games</li>
+						<li className="leftHover"><img src={imageshome + 'find-friends.png'}/>Find Friends</li>
+						<li className="leftHover"><img src={imageshome + 'photos.png'}/>Photos</li>
+						<li className="leftHover"><img src={imageshome + 'suggest-edits.png'}/>Suggest Edits</li>
+						<li className="leftHover"><img src={imageshome + 'pokes.png'}/>Pokes</li>
+					</div>
+
+					<div className="left-div">
+						<h4>PAGES</h4>
+						<li className="leftHover"><img src={imageshome + 'pages-feed.png'}/>Pages Feed</li>
+						<li className="leftHover"><img src={imageshome + 'like-pages.png'}/>Like Pages</li>
+						<li className="leftHover"><img src={imageshome + 'create-page.png'}/>Create Pages</li>
+					</div>
+
+					<div className="left-div">
+						<h4>FUNDRAISERS</h4>
+						<li className="leftHover"><img src={imageshome + 'create-fundraiser.png'}/>Create Fundraiser</li>
+						<li className="leftHover"><img src={imageshome + 'find-fundraisers.png'}/>Find Fundraiser</li>
+					</div>
+
+					<div className="left-div">
+						<h4>GROUPS</h4>
+						<li className="leftHover"><img src={imageshome + 'discover-groups.png'}/>Discover Groups</li>
+						<li className="leftHover"><img src={imageshome + 'create-group.png'}/>Create Groups</li>
+					</div>
+
+					<div className="left-div">
+						<h4>EVENTS</h4>
+						<li className="leftHover"><img src={imageshome + 'create-event.png'}/>Create Event</li>
+					</div>
+
+				</ul>
+			</div>
+		)
+	}
 }
