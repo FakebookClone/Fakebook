@@ -43,11 +43,9 @@ export default class Profile extends React.Component {
 					<GlobalChat/>
 				</div>
 				<div>
-					<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
 					<ProfilePhotosGallery/>
 				</div>
 				<div>
-					<p>The ProfileFriendsGallery is what shows when Friends is clicked, hiding most others.</p>
 					<ProfileFriendsGallery />
 				</div>
 			</div>
