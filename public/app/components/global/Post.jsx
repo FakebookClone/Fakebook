@@ -33,7 +33,11 @@ export default class Posts extends React.Component {
 					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
 				<div className="mid-posted-icon-div">
-					<img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
+          {this.state.likes.length !== 0
+            ? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
+            : <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
+          }
+
 					<p>Like</p>
 					<img src={imageshome + 'gray-comment-small.png'}/>
 					<p>Comment</p>
