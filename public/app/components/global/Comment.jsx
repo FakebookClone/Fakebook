@@ -1,6 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 
+require('../../../stylesheets/base/Comment.scss');
+
 export default class Comment extends React.Component {
   constructor() {
     super()
@@ -16,9 +18,9 @@ export default class Comment extends React.Component {
   render() {
     console.log(this.state.likes);
     return (
-      <div>
+      <div className="userPosted">
         <img src={this.props.comment.profile_pic} />
-        <p>{this.props.comment.name}</p>
+        <p className="postedName">{this.props.comment.name}</p>
         <p>{this.props.comment.comment_text}</p>
         <p onClick={this.likeComment.bind(this)}>Like</p>
         {this.state.likes.length !== 0

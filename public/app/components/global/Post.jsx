@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Comment from './Comment.jsx';
+import ToggleDisplay from 'react-toggle-display';
 var imageshome = './images/home/';
 
 require('../../../stylesheets/components/global/Post.scss');
@@ -37,39 +38,45 @@ export default class Posts extends React.Component {
 				</div>
 				<div className="mid-posted-icon-div">
 
-					<div className="likePost">
-						<img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
-						<p>Like</p>
-					</div>
+						<div className="likePost" onClick={this.likePost.bind(this)}>
+							<img src={imageshome + 'gray-like.png'} />
+							<p id="likes">Like</p>
+						</div>
 
-					<div className="commentPost">
-						<img src={imageshome + 'gray-comment-small.png'}/>
-						<p>Comment</p>
-					</div>
+						<div className="commentPost">
+							<img src={imageshome + 'gray-comment-small.png'}/>
+							<p>Comment</p>
+						</div>
 
-					<div className="sharePost">
-						<img src={imageshome + 'gray-share-small.png'}/>
-						<p>Share</p>
-					</div>
+						<div className="sharePost">
+							<img id="likeImg" src={imageshome + 'gray-share-small.png'}/>
+							<p>Share</p>
+						</div>
 
 				</div>
 
 				{this.state.likes.length !== 0
-					? <div>
-							<img src="broken-link"/>
+					? <div className="likesDiv">
+							<img src={imageshome + 'blue-like.png'}/>
 							<p>{this.state.likes.length}</p>
 						</div>
 					: null
 }
 
 				{this.state.postedComments.map((value) => {
-					return (<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
+					return (
+						<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>
+					)
 				})}
 
-				<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
-				<img src="broken-link"/>
-				<img src="broken-link"/>
-				<p>Press Enter to post.</p>
+				<div className="comment-input-section">
+					<div className="comment-profile-pic"></div>
+					<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
+					<img src="broken-link"/>
+					<img src="broken-link"/>
+					<p>Press Enter to post.</p>
+				</div>
+
 			</div>
 		)
 	}
@@ -91,7 +98,8 @@ export default class Posts extends React.Component {
 
 	likePost() {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
-			this.setState({likes: r.data});
+			this.setState({
+				likes: r.data,});
 		})
 	}
 }
