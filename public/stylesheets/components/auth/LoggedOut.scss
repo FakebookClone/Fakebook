@@ -5,7 +5,6 @@
     justify-content: center;
     background: linear-gradient($faceBookWhite, $faceBookDarkerGradientColor);
     padding-bottom: 30px;
-    // padding: 40px;
     width: 100vw;
 }
 
@@ -68,7 +67,7 @@
     margin-right: 5px;
     border-radius: 5px;
     border: none;
-    border: $inputBoxBorderColor solid .5px;
+    border: $inputBoxBorderColor;
     font-size: 18px;
     padding-left: 10px;
     color: $inputBoxTextColor;
@@ -79,7 +78,7 @@
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
-    border: $inputBoxBorderColor solid .5px;
+    border: $inputBoxBorderColor;
     font-size: 18px;
     padding-left: 10px;
     color: $inputBoxTextColor;
@@ -89,22 +88,9 @@
   margin-bottom: 10px;
   font-size: 18px;
 }
-// .move-birthday-to-right {
-//   margin-left: 184px;
-//
-// }
 select {
-  border: 1px solid rgb(189, 199, 216);
+  border: $borderAroundSelectBoxes;
   height: 30px;
-}
-.month {
-
-}
-.day {
-
-}
-.year {
-
 }
 .parent-for-select-and-birthday {
   display: flex;
@@ -117,11 +103,7 @@ select {
   text-decoration: none;
   line-height: 12px;
 }
-.radio-button-1 {
-  // margin-top: 10px;
-}
 .radio-button-2 {
-  // margin-top: 20px;
   margin-left: 20px;
 }
 .text-by-clicking-sign-up {
