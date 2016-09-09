@@ -57,7 +57,7 @@
 .footer-plus-box {
     height: 26px;
     width: 32px;
-    background-color: #e9ebee;
+    background-color: #f6f7f9;
     border: 1px solid #ced0d4;
     border-radius: 2px;
     cursor: pointer;
@@ -68,6 +68,9 @@
     img {
         height: 12px;
         width: 12px;
+    }
+    &:hover {
+      background-color: #e9ebee;
     }
 }
 
