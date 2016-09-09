@@ -1,0 +1,104 @@
+@import '../../base/utilities';
+
+.footer-wrapper {
+    height: 135px;
+    width: 321px;
+    background-color: transparent;
+    font-family: $faceBookFonth;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+.footer-top-section {
+    height: 56px;
+    width: 308 px;
+    background-color: $faceBookWhite;
+    border: 1px solid rgb(221, 223, 226);
+    display: flex;
+    justify-content: space-between;
+    font-family: $faceBookFonth;
+}
+
+.languages {
+
+    margin-top: 12px;
+    margin-left: 12px;
+
+    a:link {
+        text-decoration: none;
+        color: #365899;
+        cursor: pointer;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: #365899;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #365899;
+    }
+}
+
+.gray-text {
+    color: #90949c;
+}
+
+.plus-box-wrapper {
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    margin-bottom: 4px;
+}
+
+.footer-plus-box {
+    height: 26px;
+    width: 32px;
+    background-color: #f6f7f9;
+    border: 1px solid #ced0d4;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        height: 12px;
+        width: 12px;
+    }
+    &:hover {
+      background-color: #e9ebee;
+    }
+}
+
+.footer-bottom-section {
+  margin-top: 4px;
+  margin-left: 10px;
+  i {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  a:link {
+      text-decoration: none;
+      cursor: pointer;
+      color: #90949c;
+  }
+
+  a:visited {
+      text-decoration: none;
+      color: #90949c;
+  }
+
+  a:hover {
+      text-decoration: underline;
+      color: #90949c;
+  }
+}
+
+.gray-carat-down {
+  position: relative;
+  top: -2px;
+}
