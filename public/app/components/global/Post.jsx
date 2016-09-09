@@ -26,6 +26,7 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.user);
 		return (
 			<div className="global-post-container">
 
@@ -37,7 +38,6 @@ export default class Posts extends React.Component {
 					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
 				<div className="mid-posted-icon-div">
-
 						<div className="likePost" onClick={this.likePost.bind(this)}>
 							<img src={imageshome + 'gray-like.png'} />
 							<p id="likes">Like</p>
@@ -61,7 +61,7 @@ export default class Posts extends React.Component {
 							<p>{this.state.likes.length}</p>
 						</div>
 					: null
-}
+				}
 
 				{this.state.postedComments.map((value) => {
 					return (
@@ -70,13 +70,25 @@ export default class Posts extends React.Component {
 				})}
 
 				<div className="comment-input-section">
-					<div className="comment-profile-pic"></div>
+					<div className="comment-profile-pic">
+						<img src={this.props.user.picture.data.url} />
+					</div>
 					<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
 					<img src="broken-link"/>
 					<img src="broken-link"/>
 					<p>Press Enter to post.</p>
-				</div>
 
+          {this.state.likes.length !== 0
+            ? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
+            : <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
+          }
+
+					<p>Like</p>
+					<img src={imageshome + 'gray-comment-small.png'}/>
+					<p>Comment</p>
+					<img src={imageshome + 'gray-share-small.png'}/>
+					<p>Share</p>
+				</div>
 			</div>
 		)
 	}
