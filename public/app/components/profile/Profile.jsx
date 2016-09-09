@@ -16,31 +16,32 @@ import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
-require('../../../stylesheets/components/profile/Profile.scss');
+// require('../../../stylesheets/components/profile/Profile.scss');
 
 export default class Profile extends React.Component {
 	constructor() {
 		super()
+		this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')) }
 	}
+
 	render() {
 		return (
 			<div>
 				<div>
-					{/* <GlobalHeader/> */}
-					<ProfileCover/>
-					<ProfileAddPhoto/>
-					<ProfileNav/>
-					<ProfileIntro/>
-					<ProfilePhotos/>
-					<ProfileFriends/>
-					<GlobalFooter/>
-					<ProfilePostStatus/>
-					<ProfileStatusBox/>
-					<ProfileOldPosts/>
-					<ProfileBirthdayBox/>
-					<img src="/images/profile/gray-dot.png"/>
-
-					<GlobalChat/>
+					<GlobalHeader user={this.state.user} />
+					<ProfileCover />
+					<ProfileAddPhoto />
+					<ProfileNav />
+					<ProfileIntro />
+					<ProfilePhotos />
+					<ProfileFriends />
+					<GlobalFooter />
+					<ProfilePostStatus />
+					<ProfileStatusBox />
+					<ProfileOldPosts />
+					<ProfileBirthdayBox />
+					<img src="/images/profile/gray-dot.png" />
+					<GlobalChat />
 				</div>
 				<div>
 					<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
