@@ -1,63 +1,156 @@
 @import '../../base/utilities';
 
 .global-post-container {
-  width: 505px;
-  min-height: 190px;
-  background: #FFF;
-  margin-top: 12px;
-}
-
-.upper-posted-div{
-  display: flex;
-  flex-direction: column;
-  margin-left: 12px;
-  display: flex;
-  min-height: 94px;
-  width: 476px;
-  border-bottom: $borderColorGrey;
-}
-
-.user-profile-posted-div{
-  display: flex;
-  flex-direction: row;
-  width: 200px;;
-  img{
+    width: 505px;
+    min-height: 190px;
+    background: #FFF;
     margin-top: 12px;
-    height: 40px;
-    width: 40px;
-    border: $borderColorGrey;
-  }
-  p{
-    margin-top: 12px;
-    padding-top: 6px;
-    padding-left: 8px;
-    height: 40px;
-    width:96px;
-    font-family: $facebookFontA;
-    font-weight: bold;
-    font-size: 14px;
-    color: $fbTextBlue;
-  }
 }
 
-.posted-text{
-  margin-top: 7px;
+// Upper ******************
+
+.upper-posted-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    display: flex;
+    min-height: 94px;
+    width: 476px;
+    border-bottom: $borderColorGrey;
 }
 
-.mid-posted-icon-div{
-  height:30px;
+.user-profile-posted-div {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+
+    img {
+        margin-top: 12px;
+        height: 40px;
+        width: 40px;
+        border: $borderColorGrey;
+    }
+
+    p {
+        margin-top: 12px;
+        padding-top: 6px;
+        padding-left: 8px;
+        height: 40px;
+        width: 96px;
+        font-family: $facebookFontA;
+        font-weight: bold;
+        font-size: 14px;
+        color: $fbTextBlue;
+    }
+}
+
+.posted-text {
+    margin-top: 7px;
+}
+
+// Mid ******************
+
+.mid-posted-icon-div {
+    margin-left: 12px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: $borderColorGrey;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    div {
+      position: relative;
+        p {
+            font-size: 12px;
+            font-weight: 600;
+            font-family: $facebookFontA;
+            color: $likeCommentShareGray;
+            padding-bottom: 2px;
+
+
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+
+        img {
+            height: 15px;
+            width: 15px;
+            padding-right: 6px;
+
+        }
+    }
+}
+
+
+.likePost {
+    height: 15px;
+    width: 67px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+
+.commentPost {
+    height: 15px;
+    width: 108px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+
+.sharePost {
+    height: 15px;
+    width: 86px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+// Likes Div *****************
+.likesDiv{
+  height: 40px;
+  margin-left: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: $borderColorGrey;
-  p{
-    font-size: 12px;
-    font-weight: 600;
-    font-family: $facebookFontA;
-    color: $likeCommentShareGray;
-  }
   img{
     height: 15px;
     width: 15px;
+    margin-right: 5px;
   }
+  p{
+    color: #36589F;
+    font-size: 12px;
+    font-family: $faceBookFonth;
+  }
+}
+
+// Comments Div ****************
+
+.comment-input-section{
+  display: flex;
+  flex-direction: row;
+  input{
+    height: 30px;
+    width: 434px;
+  }
+  img{
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.comment-profile-pic{
+  height: 41px;
+  width: 53px;
+
 }
