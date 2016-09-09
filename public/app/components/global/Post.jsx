@@ -26,7 +26,6 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user);
 		return (
 			<div className="global-post-container">
 
@@ -42,11 +41,11 @@ export default class Posts extends React.Component {
 						{this.state.likes.length !== 0
 							? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
 							: <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
-            }
-						{this.state.likes.length !==0
+}
+						{this.state.likes.length !== 0
 							? <p>Likes</p>
-						  : <div className="blueLikes">Likes</div>
-						}
+							: <div className="blueLikes">Likes</div>
+}
 
 					</div>
 
@@ -78,21 +77,19 @@ export default class Posts extends React.Component {
 					<div className="comment-profile-pic">
 						<img src={this.props.user.picture.data.url}/>
 					</div>
-					<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
-					<img src="broken-link"/>
-					<img src="broken-link"/>
-					<p>Press Enter to post.</p>
 
-					{this.state.likes.length !== 0
-						? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
-						: <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
-}
+					<div className="input-name">
+						<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
 
-					<p>Like</p>
-					<img src={imageshome + 'gray-comment-small.png'}/>
-					<p>Comment</p>
-					<img src={imageshome + 'gray-share-small.png'}/>
-					<p>Share</p>
+						<div className="camera-img">
+							<div ></div>
+						</div>
+
+						<div className="smiley-2">
+							<div></div>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		)

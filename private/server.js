@@ -1,5 +1,6 @@
 var aws = require('aws-sdk');
 var cors = require('cors');
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var config = require('./config.js');
@@ -45,7 +46,7 @@ app.get('/api/likes/comment/:comment_id', likesCtrl.getCommentLikes);
 app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
 
 app.get('*', function(req, res) {
-  res.sendFile('index.html', { root: '../public/' });
-});
+  res.sendFile('index.html', { root: '../public' });
+})
 
 app.listen(3000, function() { console.log('Server initiated on port 3000'); })

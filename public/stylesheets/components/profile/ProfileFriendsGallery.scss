@@ -1,73 +1,113 @@
+@import '../../base/utilities';
+
+.main-container {
+    width: 849px;
+    height: 405px;
+    border: $main-container-profile-photo-border;
+    border-width: 1px;
+    font-family: $faceBookFontr;
+}
+
+.upper-photos-section-wrapper {
+    width: 848px;
+    height: 57px;
+    border: $main-container-profile-photo-border;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.friends-image-wrapper {
+    margin-top: 17px;
+    margin-left: 13px;
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+        font-size: 20px;
+        margin-left: 7px;
+        margin-top: 1px;
+        color: $color-of-word-photos-on-profile;
+    }
+
+    img {
+        width: 24px;
+        height: 22px;
+    }
+}
+.create-requests-find-and-edit-buttons {
+    margin-top: 15px;
+    display: flex;
+    margin-right: 10px;
+    button {
+        height: 26px;
+        border: $main-container-profile-photo-border;
+        border-width: 1px;
+        background: transparent;
+        &:hover {
+          background-color: $iconHover;
+        }
+    }
+}
+.friend-requests-button {
+    flex-grow: 2;
+    padding-bottom: 3.25px;
+    padding-top: 4px;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-weight: 600;
+    font-size: 12px;
+}
+.text-friend-requests {
+
+  display: inline-block;
+}
 .red-counter {
+  position: relative;
   color: rgb(255, 255, 255);
   cursor: pointer;
   display: inline-block;
-  height: 13px;
-  min-height: 13px;
-  overflow-wrap: break-word;
-  text-align: center;
-  white-space: nowrap;
-  width: 5.5625px;
-  word-wrap: break-word;
-  column-rule-color: rgb(255, 255, 255);
-  perspective-origin: 5.78125px 7.5px;
-  transform-origin: 5.78125px 7.5px;
-  background: rgb(250, 62, 62) none repeat scroll 0% 0% / auto padding-box padding-box;
-  background-image: none;
-  background-position-x: 0%;
-  background-position-y: 0%;
-  background-size: auto;
-  background-repeat-x: repeat;
-  background-repeat-y: repeat;
-  background-attachment: scroll;
-  background-origin: padding-box;
-  background-clip: padding-box;
   background-color: rgb(250, 62, 62);
-  border: 0px none rgb(255, 255, 255);
-  border-top-color: rgb(255, 255, 255);
-  border-top-style: none;
-  border-top-width: 0px;
-  border-right-color: rgb(255, 255, 255);
-  border-right-style: none;
-  border-right-width: 0px;
-  border-bottom-color: rgb(255, 255, 255);
-  border-bottom-style: none;
-  border-bottom-width: 0px;
-  border-left-color: rgb(255, 255, 255);
-  border-left-style: none;
-  border-left-width: 0px;
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
-  border-image-repeat: initial;
-  border-radius: 2px 2px 2px 2px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
   font: normal normal bold normal 10px / 13px helvetica, arial, sans-serif;
-  font-style: normal;
-  font-variant-ligatures: normal;
-  font-variant-caps: normal;
-  font-variant-numeric: normal;
-  font-weight: bold;
-  font-stretch: normal;
-  font-size: 10px;
-  line-height: 13px;
   font-family: helvetica, arial, sans-serif;
-  margin: 0px 0px 0px 4px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
   margin-left: 4px;
-  outline: rgb(255, 255, 255) none 0px;
-  outline-color: rgb(255, 255, 255);
-  outline-style: none;
-  outline-width: 0px;
-  padding: 1px 3px;
+  margin-right: 3px;
   padding-top: 1px;
   padding-right: 3px;
   padding-bottom: 1px;
   padding-left: 3px;
+  border-radius: 2px;
+  bottom: 1px;
+}
+.gray-plus-image {
+    position: relative;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    padding-right: 3.5px;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    flex-grow: 1;
+}
+
+.find-friends-button {
+    flex-grow: 1;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 2px;
+}
+
+.edit-privacy-button {
+    flex-grow: 1;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 2px;
+}
+.no-friends-to-show {
+    font-size: 19px;
+    font-family: $faceBookFontr;
+    text-align: center;
+    margin-top: 94px;
+    color: $noPhotos-to-show-text-on-profile-photos;
 }
