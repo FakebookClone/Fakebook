@@ -1,0 +1,21 @@
+@import './utilities';
+
+.userPosted{
+  min-height: 48px;
+  width: 510px;
+  margin-top: 8px;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: row;
+  img{
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.postedName{
+  font-family: $facebookFontA;
+  font-weight: 600;
+  font-size: 12px;
+  color: $fbTextBlue;
+}

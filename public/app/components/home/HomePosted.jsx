@@ -1,7 +1,7 @@
 import React from 'react';
 import Posts from '../global/Post.jsx';
 
-require('../../../stylesheets/components/home/HomePost.scss');
+require('../../../stylesheets/components/home/HomePosted.scss');
 
 export default class HomePosted extends React.Component {
   constructor() {
@@ -10,7 +10,7 @@ export default class HomePosted extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className= "postedUser">
         {this.props.posts.length === 0
           ? <div>
               <img src="#" />

@@ -7,6 +7,7 @@
 }
 
 .left-div {
+      margin-bottom: 10px;
     li {
         display: flex;
         align-items: center;
@@ -14,6 +15,7 @@
         width: 172;
         font-family: $facebookFontA;
         font-size: 12px;
+        margin-bottom: 5px;
 
         img {
             height: 16px;
@@ -25,7 +27,7 @@
 
 h4 {
     margin-bottom: 5px;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     color: $leftProfileGruopNames;
     font-family: $facebookFontA;
