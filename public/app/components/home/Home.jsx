@@ -14,7 +14,6 @@ export default class Home extends React.Component {
 		super(props)
 		this.state = {
 			user: JSON.parse(localStorage.getItem('fakebook_user')),
-
 		}
 	}
 
@@ -46,7 +45,7 @@ export default class Home extends React.Component {
 							</div>
 						</div>
 					: null
-}
+				}
 			</div>
 		)
 	}

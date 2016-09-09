@@ -16,7 +16,6 @@ export default class Comment extends React.Component {
   }
 
   render() {
-    console.log(this.state.likes);
     return (
       <div className="userPosted">
         <img src={this.props.comment.profile_pic} />
