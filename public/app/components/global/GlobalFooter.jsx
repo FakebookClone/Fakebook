@@ -9,53 +9,56 @@ export default class GlobalFooter extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<img src="/images/main/dark-plus.png"/>
-				<div>
-					<p>English (US)<span>
-							·
-						</span>
-						<a href="#">Español</a>
-						<span>
-							·
-						</span>
-						<a href="#">Português (Brasil)</a>
-						<span>
-							·
-						</span>
-						<a href="#">Français (France)</a>
-            <span>
-							·
-						</span>
-						<a href="#">Deutsch</a>
-					</p>
+			<div className="footer-wrapper">
+
+				<div className="footer-top-section">
+
+					<div>
+						<div className="languages">
+							<p className="gray-text">English (US)
+								<span>&nbsp;·&nbsp;</span>
+								<a href="#">Español</a>
+								<span>&nbsp;·&nbsp;</span>
+								<a href="#">Português (Brasil)</a>
+								<span>&nbsp;·</span><br />
+								<a href="#">Français (France)</a>
+								<span>&nbsp;·&nbsp;</span>
+								<a href="#">Deutsch</a>
+							</p>
+						</div>
+					</div>
+					<div className="plus-box-wrapper">
+						<div className="footer-plus-box">
+							<img src="/images/main/gray-plus.png"/>
+						</div>
+					</div>
+
 				</div>
-				<div>
-					<p>
-						<a href="#">Privacy</a>
-						<span>
-							·
-						</span>
-            <a href="#">Terms</a>
-            <span>
-              ·
-            </span>
-            <a href="#">Advertising</a>
-            <span>
-              ·
-            </span>
-            <a href="#">Ad Choices</a><img src="/images/main/footer-ads.png"/>
-            <span>
-              ·
-            </span>
-            <a href="#">Cookies</a>
-            <span>
-              ·
-            </span>
-            <a href="#">More<i className="fa fa-caret-down"></i></a>
-					</p>
-          <p>Facebook <i className="fa fa-copyright"></i> 2016</p>
+
+				<div className="footer-bottom-section">
+
+					<div>
+						<p className="gray-text">
+							<a href="#">Privacy</a>
+							<span>&nbsp;·&nbsp;</span>
+							<a href="#">Terms</a>
+							<span>&nbsp;·&nbsp;</span>
+							<a href="#">Advertising</a>
+							<span>&nbsp;·&nbsp;</span>
+							<a href="#">Ad Choices</a><img src="/images/main/footer-ads.png"/>
+							<span>&nbsp;·&nbsp;</span>
+							<a href="#">Cookies</a>
+							<span>&nbsp;·</span><br />
+							<a href="#">More</a>&nbsp;
+							<img className="gray-carat-down" src="/images/main/small-gray-down-arrow.png" />
+						</p>
+						<p className="gray-text">Facebook&nbsp;
+							<i className="fa fa-copyright"></i>
+							&nbsp;2016</p>
+					</div>
+
 				</div>
+
 			</div>
 		)
 	}

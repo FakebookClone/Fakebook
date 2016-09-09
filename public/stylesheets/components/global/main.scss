@@ -72,7 +72,8 @@
   margin-top:9px;
   padding-top: 7px;
   padding-left: 6px;
-  width: 50px;
+  width: auto;
+  padding-right: 5px;
   &:hover{
     height: 17px;
     background-color: $headerHoverBlue;

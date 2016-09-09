@@ -26,7 +26,6 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user);
 		return (
 			<div className="global-post-container">
 

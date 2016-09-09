@@ -5,6 +5,7 @@ var imageshome = './images/home/';
 require('../../../stylesheets/base/Comment.scss');
 
 export default class Comment extends React.Component {
+
 	constructor() {
 		super()
 		this.state = {
