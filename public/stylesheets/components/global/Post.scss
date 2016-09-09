@@ -64,20 +64,18 @@
 
     div {
       position: relative;
+      &:hover {
+          text-decoration: underline;
+      }
         p {
             font-size: 12px;
             font-weight: 600;
             font-family: $facebookFontA;
-            color: $likeCommentShareGray;
+            color: $faceBookBlue;
             padding-bottom: 2px;
 
 
         }
-
-        &:hover {
-            text-decoration: underline;
-        }
-
 
         img {
             height: 15px;
@@ -86,6 +84,14 @@
 
         }
     }
+}
+
+.blueLikes{
+  font-size: 12px;
+  font-weight: 600;
+  font-family: $facebookFontA;
+  color: $likeCommentShareGray;
+  padding-bottom: 2px;
 }
 
 
