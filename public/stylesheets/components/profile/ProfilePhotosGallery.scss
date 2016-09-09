@@ -1,55 +1,107 @@
 @import '../../base/utilities';
+
 .main-container {
-  width: 849px;
-  height: 405px;
-  border: red solid;
-  font-family: $faceBookFontr;
+    width: 849px;
+    height: 405px;
+    border: $main-container-profile-photo-border;
+    border-width: 1px;
+    font-family: $faceBookFontr;
 }
+
 .upper-photos-section-wrapper {
-  width: 849px;
-  height: 57px;
-  border: blue solid;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    width: 848px;
+    height: 57px;
+    border: $main-container-profile-photo-border;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 .photo-image-wrapper {
-  margin-top: 17px;
-  margin-left: 13px;
-  display: flex;
-  flex-direction: row;
-  h1 {
-    font-size: 20px;
-    margin-left: 7px;
-  }
-  img {
-    width: 24px;
-    height: 22px;
-  }
+    margin-top: 17px;
+    margin-left: 13px;
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+        font-size: 20px;
+        margin-left: 7px;
+        margin-top: 1px;
+        color: $color-of-word-photos-on-profile;
+    }
+
+    img {
+        width: 24px;
+        height: 22px;
+    }
 }
+
 .create-album-button {
-  border: red solid;
-  img {
+    flex-grow: 2;
+    padding-left: 9px;
+    padding-bottom: 3.25px;
+    padding-top: 2px;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.gray-plus-image {
+    position: relative;
+    top: 2px;
     width: 12px;
     height: 12px;
-    margin-left: -10px;
-  }
+    padding-right: 3.5px;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    flex-grow: 1;
 }
-.create-add-and-video-buttons {
-  margin-top: 15px;
-  display: flex;
-  button {
-    width: 80px;
-    height: 26px;
-  }
-  // border: gold solid;
+
+.add-photos-button {
+    flex-grow: 1;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 2px;
 }
-// .pencil-button {
-//
-// }
+
+.add-video-button {
+    flex-grow: 1;
+    color: $color-of-text-in-buttons-on-profile-photos;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 2px;
+}
+
+.pencil-button {
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: $color-of-text-in-buttons-on-profile-photos;
+}
+
+.gray-pencil-image {
+    width: 12px;
+    height: 12px;
+    padding-left: 2px;
+    padding-top: 4px;
+    flex-grow: 1;
+}
+
+.create-add-and-video-and-pencil-buttons {
+    margin-top: 15px;
+    display: flex;
+    button {
+        height: 26px;
+        border: $main-container-profile-photo-border;
+        border-width: 1px;
+        background: transparent;
+    }
+}
 .no-photos-to-show {
-  font-size: 19px;
-  font-family: $faceBookFontr;
-  text-align: center;
-  margin-top: 94px;
+    font-size: 19px;
+    font-family: $faceBookFontr;
+    text-align: center;
+    margin-top: 94px;
+    color: $noPhotos-to-show-text-on-profile-photos;
 }
