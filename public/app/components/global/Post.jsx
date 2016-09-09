@@ -26,7 +26,6 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user);
 		return (
 			<div className="global-post-container">
 
@@ -86,7 +85,7 @@ export default class Posts extends React.Component {
 					{this.state.likes.length !== 0
 						? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
 						: <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
-}
+					}
 
 					<p>Like</p>
 					<img src={imageshome + 'gray-comment-small.png'}/>

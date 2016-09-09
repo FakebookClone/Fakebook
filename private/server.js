@@ -1,5 +1,6 @@
 var aws = require('aws-sdk');
 var cors = require('cors');
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var config = require('./config.js');
@@ -8,7 +9,6 @@ var massiveInstance = massive.connectSync({connectionString : config.connectionS
 
 var app = module.exports = express();
 app.set('db', massiveInstance);
-var db = app.get('db');
 
 var usersCtrl = require('./controllers/usersCtrl.js');
 var postsCtrl = require('./controllers/postsCtrl.js');
@@ -45,20 +45,8 @@ app.post('/api/like/post/:post_id', likesCtrl.likePost);
 app.get('/api/likes/comment/:comment_id', likesCtrl.getCommentLikes);
 app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
 
-app.get('/profile/:profile_id', function(req, res) {
-  console.log('hit profile route');
-  db.users.getUser(req.params.profile_id, function(err, r) {
-    if( r.status === 200 ) {
-      console.log('success');
-      req.user = r.data;
-    }
-  });
-
-  // res.sendFile('index.html', { root: '../public/' });
-});
-
 app.get('*', function(req, res) {
-  res.sendFile('index.html', { root: '../public/' });
-});
+  res.sendFile('index.html', { root: '../public' });
+})
 
 app.listen(3000, function() { console.log('Server initiated on port 3000'); })

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, Link } from 'react-router';
+import { Router, Route, browserHistory, Link, hashHistory } from 'react-router';
 
 import Login from './components/auth/Login.jsx';
 import LoggedOut from './components/auth/LoggedOut.jsx';
@@ -17,9 +17,9 @@ class FakebookApp extends React.Component {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Login} />
-        <Route path="loggedout" component={LoggedOut} />
-        <Route path="home" component={Home} />
-        <Route path="profile/:profile_id" component={Profile} />
+        <Route path="/loggedout" component={LoggedOut} />
+        <Route path="/home" component={Home} />
+        <Route path="/profile/:profile_id" component={Profile} />
       </Router>
     )
   }
