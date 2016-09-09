@@ -38,20 +38,27 @@ export default class Posts extends React.Component {
 					<p className="posted-text">{this.props.post.post_text}</p>
 				</div>
 				<div className="mid-posted-icon-div">
-						<div className="likePost" onClick={this.likePost.bind(this)}>
-							<img src={imageshome + 'gray-like.png'} />
-							<p id="likes">Like</p>
-						</div>
+					<div className="likePost" onClick={this.likePost.bind(this)}>
+						{this.state.likes.length !== 0
+							? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
+							: <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
+            }
+						{this.state.likes.length !==0
+							? <p>Likes</p>
+						  : <div className="blueLikes">Likes</div>
+						}
 
-						<div className="commentPost">
-							<img src={imageshome + 'gray-comment-small.png'}/>
-							<p>Comment</p>
-						</div>
+					</div>
 
-						<div className="sharePost">
-							<img id="likeImg" src={imageshome + 'gray-share-small.png'}/>
-							<p>Share</p>
-						</div>
+					<div className="commentPost">
+						<img src={imageshome + 'gray-comment-small.png'}/>
+						<p>Comment</p>
+					</div>
+
+					<div className="sharePost">
+						<img id="likeImg" src={imageshome + 'gray-share-small.png'}/>
+						<p>Share</p>
+					</div>
 
 				</div>
 
@@ -61,27 +68,25 @@ export default class Posts extends React.Component {
 							<p>{this.state.likes.length}</p>
 						</div>
 					: null
-				}
+}
 
 				{this.state.postedComments.map((value) => {
-					return (
-						<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>
-					)
+					return (<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
 				})}
 
 				<div className="comment-input-section">
 					<div className="comment-profile-pic">
-						<img src={this.props.user.picture.data.url} />
+						<img src={this.props.user.picture.data.url}/>
 					</div>
 					<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
 					<img src="broken-link"/>
 					<img src="broken-link"/>
 					<p>Press Enter to post.</p>
 
-          {this.state.likes.length !== 0
-            ? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
-            : <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
-          }
+					{this.state.likes.length !== 0
+						? <img onClick={this.likePost.bind(this)} src={imageshome + 'blue-like.png'}/>
+						: <img onClick={this.likePost.bind(this)} src={imageshome + 'gray-like.png'}/>
+}
 
 					<p>Like</p>
 					<img src={imageshome + 'gray-comment-small.png'}/>
@@ -110,8 +115,7 @@ export default class Posts extends React.Component {
 
 	likePost() {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
-			this.setState({
-				likes: r.data,});
+			this.setState({likes: r.data});
 		})
 	}
 }
