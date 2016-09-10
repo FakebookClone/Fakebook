@@ -24,6 +24,7 @@ export default class HomePosted extends React.Component {
             <Posts user={this.props.user} key={'post_component_' + value.post_id} post={value} />
           )
         })}
+        <div className="posted-bottom-padding"></div>
       </div>
     )
   }
