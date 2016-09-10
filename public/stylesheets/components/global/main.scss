@@ -51,39 +51,65 @@
 }
 
 .header-profile-container{
+  height: 28px;
   width: 84px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+
+  // margin-top: 12px;
   img{
-    margin-right: 6px;
   }
-  p{
-    margin-top: 12px;
-    padding-top: 4px;
-    height: 18px;
-    width: 50px;
+  div{
+    margin-top: 9px;
+    height: 24px;
+    width: 1px;
     border-right: $headerInternalBorder;
   }
 }
 
+.headerProfileName{
+  margin-top:9px;
+  padding-top: 7px;
+  padding-left: 6px;
+  width: auto;
+  padding-right: 5px;
+  &:hover{
+    height: 17px;
+    background-color: $headerHoverBlue;
+  }
+}
+
+
 .header-home-redirect{
+  margin-top: 10px;
+  padding-top: 6px;
+  padding-left: 11px;
+  height: 18px;
+  width: 55px;
+  border-right: $headerInternalBorder;
   p{
-    margin-top: 12px;
-    padding-top: 4px;
-    padding-left: 11px;
-    height: 18px;
-    width: 55px;
-    border-right: $headerInternalBorder;
+
+
+  }
+  &:hover{
+    height: 17px;
+    background-color: $headerHoverBlue;
   }
 }
 
 .header-friends-redirect{
+  margin-top: 12px;
+  padding-top: 4px;
+  padding-left: 11px;
+  height: 18px;
+  width: 82px;
   p{
-    margin-top: 12px;
-    padding-top: 4px;
-    padding-left: 11px;
-    height: 18px;
-    width: 92px;
+    width:70px;
+  }
+  &:hover{
+    height: 17px;
+    background-color: $headerHoverBlue;
   }
 }
 

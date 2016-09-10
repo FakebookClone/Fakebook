@@ -12,7 +12,7 @@ export default class ProfileFriendsGallery extends React.Component {
 			<div className="main-container">
 			  <div className="upper-photos-section-wrapper">
 			    <div className="friends-image-wrapper">
-			      <h1><img src="/images/profile/photos_24.png"/>Friends</h1>
+			      <h1><img src="/images/profile/friends_24.png"/>Friends</h1>
 			    </div>
 
 			    <div className="create-requests-find-and-edit-buttons">

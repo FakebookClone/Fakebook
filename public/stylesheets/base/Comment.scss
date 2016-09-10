@@ -1,21 +1,70 @@
 @import './utilities';
 
-.userPosted{
-  min-height: 48px;
-  width: 510px;
-  margin-top: 8px;
-  margin-left: 12px;
-  display: flex;
-  flex-direction: row;
-  img{
-    height: 30px;
-    width: 30px;
+.userPosted {
+    min-height: 48px;
+    width: 510px;
+    margin-top: 8px;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: row;
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+.user-posted-upper {
+    display: flex;
+    flex-direction: row;
+}
+
+.userProfileContent {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 6px;
+
+    p {
+        font-family: $facebookFontA;
+        font-size: 12px;
+        font-weight: 600;
+        color: $fbTextBlue;
+        margin-left: 3px;
+    }
+}
+
+.postContent {
+  p{
+    font-family: $facebookFontA;
+    font-size: 12px;
+    font-weight: 400;
+    color: $fbTextBlack;
+    margin-left: 3px;
   }
 }
 
-.postedName{
-  font-family: $facebookFontA;
-  font-weight: 600;
-  font-size: 12px;
-  color: $fbTextBlue;
+.like-comment-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p{
+      font-family: $facebookFontA;
+      font-size: 12px;
+      font-weight: 400;
+      color: $fbTextBlue;
+      margin-left: 3px;
+      padding-top: 3px;
+      cursor: pointer;
+
+      }
+      div{
+        display: flex;
+        flex-direction: row;
+        margin-left: 3px;
+        color: $fbTextBlue;
+        img{
+          height: 12px;
+          width: 12px;
+        }
+  }
 }

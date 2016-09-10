@@ -14,13 +14,14 @@ export default class GlobalHeader extends React.Component {
 			<div className="global-header-wrapper">
 				<div className="global-header-container">
 					<img onClick={this.logout} className="same-line" src={images + 'facebook_logo.jpg'}/>
-					<input className="same-line-global-header-find-friends-input" placeholder="Search Facebook"/>
-					<button className="same-line global-search-button">
+					<input className="global-header-find-friends-input" placeholder="Search Facebook"/>
+					<button className="global-search-button">
 						<i className="fa fa-search"></i>
 					</button>
 					<div className="header-profile-container">
 						<img src={this.props.user.picture.data.url}/>
-						<Link to={`/profile/${this.props.user.id}`}><p>{this.props.user.first_name}</p></Link>
+						<Link to={`/profile/${this.props.user.id}`}><p className="headerProfileName">{this.props.user.first_name}</p></Link>
+						<div></div>
 					</div>
 					<div className="header-home-redirect">
 						<p>Home</p>
