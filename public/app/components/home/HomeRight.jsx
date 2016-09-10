@@ -1,4 +1,5 @@
 import React from 'react';
+import GlobalFooter from '../global/GlobalFooter.jsx';
 
 var images = '../../../images/home/';
 require('../../../stylesheets/components/home/HomeRight.scss');
@@ -12,7 +13,7 @@ export default class HomeRight extends React.Component {
     return (
       <div className="home-right-container">
         <img src={images + 'home-right-container.png'} />
-        <img className="home-right-middle" src={images + 'home-right-container-2.png'} />
+        <GlobalFooter />
       </div>
     )
   }

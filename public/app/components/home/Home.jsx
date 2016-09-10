@@ -30,18 +30,13 @@ export default class Home extends React.Component {
 					? <div>
 							<GlobalHeader user={this.state.user}/>
 							<div className="home-main-content-wrapper">
+								<GlobalChat />
 								<div className="home-main-content-container">
 									<HomeLeft user={this.state.user}/>
 									<HomeCenter user={this.state.user}/>
 									<HomeRight/>
 									<div className= "false-right"></div>
 								</div>
-							</div>
-							<div>
-								<GlobalFooter />
-							</div>
-							<div>
-								<GlobalChat />
 							</div>
 						</div>
 					: null
