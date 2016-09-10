@@ -22,36 +22,32 @@ export default class Comment extends React.Component {
 	render() {
 		console.log(this.state.likes);
 		return (
-			<div className="userPosted">
+			<div className="user-comment-wrapper">
 
-				<img src={this.props.comment.profile_pic}/>
+				<div className="user-comment-container">
 
-				<div className="user-content-section">
-
-					<div className="user-posted-upper">
-
-						<div className="userProfileContent">
-							<p>{this.props.comment.name}</p>
-						</div>
-
-						<div className="postContent">
-							<p>{this.props.comment.comment_text}</p>
-						</div>
-
-						<img src="broken-link" />
-
+					<div className="user-comment-profile-picture">
+						<img src={this.props.comment.profile_pic}/>
 					</div>
 
-<div className= "like-comment-div">
-  <p onClick={this.likeComment.bind(this)}>Like</p>
-  {this.state.likes.length !== 0
-    ? <div>&nbsp;·&nbsp;<img src={imageshome + 'normal-like.png'}/>
-        <p>{this.state.likes.length}</p>
-      </div>
-    : null
-}
-</div>
+					<div className="user-comment-text-container">
+						<div className="user-comment">
+							<p><span className="user-comment-profile-name">{this.props.comment.name}</span><span className="user-comment-text"> {this.props.comment.comment_text}</span></p>
+						</div>
 
+						<div className="user-comment-like-container">
+							{this.state.likes.length !== 0
+								? <p className="user-comment-like-text" onClick={this.likeComment.bind(this)}>Unlike</p>
+								: <p className="user-comment-like-text" onClick={this.likeComment.bind(this)}>Like</p>
+							}
+							{this.state.likes.length !== 0
+								? <div className="user-comment-like-indicator">
+										·&nbsp;<img src={imageshome + 'normal-like.png'} /><p>{this.state.likes.length}</p>
+									</div>
+								: null
+							}
+						</div>
+					</div>
 
 				</div>
 

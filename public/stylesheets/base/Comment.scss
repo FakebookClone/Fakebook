@@ -1,70 +1,90 @@
 @import './utilities';
 
-.userPosted {
-    min-height: 48px;
-    width: 510px;
-    margin-top: 8px;
-    margin-left: 12px;
-    display: flex;
-    flex-direction: row;
-
-    img {
-        height: 30px;
-        width: 30px;
-    }
+.user-comment-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #F6F7F9;
 }
 
-.user-posted-upper {
-    display: flex;
-    flex-direction: row;
+.user-comment-container {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  display: flex;
 }
 
-.userProfileContent {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 6px;
-
-    p {
-        font-family: $facebookFontA;
-        font-size: 12px;
-        font-weight: 600;
-        color: $fbTextBlue;
-        margin-left: 3px;
-    }
+.user-comment-text-container {
+  height: auto;
+  width: 90%;
+  min-height: 34px;
+  display: inline-block;
+  padding-left: 10px;
+  word-wrap: break-word;
 }
 
-.postContent {
-  p{
-    font-family: $facebookFontA;
-    font-size: 12px;
-    font-weight: 400;
-    color: $fbTextBlack;
-    margin-left: 3px;
+.user-comment {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  background: #F6F7F9;
+}
+
+.user-comment-profile-picture {
+  display: inline-block;
+  img {
+    height: 32px;
+    width: 32px;
+    border: 1px solid rgba(0, 0, 0, .1);
   }
 }
 
-.like-comment-div{
+.user-comment-profile-name {
+  font-family: $facebookFontA;
+  font-size: 12px;
+  font-weight: 600;
+  color: $fbTextBlue;
+}
+
+.user-comment-text {
+  font-family: $facebookFontA;
+  font-size: 12px;
+  font-weight: 400;
+  color: $fbTextBlack;
+  margin-left: 3px;
+}
+
+.user-comment-like-container {
+  height: auto;
+  width: auto;
+  display: flex;
+  margin-top: 4px;
+}
+
+.user-comment-like-text {
+  font-family: $facebookFontA;
+  font-size: 12px;
+  font-weight: 400;
+  color: $fbTextBlue;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.user-comment-like-indicator {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  p{
-      font-family: $facebookFontA;
-      font-size: 12px;
-      font-weight: 400;
-      color: $fbTextBlue;
-      margin-left: 3px;
-      padding-top: 3px;
-      cursor: pointer;
+  margin-left: 3px;
+  color: $fbTextBlue;
 
-      }
-      div{
-        display: flex;
-        flex-direction: row;
-        margin-left: 3px;
-        color: $fbTextBlue;
-        img{
-          height: 12px;
-          width: 12px;
-        }
+  img {
+    height: 12px;
+    width: 12px;
+    margin-top: 1px;
+  }
+
+  p {
+    color: $fbTextBlue;
+    font-size: 12px;
+    margin-left: 3px;
+    margin-top: 3px;
   }
 }

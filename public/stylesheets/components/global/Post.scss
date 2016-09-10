@@ -2,7 +2,8 @@
 
 .global-post-container {
     width: 505px;
-    min-height: 190px;
+    min-height: 176px;
+    height: auto;
     background: #FFF;
     margin-top: 12px;
 }
@@ -21,7 +22,7 @@
 .user-profile-posted-div {
     display: flex;
     flex-direction: row;
-    width: 200px;
+    width: 100%;
 
     img {
         margin-top: 12px;
@@ -30,31 +31,45 @@
         border: $borderColorGrey;
     }
 
+    a {
+      text-decoration: none;
+      color: $fbTextBlue;
+    }
+
     p {
-        margin-top: 12px;
-        padding-top: 6px;
-        padding-left: 8px;
-        height: 40px;
-        width: 96px;
+        margin-top: 26px;
+        margin-left: 8px;
         font-family: $facebookFontA;
-        font-weight: bold;
-        font-size: 14px;
         color: $fbTextBlue;
+        line-height: 1.38;
+        font-weight: 500;
+        font-size: 14px;
     }
 }
 
+.posted-text-container {
+  margin-top: 7px;
+  width: 100%;
+  height: auto;
+}
+
 .posted-text {
-    margin-top: 7px;
+  width: 100%;
+  word-wrap: break-word;
+  padding-bottom: 12px;
+  line-height: 1.38;
+  font-weight: normal;
+  font-size: 14px;
 }
 // Mid ******************
 
 .mid-posted-icon-div {
-    margin-left: 12px;
+    padding-left: 12px;
     height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: $borderColorGrey;
+    border-bottom: 0.1px solid #E5E5E5;
 
     &:hover {
         cursor: pointer;
@@ -71,7 +86,7 @@
             font-size: 12px;
             font-weight: 600;
             font-family: $facebookFontA;
-            color: $faceBookBlue;
+            color: #7F7F83;
             padding-bottom: 2px;
         }
 
@@ -117,16 +132,17 @@
 // Likes Div *****************
 
 .likesDiv {
-    height: 40px;
-    margin-left: 10px;
+    height: 39px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color: #F6F7F9;
 
     img {
         height: 15px;
         width: 15px;
         margin-right: 5px;
+        margin-left: 10px;
     }
 
     p {
@@ -135,13 +151,35 @@
         font-family: $faceBookFonth;
     }
 }
+
+.likes-seperator-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #F6F7F9;
+
+  div {
+    width: 96%;
+    border-bottom: 0.1px solid #E5E5E5;
+    margin-bottom: 5px;
+  }
+}
 // Comments Div ****************
+.lower-posted-div {
+  width: 100%;
+  min-height: 50px;
+  position: relative;
+  background: #F6F7F9;
+}
+
 
 .comment-input-section {
     display: flex;
+    position: absolute;
+    bottom: 2px;
     flex-direction: row;
     height: 38px;
-    width: 500px;
+    width: 100%;
 
     img {
         margin-left: 12px;
@@ -156,15 +194,26 @@
     display: flex;
     flex-direction: row;
 
-    input {
-        height: 28px;
-        width: 374px;
-        padding-left: 5px;
-        font-size: 12px;
-        border: none;
-        border-top: $borderColorGrey;
-        border-bottom: $borderColorGrey;
-        border-left: $borderColorGrey;
+    input::-webkit-input-placeholder {
+        color: #999;
+    }
+    input:focus::-webkit-input-placeholder {
+        color: #C0C2CA;
+    }
+
+    .new-comment-input {
+      height: 28px;
+      width: 374px;
+      padding-left: 5px;
+      font-size: 12px;
+      border: none;
+      border-top: $borderColorGrey;
+      border-bottom: $borderColorGrey;
+      border-left: $borderColorGrey;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     div {
@@ -180,7 +229,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
+    background-color: #FFF;
     div {
         height: 12px;
         width: 15px;
@@ -203,7 +252,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
+    background-color: #FFF;
     div {
         height: 15px;
         width: 15px;

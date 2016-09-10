@@ -1,5 +1,9 @@
 @import '../../base/utilities';
 
+html, body, p {
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+}
+
 .global-header-wrapper{
   background: $faceBookBlue;
   width: 100%;
@@ -120,7 +124,7 @@
 }
 
 .header-nav-section{
-  height: 18px;
+  height: 100%;
   width: 127px;
   img{
     max-height: 19px;

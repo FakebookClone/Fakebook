@@ -48,7 +48,7 @@ export default class GlobalFooter extends React.Component {
 							<a href="#">Ad Choices</a><img src="/images/main/footer-ads.png"/>
 							<span>&nbsp;·&nbsp;</span>
 							<a href="#">Cookies</a>
-							<span>&nbsp;·</span><br />
+							<span><br />·&nbsp;</span>
 							<a href="#">More</a>&nbsp;
 							<img className="gray-carat-down" src="/images/main/small-gray-down-arrow.png" />
 						</p>
