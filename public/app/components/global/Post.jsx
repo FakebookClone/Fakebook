@@ -12,7 +12,8 @@ export default class Posts extends React.Component {
 		this.state = {
 			postedComments: [],
 			comment: '',
-			likes: []
+			likes: [],
+			iLiked: false
 		};
 	}
 
@@ -21,7 +22,13 @@ export default class Posts extends React.Component {
 			this.setState({postedComments: r.data});
 		});
 		Axios.get(`/api/likes/post/${this.props.post.post_id}`).then(r => {
-			this.setState({likes: r.data})
+			var temp = false;
+			for(var i in r.data) {
+				if(r.data[i].profile_id == this.props.user.id) {
+					temp = true;
+				}
+			}
+			this.setState({likes: r.data, iLiked: temp})
 		})
 	}
 
@@ -41,13 +48,13 @@ export default class Posts extends React.Component {
 				</div>
 				<div className="mid-posted-icon-div">
 					<div className="likePost" onClick={this.likePost.bind(this)}>
-						{this.state.likes.length !== 0
+						{this.state.iLiked
 							? <img src={imageshome + 'blue-like.png'}/>
 							: <img src={imageshome + 'gray-like.png'}/>
 						}
-						{this.state.likes.length !== 0
-							? <p>Like</p>
-							: <div className="blueLikes">Like</div>
+						{this.state.iLiked
+							? <p className="blueLikes">Like</p>
+							: <p>Like</p>
 						}
 					</div>
 
@@ -124,7 +131,7 @@ export default class Posts extends React.Component {
 
 	likePost() {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
-			this.setState({likes: r.data});
+			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
 	}
 }
