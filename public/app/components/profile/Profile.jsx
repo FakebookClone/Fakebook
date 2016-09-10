@@ -21,7 +21,11 @@ import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 export default class Profile extends React.Component {
 	constructor() {
 		super()
-		this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')) }
+		this.state = { user: null }
+	}
+
+	componentWillMount() {
+		this.setState({ user: JSON.parse(localStorage.getItem('fakebook_user')) });
 	}
 
 	render() {

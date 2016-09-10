@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 
-var images = './images/main/';
+var images = '	/images/main/';
 require('../../../stylesheets/components/global/main.scss');
 
 export default class GlobalHeader extends React.Component {
@@ -20,12 +20,11 @@ export default class GlobalHeader extends React.Component {
 					</button>
 					<div className="header-profile-container">
 						<img src={this.props.user.picture.data.url}/>
-						<p className="headerProfileName">{this.props.user.first_name}</p>
+						<Link to={`/profile/${this.props.user.id}`}><p className="headerProfileName">{this.props.user.first_name}</p></Link>
 						<div></div>
-						<Link to="/profile"><p>{this.props.user.first_name}</p></Link>
 					</div>
 					<div className="header-home-redirect">
-						<p>Home</p>
+						<Link to="/home"><p>Home</p></Link>
 					</div>
 					<div className="header-friends-redirect">
 						<p>Find Friends</p>
