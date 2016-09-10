@@ -51,15 +51,13 @@
 }
 
 .header-profile-container{
-  height: 28px;
+  height: 100%;
   width: 84px;
   display: flex;
   flex-direction: row;
   cursor: pointer;
-
-  // margin-top: 12px;
-  img{
-  }
+  border-right: $headerInternalBorder;
+  padding-right: 10px;
   div{
     margin-top: 9px;
     height: 24px;
@@ -74,42 +72,50 @@
   padding-left: 6px;
   width: auto;
   padding-right: 5px;
+  text-decoration: none;
+  color: $faceBookWhite;
   &:hover{
     height: 17px;
     background-color: $headerHoverBlue;
+    border-radius: 5px;
   }
 }
 
 
+.header-home-link {
+  text-decoration: none;
+  color: $faceBookWhite;
+}
+
 .header-home-redirect{
-  margin-top: 10px;
-  padding-top: 6px;
-  padding-left: 11px;
-  height: 18px;
+  height: 100%;
   width: 55px;
   border-right: $headerInternalBorder;
-  p{
-
-
-  }
-  &:hover{
-    height: 17px;
-    background-color: $headerHoverBlue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    &:hover {
+      background-color: $headerHoverBlue;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 }
 
 .header-friends-redirect{
-  margin-top: 12px;
-  padding-top: 4px;
-  padding-left: 11px;
-  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 82px;
   p{
-    width:70px;
-  }
-  &:hover{
-    height: 17px;
-    background-color: $headerHoverBlue;
+    &:hover {
+      background-color: $headerHoverBlue;
+      padding: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 }
 
