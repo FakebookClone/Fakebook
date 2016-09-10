@@ -38,6 +38,8 @@ export default class Comment extends React.Component {
 							<p>{this.props.comment.comment_text}</p>
 						</div>
 
+						<img src="broken-link" />
+
 					</div>
 
 <div className= "like-comment-div">
