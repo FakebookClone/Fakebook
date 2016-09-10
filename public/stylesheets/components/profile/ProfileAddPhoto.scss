@@ -1,1 +1,17 @@
 @import '../../base/utilities';
+
+.add-photo-wrapper {}
+
+.silhouette-add-photo {
+    background-color: #fff;
+    border: 4px solid #fff;
+    border-radius: 2px;
+}
+
+.add-photo-opaque {
+  width: 160px;
+  height: 36px;
+  background-color: #000;
+  border: 2px solid red;
+  opacity: 70%;
+}
