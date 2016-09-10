@@ -10,15 +10,19 @@ export default class ProfilePhoto extends React.Component {
 	render() {
 		return (
 			<div className="add-photo-wrapper">
+
 				<div className="silhouette-add-photo">
 					<img src="/images/profile/silhouette-gray-large.jpg"/>
 					<div className="add-photo-opaque">
-						<img src="/images/profile/white-camera.png"/>
-            <p>Add Photo</p>
-
+						<div className="camera-pic">
+							<img src="/images/profile/white-camera.png"/>
+						</div>
+						<div className="add-photo-text">
+							<p>Add Photo</p>
+						</div>
 					</div>
-
 				</div>
+
 			</div>
 		)
 	}
