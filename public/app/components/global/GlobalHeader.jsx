@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 
-var images = '/images/main/';
+var images = '	/images/main/';
 require('../../../stylesheets/components/global/main.scss');
 
 export default class GlobalHeader extends React.Component {
@@ -24,7 +24,7 @@ export default class GlobalHeader extends React.Component {
 						<div></div>
 					</div>
 					<div className="header-home-redirect">
-						<p>Home</p>
+						<Link to="/home"><p>Home</p></Link>
 					</div>
 					<div className="header-friends-redirect">
 						<p>Find Friends</p>
