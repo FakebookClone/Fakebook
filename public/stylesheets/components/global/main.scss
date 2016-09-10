@@ -4,6 +4,13 @@ html, body, p {
   font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 
+.header-divider {
+  margin-top: 9px;
+  height: 24px;
+  width: 1px;
+  background: #365089;
+}
+
 .global-header-wrapper{
   background: $faceBookBlue;
   width: 100%;
@@ -56,26 +63,18 @@ html, body, p {
 
 .header-profile-container{
   height: 100%;
-  width: 84px;
+  width: auto;
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  border-right: $headerInternalBorder;
-  padding-right: 10px;
-  div{
-    margin-top: 9px;
-    height: 24px;
-    width: 1px;
-    border-right: $headerInternalBorder;
-  }
 }
 
 .headerProfileName{
   margin-top:9px;
   padding-top: 7px;
-  padding-left: 6px;
+  padding-left: 10px;
   width: auto;
-  padding-right: 5px;
+  padding-right: 10px;
   text-decoration: none;
   color: $faceBookWhite;
   &:hover{
@@ -89,15 +88,16 @@ html, body, p {
 .header-home-link {
   text-decoration: none;
   color: $faceBookWhite;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 16px;
 }
 
 .header-home-redirect{
   height: 100%;
   width: 55px;
-  border-right: $headerInternalBorder;
   display: flex;
   justify-content: center;
-  align-items: center;
   p {
     &:hover {
       background-color: $headerHoverBlue;
@@ -111,12 +111,12 @@ html, body, p {
 .header-friends-redirect{
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 82px;
+  width: 88px;
   p{
+    margin-top: 16px;
     &:hover {
+      padding: 5px 14px;
       background-color: $headerHoverBlue;
-      padding: 5px;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -137,7 +137,6 @@ html, body, p {
 .header-lock-down-section{
   margin-top: 12px;
   height: 18px;
-  border-left: $headerInternalBorder;
   display: flex;
   justify-content: center;
   align-items: center;

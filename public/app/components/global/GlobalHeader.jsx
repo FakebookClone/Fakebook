@@ -21,9 +21,11 @@ export default class GlobalHeader extends React.Component {
 					<div className="header-profile-container">
 						<img src={this.props.user.picture.data.url}/>
 						<Link className="headerProfileName" to={`/profile/${this.props.user.id}`}><p>{this.props.user.first_name}</p></Link>
+						<div className="header-divider"></div>
 					</div>
 					<div className="header-home-redirect">
 						<Link className="header-home-link" to="/home"><p>Home</p></Link>
+						<div className="header-divider"></div>
 					</div>
 					<div className="header-friends-redirect">
 						<p>Find Friends</p>
