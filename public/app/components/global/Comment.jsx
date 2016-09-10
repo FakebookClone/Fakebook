@@ -23,13 +23,10 @@ export default class Comment extends React.Component {
 		console.log(this.state.likes);
 		return (
 			<div className="userPosted">
-
-				<img src={this.props.comment.profile_pic}/>
+				<img className="user-posted-profile-picture" src={this.props.comment.profile_pic}/>
 
 				<div className="user-content-section">
-
 					<div className="user-posted-upper">
-
 						<div className="userProfileContent">
 							<p>{this.props.comment.name}</p>
 						</div>
@@ -39,22 +36,18 @@ export default class Comment extends React.Component {
 						</div>
 
 						<img src="broken-link" />
-
 					</div>
 
-<div className= "like-comment-div">
-  <p onClick={this.likeComment.bind(this)}>Like</p>
-  {this.state.likes.length !== 0
-    ? <div>&nbsp;·&nbsp;<img src={imageshome + 'normal-like.png'}/>
-        <p>{this.state.likes.length}</p>
-      </div>
-    : null
-}
-</div>
-
-
+					<div className= "like-comment-div">
+					  <p onClick={this.likeComment.bind(this)}>Like</p>
+					  {this.state.likes.length !== 0
+					    ? <div>&nbsp;·&nbsp;<img src={imageshome + 'normal-like.png'}/>
+					        <p>{this.state.likes.length}</p>
+					      </div>
+					    : null
+						}
+					</div>
 				</div>
-
 			</div>
 		)
 	}

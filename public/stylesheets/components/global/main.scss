@@ -1,5 +1,9 @@
 @import '../../base/utilities';
 
+html, body, p {
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+}
+
 .global-header-wrapper{
   background: $faceBookBlue;
   width: 100%;

@@ -32,9 +32,12 @@ export default class Posts extends React.Component {
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
 						<img src={this.props.post.profile_pic}/>
-						<p>{this.props.post.name}</p>
+						<a href="#"><p>{this.props.post.name}</p></a>
 					</div>
-					<p className="posted-text">{this.props.post.post_text}</p>
+
+					<div className="posted-text-container">
+						<p className="posted-text">{this.props.post.post_text}</p>
+					</div>
 				</div>
 				<div className="mid-posted-icon-div">
 					<div className="likePost" onClick={this.likePost.bind(this)}>
@@ -43,8 +46,8 @@ export default class Posts extends React.Component {
 							: <img src={imageshome + 'gray-like.png'}/>
 						}
 						{this.state.likes.length !== 0
-							? <p>Likes</p>
-							: <div className="blueLikes">Likes</div>
+							? <p>Like</p>
+							: <div className="blueLikes">Like</div>
 						}
 					</div>
 
@@ -66,28 +69,38 @@ export default class Posts extends React.Component {
 							<p>{this.state.likes.length}</p>
 						</div>
 					: null
-}
+				}
+
+				{this.state.likes.length !== 0
+					? <div className="likes-seperator-wrapper">
+							<div></div>
+						</div>
+					: null
+				}
 
 				{this.state.postedComments.map((value) => {
 					return (<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
 				})}
 
-				<div className="comment-input-section">
-					<div className="comment-profile-pic">
-						<img src={this.props.user.picture.data.url}/>
-					</div>
 
-					<div className="input-name">
-						<input onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
-
-						<div className="camera-img">
-							<div ></div>
+				<div className="lower-posted-div">
+					<div className="comment-input-section">
+						<div className="comment-profile-pic">
+							<img src={this.props.user.picture.data.url}/>
 						</div>
 
-						<div className="smiley-2">
-							<div></div>
-						</div>
+						<div className="input-name">
+							<input className="new-comment-input" onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
 
+							<div className="camera-img">
+								<div ></div>
+							</div>
+
+							<div className="smiley-2">
+								<div></div>
+							</div>
+
+						</div>
 					</div>
 				</div>
 			</div>
