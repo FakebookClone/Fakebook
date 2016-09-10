@@ -1,0 +1,39 @@
+@import '../../base/utilities';
+
+.profile-friends-wrapper {
+  width: 321px;
+  height: 48px;
+  background-color: $faceBookWhite;
+  border: 1px solid rgb(221, 223, 226);
+  border-radius: 1px;
+  display: flex;
+  justify-content: space-between;
+  font-family: $faceBookFonth;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+.profile-friends-icon {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-friends-link {
+  display: flex;
+  align-items: center;
+  width: 275px;
+  a {
+    text-decoration: none;
+    color: #1d2129;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

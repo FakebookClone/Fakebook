@@ -3,17 +3,20 @@ import React from 'react';
 require('../../../stylesheets/components/profile/ProfileFriends.scss');
 
 export default class ProfileFriends extends React.Component {
-  constructor () {
-    super()
-  }
+	constructor() {
+		super()
+	}
 
-  render () {
-    return (
-      <div>
-        <img src="/images/profile/red-friends.png" />
-        <h1>Friends</h1>
-
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="profile-friends-wrapper">
+				<div className="profile-friends-icon">
+					<a href="#"><img src="/images/profile/red-friends.png"/></a>
+				</div>
+				<div className="profile-friends-link">
+					<a href="#">Friends</a>
+				</div>
+			</div>
+		)
+	}
 }
