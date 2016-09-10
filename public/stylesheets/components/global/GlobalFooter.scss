@@ -7,13 +7,15 @@
     font-family: $faceBookFonth;
     line-height: 16px;
     font-size: 12px;
+    margin-top: 12px;
 }
 
 .footer-top-section {
     height: 56px;
+    width: 323px;
     background-color: $faceBookWhite;
     border: 1px solid rgb(221, 223, 226);
-    border-radius: 1px;
+    border-radius: 3px;
     display: flex;
     justify-content: space-between;
     font-family: $faceBookFonth;
