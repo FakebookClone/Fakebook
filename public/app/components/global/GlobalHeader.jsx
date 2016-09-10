@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 
-var images = './images/main/';
+var images = '/images/main/';
 require('../../../stylesheets/components/global/main.scss');
 
 export default class GlobalHeader extends React.Component {
