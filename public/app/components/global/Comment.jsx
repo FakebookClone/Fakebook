@@ -8,19 +8,22 @@ export default class Comment extends React.Component {
 
 	constructor() {
 		super()
-		this.state = {
-			likes: []
-		}
+		this.state = { likes: [], iLiked: false }
 	}
 
 	componentWillMount() {
 		Axios.get(`/api/likes/comment/${this.props.comment.comment_id}`).then(r => {
-			this.setState({likes: r.data});
+			var temp = false;
+			for(var i in r.data) {
+				if(r.data[i].profile_id == this.props.user.id) {
+					temp = true;
+				}
+			}
+			this.setState({likes: r.data, iLiked: temp});
 		})
 	}
 
 	render() {
-		console.log(this.state.likes);
 		return (
 			<div className="user-comment-wrapper">
 
@@ -36,7 +39,7 @@ export default class Comment extends React.Component {
 						</div>
 
 						<div className="user-comment-like-container">
-							{this.state.likes.length !== 0
+							{this.state.iLiked
 								? <p className="user-comment-like-text" onClick={this.likeComment.bind(this)}>Unlike</p>
 								: <p className="user-comment-like-text" onClick={this.likeComment.bind(this)}>Like</p>
 							}
@@ -57,7 +60,7 @@ export default class Comment extends React.Component {
 
 	likeComment() {
 		Axios.post(`api/like/comment/${this.props.comment.comment_id}`, {profile_id: this.props.user.id}).then(r => {
-			this.setState({likes: r.data});
+			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
 	}
 }
