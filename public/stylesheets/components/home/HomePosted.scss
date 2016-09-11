@@ -1,3 +1,53 @@
+@import '../../base/utilities';
+
+.center-section-div{
+  margin-top: 8px;
+}
+
+.no-post-image-div{
+  height: 222px;
+  width: 502px;
+  display: flex;
+  justify-content: center;
+  div{
+    margin-top: 58px;
+    height: 136px;
+    width: 136px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.no-post-text-div{
+  height: 36px;
+  width: 502px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: $fbTextGray;
+}
+
+.no-post-button-div{
+  padding-top: 22px;
+  display: flex;
+  justify-content: center;
+  button{
+    height: 34px;
+    width: 115px;
+    background-color: $faceBookWhite;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: $buttonBorderGray;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    color: $fbButtonTextGray;
+  }
+}
+
 .posted-bottom-padding {
   width: 502px;
   height: 35px;

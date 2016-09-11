@@ -82,7 +82,13 @@
     flex-direction: row;
 }
 
-.imgStatusDiv {}
+.imgStatusDiv {
+  img{
+    height: 38px;
+    width: 38px;
+    border: $borderColorDarkGrey;
+  }
+}
 
 .inputStatusDiv {
     textarea {

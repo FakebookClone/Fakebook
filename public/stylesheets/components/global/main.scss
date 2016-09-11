@@ -1,166 +1,231 @@
 @import '../../base/utilities';
 
-html, body, p {
-  font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+body,
+html,
+p {
+    font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 }
 
-.header-divider {
-  height: 24px;
-  width: 1px;
-  background: #365089;
-}
 
-.global-header-wrapper{
-  background: $faceBookBlue;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.global-header-wrapper {
+    background: $faceBookBlue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-
 
 .global-header-container {
-  background: $faceBookBlue;
-  width: 1215px;
-  display: flex;
-  flex-direction: row;
-  height: 42px;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 12px;
-  position: relative;
-  img{
-    margin-top: 9px;
-    height: 24px;
-    width: 24px;
-  }
-  input{
-    margin-top: 9px;
-    margin-left: 7px;
-    padding-left: 8px;
-    font-size: 14px;
-    font-weight: lighter;
-    width: 401px;
-    height: 22px;
-    border-radius: 3px;
-    border: none;
-  }
-  button{
-    margin-top: 9px;
-    margin-left: -3px;
-    margin-right: 110px;
-    height: 24px;
-    width: 46px;
-    background-color: $faceBookWhite;
-    border: none;
-    border-radius: 3px;
-    i{
-      font-size: 16px;
-      font-weight: normal;
+    background: $faceBookBlue;
+    min-width: 1011px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 42px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    position: relative;
+}
+
+// Header Left Div ********************
+
+.header-left-div {
+    height: inherit;
+    width: 485px;
+    display: flex;
+    flex-direction: row;
+
+    div {
+        margin-top: 9px;
+        height: inherit;
+        width: 34px;
+        img{
+          height: 24px;
+          width: 26px;
+        }
     }
-  }
+
+    input {
+        margin-top: 9px;
+        padding-left: 8px;
+        font-size: 14px;
+        font-weight: lighter;
+        width: 411px;
+        height: 22px;
+        border-radius: 3px;
+        border: none;
+    }
+
+    button {
+        margin-top: 9px;
+        margin-left: -3px;
+        height: 24px;
+        width: 36px;
+        background-color: $faceBookWhite;
+        border: none;
+        border-radius: 3px;
+        i {
+            font-size: 16px;
+            font-weight: normal;
+        }
+    }
 }
 
-.header-profile-container{
-  height: 100%;
-  width: auto;
+
+// Header Right div ****************************
+
+.header-right-div{
+  min-width: 423px;
   display: flex;
   flex-direction: row;
-  cursor: pointer;
+  // justify-content: flex-end;
 }
 
-.headerProfileName{
-  margin-top:9px;
-  padding-top: 7px;
-  padding-left: 10px;
-  width: auto;
-  padding-right: 10px;
-  text-decoration: none;
-  color: $faceBookWhite;
-  &:hover{
-    height: 17px;
-    background-color: $headerHoverBlue;
-    border-radius: 5px;
-  }
+// Redirect Section *****************
+
+.headerProfileName {
+    padding-left: 10px;
+    // min-width: 35px;
+    // padding-right: 10px;
+    text-decoration: none;
+    color: $faceBookWhite;
 }
 
+.header-profile-container {
+    margin-top: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+
+    div {
+        height: 18px;
+        min-width: 48px;
+        padding-right: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: flex-end;
+        border-right: $headerInternalBorder;
+        &:hover {
+            height: 24px;
+            background-color: $headerHoverBlue;
+            border-radius: 5px;
+            margin-top: -3px;
+        }
+        img{
+          border-radius: 2px;
+          height: 24px;
+          width: 24px;
+        }
+    }
+}
+
+// Friends ***
 
 .header-home-link {
+  height: 18px;
+  width:55px;
   text-decoration: none;
   color: $faceBookWhite;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 6px;
-  &:hover {
-    background-color: $headerHoverBlue;
-    border-radius: 5px;
-    cursor: pointer;
+  p{
+    height: 24px;
+    padding-top: 3px;
+    padding-left: 10px;
+
   }
+
 }
 
-.header-home-redirect{
-  height: 24px;
-  width: 55px;
-  display: flex;
-  margin-top: 10px;
+.header-home-redirect {
+    margin-top: 8px;
+    height: 24px;
+    width: 55px;
+    display: flex;
+    &:hover {
+      height: 24px;
+        background-color: $headerHoverBlue;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    div{
+      margin-top: 4px;
+      height:18px;
+      width: 55px;
+      border-right: $headerInternalBorder;
+    }
 }
 
-.header-friends-redirect{
-  display: flex;
-  justify-content: center;
-  width: 88px;
-  height: 24px;
-  margin-top: 10px;
-  p {
-    margin-top: 6px;
-  }
-  &:hover {
-    background-color: $headerHoverBlue;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+// Friends **
+
+.header-friends-redirect {
+    display: flex;
+    justify-content: center;
+    width: 88px;
+    height: 24px;
+    margin-top: 8px;
+    &:hover {
+      height: 24px;
+        background-color: $headerHoverBlue;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    p {
+        margin-top: 8px;
+    }
+
+
 }
 
-.header-nav-section{
-  height: 100%;
-  width: 127px;
-  img{
-    max-height: 19px;
-    max-width:30px;
+
+
+// Large Icon Section **********************
+
+.header-nav-section {
+    height: 100%;
+    width: 127px;
+
+    img {
+        max-height: 19px;
+        max-width: 30px;
+        margin-top: 12px;
+        margin-left: 13px;
+    }
+}
+
+// Little Icon Section **********************
+
+.header-lock-down-section {
     margin-top: 12px;
-    margin-left: 13px;
-  }
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: $headerInternalBorder;
 }
 
-.header-lock-down-section{
-  margin-top: 12px;
-  height: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header-lock-down-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    div{
+      height: 18px;
+      display: flex;
+      align-items: center;
+    }
 }
 
-.header-lock-down-img{
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
+.lock {
+    margin-left: 18px;
+    max-height: 12px;
+    max-width: 17px;
 }
 
-.lock{
-  margin-left: 18px;
-  max-height: 12px;
-  max-width: 17px;
-}
-
-.down-arrow{
-  padding-top: 3px;
-  margin-left: 12px;
-  max-height: 8px;
-  max-width: 10px;
-}
-
-.false-right-header{
-  height: 42px;
-  width: 196px;
+.down-arrow {
+    margin-left: 12px;
+    max-height: 8px;
+    max-width: 10px;
 }
 
 /* --- TOOLTIPS --- */
