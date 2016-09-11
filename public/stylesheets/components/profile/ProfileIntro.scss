@@ -1,0 +1,30 @@
+@import '../../base/utilities';
+
+.profile-intro-wrapper {
+    max-width: 321px;
+    height: 181px;
+    background-color: $faceBookWhite;
+    border: 1px solid rgb(221, 223, 226);
+    border-radius: 1px;
+
+    // font-family: $faceBookFonth;
+}
+
+.profile-globe-wrapper {
+  width: 50px;
+background-color: red;
+}
+
+.profile-intro-icon {
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.profile-intro-header {
+    margin-top: 18px;
+    margin-left: 9px;
+}
+
+.profile-describe-wrapper {
+
+}
