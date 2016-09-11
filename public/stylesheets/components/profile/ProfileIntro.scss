@@ -1,0 +1,147 @@
+@import '../../base/utilities';
+
+.profile-intro-wrapper {
+    width: 321px;
+    height: 181px;
+    background-color: $faceBookWhite;
+    border: 1px solid rgb(221, 223, 226);
+    border-radius: 1px;
+    font-family: $faceBookFonth;
+}
+
+.profile-globe-wrapper {
+    display: flex;
+    flex-basis: 321px;
+}
+
+.profile-intro-icon {
+    margin-left: 12px;
+    margin-top: 11px;
+}
+
+.profile-intro-header {
+    margin-top: 16px;
+    margin-left: 7px;
+}
+
+.profile-describe-wrapper {
+    display: flex;
+    flex-basis: 321px;
+}
+
+.profile-blue-plus {
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.profile-who {
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 6px;
+    margin-top: 12px;
+
+    a {
+        text-decoration: none;
+        color: #4080ff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.profile-suitcase-wrapper {
+    display: flex;
+    flex-basis: 321px;
+    border-top: 1px solid #e9ebee;
+    margin-top: 9px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.profile-suitcase {
+    margin-right: 12px;
+    margin-top: 9px;
+    padding-top: 7px;
+    opacity: 0.6;
+}
+
+.profile-job {
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 16px;
+
+    a {
+        text-decoration: none;
+        color: #4080ff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:visited {
+            color: #365899;
+        }
+    }
+}
+
+.profile-home-wrapper {
+    display: flex;
+    flex-basis: 321px;
+}
+
+.profile-house {
+    margin-left: 12px;
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+.profile-lives {
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 12px;
+    margin-top: 9px;
+
+    a {
+        text-decoration: none;
+        color: #4080ff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:visited {
+            color: #365899;
+        }
+    }
+}
+
+.profile-featured-photos-wrapper {
+    display: flex;
+    flex-basis: 321px;
+}
+
+.profile-featured-photos {
+  margin-left: 12px;
+  margin-top: 14px;
+}
+
+.profile-add-photos {
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 5px;
+  margin-top: 15px;
+
+  a {
+      text-decoration: none;
+      color: #4080ff;
+
+      &:hover {
+          text-decoration: underline;
+      }
+
+      &:visited {
+          color: #4080ff;
+      }
+  }
+}
