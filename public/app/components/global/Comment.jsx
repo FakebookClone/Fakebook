@@ -3,6 +3,8 @@ import Axios from 'axios';
 var imageshome = './images/home/';
 
 require('../../../stylesheets/base/Comment.scss');
+require('../../../stylesheets/components/global/main.scss');
+var images = "/images/comments/";
 
 export default class Comment extends React.Component {
 
@@ -28,6 +30,10 @@ export default class Comment extends React.Component {
 			<div className="user-comment-wrapper">
 
 				<div className="user-comment-container">
+					<div className="user-comment-edit-button-container tooltip">
+						<img className="user-comment-edit-button" src={images + "edit-pencil-light-gray.png"} />
+						<span className="tooltiptext">Edit or delete this</span>
+					</div>
 
 					<div className="user-comment-profile-picture">
 						<img src={this.props.comment.profile_pic}/>
@@ -54,6 +60,24 @@ export default class Comment extends React.Component {
 
 				</div>
 
+				{/* Animations for Comments */}
+				{
+					$('document').ready(function() {
+
+					  $('.user-comment-container').hover(function() {
+							$(this).find('.user-comment-edit-button-container').css("display", "inline-block");
+					  }, function() {
+							$('.user-comment-edit-button-container').css("display", "none");
+						})
+
+						$('.user-comment-edit-button').hover(function() {
+							$('.user-comment-edit-button').attr('src', images + 'edit-pencil-light-gray.png');
+
+						}, function() {
+							$('.user-comment-edit-button').attr('src', images + 'edit-pencil-dark-gray.png');
+						})
+					})
+				}
 			</div>
 		)
 	}
