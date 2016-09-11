@@ -4,6 +4,7 @@
   width: 100%;
   height: auto;
   background-color: #F6F7F9;
+  position: relative;
 }
 
 .user-comment-container {
@@ -11,6 +12,7 @@
   padding-right: 12px;
   padding-top: 8px;
   display: flex;
+  position: relative;
 }
 
 .user-comment-text-container {
@@ -85,5 +87,15 @@
     font-size: 12px;
     margin-left: 3px;
     margin-top: 3px;
+  }
+}
+
+.user-comment-edit-button-container {
+  display: none;
+  position: absolute;
+  right: 11px;
+  top: 4px;
+  &:hover {
+    cursor: pointer;
   }
 }
