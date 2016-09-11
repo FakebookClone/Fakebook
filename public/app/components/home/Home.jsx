@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalHeader from '../global/GlobalHeader.jsx';
-import GlobalFooter from '../global/GlobalFooter.jsx';
+import ProfileFooter from '../profile/ProfileFooter.jsx';
 import GlobalChat from '../global/GlobalChat.jsx';
 import HomeLeft from './HomeLeft.jsx';
 import HomeCenter from './HomeCenter.jsx';
