@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalHeader from '../global/GlobalHeader.jsx';
-import GlobalFooter from '../global/GlobalFooter.jsx';
+import ProfileFooter from '../profile/ProfileFooter.jsx';
 import GlobalChat from '../global/GlobalChat.jsx';
 import ProfileCover from './ProfileCover.jsx';
 import ProfileAddPhoto from './ProfileAddPhoto.jsx';
@@ -39,7 +39,7 @@ export default class Profile extends React.Component {
 					<ProfileIntro />
 					<ProfilePhotos />
 					<ProfileFriends />
-					<GlobalFooter />
+					<ProfileFooter />
 					<ProfilePostStatus />
 					<ProfileStatusBox />
 					<ProfileOldPosts />

@@ -1,8 +1,8 @@
 import React from 'react';
 
-require('../../../stylesheets/components/global/GlobalFooter.scss');
+require('../../../stylesheets/components/profile/ProfileFooter.scss');
 
-export default class GlobalFooter extends React.Component {
+export default class ProfileFooter extends React.Component {
 	constructor() {
 		super()
 	}

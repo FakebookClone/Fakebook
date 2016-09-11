@@ -2,7 +2,71 @@
 
 .home-right-container {
   margin-top: 10px;
-  display: flex;
   flex-direction: column;
+}
+
+.trending-box {
+  height: 278px;
+  width: 308px;
   margin-left: 12px;
+  background-color: $faceBookWhite;
+  display: flex;
+  border-radius: 3px;
+  border: $borderColorGrey;
+}
+
+.upper-trending-header{
+  margin-left: 12px;
+  height: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.upper-trending-header-left{
+  margin-top: 16px;
+  h1{
+    font-size: 11px;
+    color: $fbTextGray;
+    font-weight: 600px;
+  }
+}
+
+.upper-trending-header-right{
+  margin-top: 14px;
+  margin-right: 15px;
+  width: 128px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trend-circle-div{
+  height: 21px;
+  width:16px;
+  border-bottom: $borderColorBlue;
+  img {
+    height:18px;
+    width:17px;
+  }
+}
+
+.politics{
+  height: 17px;
+  width: 16px;
+}
+
+.science{
+  height: 18px;
+  width: 18px;
+}
+
+.soccer{
+  height: 16px;
+  width: 16px;
+}
+
+.movies{
+  height: 16px;
+  width: 16px;
 }
