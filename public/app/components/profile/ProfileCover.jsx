@@ -22,6 +22,12 @@ export default class ProfileCover extends React.Component {
 				<div>
 					<h1 className="profile-name">Facebook Clone</h1>
 				</div>
+				<div>
+					<button>Update Info</button>
+					<button>View Activity Log</button>
+					<button><img src="/images/profile/gray-elipsis.png" /></button>
+
+				</div>
 			</div>
 		)
 	}
