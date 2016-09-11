@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileFooter from '../profile/ProfileFooter.jsx';
+import HomeFooter from '../home/HomeFooter.jsx';
 
 var imageshome = '../../../images/home/';
 require('../../../stylesheets/components/home/HomeRight.scss');
@@ -32,7 +32,7 @@ export default class HomeRight extends React.Component {
           </div>
 
         </div>
-        <ProfileFooter />
+        <HomeFooter />
       </div>
     )
   }
