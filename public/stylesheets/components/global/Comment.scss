@@ -1,9 +1,10 @@
-@import './utilities';
+@import '../../base/utilities';
 
 .user-comment-wrapper {
   width: 100%;
   height: auto;
   background-color: #F6F7F9;
+  position: relative;
 }
 
 .user-comment-container {
@@ -11,6 +12,7 @@
   padding-right: 12px;
   padding-top: 8px;
   display: flex;
+  position: relative;
 }
 
 .user-comment-text-container {
@@ -85,5 +87,24 @@
     font-size: 12px;
     margin-left: 3px;
     margin-top: 3px;
+  }
+}
+
+.user-comment-container:hover .user-comment-edit-button {
+  display: inline-block;
+}
+
+.user-comment-edit-button {
+  display: none;
+  position: absolute;
+  right: 11px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  background: url("/images/comments/edit-pencil-light-gray.png");
+
+  &:hover {
+    cursor: pointer;
+    background: url("/images/comments/edit-pencil-dark-gray.png")
   }
 }

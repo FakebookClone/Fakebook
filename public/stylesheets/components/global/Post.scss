@@ -7,8 +7,23 @@
     background: #FFF;
     margin-top: 12px;
     border-radius: 3px;
+    position: relative;
 }
 // Upper ******************
+
+.post-edit-button {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  height: 7px;
+  width: 10px;
+  background: url('/images/posts/post-down-arrow-lightgray.png');
+
+  &:hover {
+    cursor: pointer;
+    background: url('/images/posts/post-down-arrow-darkgray.png')
+  }
+}
 
 .upper-posted-div {
     display: flex;

@@ -36,6 +36,8 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
+				<div className="post-edit-button"></div>
+
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
 						<img src={this.props.post.profile_pic}/>
