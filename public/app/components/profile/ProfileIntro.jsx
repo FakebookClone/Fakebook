@@ -17,20 +17,20 @@ export default class ProfileIntro extends React.Component {
 					<div className="profile-intro-header">Intro</div>
 				</div>
 				<div className="profile-describe-wrapper">
-					<div><img src="/images/profile/blue-plus.png"/></div>
-					<div>Describe Who You Are</div>
+					<div className="profile-blue-plus"><img src="/images/profile/blue-plus.png"/></div>
+					<div className="profile-who"><a href="#">Describe Who You Are</a></div>
 				</div>
-				<div>
-					<div><img src="/images/profile/suitcase-gray.png"/></div>
-					<div>Shameless Yes Man at <a href="#">DevMountain</a></div>
+				<div className="profile-suitcase-wrapper">
+					<div className="profile-suitcase"><img src="/images/profile/suitcase-gray.png"/></div>
+					<div className="profile-job">Shameless Yes Man at <a href="https://www.facebook.com/DevMountain/?ref=br_rs">DevMountain</a></div>
 				</div>
-				<div>
-					<div><img src="/images/profile/house-gray.png"/></div>
-					<div>Lives in Provo, Utah</div>
+				<div className="profile-home-wrapper">
+					<div className="profile-house"><img src="/images/profile/house-gray.png"/></div>
+					<div className="profile-lives">Lives in <a href="https://www.facebook.com/pages/Provo-Utah/106066949424984?ref=br_rs">Provo, Utah</a></div>
 				</div>
-				<div>
-					<div><a href="#"><img src="/images/profile/add-photo.png"/></a></div>
-					<div><a href="#">Add Featured Photos</a></div>
+				<div className="profile-featured-photos-wrapper">
+					<div className="profile-featured-photos"><a href="#"><img src="/images/profile/add-photo.png"/></a></div>
+					<div className="profile-add-photos"><a href="#">Add Featured Photos</a></div>
 				</div>
 			</div>
 
