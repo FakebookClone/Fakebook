@@ -90,6 +90,10 @@
   }
 }
 
+.user-comment-container:hover .user-comment-edit-button-container {
+  display: inline-block;
+}
+
 .user-comment-edit-button-container {
   display: none;
   position: absolute;

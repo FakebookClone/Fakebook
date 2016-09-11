@@ -59,25 +59,6 @@ export default class Comment extends React.Component {
 					</div>
 
 				</div>
-
-				{/* Animations for Comments */}
-				{
-					$('document').ready(function() {
-
-					  $('.user-comment-container').hover(function() {
-							$(this).find('.user-comment-edit-button-container').css("display", "inline-block");
-					  }, function() {
-							$('.user-comment-edit-button-container').css("display", "none");
-						})
-
-						$('.user-comment-edit-button').hover(function() {
-							$('.user-comment-edit-button').attr('src', images + 'edit-pencil-light-gray.png');
-
-						}, function() {
-							$('.user-comment-edit-button').attr('src', images + 'edit-pencil-dark-gray.png');
-						})
-					})
-				}
 			</div>
 		)
 	}
