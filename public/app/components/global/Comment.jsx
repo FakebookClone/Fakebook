@@ -2,9 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 var imageshome = './images/home/';
 
-require('../../../stylesheets/base/Comment.scss');
+require('../../../stylesheets/components/global/Comment.scss');
 require('../../../stylesheets/components/global/main.scss');
-var images = "/images/comments/";
 
 export default class Comment extends React.Component {
 
@@ -30,8 +29,7 @@ export default class Comment extends React.Component {
 			<div className="user-comment-wrapper">
 
 				<div className="user-comment-container">
-					<div className="user-comment-edit-button-container tooltip">
-						<img className="user-comment-edit-button" src={images + "edit-pencil-light-gray.png"} />
+					<div className="user-comment-edit-button tooltip">
 						<span className="tooltiptext">Edit or delete this</span>
 					</div>
 
