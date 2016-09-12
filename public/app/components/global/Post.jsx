@@ -14,7 +14,8 @@ export default class Posts extends React.Component {
 			postedComments: [],
 			comment: '',
 			likes: [],
-			iLiked: false
+			iLiked: false,
+			menuVisible: false,
 		};
 	}
 
@@ -37,7 +38,12 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div className="post-edit-button"></div>
+				<div onClick={this.toggleMenu.bind(this)} className="post-edit-button"></div>
+
+				{this.state.menuVisible
+					? <div className="post-menu"></div>
+					: null
+				}
 
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
@@ -136,5 +142,9 @@ export default class Posts extends React.Component {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
 			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
+	}
+
+	toggleMenu() {
+		this.setState({ menuVisible: !this.state.menuVisible })
 	}
 }

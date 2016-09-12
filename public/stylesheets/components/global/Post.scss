@@ -9,6 +9,20 @@
     border-radius: 3px;
     position: relative;
 }
+
+.post-menu {
+  width: 206.66px;
+  height: 143px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  background-color: #fff;
+  background-clip: padding-box;
+  position: absolute;
+  right: 5px;
+  top: 29px;
+  z-index: 2;
+}
 // Upper ******************
 
 .post-edit-button {

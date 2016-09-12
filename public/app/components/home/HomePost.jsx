@@ -14,7 +14,7 @@ export default class HomePost extends React.Component {
 		this.state = {
 			post: "",
 			dimmerVisible: false,
-			toggleClose: false,
+			closeVisible: false,
 			iconVisible: false
 		}
 	}
@@ -36,9 +36,11 @@ export default class HomePost extends React.Component {
 							<img src={imageshome + 'photo-video-album.png'}/>
 							<p>Photo/Video Album</p>
 						</div>
-						<ToggleDisplay show={this.state.toggleClose}>
-							<div onClick={this.toggleDimmer.bind(this, true)} className="closeDiv"><img src={imageshome + 'gray-x.png'}/></div>
-						</ToggleDisplay>
+
+						{this.state.closeVisible
+							? <div onClick={this.toggleDimmer.bind(this, true)} className="closeDiv"><img src={imageshome + 'gray-x.png'}/></div>
+							: null
+						}
 					</div>
 
 					<div className="post-container-middle">
@@ -88,7 +90,7 @@ export default class HomePost extends React.Component {
 	postCatcher(e) {this.setState({post: e.target.value});}
 
 	post() {
-		this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose })
+		this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
 		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.id}).then( r => {
 			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
 				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
@@ -100,13 +102,13 @@ export default class HomePost extends React.Component {
 
 	toggleDimmer(override) {
 		if(this.state.post == "") {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose, iconVisible: !this.state.iconVisible })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: !this.state.iconVisible })
 		} else if(this.state.post !== "") {
-			this.setState({ dimmerVisible: true, toggleClose: true, iconVisible: true });
+			this.setState({ dimmerVisible: true, closeVisible: true, iconVisible: true });
 		}
 
 		if(override) {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose, iconVisible: !this.state.iconVisible })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: !this.state.iconVisible })
 		}
 	}
 }
