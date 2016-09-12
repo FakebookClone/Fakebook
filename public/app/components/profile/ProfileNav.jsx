@@ -21,7 +21,7 @@ export default class ProfileNav extends React.Component {
 					</div>
 					<div className="profile-nav-last"></div>
 				</div>
-				<img src="/images/profile/select-indicator-arrow.png" />
+				{/* <img src="/images/profile/select-indicator-arrow.png" /> */}
 			</div>
 		)
 	}
