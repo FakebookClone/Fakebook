@@ -2,7 +2,6 @@
 
 .home-right-container {
   margin-top: 10px;
-  flex-direction: column;
 }
 
 .trending-box {
@@ -10,15 +9,17 @@
   width: 308px;
   margin-left: 12px;
   background-color: $faceBookWhite;
-  display: flex;
   border-radius: 3px;
   border: $borderColorGrey;
+  display: flex;
+  flex-direction: column;
 }
 
+// Trending Header Div **********
 .upper-trending-header{
   margin-left: 12px;
   height: 32px;
-  width: 100%;
+  width: 297px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -69,4 +70,150 @@
 .movies{
   height: 16px;
   width: 16px;
+}
+
+// Trending content div ***************
+
+.trending-content{
+  height: 126px;
+  width: 308px;
+}
+
+.real-trending{
+  display:flex;
+  flex-direction: row;
+  margin-top: 8px;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 281px;
+  img{
+    height: 10px;
+    width: 15px;
+    margin-right: 8px;
+  }
+  div {
+    a{
+      font-size: 12px;
+      font-weight: 500;
+      color: $fbTextBlue;
+      margin-bottom: 3px;
+      text-decoration: none;
+    }
+    p {
+      font-size: 12px;
+      color: $fbTextGray;
+      pointer-events: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.RSL-text-container:hover .RSL-text{
+  text-decoration: underline;
+}
+
+.RL-trending{
+  display:flex;
+  flex-direction: row;
+  margin-top: 8px;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 281px;
+  img{
+    height: 10px;
+    width: 15px;
+    margin-right: 8px;
+  }
+  div{
+    a{
+      font-size: 12px;
+      font-weight: 500;
+      color: $fbTextBlue;
+      margin-bottom: 3px;
+      text-decoration: none;
+    }
+    p {
+      font-size: 12px;
+      color: $fbTextGray;
+    }
+  }
+}
+
+.Eagles-trending{
+  display:flex;
+  flex-direction: row;
+  margin-top: 8px;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 281px;
+  img{
+    height: 10px;
+    width: 15px;
+    margin-right: 8px;
+  }
+  div{
+    a{
+      font-size: 12px;
+      font-weight: 500;
+      color: $fbTextBlue;
+      margin-bottom: 3px;
+      text-decoration: none;
+    }
+    p {
+      font-size: 12px;
+      color: $fbTextGray;
+    }
+  }
+}
+
+.Brandon-trending{
+  display:flex;
+  flex-direction: row;
+  margin-top: 8px;
+  margin-left: 12px;
+  cursor: pointer;
+  width: 281px;
+  img{
+    height: 10px;
+    width: 15px;
+    margin-right: 8px;
+  }
+  div{
+    a{
+      font-size: 12px;
+      font-weight: 500;
+      color: $fbTextBlue;
+      margin-bottom: 3px;
+      text-decoration: none;
+    }
+    p {
+      font-size: 12px;
+      color: $fbTextGray;
+    }
+  }
+}
+
+.false-see-more {
+  margin-top: 5px;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: $borderColorGrey;
+  padding-bottom: 5px;
+  img{
+    padding-top: 3px;
+    height: 6px;
+    width: 9px;
+  }
+  a{
+    margin-left: 8px;
+    font-size: 12px;
+    text-decoration: none;
+    color: $postBttnBlue;
+    cursor: pointer;
+  }
+  &:hover{
+    text-decoration: underline;
+  }
+
 }
