@@ -14,8 +14,7 @@ export default class Posts extends React.Component {
 			postedComments: [],
 			comment: '',
 			likes: [],
-			iLiked: false,
-			postMenuVisible: false
+			iLiked: false
 		};
 	}
 
@@ -38,19 +37,15 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div onClick={this.toggleMenu.bind(this)} className="post-edit-button"></div>
-
-				{this.state.postMenuVisible
-					? <ul className="post-menu">
-							<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
-							<li className="post-menu-item">Turn off translations</li>
-							<div className="post-menu-seperator"></div>
-							<li className="post-menu-item">Save Post</li>
-							<li className="post-menu-item">Edit Post</li>
-							<li className="post-menu-item">Turn off notifications for this post</li>
-						</ul>
-					: null
-				}
+				<div className="post-edit-button"></div>
+				<ul className="post-menu">
+					<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
+					<li className="post-menu-item">Turn off translations</li>
+					<div className="post-menu-seperator"></div>
+					<li className="post-menu-item">Save Post</li>
+					<li className="post-menu-item">Edit Post</li>
+					<li className="post-menu-item">Turn off notifications for this post</li>
+				</ul>
 
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
@@ -126,6 +121,18 @@ export default class Posts extends React.Component {
 						</div>
 					</div>
 				</div>
+
+				{
+					$('document').ready(function() {
+						$(document).on('click', function(e) {
+							if( $(e.target).hasClass('post-edit-button') ) {
+								$('.post-menu').css('display', 'inline-block');
+							} else {
+								$('.post-menu').css('display', 'none');
+							}
+						})
+					})
+				}
 			</div>
 		)
 	}
@@ -149,10 +156,6 @@ export default class Posts extends React.Component {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
 			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
-	}
-
-	toggleMenu() {
-		this.setState({ postMenuVisible: !this.state.postMenuVisible })
 	}
 
 	deletePost() {
