@@ -1,14 +1,19 @@
 @import '../../base/utilities';
 
+.home-post-wrapper {
+  height: auto;
+}
+
 .home-center-post-container {
     margin-top: 10px;
-    height: 163px;
+    min-height: 163px;
     width: 503px;
     background: $faceBookWhite;
     border-radius: 5px;
     border: $borderColorGrey;
     position: relative;
     z-index: 3;
+    height: auto;
 }
 // Top Status Section ********
 
@@ -77,9 +82,10 @@
 .post-container-middle {
     margin-top: 12px;
     margin-left: 12px;
-    height: 73px;
+    min-height: 73px;
     display: flex;
     flex-direction: row;
+    height: auto;
 }
 
 .imgStatusDiv {
@@ -92,14 +98,16 @@
 
 .inputStatusDiv {
     textarea {
-        min-height: 20px;
-        max-width: 400px;
-        margin-top: 17px;
-        margin-left: 12px;
-        border: none;
-        outline: none;
-        resize: none;
-        font-size: 14px;
+      min-height: 20px;
+      max-width: 400px;
+      margin-top: 11px;
+      margin-left: 12px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 14px;
+      width: 400px;
+      padding-bottom: 20px;
     }
     &:hover{
       color: #9094BA;
