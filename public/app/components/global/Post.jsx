@@ -14,7 +14,8 @@ export default class Posts extends React.Component {
 			postedComments: [],
 			comment: '',
 			likes: [],
-			iLiked: false
+			iLiked: false,
+			postMenuVisible: false
 		};
 	}
 
@@ -37,7 +38,19 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div className="post-edit-button"></div>
+				<div onClick={this.toggleMenu.bind(this)} className="post-edit-button"></div>
+
+				{this.state.postMenuVisible
+					? <ul className="post-menu">
+							<li className="post-menu-item">Delete</li>
+							<li className="post-menu-item">Turn off translations</li>
+							<div className="post-menu-seperator"></div>
+							<li className="post-menu-item">Save Post</li>
+							<li className="post-menu-item">Edit Post</li>
+							<li className="post-menu-item">Turn off notifications for this post</li>
+						</ul>
+					: null
+				}
 
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
@@ -136,5 +149,9 @@ export default class Posts extends React.Component {
 		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
 			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
+	}
+
+	toggleMenu() {
+		this.setState({ postMenuVisible: !this.state.postMenuVisible })
 	}
 }

@@ -245,6 +245,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   div{
     height: 14px;
     width: 12px;
@@ -257,5 +258,8 @@
     font-size: 12px;
     font-weight: 700;
     color: $color-of-word-photos-on-profile;
+  }
+  &:hover{
+    background-color: $backgroundColor;
   }
 }
