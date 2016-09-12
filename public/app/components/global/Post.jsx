@@ -42,7 +42,7 @@ export default class Posts extends React.Component {
 
 				{this.state.postMenuVisible
 					? <ul className="post-menu">
-							<li className="post-menu-item">Delete</li>
+							<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
 							<li className="post-menu-item">Turn off translations</li>
 							<div className="post-menu-seperator"></div>
 							<li className="post-menu-item">Save Post</li>
@@ -153,5 +153,16 @@ export default class Posts extends React.Component {
 
 	toggleMenu() {
 		this.setState({ postMenuVisible: !this.state.postMenuVisible })
+	}
+
+	deletePost() {
+		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.setState({ postMenuVisible: false });
+					this.props.updatePosted(r.data);
+				})
+			})
+		})
 	}
 }

@@ -29,7 +29,7 @@ export default class HomePosted extends React.Component {
 					: null
 				}
 				{this.props.posts.map((value) => {
-					return (<Posts user={this.props.user} key={'post_component_' + value.post_id} post={value}/>)
+					return (<Posts user={this.props.user} key={'post_component_' + value.post_id} post={value} updatePosted={this.props.updatePosted}/>)
 				})}
 				<div className="posted-bottom-padding"></div>
 			</div>

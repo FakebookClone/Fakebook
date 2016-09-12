@@ -23,7 +23,7 @@ export default class HomeCenter extends React.Component {
     return (
       <div className= "post container">
         <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
-        <HomePosted user={this.props.user} posts={this.state.posted} />
+        <HomePosted user={this.props.user} posts={this.state.posted} updatePosted={this.updatePosted.bind(this)} />
       </div>
     )
   }
