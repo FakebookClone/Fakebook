@@ -10,7 +10,7 @@
   width: 667px;
   height: 100vh;
   // border: red solid;
-  margin-left: 130px;
+  margin-left: 228px;
 }
 .wrapper-for-respond-to-request-box{
   width: 665px;
@@ -51,6 +51,7 @@
 .wrapper-for-info-about-requesting-person{
   margin-left: 10px;
   a{
+    padding-top: 20px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 800;
@@ -69,8 +70,10 @@
     line-height: 16px;
   }
 }
-.wrapper-for-confirm-or-delete-of-requesting-person {
-  button{
-
-  }
+.confirm-button{
+  margin-left: 500px;
+  padding: 6px 10px 6px 10px
+}
+.delete-request-button{
+  padding: 6px 15px 6px 15px;
 }

@@ -11,7 +11,6 @@ export default class FindFriends extends React.Component {
 
 	render() {
 		return (
-      <div>
 			<div className="main-wrapper">
 				<div className="main-column-wrapper">
 					<div className="wrapper-for-respond-to-request-box">
@@ -31,13 +30,12 @@ export default class FindFriends extends React.Component {
 							</div>
 						</div>
 						<div className="wrapper-for-confirm-or-delete-of-requesting-person">
-							<button>Confirm</button>
-							<button>Delete Request</button>
+							<button className="confirm-button">Confirm</button>
+							<button className="delete-request-button">Delete Request</button>
 						</div>
 					</div>
 				</div>
 			</div>
-</div>
 		)
 	}
 	}
