@@ -5,6 +5,7 @@ import ToggleDisplay from 'react-toggle-display';
 var imageshome = './images/home/';
 
 require('../../../stylesheets/components/global/Post.scss');
+require('../../../stylesheets/components/global/main.scss');
 
 export default class Posts extends React.Component {
 	constructor() {
@@ -101,12 +102,12 @@ export default class Posts extends React.Component {
 						<div className="input-name">
 							<input className="new-comment-input" onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
 
-							<div className="camera-img">
-								<div ></div>
+							<div className="camera-img tooltip">
+								<span className="tooltiptext">Attach a Photo or Video</span>
 							</div>
 
-							<div className="smiley-2">
-								<div></div>
+							<div className="smiley-2 tooltip">
+								<span className="tooltiptext">Post a sticker</span>
 							</div>
 
 						</div>

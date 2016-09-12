@@ -247,18 +247,21 @@
     justify-content: center;
     cursor: pointer;
     background-color: #FFF;
-    div {
-        height: 12px;
-        width: 15px;
-        background-image: url('/images/home/cameras-med-gray.png');
-
-    }
+    height: 12px;
+    width: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/images/home/cameras-med-gray.png');
 
     &:hover {
-        div {
-            background-image: url('/images/home/cameras-dark-gray.png');
-        }
+      background-image: url('/images/home/cameras-dark-gray.png');
     }
+}
+
+.camera-img .tooltiptext {
+  bottom: 127%;
+  width: 150px;
+  margin-left: -75px;
 }
 
 .smiley-2 {
@@ -270,18 +273,19 @@
     justify-content: center;
     cursor: pointer;
     background-color: #FFF;
-    div {
-        height: 15px;
-        width: 15px;
-        background-image: url('/images/home/smileys-light.png');
-        background-repeat: no-repeat;
-
-    }
+    height: 12px;
+    width: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/images/home/smileys-light.png');
 
     &:hover {
-        div {
-            background-image: url('/images/home/smileys-dark.png');
-            background-repeat: no-repeat;
-        }
+      background-image: url('/images/home/smileys-dark.png');
     }
+}
+
+.smiley-2 .tooltiptext {
+  bottom: 127%;
+  width: 98px;
+  margin-left: -49px;
 }

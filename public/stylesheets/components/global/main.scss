@@ -158,6 +158,17 @@ p {
 
 // Friends **
 
+.header-friends-link {
+  height: 18px;
+  text-decoration: none;
+  color: $faceBookWhite;
+  p{
+    height: 24px;
+
+  }
+
+}
+
 .header-friends-redirect {
     display: flex;
     justify-content: center;
@@ -248,7 +259,7 @@ p {
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
-    bottom: 160%;
+    bottom: 170%;
     left: 50%;
     margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
     z-index: 1;
