@@ -158,6 +158,17 @@ p {
 
 // Friends **
 
+.header-friends-link {
+  height: 18px;
+  text-decoration: none;
+  color: $faceBookWhite;
+  p{
+    height: 24px;
+
+  }
+
+}
+
 .header-friends-redirect {
     display: flex;
     justify-content: center;

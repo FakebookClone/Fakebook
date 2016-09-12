@@ -42,7 +42,9 @@ export default class GlobalHeader extends React.Component {
 						</div>
 
 						<div className="header-friends-redirect">
+							<Link className="header-friends-link" to="/find_friends">
 							<p>Find Friends</p>
+							</Link>
 						</div>
 
 						<div className="header-nav-section">

@@ -20,6 +20,7 @@ class FakebookApp extends React.Component {
         <Route path="/loggedout" component={LoggedOut} />
         <Route path="/home" component={Home} />
         <Route path="/profile/:profile_id" component={Profile} />
+        <Route path="/find_friends" component={FindFriends} />
       </Router>
     )
   }
