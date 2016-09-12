@@ -1,0 +1,111 @@
+@import '../../base/utilities';
+
+.main-cover-wrapper {
+    width: 832px;
+    height: 185px;
+    background-color: #1d2129;
+    position: relative;
+    padding-top: 19px;
+    padding-left: 19px;
+}
+
+.add-cover-wrapper {
+    height: 28px;
+    width: 148px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1d2129;
+    border-radius: 1px;
+
+    &:hover {
+        color: #cdccc8;
+        border: 1px solid #cdccc8;
+        border-radius: 1px;
+    }
+}
+
+.cover-camera-pic {
+    opacity: 0.6;
+
+    &:hover {
+        text-indent: 0;
+        white-space: normal;
+    }
+}
+
+.add-cover-text {
+    color: #cdccc8;
+    // text-indent: 100%;
+    // white-space: nowrap;
+    // overflow: hidden;
+    font-family: $faceBookFonth;
+    font-size: 12px;
+    letter-spacing: 0.85px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .4);
+}
+
+.name-wrapper {
+    padding-top: 113px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-name {
+    color: white;
+    font-family: $faceBookFonth;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .4);
+    font-size: 24px;
+    line-height: 30px;
+    padding-left: 182px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.profile-name-buttons {
+    height: 26px;
+    padding-right: 15px;
+}
+
+.profile-activity-log,
+.profile-cover-elipsis,
+.profile-update-info {
+    height: 26px;
+    background-color: #f6f7f9;
+    color: #4b4f56;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $faceBookFonth;
+    font-size: 12px;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 1px;
+
+    &:hover {
+        background-color: #e9ebee;
+    }
+}
+
+.profile-update-info {
+    width: 86px;
+    margin-right: 12px;
+}
+
+.profile-activity-log {
+    width: 120px;
+    border-right: 1px solid #ced0d4;
+}
+
+.profile-cover-elipsis {
+    width: 36px;
+
+    img {
+        height: 9px;
+    }
+}
+
+.cover-camera-pic:hover .add-cover-text {
+  display: inline-block;
+}
