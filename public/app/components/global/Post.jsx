@@ -15,7 +15,7 @@ export default class Posts extends React.Component {
 			comment: '',
 			likes: [],
 			iLiked: false,
-			menuVisible: false,
+			postMenuVisible: false
 		};
 	}
 
@@ -40,8 +40,15 @@ export default class Posts extends React.Component {
 
 				<div onClick={this.toggleMenu.bind(this)} className="post-edit-button"></div>
 
-				{this.state.menuVisible
-					? <div className="post-menu"></div>
+				{this.state.postMenuVisible
+					? <ul className="post-menu">
+							<li className="post-menu-item">Delete</li>
+							<li className="post-menu-item">Turn off translations</li>
+							<div className="post-menu-seperator"></div>
+							<li className="post-menu-item">Save Post</li>
+							<li className="post-menu-item">Edit Post</li>
+							<li className="post-menu-item">Turn off notifications for this post</li>
+						</ul>
 					: null
 				}
 
@@ -145,6 +152,6 @@ export default class Posts extends React.Component {
 	}
 
 	toggleMenu() {
-		this.setState({ menuVisible: !this.state.menuVisible })
+		this.setState({ postMenuVisible: !this.state.postMenuVisible })
 	}
 }
