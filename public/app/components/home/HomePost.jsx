@@ -15,7 +15,7 @@ export default class HomePost extends React.Component {
 			post: "",
 			dimmerVisible: false,
 			toggleClose: false,
-			iconClose: false
+			iconVisible: false
 		}
 	}
 	render() {
@@ -52,24 +52,20 @@ export default class HomePost extends React.Component {
 
 					<div className="post-container-bottom">
 
-						<div className="lower-post-icon-container">
-							<ToggleDisplay show={this.state.iconClose}>
-								<div>
-									<img src={imageshome + 'tag-people.png'}/>
+						{this.state.iconVisible === true
+							? <div className="lower-post-icon-container">
+									<div>
+										<img src={imageshome + 'tag-people.png'} />
+									</div>
+									<div>
+										<img src={imageshome + 'smiley2.png'} />
+									</div>
+									<div>
+										<img src={imageshome + 'check-in2.png'} />
+									</div>
 								</div>
-							</ToggleDisplay>
-							<ToggleDisplay show={this.state.iconClose}>
-								<div>
-									<img src={imageshome + 'smiley2.png'}/>
-								</div>
-							</ToggleDisplay>
-							<ToggleDisplay show={this.state.iconClose}>
-								<div>
-									<img src={imageshome + 'check-in2.png'}/>
-								</div>
-							</ToggleDisplay>
-
-						</div>
+							: null
+						}
 
 						<div className="lower-post-button-container">
 							<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
@@ -104,13 +100,13 @@ export default class HomePost extends React.Component {
 
 	toggleDimmer(override) {
 		if(this.state.post == "") {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose, iconVisible: !this.state.iconVisible })
 		} else if(this.state.post !== "") {
-			this.setState({ dimmerVisible: true, toggleClose: true });
+			this.setState({ dimmerVisible: true, toggleClose: true, iconVisible: true });
 		}
 
 		if(override) {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose, iconVisible: !this.state.iconVisible })
 		}
 	}
 }
