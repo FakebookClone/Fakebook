@@ -9,19 +9,37 @@
     border-radius: 3px;
     position: relative;
 }
+
+.post-menu {
+  padding-top: 6px;
+  width: 215.66px;
+  height: 139px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  background-color: #fff;
+  background-clip: padding-box;
+  position: absolute;
+  right: 5px;
+  top: 29px;
+  z-index: 2;
+  display: inline-block;
+}
 // Upper ******************
 
 .post-edit-button {
   position: absolute;
   top: 15px;
   right: 10px;
-  height: 7px;
+  height: 13px;
   width: 10px;
   background: url('/images/posts/post-down-arrow-lightgray.png');
+  background-repeat: no-repeat;
 
   &:hover {
     cursor: pointer;
-    background: url('/images/posts/post-down-arrow-darkgray.png')
+    background: url('/images/posts/post-down-arrow-darkgray.png');
+    background-repeat: no-repeat;
   }
 }
 
@@ -288,4 +306,27 @@
   bottom: 127%;
   width: 98px;
   margin-left: -49px;
+}
+
+.post-menu-item {
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  border: solid #fff;
+  border-width: 1px 0;
+  color: #1d2129;
+  font-weight: normal;
+  line-height: 22px;
+  padding: 0 12px;
+
+  &:hover {
+    background-color: $fbTextBlue;
+    color: $faceBookWhite;
+  }
+}
+
+.post-menu-seperator {
+  width: 92%;
+  border-bottom: 1px solid #e9ebee;
+  margin: 5px 7px 6px;
+  padding-top: 1px;
 }
