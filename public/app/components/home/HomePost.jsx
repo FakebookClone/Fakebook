@@ -20,7 +20,7 @@ export default class HomePost extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="home-post-wrapper">
 				{this.state.dimmerVisible
 					? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
 					: null
@@ -103,7 +103,6 @@ export default class HomePost extends React.Component {
 	}
 
 	toggleDimmer(override) {
-		console.log(override);
 		if(this.state.post == "") {
 			this.setState({ dimmerVisible: !this.state.dimmerVisible, toggleClose: !this.state.toggleClose })
 		} else if(this.state.post !== "") {
