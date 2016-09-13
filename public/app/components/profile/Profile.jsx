@@ -35,38 +35,43 @@ export default class Profile extends React.Component {
 	render() {
 		return (
 			<div>
-				<div>
 					<GlobalHeader user={this.state.user}/>
-					<div className="profile-body">
-						<ProfileCover/>
-						<div className="profile-content-wrapper">
-							<div className="profile-left-content-div">
-								<ProfileIntro/>
-								<ProfilePhotos/>
-								<ProfileFriends/>
-								<ProfileFooter/>
-							</div>
-							<div className="profile-right-content-div">
+
+					<div className="profile-body-wrapper">
+						<div className="profile-body-container">
+							<div className="profile-body-header">
+								<ProfileCover/>
 								<ProfileAddPhoto/>
 								<ProfileNav/>
-								<ProfilePostStatus/>
-								<ProfileStatusBox/>
-								<ProfileOldPosts/>
-								<ProfileBirthdayBox/>
-								<img src="/images/profile/gray-dot.png"/>
 							</div>
+							<div className="profile-content-wrapper">
+								<div className="profile-left-content-div">
+									<div>
+										<ProfileIntro/>
+										<ProfilePhotos/>
+										<ProfileFriends/>
+										<ProfileFooter/>
+									</div>
+								</div>
+								<div className="profile-right-content-div">
+									<ProfilePostStatus/>
+									<ProfileStatusBox/>
+									<ProfileOldPosts/>
+									<ProfileBirthdayBox/>
+									<img src="/images/profile/gray-dot.png"/>
+								</div>
+							</div>
+							<div className="-profile-false-right"></div>
+							<GlobalChat/>
 						</div>
-						<div className="-profile-false-right"></div>
-						<GlobalChat/>
+						<div>
+							<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+							<ProfilePhotosGallery/>
+						</div>
+						<div>
+							<ProfileFriendsGallery/>
+						</div>
 					</div>
-					<div>
-						<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
-						<ProfilePhotosGallery/>
-					</div>
-					<div>
-						<ProfileFriendsGallery/>
-					</div>
-				</div>
 			</div>
 		)
 	}

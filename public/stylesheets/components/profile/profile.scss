@@ -1,15 +1,27 @@
 @import '../../base/utilities';
 
-.profile-body {
-    z-index: -1;
+.profile-body-wrapper {
     background: $backgroundColor;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.profile-content-wrapper{
-  height: auto;
-  width: 851px;
-  display: flex;
-  flex-direction: row;
+.profile-content-wrapper {
+  position: relative;
+    height: auto;
+    width: 851px;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-left-content-div {
+  
+}
+
+.profile-false-right {
+    height: auto;
+    width: 128px;
 }
