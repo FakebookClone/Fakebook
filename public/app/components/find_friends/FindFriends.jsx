@@ -21,6 +21,7 @@ export default class FindFriends extends React.Component {
 			<div>
 				<GlobalHeader user={this.state.user} />
 				  <div className="main-wrapper">
+					  <div className="main-content-wrapper">
 						<div className="respond-to-your-friend-request">
 							<div className="top-left-text-and-link">
 								<p>Respond to Your Friend Request</p>
@@ -53,6 +54,7 @@ export default class FindFriends extends React.Component {
 						<div className="search-for-friends">
 
 						</div>
+					</div>
 					</div>
 			</div>
 		)
