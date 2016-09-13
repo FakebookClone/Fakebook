@@ -10,8 +10,8 @@ var imageshome = '/images/home/';
 var images = '/images/main/';
 
 export default class Posts extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			postedComments: [],
 			comment: '',
@@ -21,6 +21,12 @@ export default class Posts extends React.Component {
 			editPost: false,
 			editPostText: ''
 		};
+
+		if(this.props.user.userID === this.props.post.profile_id) {
+			this.state.myPost = true;
+		} else {
+			this.state.myPost = false;
+		}
 	}
 
 	componentWillMount() {
@@ -43,14 +49,23 @@ export default class Posts extends React.Component {
 			<div className="global-post-container">
 
 				<div className="post-edit-button">
-					<ul className="post-menu">
-						<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
-						<li className="post-menu-item">Turn off translations</li>
-						<div className="post-menu-seperator"></div>
-						<li className="post-menu-item">Save Post</li>
-						<li onClick={this.editPost.bind(this)} className="post-menu-item">Edit Post</li>
-						<li className="post-menu-item">Turn off notifications for this post</li>
-					</ul>
+					{this.state.myPost
+						? <ul className="post-menu">
+								<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
+								<li className="post-menu-item">Turn off translations</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Save Post</li>
+								<li onClick={this.editPost.bind(this)} className="post-menu-item">Edit Post</li>
+								<li className="post-menu-item">Turn off notifications for this post</li>
+							</ul>
+						:	<ul className="post-menu-small">
+								<li className="post-menu-item">Save Post</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Turn on notifications for this item</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Report Post</li>
+						 </ul>
+					}
 				</div>
 
 				<div className="upper-posted-div">
@@ -191,8 +206,10 @@ export default class Posts extends React.Component {
 						$(document).on('click', function(e) {
 							if( $(e.target).hasClass('post-edit-button') ) {
 								$(e.target).children('.post-menu').css('display', 'inline-block');
+								$(e.target).children('.post-menu-small').css('display', 'inline-block');
 							} else {
 								$('.post-menu').css('display', 'none');
+								$('.post-menu-small').css('display', 'none');
 							}
 						})
 					})

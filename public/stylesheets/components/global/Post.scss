@@ -25,6 +25,22 @@
   z-index: 2;
   display: none;
 }
+
+.post-menu-small {
+  padding-top: 6px;
+  width: 215.66px;
+  height: 104px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  background-color: #fff;
+  background-clip: padding-box;
+  position: absolute;
+  right: 0px;
+  top: 14px;
+  z-index: 2;
+  display: none;
+}
 // Upper ******************
 
 .post-edit-button {
