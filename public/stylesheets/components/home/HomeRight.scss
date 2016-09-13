@@ -82,6 +82,10 @@
     width: 281px;
     display: flex;
     flex-direction: row;
+
+    &:hover {
+      cursor: pointer;
+    }
 }
 
 .trending-arrow {

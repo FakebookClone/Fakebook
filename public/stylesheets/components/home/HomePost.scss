@@ -41,10 +41,14 @@
     cursor: pointer;
 
     img {
-        margin-top: -3px;
-        margin-right: 3px;
-        max-height: 18px;
-        max-width: 35px;
+      margin-top: -3px;
+      margin-right: 3px;
+      max-height: 18px;
+      max-width: 35px;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
 }
 
@@ -107,7 +111,8 @@
       resize: none;
       font-size: 14px;
       width: 400px;
-      padding-bottom: 20px;
+      padding-bottom: 12px;
+      font-family: inherit;
     }
     &:hover{
       color: #9094BA;
@@ -198,4 +203,27 @@
     &:hover {
         background-color: $postBttnHoverBlue;
     }
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+.insert-photo-input {
+  opacity: 0;
+  position: absolute;
+  width: 93px;
+  margin-top: -3px;
+}
+
+.home-post-image-upload-container {
+  position: relative;
+  width: calc(100% - 12px);
+  padding-bottom: 12px;
+  margin-left: 12px;
+}
+
+.home-post-image-upload {
+  width: 50%;
+  border: 1px solid rgba(0, 0, 0, .1);
 }

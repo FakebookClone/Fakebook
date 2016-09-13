@@ -15,9 +15,11 @@ export default class HomePost extends React.Component {
 			post: "",
 			dimmerVisible: false,
 			closeVisible: false,
-			iconVisible: false
+			iconVisible: false,
+			file: null, processing: false, uploaded_uri: null
 		}
 	}
+
 	render() {
 		return (
 			<div className="home-post-wrapper">
@@ -29,8 +31,9 @@ export default class HomePost extends React.Component {
 
 					<div className="post-container-top">
 						<div className="insert-photo-div">
+							<input className="insert-photo-input" onChange={this.addPhoto.bind(this)} type="file" accept="image/*" />
 							<img className="camera-icon" src={imageshome + 'photo-video.png'}/>
-							<p>Photo/Video</p>
+							<p className="home-post-photo-video">Photo/Video</p>
 						</div>
 						<div className="album-div">
 							<img src={imageshome + 'photo-video-album.png'}/>
@@ -49,6 +52,12 @@ export default class HomePost extends React.Component {
 						</div>
 						<div onClick={this.toggleDimmer.bind(this, false)} className="inputStatusDiv">
 							<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post} />
+							<div className="home-post-image-upload-container">
+								{this.state.file
+									? <img className="home-post-image-upload" src={this.state.file.imageBody} />
+									: null
+								}
+							</div>
 						</div>
 					</div>
 
@@ -87,21 +96,56 @@ export default class HomePost extends React.Component {
 		)
 	}
 
-	postCatcher(e) {this.setState({post: e.target.value});}
+	postCatcher(e) { this.setState({ post: e.target.value }) }
+
+	addPhoto(e) {
+		const reader = new FileReader();
+		const file = e.target.files[0];
+
+    reader.onload = (upload) => {
+      this.setState({
+        file: {
+          imageBody: upload.target.result,
+          imageName: file.name,
+          imageExtension: file.type,
+          userEmail: this.props.user.email
+        },
+				dimmerVisible: true,
+				closeVisible: true,
+				iconVisible: true
+      });
+    };
+
+    reader.readAsDataURL(file);
+	}
 
 	post() {
-		this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
-		Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.id}).then( r => {
-			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
-				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
-					this.props.updatePosted(r.data);
+		if(this.state.file) {
+			console.log('Image upload logic here');
+			Axios.post(`/api/aws/upload`, { file: this.state.file }).then(r => {
+				Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: r.data, profile_id: this.props.user.id}).then( r => {
+					Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+						Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+							this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, file: null })
+							this.props.updatePosted(r.data);
+						})
+					})
 				})
 			})
-		})
+		} else {
+			Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.id}).then( r => {
+				Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+					Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+						this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
+						this.props.updatePosted(r.data);
+					})
+				})
+			})
+		}
 	}
 
 	toggleDimmer(override) {
-		if(this.state.post == "") {
+		if(this.state.post == "" && !(this.state.file) ) {
 			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: true })
 		} else if(this.state.post !== "") {
 			this.setState({ dimmerVisible: true, closeVisible: true });
