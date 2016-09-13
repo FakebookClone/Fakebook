@@ -3,24 +3,44 @@ import React from 'react';
 require('../../../stylesheets/components/profile/ProfileBirthdayBox.scss');
 
 export default class ProfileBirthdayBox extends React.Component {
-  constructor () {
-    super()
-  }
+	constructor() {
+		super()
+	}
 
-  render () {
-    return (
-      <div className="profile-birthday-box-wrapper">
-      <div>
-      <h1>Born on January 1, 1990</h1>
-      </div>
-      <div>
-      <img src="/images/profile/baby-blue-profile.png"/>
-      </div>
-        {/* <img src="/images/profile/gray-people.png"/>
-        <span className="gray"> · </span>
-        <img src="/images/profile/gray-globe.png"/>
-        <i className="fa fa-angle-down gray"></i> */}
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="profile-birthday-box-wrapper">
+				<div className="profile-birthday-top-row-wrapper">
+					<div>
+						<img className="profile-user-image" src="/images/main/silhouette.jpg"/>
+
+					</div>
+					<div className="profile-birthday-name-icons-wrapper">
+          <div>
+            <p className="profile-birthday-user">Fakebook Clone</p>
+          </div>
+
+						<div>
+							<img src="/images/profile/clock-small-gray.png"/>
+							<span className="profile-gray-dot">
+								·
+							</span>
+							<img src="/images/profile/gray-people.png"/>
+						</div>
+					</div>
+
+					<div>
+						<img className="profile-gray-arrow" src="/images/profile/down-carat-profile-light-gray.png" />
+					</div>
+				</div>
+
+				<div>
+					<img className="profile-baby-blue" src="/images/profile/baby-blue-profile.png"/>
+				</div>
+				<div>
+					<p className="profile-birthday-header">Born on January 1, 1990</p>
+				</div>
+			</div>
+		)
+	}
 }
