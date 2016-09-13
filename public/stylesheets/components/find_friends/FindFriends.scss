@@ -1,22 +1,43 @@
 @import '../../base/utilities';
 
-.main-wrapper{
+//main-wrapper
+.find-friends-main-wrapper{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $backgroundColor;
   padding-top: 21px;
+  display: flex;
+  justify-content: center;
 }
-
-.respond-to-your-friend-request{
+.find-friends-main-content-wrapper{
+  width: 1011px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+//respond-to-your-friend-request-box
+.respond-to-your-friend-request-box{
   width: 665px;
   height: 160px;
   background-color: $faceBookWhite;
   border: $borderOnFindFriendsPage;
-  // margin-left: 228px;
+  display: flex;
+  justify-content: space-between;
 }
-.top-left-text-and-link {
+.respond-to-your-friend-request-top-left-text-and-link {
   font-family: $faceBookFontr;
   margin-top: 23px;
-  // margin-left: 20px;
   line-height: 16px;
 }
+.wrapper-for-image-and-about-person {
+  display: flex;
+}
+//people-you-may-know-boxes
+
+
+
+//add-personal-contacts-box
+
+
+
+//search-for-friends-box
