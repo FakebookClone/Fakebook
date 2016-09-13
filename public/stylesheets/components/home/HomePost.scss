@@ -41,10 +41,10 @@
     cursor: pointer;
 
     img {
-        margin-top: -3px;
-        margin-right: 3px;
-        max-height: 18px;
-        max-width: 35px;
+      margin-top: -3px;
+      margin-right: 3px;
+      max-height: 18px;
+      max-width: 35px;
     }
 
     &:hover {
@@ -205,21 +205,15 @@
     }
 }
 
+input:hover {
+  cursor: pointer;
+}
+
 .insert-photo-input {
   opacity: 0;
   position: absolute;
   width: 93px;
   margin-top: -3px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.home-post-photo-video {
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .home-post-image-upload-container {
