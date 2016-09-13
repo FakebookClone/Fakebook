@@ -35,11 +35,9 @@ module.exports = {
     }, 25);
   },
   deletePost: function(req, res) {
-    console.log('deleting post', req.params);
     db.posts.deletePost([req.params.post_id], function(err, r) { res.status(200).send('deleted') })
   },
   editPost: function(req, res) {
-    console.log('editing post', req.params, req.body.post);
     db.posts.editPost([req.body.post, req.params.post_id], function(err, r) { res.status(200).send('edit success'); })
   }
 }
