@@ -23,29 +23,35 @@ export default class FindFriends extends React.Component {
 				<div className="find-friends-main-wrapper">
 					<div className="find-friends-main-content-wrapper">
 						<div className="respond-to-your-friend-request-box">
-							<div className="left-side-of-friend-request-box">
-								<div className="respond-to-your-friend-request-top-left-text-and-link">
+							<div>
+								<div className="upper-box-div">
 									<p>Respond to Your Friend Request</p>
 									<a href="#">View Send Requests</a>
 								</div>
-								<div className="wrapper-for-image-and-about-person">
-									<div className="respond-to-your-friend-request-james-image">
-										<img src="../../../images/find_friends/james.jpg"/>
+								<div className="lower-box-div">
+									<div className="container-for-image-and-information">
+										<div>
+											<img src="../../../images/find_friends/james.jpg"/>
+										</div>
+										<div className="text-about-person">
+											<a href="#">James Lemire</a>
+											<div className="grad-info-wrapper">
+												<div>
+													<img src="../../../images/find_friends/grad_cap.png"/>
+													<p>Atlantic High School</p>
+												</div>
+												<p>Friends with Michael Lecke.</p>
+											</div>
+										</div>
 									</div>
-									<div className="respond-to-your-friend-request-text-about-james">
-										<a href="#">James Lemire</a>
-										<img src="../../../images/find_friends/grad_cap.png"/>
-										<p>Atlantic High School</p>
-										<p>Friends with Michael Lecke.</p>
+								<div className="buttons">
+									<div className="wrapper-for-confirm-button">
+										<button className="confirm-button"><p>Confirm</p></button>
+									</div>
+									<div className="wrapper-for-delete-request-button">
+										<button className="delete-request-button"><p>Delete Request</p></button>
 									</div>
 								</div>
-							</div>
-							<div className="wrapper-for-right-side-of-request-box">
-								<div className="wrapper-for-confirm-button">
-									<button className="confirm-button">Confirm</button>
-								</div>
-								<div className="wrapper-for-delete-request-button">
-									<button className="delete-request-button">Delete Request</button>
 								</div>
 							</div>
 						</div>
@@ -71,11 +77,11 @@ export default class FindFriends extends React.Component {
 								</div>
 							</div>
 						</div> */}
-						<div className="wrapper-for-column-on-the-right">
+						<div>
 							<div className="add-personal-contacts-box">
 								<img src="../../../images/find_friends/add-personal-contacts.png"/>
 							</div>
-							<div className="search-for-friends-box">
+							<div>
 								<img src="../../../images/find_friends/search-for-friends.png"/>
 							</div>
 						</div>
