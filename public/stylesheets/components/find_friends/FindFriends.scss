@@ -1,0 +1,22 @@
+@import '../../base/utilities';
+
+.main-wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-color: $backgroundColor;
+  padding-top: 21px;
+}
+
+.respond-to-your-friend-request{
+  width: 665px;
+  height: 160px;
+  background-color: $faceBookWhite;
+  border: $borderOnFindFriendsPage;
+  // margin-left: 228px;
+}
+.top-left-text-and-link {
+  font-family: $faceBookFontr;
+  margin-top: 23px;
+  // margin-left: 20px;
+  line-height: 16px;
+}
