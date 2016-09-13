@@ -9,7 +9,7 @@ export default class ProfileBirthdayBox extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="profile-birthday-box-wrapper">
         <h1>Born on January 1, 1990</h1>
         <img src="/images/profile/baby-blue-profile.png"/>
         <img src="/images/profile/gray-people.png"/>

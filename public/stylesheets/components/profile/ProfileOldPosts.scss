@@ -1,0 +1,20 @@
+@import '../../base/utilities';
+
+.main-old-posts-wrapper {
+  height:106px;
+  width: 510px;
+  background-color: $faceBookWhite;
+  border: 1px solid rgb(221, 223, 226);
+  border-radius: 1px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-family: $faceBookFonth;
+}
+
+.posts-from-text {
+  font-family: $faceBookFonth;
+  font-size: 18px;
+  margin-top: 7px;
+}
