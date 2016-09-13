@@ -2,8 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import ToggleDisplay from 'react-toggle-display';
 
-var imageshome = './images/home/';
-var images = './images/main/';
+var imageshome = '/images/home/';
+var images = '/images/main/';
 
 require('../../../stylesheets/components/home/HomePost.scss');
 
@@ -102,13 +102,13 @@ export default class HomePost extends React.Component {
 
 	toggleDimmer(override) {
 		if(this.state.post == "") {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: !this.state.iconVisible })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: true })
 		} else if(this.state.post !== "") {
-			this.setState({ dimmerVisible: true, closeVisible: true, iconVisible: true });
+			this.setState({ dimmerVisible: true, closeVisible: true });
 		}
 
 		if(override) {
-			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: !this.state.iconVisible })
+			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
 		}
 	}
 }
