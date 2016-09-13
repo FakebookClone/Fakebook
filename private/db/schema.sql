@@ -24,7 +24,7 @@ CREATE TABLE posts (
   post_id SERIAL PRIMARY KEY,
   profile_id VARCHAR(20),
   post_text text,
-  post_image varchar(100),
+  post_image text,
   post_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
   profile_picture text
 );

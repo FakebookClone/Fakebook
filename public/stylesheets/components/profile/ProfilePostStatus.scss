@@ -1,0 +1,61 @@
+@import '../../base/utilities';
+
+.profile-post-status-wrapper {
+    margin-top: 17px;
+    margin-left: 17px;
+    height: 149px;
+    width: 510px;
+    background-color: $faceBookWhite;
+
+    h1 {
+        height: 34px;
+        width: 504px;
+        padding-left: 6px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: $profilePostBackgroundColor;
+        border-bottom: $borderColorGrey;
+
+        span {
+            margin-left: 10px;
+        }
+
+        p {
+            padding-left: 5px;
+            font-size: 12px;
+        }
+    }
+}
+
+.mid-post-profile{
+  height: 73px;
+  width: 510px;
+  border-bottom: $borderColorGrey;
+  display: flex;
+  flex-direction: row;
+  div{
+    height: 73px;
+    width: 62px;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    img{
+      height: 38px;
+      width: 38px;
+      border: $profilePicBorderGray;
+    }
+  }
+  textarea{
+    padding-top: 11px;
+      min-height: 20px;
+      width: 400px;
+      margin-top: 11px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 14px;
+      font-family: inherit;
+  }
+}
+// <img src="/images/profile/white-up-triangle.png"/>

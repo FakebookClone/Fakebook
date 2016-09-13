@@ -19,17 +19,17 @@ import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 require('../../../stylesheets/components/profile/Profile.scss');
 
 export default class Profile extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
-			user: null
+			user: JSON.parse(localStorage.getItem('fakebook_user')),
 		}
 	}
 
 	componentWillMount() {
-		this.setState({
-			user: JSON.parse(localStorage.getItem('fakebook_user'))
-		});
+		if (!(this.state.user)) {
+			browserHistory.push('/')
+		}
 	}
 
 	render() {
@@ -54,7 +54,7 @@ export default class Profile extends React.Component {
 									</div>
 								</div>
 							 <div className="profile-right-content-div">
-									<ProfilePostStatus/>
+									<ProfilePostStatus user={this.state.user} />
 									<ProfileStatusBox/>
 									<ProfileOldPosts/>
 									<ProfileBirthdayBox/>
