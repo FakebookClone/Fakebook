@@ -1,13 +1,72 @@
 @import '../../base/utilities';
 
 .profile-birthday-box-wrapper {
-    height: 196px;
+    height: 165px;
     width: 510px;
     background-color: $faceBookWhite;
     border: 1px solid rgb(221, 223, 226);
-    border-radius: 2px;
+    border-radius: 1px;
+    border-bottom: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-family: $faceBookFonth;
 }
 
-.gray {
+.profile-birthday-top-row-wrapper {
+    width: 510px;
+    margin-top: 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: -22px;
+}
+
+.profile-birthday-header {
+    font-family: $faceBookFonth;
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+.profile-user-image {
+    height: 40px;
+    width: 40px;
+    border: 0.1px solid #e6e6e6;
+    margin-left: 12px;
+}
+
+.profile-baby-blue {
+  margin-top: 15px;
+}
+
+.profile-gray-dot {
     color: gray;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.profile-gray-arrow {
+    color: #cfd1d5;
+    padding-right: 12px;
+}
+
+.profile-birthday-name-icons-wrapper {
+    padding-right: 310px;
+
+}
+
+.profile-birthday-user {
+    color: $postBttnHoverBlue;
+    font-family: $faceBookFonth;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }

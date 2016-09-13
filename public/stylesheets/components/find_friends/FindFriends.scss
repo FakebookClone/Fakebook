@@ -1,22 +1,136 @@
 @import '../../base/utilities';
-
-.main-wrapper{
-  width: 100vw;
-  height: 100vh;
-  background-color: $backgroundColor;
-  padding-top: 21px;
+//main-wrapper
+.find-friends-main-wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $backgroundColor;
+    padding-top: 21px;
+    display: flex;
+    justify-content: center;
 }
 
-.respond-to-your-friend-request{
+.find-friends-main-content-wrapper {
+    width: 1011px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+//respond-to-your-friend-request-box
+
+.respond-to-your-friend-request-box {
+    margin-right: 13px;
+    width: 665px;
+    height: 160px;
+    background-color: $faceBookWhite;
+    border: $borderOnFindFriendsPage;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+}
+// .respond-to-your-friend-request-and-text-about-james {
+//   margin-left: 20px;
+// }
+.upper-box-div {
+    font-family: $faceBookFontr;
+    margin-top: 23px;
+    margin-left: 20px;
+    line-height: 16px;
+    font-family: $faceBookFontr;
+      p{
+        font-size: 14px;
+        font-weight: 600;
+      }
+      a{
+        font-size: 11px;
+        text-decoration: none;
+        color: $postBttnHoverBlue;
+      }
+}
+.lower-box-div{
   width: 665px;
-  height: 160px;
-  background-color: $faceBookWhite;
-  border: $borderOnFindFriendsPage;
-  // margin-left: 228px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
 }
-.top-left-text-and-link {
-  font-family: $faceBookFontr;
-  margin-top: 23px;
-  // margin-left: 20px;
-  line-height: 16px;
+
+.container-for-image-and-information {
+    display: flex;
+    font-family: $faceBookFontr;
+    margin-left: 20px;
+    margin-top: 14px;
+    a {
+      text-decoration: none;
+    }
 }
+.text-about-person {
+  margin-top: 15px;
+  margin-left: 10px;
+  line-height: 18px;
+  a {
+    font-size: 14px;
+    font-weight: 900;
+    color: $postBttnHoverBlue;
+  }
+}
+.grad-info-wrapper {
+    color: $fbTextGray;
+    div {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          height: 9px;
+          width: 13px;
+          margin-top: 4px;
+        }
+
+        p {
+          font-size: 12px;
+          margin-left: 5px;
+        }
+    }
+
+    p {
+      font-size: 12px;
+    }
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+.confirm-button{
+  padding: 5px 8px 6px 8px;
+  p {
+    color: $faceBookWhite;
+    font-family: $facebookFontA;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  background-color: $facebookButtonOnFindFriends;
+  margin-top: 1px;
+  border: none;
+  border-radius: 3px;
+}
+.delete-request-button{
+  margin-left: 5px;
+  padding: 5px 8px 5px 8px;
+  border-radius: 3px;
+  border: none;
+  background-color: $deleteButtonOnFindFriends;
+  border: $buttonBorderGray;
+  p{
+    color: $color-of-word-photos-on-profile;
+    font-size: 12px;
+    font-family: $facebookFontA;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+//add-personal-contacts-box
+.add-personal-contacts-box{
+  margin-bottom: 20px;
+}
+//search-for-friends-box

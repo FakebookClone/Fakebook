@@ -4,6 +4,7 @@ var db = app.get('db');
 module.exports = {
   createPost: function(req, res) {
     db.posts.createPost([req.params.profile_id, req.body.post_text, req.body.post_image], function(err, r) {
+      console.log('ERROR MAKING POST', err);
       res.status(200).send('Post created');
     })
   },

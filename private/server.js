@@ -1,4 +1,3 @@
-var aws = require('aws-sdk');
 var cors = require('cors');
 var path = require('path');
 var express = require('express');
@@ -16,9 +15,11 @@ var profilesCtrl = require('./controllers/profilesCtrl.js');
 var friendsCtrl = require('./controllers/friendsCtrl.js');
 var commentsCtrl = require('./controllers/commentsCtrl.js');
 var likesCtrl = require('./controllers/likesCtrl.js');
+var aws = require('./controllers/AWSctrl.js');
 
+app.use(bodyParser.json({limit: '25mb'})); // default is 100KB;
+app.use(bodyParser.urlencoded({limit: '25mb', extended: true}));
 app.use(cors(config.corsOptions));
-app.use(bodyParser.json());
 app.use(express.static('../public'));
 
 //User Endpoints
@@ -46,6 +47,9 @@ app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);
 app.post('/api/like/post/:post_id', likesCtrl.likePost);
 app.get('/api/likes/comment/:comment_id', likesCtrl.getCommentLikes);
 app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
+
+//Amazon Web Services Endpoints
+app.post('/api/aws/upload', aws.upload);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public' });
