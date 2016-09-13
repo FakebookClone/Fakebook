@@ -3,7 +3,6 @@ var db = app.get('db');
 
 module.exports = {
   createPost: function(req, res) {
-    console.log('New post', req.params, req.body);
     db.posts.createPost([req.params.profile_id, req.body.post_text, req.body.post_image], function(err, r) {
       res.status(200).send('Post created');
     })
@@ -17,7 +16,6 @@ module.exports = {
     }
 
     for(var i in profile_ids) {
-      console.log('GETTING POSTS FOR PROFILE ID', profile_ids[i]);
       db.posts.getPosts(profile_ids[i], function(err, r) {
         neededPosts = neededPosts.concat(r);
       })
@@ -31,9 +29,15 @@ module.exports = {
           return 1;
         return 0;
       }
+
       var x = neededPosts.sort(compare);
-      console.log('POSTS TO SEND BACK', x);
       res.json(neededPosts);
     }, 25);
+  },
+  deletePost: function(req, res) {
+    db.posts.deletePost([req.params.post_id], function(err, r) { res.status(200).send('deleted') })
+  },
+  editPost: function(req, res) {
+    db.posts.editPost([req.body.post, req.params.post_id], function(err, r) { res.status(200).send('edit success'); })
   }
 }
