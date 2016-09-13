@@ -139,7 +139,7 @@ export default class Posts extends React.Component {
 							</div>
 							<div className="delete-confirmation-bottom">
 								<button className="delete-confirmation-cancel-button">Cancel</button>
-								<button onClick={this.deletePost.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
+								<button onClick={this.deletePostConfirmed.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
 								<button className="delete-confirmation-edit-button">Edit Post</button>
 							</div>
 						</div>
@@ -187,6 +187,7 @@ export default class Posts extends React.Component {
 	}
 
 	deletePostConfirmed() {
+		console.log('DELETE POST', this.props.post.post_id);
 		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
 			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
 				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
