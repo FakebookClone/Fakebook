@@ -14,7 +14,8 @@ export default class Posts extends React.Component {
 			postedComments: [],
 			comment: '',
 			likes: [],
-			iLiked: false
+			iLiked: false,
+			deleteConfirmation: false
 		};
 	}
 
@@ -122,6 +123,29 @@ export default class Posts extends React.Component {
 					</div>
 				</div>
 
+				{this.state.deleteConfirmation
+					?	<div onClick={this.cancelDelete.bind(this)} className="dimmer"></div>
+					: null
+				}
+
+				{this.state.deleteConfirmation
+					? <div className="delete-confirmation-container">
+							<div className="delete-confirmation-top">
+								<p className="delete-confirmation-header">Delete Post</p>
+								<div onClick={this.cancelDelete.bind(this)} className="delete-confirmation-x-button"></div>
+							</div>
+							<div className="delete-confirmation-middle">
+								<p>This post will be deleted and you won't be able to find it anymore.<br />You can also edit this post, if you just want to change something.</p>
+							</div>
+							<div className="delete-confirmation-bottom">
+								<button className="delete-confirmation-cancel-button">Cancel</button>
+								<button onClick={this.deletePost.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
+								<button className="delete-confirmation-edit-button">Edit Post</button>
+							</div>
+						</div>
+					: null
+				}
+
 				{
 					$('document').ready(function() {
 						$(document).on('click', function(e) {
@@ -159,13 +183,21 @@ export default class Posts extends React.Component {
 	}
 
 	deletePost() {
+		this.setState({ deleteConfirmation: true });
+	}
+
+	deletePostConfirmed() {
 		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
 			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
 				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
-					this.setState({ postMenuVisible: false });
+					this.setState({ deleteConfirmation: false });
 					this.props.updatePosted(r.data);
 				})
 			})
 		})
+	}
+
+	cancelDelete() {
+		this.setState({ deleteConfirmation: false });
 	}
 }
