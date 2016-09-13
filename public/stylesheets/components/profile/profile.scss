@@ -1,0 +1,26 @@
+@import '../../base/utilities';
+
+.profile-body-wrapper {
+    background: $backgroundColor;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content-wrapper {
+  position: relative;
+    height: auto;
+    width: 1011px;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-body-container{
+    width: 1011px;
+}
+
+.profile-left-content-div {
+
+}

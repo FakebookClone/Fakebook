@@ -9,7 +9,7 @@ export default class ProfileCover extends React.Component {
 
 	render() {
 		return (
-			<div className="main-cover-wrapper">
+			<div className="profile-main-cover-wrapper">
 				<div className="add-cover-wrapper">
 					<div className="cover-camera-pic">
 						<img src="/images/profile/white-camera.png"/>

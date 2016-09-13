@@ -1,10 +1,14 @@
 @import '../../base/utilities';
 
 .add-photo-wrapper {
-    height: 170px;
-    width: 170px;
-    border: 1px solid #b3b3b3;
+
+  margin-top: -145px;
+  margin-left: 15px;
+    height: 168px;
+    width: 168px;
+    border: $profilePicBorder;
     border-radius: 2px;
+    z-index: 10;
 }
 
 .silhouette-add-photo {
