@@ -4,76 +4,19 @@
   width: 100vw;
   height: 100vh;
   background-color: $backgroundColor;
-  padding-top: 62px;
+  padding-top: 21px;
 }
-.main-column-wrapper{
-  width: 667px;
-  height: 100vh;
-  // border: red solid;
+
+.respond-to-your-friend-request{
+  width: 665px;
+  height: 160px;
+  background-color: $faceBookWhite;
+  border: $borderOnFindFriendsPage;
   margin-left: 228px;
 }
-.wrapper-for-respond-to-request-box{
-  width: 665px;
-  height: 168px;
-  // border: green solid;
-  background-color: $faceBookWhite;
-  border-radius: 3px;
-  border: $borderOnFindFriendsPage;
-}
-.wrapper-for-top-of-request-box{
-  width: 665px;
-  height: 44px;
-  border: $borderOnFindFriendsPage;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+.top-left-text-and-link {
   font-family: $faceBookFontr;
-  margin-top: 22px;
-  padding-left: 20px;
-  h1{
-    font-size: 15px;
-    font-weight: 800;
-    padding-bottom: 3px;
-  }
-  a{
-    text-decoration: none;
-    font-size: 11px;
-    margin-left: 1px;
-    color: $postBttnHoverBlue;
-  }
-}
-.wrapper-for-bottom-of-request-box{
-  margin-left: 15px;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-}
-.wrapper-for-info-about-requesting-person{
-  margin-left: 10px;
-  a{
-    padding-top: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    margin-left: 1px;
-    margin-top: 20px;
-    color: $postBttnHoverBlue;
-    font-family: $faceBookFontr;
-  }
-  img{
-
-  }
-  p{
-    font-family: $faceBookFontr;
-    color: $fbTextGray;
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
-.confirm-button{
-  margin-left: 500px;
-  padding: 6px 10px 6px 10px
-}
-.delete-request-button{
-  padding: 6px 15px 6px 15px;
+  margin-top: 23px;
+  margin-left: 20px;
+  line-height: 16px;
 }
