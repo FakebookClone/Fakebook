@@ -15,9 +15,11 @@ export default class HomePost extends React.Component {
 			post: "",
 			dimmerVisible: false,
 			closeVisible: false,
-			iconVisible: false
+			iconVisible: false,
+			file: null, processing: false, uploaded_uri: null
 		}
 	}
+
 	render() {
 		return (
 			<div className="home-post-wrapper">
@@ -29,8 +31,9 @@ export default class HomePost extends React.Component {
 
 					<div className="post-container-top">
 						<div className="insert-photo-div">
-							<img onClick={this.addPhoto.bind(this)} className="camera-icon" src={imageshome + 'photo-video.png'}/>
-							<p>Photo/Video</p>
+							<input className="insert-photo-input" onChange={this.addPhoto.bind(this)} type="file" accept="image/*" />
+							<img className="camera-icon" src={imageshome + 'photo-video.png'}/>
+							<p className="home-post-photo-video">Photo/Video</p>
 						</div>
 						<div className="album-div">
 							<img src={imageshome + 'photo-video-album.png'}/>
@@ -49,6 +52,12 @@ export default class HomePost extends React.Component {
 						</div>
 						<div onClick={this.toggleDimmer.bind(this, false)} className="inputStatusDiv">
 							<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post} />
+							<div className="home-post-image-upload-container">
+								{this.state.file
+									? <img className="home-post-image-upload" src={this.state.file.imageBody} />
+									: null
+								}
+							</div>
 						</div>
 					</div>
 
@@ -89,8 +98,25 @@ export default class HomePost extends React.Component {
 
 	postCatcher(e) { this.setState({ post: e.target.value }) }
 
-	addPhoto() {
-		
+	addPhoto(e) {
+		const reader = new FileReader();
+		const file = e.target.files[0];
+
+    reader.onload = (upload) => {
+      this.setState({
+        file: {
+          imageBody: upload.target.result,
+          imageName: file.name,
+          imageExtension: file.type,
+          userEmail: this.props.user.email
+        },
+				dimmerVisible: true,
+				closeVisible: true,
+				iconVisible: true
+      });
+    };
+
+    reader.readAsDataURL(file);
 	}
 
 	post() {
@@ -105,7 +131,7 @@ export default class HomePost extends React.Component {
 	}
 
 	toggleDimmer(override) {
-		if(this.state.post == "") {
+		if(this.state.post == "" && !(this.state.file) ) {
 			this.setState({ dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, iconVisible: true })
 		} else if(this.state.post !== "") {
 			this.setState({ dimmerVisible: true, closeVisible: true });
