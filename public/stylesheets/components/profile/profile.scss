@@ -12,16 +12,15 @@
 .profile-content-wrapper {
   position: relative;
     height: auto;
-    width: 851px;
+    width: 1011px;
     display: flex;
     flex-direction: row;
 }
 
-.profile-left-content-div {
-
+.profile-body-container{
+    width: 1011px;
 }
 
-.profile-false-right {
-    height: 50px;
-    width: 128px;
+.profile-left-content-div {
+
 }

@@ -61,7 +61,6 @@ export default class Profile extends React.Component {
 									<img src="/images/profile/gray-dot.png"/>
 								</div>
 							</div>
-							<div className="-profile-false-right"></div>
 							<GlobalChat/>
 						</div>
 						<div>
