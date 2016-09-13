@@ -6,17 +6,27 @@ var imageshome = './images/home/';
 
 require('../../../stylesheets/components/global/Post.scss');
 require('../../../stylesheets/components/global/main.scss');
+var imageshome = '/images/home/';
+var images = '/images/main/';
 
 export default class Posts extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			postedComments: [],
 			comment: '',
 			likes: [],
 			iLiked: false,
-			postMenuVisible: false
+			deleteConfirmation: false,
+			editPost: false,
+			editPostText: ''
 		};
+
+		if(this.props.user.userID === this.props.post.profile_id) {
+			this.state.myPost = true;
+		} else {
+			this.state.myPost = false;
+		}
 	}
 
 	componentWillMount() {
@@ -38,19 +48,25 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div onClick={this.toggleMenu.bind(this)} className="post-edit-button"></div>
-
-				{this.state.postMenuVisible
-					? <ul className="post-menu">
-							<li className="post-menu-item">Delete</li>
-							<li className="post-menu-item">Turn off translations</li>
-							<div className="post-menu-seperator"></div>
-							<li className="post-menu-item">Save Post</li>
-							<li className="post-menu-item">Edit Post</li>
-							<li className="post-menu-item">Turn off notifications for this post</li>
-						</ul>
-					: null
-				}
+				<div className="post-edit-button">
+					{this.state.myPost
+						? <ul className="post-menu">
+								<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
+								<li className="post-menu-item">Turn off translations</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Save Post</li>
+								<li onClick={this.editPost.bind(this)} className="post-menu-item">Edit Post</li>
+								<li className="post-menu-item">Turn off notifications for this post</li>
+							</ul>
+						:	<ul className="post-menu-small">
+								<li className="post-menu-item">Save Post</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Turn on notifications for this item</li>
+								<div className="post-menu-seperator"></div>
+								<li className="post-menu-item">Report Post</li>
+						 </ul>
+					}
+				</div>
 
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
@@ -126,6 +142,78 @@ export default class Posts extends React.Component {
 						</div>
 					</div>
 				</div>
+
+				{this.state.deleteConfirmation
+					?	<div onClick={this.cancelDelete.bind(this)} className="dimmer"></div>
+					: null
+				}
+
+				{this.state.deleteConfirmation
+					? <div className="delete-confirmation-container">
+							<div className="delete-confirmation-top">
+								<p className="delete-confirmation-header">Delete Post</p>
+								<div onClick={this.cancelDelete.bind(this)} className="delete-confirmation-x-button"></div>
+							</div>
+							<div className="delete-confirmation-middle">
+								<p>This post will be deleted and you won't be able to find it anymore.<br />You can also edit this post, if you just want to change something.</p>
+							</div>
+							<div className="delete-confirmation-bottom">
+								<button onClick={this.cancelDelete.bind(this)} className="delete-confirmation-cancel-button">Cancel</button>
+								<button onClick={this.deletePostConfirmed.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
+								<button onClick={this.editPost.bind(this)} className="delete-confirmation-edit-button">Edit Post</button>
+							</div>
+						</div>
+					: null
+				}
+
+				{this.state.editPost
+					? <div className="dimmer"></div>
+					: null
+				}
+
+				{this.state.editPost
+					? <div className="edit-post-container">
+							<div className="edit-post-top">
+								<p className="edit-post-header">Edit Post</p>
+								<div onClick={this.cancelEdit.bind(this)} className="edit-post-x-button"></div>
+							</div>
+							<div className="edit-post-middle">
+								<div className="post-container-middle">
+									<div className="imgStatusDiv">
+										<img src={this.props.user.picture.data.url}/>
+									</div>
+									<div className="inputStatusDiv">
+										<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.editPostCatcher.bind(this)} value={this.state.editPostText} />
+									</div>
+								</div>
+
+								<div className="post-container-bottom">
+
+									<div className="lower-post-button-container">
+										<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+										<button className="post-bttn" onClick={this.editPostConfirmed.bind(this)}>Post</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					: null
+				}
+
+				{
+					$('document').ready(function() {
+						autosize($('.home-post-textarea'));
+						$(document).on('click', function(e) {
+							if( $(e.target).hasClass('post-edit-button') ) {
+								$(e.target).children('.post-menu').css('display', 'inline-block');
+								$(e.target).children('.post-menu-small').css('display', 'inline-block');
+							} else {
+								$('.post-menu').css('display', 'none');
+								$('.post-menu-small').css('display', 'none');
+							}
+						})
+					})
+				}
 			</div>
 		)
 	}
@@ -151,7 +239,45 @@ export default class Posts extends React.Component {
 		})
 	}
 
-	toggleMenu() {
-		this.setState({ postMenuVisible: !this.state.postMenuVisible })
+	deletePost() {
+		this.setState({ deleteConfirmation: true });
+	}
+
+	deletePostConfirmed() {
+		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.setState({ deleteConfirmation: false });
+					this.props.updatePosted(r.data);
+				})
+			})
+		})
+	}
+
+	cancelDelete() {
+		this.setState({ deleteConfirmation: false });
+	}
+
+	editPost() {
+		this.setState({ deleteConfirmation: false, editPost: true, editPostText: this.props.post.post_text });
+	}
+
+	cancelEdit() {
+		this.setState({ editPost: false });
+	}
+
+	editPostCatcher(e) {
+		this.setState({ editPostText: e.target.value });
+	}
+
+	editPostConfirmed() {
+		Axios.put(`/api/post/${this.props.post.post_id}`, { post: this.state.editPostText }).then(r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.setState({ editPost: false });
+					this.props.updatePosted(r.data);
+				})
+			})
+		})
 	}
 }
