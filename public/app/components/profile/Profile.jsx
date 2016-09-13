@@ -16,43 +16,56 @@ import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
-// require('../../../stylesheets/components/profile/Profile.scss');
+require('../../../stylesheets/components/profile/Profile.scss');
 
 export default class Profile extends React.Component {
 	constructor() {
 		super()
-		this.state = { user: null }
+		this.state = {
+			user: null
+		}
 	}
 
 	componentWillMount() {
-		this.setState({ user: JSON.parse(localStorage.getItem('fakebook_user')) });
+		this.setState({
+			user: JSON.parse(localStorage.getItem('fakebook_user'))
+		});
 	}
 
 	render() {
 		return (
 			<div>
 				<div>
-					<GlobalHeader user={this.state.user} />
-					<ProfileCover />
-					<ProfileAddPhoto />
-					<ProfileNav />
-					<ProfileIntro />
-					<ProfilePhotos />
-					<ProfileFriends />
-					<ProfileFooter />
-					<ProfilePostStatus />
-					<ProfileStatusBox />
-					<ProfileOldPosts />
-					<ProfileBirthdayBox />
-					<img src="/images/profile/gray-dot.png" />
-					<GlobalChat />
-				</div>
-				<div>
-					<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
-					<ProfilePhotosGallery />
-				</div>
-				<div>
-					<ProfileFriendsGallery />
+					<GlobalHeader user={this.state.user}/>
+					<div className="profile-body">
+						<ProfileCover/>
+						<div className="profile-content-wrapper">
+							<div className="profile-left-content-div">
+								<ProfileIntro/>
+								<ProfilePhotos/>
+								<ProfileFriends/>
+								<ProfileFooter/>
+							</div>
+							<div className="profile-right-content-div">
+								<ProfileAddPhoto/>
+								<ProfileNav/>
+								<ProfilePostStatus/>
+								<ProfileStatusBox/>
+								<ProfileOldPosts/>
+								<ProfileBirthdayBox/>
+								<img src="/images/profile/gray-dot.png"/>
+							</div>
+						</div>
+						<div className="-profile-false-right"></div>
+						<GlobalChat/>
+					</div>
+					<div>
+						<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+						<ProfilePhotosGallery/>
+					</div>
+					<div>
+						<ProfileFriendsGallery/>
+					</div>
 				</div>
 			</div>
 		)
