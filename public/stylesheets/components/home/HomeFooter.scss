@@ -11,7 +11,7 @@
 }
 
 .home-footer-top-section {
-  margin-left: 12px;
+    margin-left: 12px;
     height: 56px;
     width: 308px;
     background-color: $faceBookWhite;
@@ -23,7 +23,6 @@
 }
 
 .languages {
-
     margin-top: 12px;
     margin-left: 12px;
 
@@ -72,36 +71,44 @@
         height: 12px;
         width: 12px;
     }
+
     &:hover {
-      background-color: #e9ebee;
+        background-color: #e9ebee;
     }
 }
 
 .home-footer-bottom-section {
-  margin-top: 4px;
-  margin-left: 22px;
-  i {
-    font-size: 10px;
-    font-weight: bold;
-  }
-  a:link {
-      text-decoration: none;
-      cursor: pointer;
-      color: #90949c;
-  }
+    margin-top: 4px;
+    margin-left: 22px;
 
-  a:visited {
-      text-decoration: none;
-      color: #90949c;
-  }
+    i {
+        font-size: 10px;
+        font-weight: bold;
+    }
 
-  a:hover {
-      text-decoration: underline;
-      color: #90949c;
-  }
+    a:link {
+        text-decoration: none;
+        cursor: pointer;
+        color: #90949c;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: #90949c;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #90949c;
+    }
 }
 
 .gray-carat-down {
-  position: relative;
-  top: -2px;
+    position: relative;
+    top: -2px;
+}
+
+.fit-footer {
+    margin-right: -8px;
+    margin-left: -3px;
 }

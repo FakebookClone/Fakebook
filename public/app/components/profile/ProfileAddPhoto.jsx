@@ -17,9 +17,7 @@ export default class ProfilePhoto extends React.Component {
 						<div className="camera-pic">
 							<img src="/images/profile/white-camera.png"/>
 						</div>
-						<div className="add-photo-text">
-							<p>Add Photo</p>
-						</div>
+						<p className="add-photo-text">Add Photo</p>
 					</div>
 				</div>
 

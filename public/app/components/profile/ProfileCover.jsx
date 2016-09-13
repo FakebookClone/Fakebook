@@ -14,7 +14,7 @@ export default class ProfileCover extends React.Component {
 					<div className="cover-camera-pic">
 						<img src="/images/profile/white-camera.png"/>
 					</div>
-						<p className="add-cover-text">Add Cover Photo</p>
+					<p className="add-cover-text">Add Cover Photo</p>
 				</div>
 
 				<div className="name-wrapper">

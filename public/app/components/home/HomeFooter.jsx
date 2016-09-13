@@ -37,7 +37,7 @@ export default class HomeFooter extends React.Component {
 
 				<div className="home-footer-bottom-section">
 
-					<div>
+					<div className="fit-footer">
 						<p className="gray-text">
 							<a href="#">Privacy</a>
 							<span>&nbsp;·&nbsp;</span>
