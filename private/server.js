@@ -31,6 +31,7 @@ app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
 //Post Endpoints
 app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);
+app.put('/api/post/:post_id', postsCtrl.editPost);
 app.delete('/api/post/:post_id', postsCtrl.deletePost);
 
 //Friend Endpoints

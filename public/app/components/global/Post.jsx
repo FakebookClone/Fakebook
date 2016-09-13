@@ -6,6 +6,8 @@ var imageshome = './images/home/';
 
 require('../../../stylesheets/components/global/Post.scss');
 require('../../../stylesheets/components/global/main.scss');
+var imageshome = '/images/home/';
+var images = '/images/main/';
 
 export default class Posts extends React.Component {
 	constructor() {
@@ -16,7 +18,8 @@ export default class Posts extends React.Component {
 			likes: [],
 			iLiked: false,
 			deleteConfirmation: false,
-			editPost: false
+			editPost: false,
+			editPostText: ''
 		};
 	}
 
@@ -159,12 +162,32 @@ export default class Posts extends React.Component {
 								<p className="edit-post-header">Edit Post</p>
 								<div onClick={this.cancelEdit.bind(this)} className="edit-post-x-button"></div>
 							</div>
+							<div className="edit-post-middle">
+								<div className="post-container-middle">
+									<div className="imgStatusDiv">
+										<img src={this.props.user.picture.data.url}/>
+									</div>
+									<div className="inputStatusDiv">
+										<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.editPostCatcher.bind(this)} value={this.state.editPostText} />
+									</div>
+								</div>
+
+								<div className="post-container-bottom">
+
+									<div className="lower-post-button-container">
+										<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+										<button className="post-bttn" onClick={this.editPostConfirmed.bind(this)}>Post</button>
+									</div>
+
+								</div>
+							</div>
 						</div>
 					: null
 				}
 
 				{
 					$('document').ready(function() {
+						autosize($('.home-post-textarea'));
 						$(document).on('click', function(e) {
 							if( $(e.target).hasClass('post-edit-button') ) {
 								$(e.target).children('.post-menu').css('display', 'inline-block');
@@ -204,7 +227,6 @@ export default class Posts extends React.Component {
 	}
 
 	deletePostConfirmed() {
-		console.log('DELETE POST', this.props.post.post_id);
 		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
 			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
 				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
@@ -220,10 +242,25 @@ export default class Posts extends React.Component {
 	}
 
 	editPost() {
-		this.setState({ deleteConfirmation: false, editPost: true });
+		this.setState({ deleteConfirmation: false, editPost: true, editPostText: this.props.post.post_text });
 	}
 
 	cancelEdit() {
 		this.setState({ editPost: false });
+	}
+
+	editPostCatcher(e) {
+		this.setState({ editPostText: e.target.value });
+	}
+
+	editPostConfirmed() {
+		Axios.put(`/api/post/${this.props.post.post_id}`, { post: this.state.editPostText }).then(r => {
+			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+					this.setState({ editPost: false });
+					this.props.updatePosted(r.data);
+				})
+			})
+		})
 	}
 }
