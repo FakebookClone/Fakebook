@@ -1,7 +1,13 @@
-.profile-birthday-box-wrapper {
+@import '../../base/utilities';
 
+.profile-birthday-box-wrapper {
+    height: 196px;
+    width: 510px;
+    background-color: $faceBookWhite;
+    border: 1px solid rgb(221, 223, 226);
+    border-radius: 2px;
 }
 
 .gray {
-  color: gray;
+    color: gray;
 }
