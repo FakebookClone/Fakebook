@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
 										<ProfileFooter/>
 									</div>
 								</div>
-								<div className="profile-right-content-div">
+							 <div className="profile-right-content-div">
 									<ProfilePostStatus/>
 									<ProfileStatusBox/>
 									<ProfileOldPosts/>
