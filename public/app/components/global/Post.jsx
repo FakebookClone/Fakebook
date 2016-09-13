@@ -15,7 +15,8 @@ export default class Posts extends React.Component {
 			comment: '',
 			likes: [],
 			iLiked: false,
-			deleteConfirmation: false
+			deleteConfirmation: false,
+			editPost: false
 		};
 	}
 
@@ -38,15 +39,16 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div className="post-edit-button"></div>
-				<ul className="post-menu">
-					<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
-					<li className="post-menu-item">Turn off translations</li>
-					<div className="post-menu-seperator"></div>
-					<li className="post-menu-item">Save Post</li>
-					<li className="post-menu-item">Edit Post</li>
-					<li className="post-menu-item">Turn off notifications for this post</li>
-				</ul>
+				<div className="post-edit-button">
+					<ul className="post-menu">
+						<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
+						<li className="post-menu-item">Turn off translations</li>
+						<div className="post-menu-seperator"></div>
+						<li className="post-menu-item">Save Post</li>
+						<li onClick={this.editPost.bind(this)} className="post-menu-item">Edit Post</li>
+						<li className="post-menu-item">Turn off notifications for this post</li>
+					</ul>
+				</div>
 
 				<div className="upper-posted-div">
 					<div className="user-profile-posted-div">
@@ -138,9 +140,24 @@ export default class Posts extends React.Component {
 								<p>This post will be deleted and you won't be able to find it anymore.<br />You can also edit this post, if you just want to change something.</p>
 							</div>
 							<div className="delete-confirmation-bottom">
-								<button className="delete-confirmation-cancel-button">Cancel</button>
+								<button onClick={this.cancelDelete.bind(this)} className="delete-confirmation-cancel-button">Cancel</button>
 								<button onClick={this.deletePostConfirmed.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
-								<button className="delete-confirmation-edit-button">Edit Post</button>
+								<button onClick={this.editPost.bind(this)} className="delete-confirmation-edit-button">Edit Post</button>
+							</div>
+						</div>
+					: null
+				}
+
+				{this.state.editPost
+					? <div className="dimmer"></div>
+					: null
+				}
+
+				{this.state.editPost
+					? <div className="edit-post-container">
+							<div className="edit-post-top">
+								<p className="edit-post-header">Edit Post</p>
+								<div onClick={this.cancelEdit.bind(this)} className="edit-post-x-button"></div>
 							</div>
 						</div>
 					: null
@@ -150,7 +167,7 @@ export default class Posts extends React.Component {
 					$('document').ready(function() {
 						$(document).on('click', function(e) {
 							if( $(e.target).hasClass('post-edit-button') ) {
-								$('.post-menu').css('display', 'inline-block');
+								$(e.target).children('.post-menu').css('display', 'inline-block');
 							} else {
 								$('.post-menu').css('display', 'none');
 							}
@@ -200,5 +217,13 @@ export default class Posts extends React.Component {
 
 	cancelDelete() {
 		this.setState({ deleteConfirmation: false });
+	}
+
+	editPost() {
+		this.setState({ deleteConfirmation: false, editPost: true });
+	}
+
+	cancelEdit() {
+		this.setState({ editPost: false });
 	}
 }
