@@ -77,6 +77,14 @@ export default class Posts extends React.Component {
 					<div className="posted-text-container">
 						<p className="posted-text">{this.props.post.post_text}</p>
 					</div>
+
+					{this.props.post.post_image
+						?	<div className="posted-image-container">
+								<img className="posted-image" src={this.props.post.post_image} />
+							</div>
+						: null
+					}
+
 				</div>
 				<div className="mid-posted-icon-div">
 					<div className="likePost" onClick={this.likePost.bind(this)}>
@@ -184,6 +192,12 @@ export default class Posts extends React.Component {
 									</div>
 									<div className="inputStatusDiv">
 										<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.editPostCatcher.bind(this)} value={this.state.editPostText} />
+											<div className="home-post-image-upload-container">
+												{this.props.post.post_image
+													? <img className="home-post-image-upload" src={this.props.post.post_image} />
+													: null
+												}
+											</div>
 									</div>
 								</div>
 

@@ -111,6 +111,16 @@
   font-weight: normal;
   font-size: 14px;
 }
+
+.posted-image-container {
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.posted-image {
+  width: 50%;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
 // Mid ******************
 
 .mid-posted-icon-div {
@@ -352,9 +362,9 @@
   height: 149px;
   border-radius: 3px;
   background: #fff;
-  position: relative;
+  position: absolute;
   z-index: 3;
-  margin-top: -175px;
+  top: 0px;
 }
 
 .delete-confirmation-top {
@@ -471,9 +481,9 @@
   min-height: 149px;
   border-radius: 3px;
   background: #fff;
-  position: relative;
+  position: absolute;
   z-index: 3;
-  margin-top: -175px;
+  top: 0px;
 }
 
 .edit-post-top {
