@@ -29,7 +29,7 @@ export default class HomePost extends React.Component {
 
 					<div className="post-container-top">
 						<div className="insert-photo-div">
-							<img className="camera-icon" src={imageshome + 'photo-video.png'}/>
+							<img onClick={this.addPhoto.bind(this)} className="camera-icon" src={imageshome + 'photo-video.png'}/>
 							<p>Photo/Video</p>
 						</div>
 						<div className="album-div">
@@ -87,7 +87,11 @@ export default class HomePost extends React.Component {
 		)
 	}
 
-	postCatcher(e) {this.setState({post: e.target.value});}
+	postCatcher(e) { this.setState({ post: e.target.value }) }
+
+	addPhoto() {
+		
+	}
 
 	post() {
 		this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
