@@ -16,7 +16,7 @@ import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
-require('../../../stylesheets/components/profile/Profile.scss');
+require('../../../stylesheets/components/profile/profile.scss');
 
 export default class Profile extends React.Component {
 	constructor(props) {

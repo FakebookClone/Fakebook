@@ -21,7 +21,6 @@ export default class HomePost extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user);
 		return (
 			<div className="home-post-wrapper">
 				{this.state.dimmerVisible

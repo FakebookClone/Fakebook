@@ -19,7 +19,6 @@ export default class HomeCenter extends React.Component {
   }
 
   render() {
-    console.log(this.props.user);
     return (
       <div className= "post container">
         <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
