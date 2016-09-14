@@ -22,7 +22,7 @@ export default class Posts extends React.Component {
 			editPostText: ''
 		};
 
-		if(this.props.user.userID === this.props.post.profile_id) {
+		if(this.props.user.facebook_id === this.props.post.profile_id) {
 			this.state.myPost = true;
 		} else {
 			this.state.myPost = false;
