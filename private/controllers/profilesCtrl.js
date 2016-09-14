@@ -14,6 +14,6 @@ module.exports = {
     })
   },
   getProfile: function(req, res) {
-    db.profiles.getProfile([req.params.facebook_id], function(err, r) { res.json(r[0]) });
+    db.profiles.getProfile([req.params.profile_id], function(err, r) { res.json(r) });
   }
 }
