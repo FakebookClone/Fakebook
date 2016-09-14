@@ -22,7 +22,7 @@ export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: JSON.parse(localStorage.getItem('fakebook_user')),
+			user: JSON.parse(localStorage.getItem('fakebook_user'))
 		}
 	}
 
@@ -35,9 +35,10 @@ export default class Profile extends React.Component {
 	render() {
 		return (
 			<div>
-					<GlobalHeader user={this.state.user}/>
+				<GlobalHeader user={this.state.user}/>
 
-					<div className="profile-body-wrapper">
+				<div className="profile-body-wrapper">
+					<div className="profile-master-body">
 						<div className="profile-body-container">
 							<div className="profile-body-header">
 								<ProfileCover/>
@@ -53,8 +54,8 @@ export default class Profile extends React.Component {
 										<ProfileFooter/>
 									</div>
 								</div>
-							 <div className="profile-right-content-div">
-									<ProfilePostStatus user={this.state.user} />
+								<div className="profile-right-content-div">
+									<ProfilePostStatus user={this.state.user}/>
 									<ProfileStatusBox/>
 									<ProfileOldPosts/>
 									<ProfileBirthdayBox/>
@@ -71,6 +72,7 @@ export default class Profile extends React.Component {
 							<ProfileFriendsGallery/>
 						</div>
 					</div>
+				</div>
 			</div>
 		)
 	}
