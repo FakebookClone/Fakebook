@@ -33,7 +33,7 @@ export default class LoginHeaderForm extends React.Component {
 					<input className="login-header-input-text" type="password" name="pass" tabIndex="2"/>
 					<a href="#">Forgot account?</a>
 				</div>
-        <FacebookLogin appId="145051979269944" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
+        <FacebookLogin appId="1608022686157766" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
 			</div>
 		)
 	}

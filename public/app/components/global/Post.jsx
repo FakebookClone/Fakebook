@@ -22,7 +22,7 @@ export default class Posts extends React.Component {
 			editPostText: ''
 		};
 
-		if(this.props.user.userID === this.props.post.profile_id) {
+		if(this.props.user.facebook_id === this.props.post.profile_id) {
 			this.state.myPost = true;
 		} else {
 			this.state.myPost = false;
@@ -133,7 +133,7 @@ export default class Posts extends React.Component {
 				<div className="lower-posted-div">
 					<div className="comment-input-section">
 						<div className="comment-profile-pic">
-							<img src={this.props.user.picture.data.url}/>
+							<img src={this.props.user.profile_pic}/>
 						</div>
 
 						<div className="input-name">

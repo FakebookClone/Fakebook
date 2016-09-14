@@ -1,10 +1,23 @@
 import React from 'react';
+import Axios from 'axios';
 
 require('../../../stylesheets/components/profile/ProfileCover.scss');
 
 export default class ProfileCover extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
+		this.state = { sameUser: false, currentUser: JSON.parse(localStorage.getItem('fakebook_user')), requestSent: false }
+	}
+
+	componentWillMount() {
+		if(this.props.user.facebook_id === this.state.currentUser.userID) {
+			this.setState({ sameUser: true })
+		}
+		Axios.get('/api/sent/friend-requests', { request_sender_id: this.state.currentUser.userID, requested_id: this.props.user.facebook_id}).then(r => {
+			if(r.data.length !== 0) {
+				this.setState({ requestSent: false });
+			}
+		})
 	}
 
 	render() {
@@ -19,15 +32,30 @@ export default class ProfileCover extends React.Component {
 
 				<div className="name-wrapper">
 					<div>
-						<h1 className="profile-name">Facebook Clone</h1>
+						<h1 className="profile-name">{this.props.user.name}</h1>
 					</div>
-					<div className="profile-name-buttons">
-						<button className="profile-update-info">Update Info</button>
-						<button className="profile-activity-log">View Activity Log</button>
-						<button className="profile-cover-elipsis"><img src="/images/profile/gray-elipsis.png"/></button>
-					</div>
+					{this.state.sameUser
+						? <div className="profile-name-buttons">
+								<button className="profile-update-info">Update Info</button>
+								<button className="profile-activity-log">View Activity Log</button>
+								<button className="profile-cover-elipsis"><img src="/images/profile/gray-elipsis.png"/></button>
+							</div>
+						: <div className="profile-name-buttons">
+								{this.state.requestSent
+									? <button className="profile-update-info">Friend Request Sent</button>
+								: <button onClick={this.addFriend.bind(this)} className="profile-update-info">Add Friend</button>
+								}
+								<button className="profile-update-info">Send Message</button>
+							</div>
+					}
 				</div>
 			</div>
 		)
+	}
+
+	addFriend() {
+		Axios.post('/api/friend-request', { request_sender_id: this.state.currentUser.userID, requested_id: this.props.user.facebook_id }).then(r => {
+			this.setState({ requestSent: true });
+		})
 	}
 }
