@@ -51,8 +51,10 @@ app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
 
 //Friend Request Endpoints
 app.get('/api/friend-requests/:profile_id', friendRequestCtrl.getFriendRequests);
+app.post('/api/sent/friend-requests', friendRequestCtrl.getSentFriendRequests);
 app.post('/api/delete/friend-request', friendRequestCtrl.deleteFriendRequest);
 app.post('/api/accept/friend-request', friendRequestCtrl.acceptFriendRequest);
+app.post('/api/friend-request', friendRequestCtrl.addFriend);
 
 //Amazon Web Services Endpoints
 app.post('/api/aws/upload', awsCtrl.upload);
