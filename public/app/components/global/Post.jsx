@@ -22,7 +22,7 @@ export default class Posts extends React.Component {
 			editPostText: ''
 		};
 
-		if(this.props.user.userID === this.props.post.profile_id) {
+		if(this.props.user.facebook_id === this.props.post.profile_id) {
 			this.state.myPost = true;
 		} else {
 			this.state.myPost = false;
@@ -36,7 +36,7 @@ export default class Posts extends React.Component {
 		Axios.get(`/api/likes/post/${this.props.post.post_id}`).then(r => {
 			var temp = false;
 			for(var i in r.data) {
-				if(r.data[i].profile_id == this.props.user.id) {
+				if(r.data[i].profile_id == this.props.user.facebook_id) {
 					temp = true;
 				}
 			}
@@ -133,7 +133,7 @@ export default class Posts extends React.Component {
 				<div className="lower-posted-div">
 					<div className="comment-input-section">
 						<div className="comment-profile-pic">
-							<img src={this.props.user.picture.data.url}/>
+							<img src={this.props.user.profile_pic}/>
 						</div>
 
 						<div className="input-name">
@@ -188,7 +188,7 @@ export default class Posts extends React.Component {
 							<div className="edit-post-middle">
 								<div className="post-container-middle">
 									<div className="imgStatusDiv">
-										<img src={this.props.user.picture.data.url}/>
+										<img src={this.props.user.profile_pic}/>
 									</div>
 									<div className="inputStatusDiv">
 										<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.editPostCatcher.bind(this)} value={this.state.editPostText} />
@@ -240,7 +240,7 @@ export default class Posts extends React.Component {
 		if (e.keyCode === 13) {
 			Axios.post(`/api/comment/${this.props.post.post_id}`, {
 				comment: this.state.comment,
-				profile_id: this.props.user.id
+				profile_id: this.props.user.facebook_id
 			}).then(r => {
 				this.setState({postedComments: r.data, comment: ''})
 			})
@@ -259,8 +259,8 @@ export default class Posts extends React.Component {
 
 	deletePostConfirmed() {
 		Axios.delete(`/api/post/${this.props.post.post_id}`).then(r => {
-			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
-				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+			Axios.get(`/api/friends/${this.props.user.facebook_id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.facebook_id}`, { friends: r.data }).then( r => {
 					this.setState({ deleteConfirmation: false });
 					this.props.updatePosted(r.data);
 				})
@@ -286,8 +286,8 @@ export default class Posts extends React.Component {
 
 	editPostConfirmed() {
 		Axios.put(`/api/post/${this.props.post.post_id}`, { post: this.state.editPostText }).then(r => {
-			Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
-				Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+			Axios.get(`/api/friends/${this.props.user.facebook_id}`).then( r => {
+				Axios.post(`/api/posts/${this.props.user.facebook_id}`, { friends: r.data }).then( r => {
 					this.setState({ editPost: false });
 					this.props.updatePosted(r.data);
 				})

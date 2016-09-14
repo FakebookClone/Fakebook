@@ -12,7 +12,7 @@ export default class ProfilePhoto extends React.Component {
 			<div className="add-photo-wrapper">
 
 				<div className="silhouette-add-photo">
-					<img src="/images/profile/silhouette-gray-large.jpg"/>
+					<img className="profile-profile-picture" src={this.props.user.profile_pic} />
 					<div className="add-photo-opaque">
 						<div className="camera-pic">
 							<img src="/images/profile/white-camera.png"/>
