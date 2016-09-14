@@ -48,7 +48,7 @@ export default class HomePost extends React.Component {
 
 					<div className="post-container-middle">
 						<div className="imgStatusDiv">
-							<img src={this.props.user.picture.data.url}/>
+							<img src={this.props.user.profile_pic}/>
 						</div>
 						<div onClick={this.toggleDimmer.bind(this, false)} className="inputStatusDiv">
 							<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post} />

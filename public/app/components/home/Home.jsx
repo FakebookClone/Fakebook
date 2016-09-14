@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 import GlobalHeader from '../global/GlobalHeader.jsx';
 import ProfileFooter from '../profile/ProfileFooter.jsx';
 import GlobalChat from '../global/GlobalChat.jsx';
@@ -20,6 +21,10 @@ export default class Home extends React.Component {
 	componentWillMount() {
 		if (!(this.state.user)) {
 			browserHistory.push('/')
+		} else {
+			Axios.get(`/api/profile/${this.state.user.userID}`).then(r => {
+				this.setState({ user: r.data[0] });
+			})
 		}
 	}
 
@@ -28,12 +33,12 @@ export default class Home extends React.Component {
 			<div>
 				{this.state.user
 					? <div>
-							<GlobalHeader user={this.state.user}/>
+							<GlobalHeader user={this.state.user} />
 							<div className="home-main-content-wrapper">
 								<GlobalChat />
 								<div className="home-main-content-container">
-									<HomeLeft user={this.state.user}/>
-									<HomeCenter user={this.state.user}/>
+									<HomeLeft user={this.state.user} />
+									<HomeCenter user={this.state.user} />
 									<HomeRight/>
 								</div>
 							</div>

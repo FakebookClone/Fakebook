@@ -35,7 +35,7 @@ export default class ProfilePostStatus extends React.Component {
 				</h1>
 				<div className="mid-post-profile">
 					<div>
-						<img src={this.props.user.picture.data.url}/>
+						<img src={this.props.user.profile_pic}/>
 					</div>
 					<textarea className="profile-text-post" placeholder="What's on your mind?"/>
 				</div>
