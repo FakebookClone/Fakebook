@@ -5,6 +5,7 @@
     margin-left: 17px;
     height: 149px;
     width: 510px;
+    z-index: 3;
     background-color: $faceBookWhite;
     border-bottom: $borderColorGrey;
 
@@ -47,7 +48,8 @@
       border: $profilePicBorderGray;
     }
   }
-  textarea{
+
+  .profile-post-textarea{
     padding-top: 11px;
       min-height: 20px;
       width: 400px;

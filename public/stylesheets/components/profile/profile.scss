@@ -31,3 +31,17 @@
     display: flex;
     flex-direction: row;
 }
+
+.profile-dimmer {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.5;
+    z-index: 12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

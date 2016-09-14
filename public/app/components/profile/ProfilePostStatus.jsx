@@ -1,11 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-import ToggleDisplay from 'react-toggle-display';
 
+require('../../../stylesheets/components/profile/ProfilePostStatus.scss');
 var imageshome = '/images/home/';
 var images = '/images/main/';
 
-require('../../../stylesheets/components/profile/ProfilePostStatus.scss');
+var imageshome = '/images/home/';
+var images = '/images/main/';
 
 export default class ProfilePostStatus extends React.Component {
 	constructor() {
@@ -20,12 +21,13 @@ export default class ProfilePostStatus extends React.Component {
 			uploaded_uri: null
 		}
 	}
+
 	render() {
 		return (
 			<div className="profile-post-status-wrapper">
-				{this.state.dimmerVisible
-					? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
-					: null
+			{this.state.dimmerVisible
+				? <div onClick={this.toggleDimmer.bind(this, false)} className="profile-dimmer"></div>
+				: null
 }
 				<h1>
 					<span>
@@ -40,110 +42,90 @@ export default class ProfilePostStatus extends React.Component {
 						<img src="/images/profile/flag-blue-profile.png"/>
 					</span>
 					<p>Life Event</p>
-					<div>
-						{this.state.closeVisible
-							? <div onClick={this.toggleDimmer.bind(this, true)} className="closeDiv"><img src={imageshome + 'gray-x.png'}/></div>
-							: null
-}
-					</div>
+					{this.state.closeVisible
+						? <div onClick={this.toggleDimmer.bind(this, true)} className="closeDiv"><img src={imageshome + 'gray-x.png'}/></div>
+						: null
+					}
 				</h1>
 				<div className="mid-post-profile">
 					<div>
 						<img src={this.props.user.profile_pic}/>
 					</div>
-					<div onClick={this.toggleDimmer.bind(this, false)} className="inputStatusDiv">
-						<textarea className="profile-text-post" placeholder="What's on your mind?"/>
-					</div>
-					<div className="lower-profile-button-container">
-						<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
-						<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
-					</div>
-					{$('document').ready(function() {
-						autosize($('.home-post-textarea'));
-					})
-	}
+						<textarea placeholder="What's on your mind?" className="profile-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post}/>
 				</div>
-				)
-			}
-				 postCatcher(e) {this.setState({post: e.target.value})
-}
+				<div className="lower-profile-button-container">
+					<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+					<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+				</div>
+			</div>
+		)
+	}
 
-				addPhoto(e) {const reader = new FileReader();
-				const file = e.target.files[0];
+	postCatcher(e) {
+		this.setState({post: e.target.value})
+	}
 
-				reader.onload = (upload) => {
-					this.setState({
-						file: {
-							imageBody: upload.target.result,
-							imageName: file.name,
-							imageExtension: file.type,
-							userEmail: this.props.user.email
-						},
-						dimmerVisible: true,
-						closeVisible: true,
-						iconVisible: true
-					});
-				};
+	addPhoto(e) {
+		const reader = new FileReader();
+		const file = e.target.files[0];
 
-				reader.readAsDataURL(file);
-}
+		reader.onload = (upload) => {
+			this.setState({
+				file: {
+					imageBody: upload.target.result,
+					imageName: file.name,
+					imageExtension: file.type,
+					userEmail: this.props.user.email
+				},
+				dimmerVisible: true,
+				closeVisible: true,
+				iconVisible: true
+			});
+		};
 
-				post() {if (this.state.file) {
-					console.log('Image upload logic here');
-					Axios.post(`/api/aws/upload`, {file: this.state.file}).then(r => {
-						Axios.post(`/api/post/${this.props.user.id}`, {
-							post_text: this.state.post,
-							post_image: r.data,
-							profile_id: this.props.user.id
-						}).then(r => {
-							Axios.get(`/api/friends/${this.props.user.id}`).then(r => {
-								Axios.post(`/api/posts/${this.props.user.id}`, {friends: r.data}).then(r => {
-									this.setState({
-										post: '',
-										dimmerVisible: !this.state.dimmerVisible,
-										closeVisible: !this.state.closeVisible,
-										file: null
-									})
-									this.props.updatePosted(r.data);
-								})
+		reader.readAsDataURL(file);
+	}
+
+	post() {
+		if (this.state.file) {
+			console.log('Image upload logic here');
+			Axios.post(`/api/aws/upload`, {file: this.state.file}).then(r => {
+				Axios.post(`/api/post/${this.props.user.id}`, {
+					post_text: this.state.post,
+					post_image: r.data,
+					profile_id: this.props.user.id
+				}).then(r => {
+					Axios.get(`/api/friends/${this.props.user.id}`).then(r => {
+						Axios.post(`/api/posts/${this.props.user.id}`, {friends: r.data}).then(r => {
+							this.setState({
+								post: '',
+								dimmerVisible: !this.state.dimmerVisible,
+								closeVisible: !this.state.closeVisible,
+								file: null
 							})
+							this.props.updatePosted(r.data);
 						})
 					})
-				} else {
-					Axios.post(`/api/post/${this.props.user.id}`, {
-						post_text: this.state.post,
-						post_image: null,
-						profile_id: this.props.user.id
-					}).then(r => {
-						Axios.get(`/api/friends/${this.props.user.id}`).then(r => {
-							Axios.post(`/api/posts/${this.props.user.id}`, {friends: r.data}).then(r => {
-								this.setState({
-									post: '',
-									dimmerVisible: !this.state.dimmerVisible,
-									closeVisible: !this.state.closeVisible
-								})
-								this.props.updatePosted(r.data);
-							})
+				})
+			})
+		} else {
+			Axios.post(`/api/post/${this.props.user.id}`, {
+				post_text: this.state.post,
+				post_image: null,
+				profile_id: this.props.user.id
+			}).then(r => {
+				Axios.get(`/api/friends/${this.props.user.id}`).then(r => {
+					Axios.post(`/api/posts/${this.props.user.id}`, {friends: r.data}).then(r => {
+						this.setState({
+							post: '',
+							dimmerVisible: !this.state.dimmerVisible,
+							closeVisible: !this.state.closeVisible
 						})
+						this.props.updatePosted(r.data);
 					})
-				}
-      }
+				})
+			})
+		}
+	}
 
-				toggleDimmer(override) {if (this.state.post == "" && !(this.state.file)) {
-					this.setState({
-						dimmerVisible: !this.state.dimmerVisible,
-						closeVisible: !this.state.closeVisible,
-						iconVisible: true
-					})
-				} else if (this.state.post !== "") {
-					this.setState({dimmerVisible: true, closeVisible: true});
-				}
-
-				if (override) {
-					this.setState({
-						dimmerVisible: !this.state.dimmerVisible,
-						closeVisible: !this.state.closeVisible
-					})
-				}
-			}
-    }
+}
