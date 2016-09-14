@@ -26,7 +26,7 @@ export default class ProfilePostStatus extends React.Component {
 		return (
 			<div className="profile-post-status-wrapper">
 			{this.state.dimmerVisible
-				? <div onClick={this.toggleDimmer.bind(this, false)} className="profile-dimmer"></div>
+				? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
 				: null
 }
 				<h1>
@@ -51,7 +51,7 @@ export default class ProfilePostStatus extends React.Component {
 					<div>
 						<img src={this.props.user.profile_pic}/>
 					</div>
-						<textarea placeholder="What's on your mind?" className="profile-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post}/>
+						<textarea onClick={this.toggleDimmer.bind(this)} placeholder="What's on your mind?" className="profile-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post}/>
 				</div>
 				<div className="lower-profile-button-container">
 					<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
@@ -126,6 +126,27 @@ export default class ProfilePostStatus extends React.Component {
 				})
 			})
 		}
+	}
+
+	toggleDimmer(override) {
+		console.log('TOGGLE DIMMER HIT');
+		this.setState({ dimmerVisible: true })
+		// if (this.state.post == "" && !(this.state.file)) {
+		// 	this.setState({
+		// 		dimmerVisible: !this.state.dimmerVisible,
+		// 		closeVisible: !this.state.closeVisible,
+		// 		iconVisible: true
+		// 	})
+		// } else if (this.state.post !== "") {
+		// 	this.setState({dimmerVisible: true, closeVisible: true});
+		// }
+		//
+		// if (override) {
+		// 	this.setState({
+		// 		dimmerVisible: !this.state.dimmerVisible,
+		// 		closeVisible: !this.state.closeVisible
+		// 	})
+		// }
 	}
 
 }

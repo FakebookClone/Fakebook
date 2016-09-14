@@ -3,11 +3,17 @@
 .profile-post-status-wrapper {
     margin-top: 17px;
     margin-left: 17px;
-    height: 149px;
+    min-height: 149px;
     width: 510px;
-    z-index: 3;
-    background-color: $faceBookWhite;
+    background: $faceBookWhite;
+    border-radius: 2px;
     border-bottom: $borderColorGrey;
+    position: relative;
+    z-index: 3;
+    height:auto;
+
+
+
 
     h1 {
         height: 34px;
