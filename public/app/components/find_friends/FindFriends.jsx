@@ -67,7 +67,34 @@ export default class FindFriends extends React.Component {
 						</div> */}
 						<div>
 							<div className="add-personal-contacts-box">
-								<img src="../../../images/find_friends/add-personal-contacts.png"/>
+								{/* <img src="../../../images/find_friends/add-personal-contacts.png"/> */}
+								<div className="personal-contacts-top-section">
+									<h1>Add Personal Contacts</h1>
+								</div>
+								<div className="personal-contacts-lower-section">
+								<div className="personal-contacts-images">
+								<div className="personal-contacts-gmail">
+									<img src="../../../images/find_friends/find-friends-gmail.png"/>
+									</div>
+									<div className="personal-contacts-outlook">
+									<img src="../../../images/find_friends/find-friends-outlook.png"/>
+									</div>
+									<div className="personal-contacts-yahoo">
+									<img src="../../../images/find_friends/find-friends-yahoo1.png"/>
+                  </div>
+									<div className="personal-contacts-aol">
+									<img src="../../../images/find_friends/find-friends-aol1.png"/>
+									</div>
+									<div className="personal-contacts-comcast">
+									<img src="../../../images/find_friends/find-friends-comcast.png"/>
+									</div>
+									<div className="personal-contacts-email">
+									<img src="../../../images/find_friends/find-friends-email.png"/>
+									</div>
+								</div>
+								<p>Choose how you communicate with friends. <a href="#">See how it works</a> or <a href="#">manage imported contacts</a>.</p>
+								<button>Find Friends</button>
+							</div>
 							</div>
 							<div>
 								<img src="../../../images/find_friends/search-for-friends.png"/>
