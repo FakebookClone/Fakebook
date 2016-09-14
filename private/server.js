@@ -15,7 +15,8 @@ var profilesCtrl = require('./controllers/profilesCtrl.js');
 var friendsCtrl = require('./controllers/friendsCtrl.js');
 var commentsCtrl = require('./controllers/commentsCtrl.js');
 var likesCtrl = require('./controllers/likesCtrl.js');
-var aws = require('./controllers/AWSctrl.js');
+var awsCtrl = require('./controllers/awsCtrl.js');
+var friendRequestCtrl = require('./controllers/friendRequestCtrl.js');
 
 app.use(bodyParser.json({limit: '25mb'})); // default is 100KB;
 app.use(bodyParser.urlencoded({limit: '25mb', extended: true}));
@@ -48,8 +49,13 @@ app.post('/api/like/post/:post_id', likesCtrl.likePost);
 app.get('/api/likes/comment/:comment_id', likesCtrl.getCommentLikes);
 app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
 
+//Friend Request Endpoints
+app.get('/api/friend-requests/:profile_id', friendRequestCtrl.getFriendRequests);
+app.post('/api/delete/friend-request', friendRequestCtrl.deleteFriendRequest);
+app.post('/api/accept/friend-request', friendRequestCtrl.acceptFriendRequest);
+
 //Amazon Web Services Endpoints
-app.post('/api/aws/upload', aws.upload);
+app.post('/api/aws/upload', awsCtrl.upload);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public' });

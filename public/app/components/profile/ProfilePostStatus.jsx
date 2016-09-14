@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 
 require('../../../stylesheets/components/profile/ProfilePostStatus.scss');
+var imageshome = '/images/home/';
+var images = '/images/main/';
 
 var imageshome = '/images/home/';
 var images = '/images/main/';
