@@ -23,7 +23,6 @@ export default class LoginHeaderForm extends React.Component {
 	}
 
 	render() {
-		console.log(config.appID);
 		return (
 			<div className="login-input-wrapper">
 				<div className="email-input-wrapper">

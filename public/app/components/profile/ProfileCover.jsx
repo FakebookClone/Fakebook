@@ -6,16 +6,16 @@ require('../../../stylesheets/components/profile/ProfileCover.scss');
 export default class ProfileCover extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { sameUser: false, currentUser: JSON.parse(localStorage.getItem('fakebook_user')), requestSent: false }
+		this.state = { sameUser: false, requestSent: false }
 	}
 
 	componentWillMount() {
-		if(this.props.user.facebook_id === this.state.currentUser.userID) {
+		if(this.props.user.facebook_id === this.props.currentUser.facebook_id) {
 			this.setState({ sameUser: true })
 		}
-		Axios.get('/api/sent/friend-requests', { request_sender_id: this.state.currentUser.userID, requested_id: this.props.user.facebook_id}).then(r => {
+		Axios.get('/api/sent/friend-requests', { request_sender_id: this.props.currentUser.facebook_id, requested_id: this.props.user.facebook_id}).then(r => {
 			if(r.data.length !== 0) {
-				this.setState({ requestSent: false });
+				this.setState({ requestSent: true });
 			}
 		})
 	}
@@ -42,10 +42,12 @@ export default class ProfileCover extends React.Component {
 							</div>
 						: <div className="profile-name-buttons">
 								{this.state.requestSent
-									? <button className="profile-update-info">Friend Request Sent</button>
+									? <button className="profile-friend-request-sent">Friend Request Sent</button>
 								: <button onClick={this.addFriend.bind(this)} className="profile-update-info">Add Friend</button>
+
 								}
-								<button className="profile-update-info">Send Message</button>
+								<button className="profile-send-message">Send Message</button>
+								<button className="profile-cover-elipsis"><img src="/images/profile/gray-elipsis.png"/></button>
 							</div>
 					}
 				</div>

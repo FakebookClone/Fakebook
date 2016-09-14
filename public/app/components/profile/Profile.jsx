@@ -48,7 +48,7 @@ export default class Profile extends React.Component {
 					<div className="profile-master-body">
 						<div className="profile-body-container">
 							<div className="profile-body-header">
-								<ProfileCover user={this.state.profileInfo} />
+								<ProfileCover user={this.state.profileInfo} currentUser={this.state.user} />
 								<ProfileAddPhoto user={this.state.profileInfo} />
 								<ProfileNav />
 							</div>
