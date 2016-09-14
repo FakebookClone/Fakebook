@@ -5,6 +5,9 @@ require('../../../stylesheets/components/profile/ProfilePostStatus.scss');
 var imageshome = '/images/home/';
 var images = '/images/main/';
 
+var imageshome = '/images/home/';
+var images = '/images/main/';
+
 export default class ProfilePostStatus extends React.Component {
 	constructor() {
 		super();
@@ -36,7 +39,7 @@ export default class ProfilePostStatus extends React.Component {
 					</div>
 					<textarea className="profile-text-post" placeholder="What's on your mind?"/>
 				</div>
-				<div className="lower-post-button-container">
+				<div className="lower-profile-button-container">
 					<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
 					<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
 				</div>
