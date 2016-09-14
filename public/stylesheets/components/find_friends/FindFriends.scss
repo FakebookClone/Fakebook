@@ -376,3 +376,63 @@
         margin-left: 20px;
     }
     //search-for-friends-box
+    .search-for-friends-box{
+      height: 493px;
+      width: 298px;
+      background-color: $faceBookWhite;
+      border: $borderOnFindFriendsPage;
+    }
+    .search-for-friends-upper-section{
+      width: 298px;
+      height: 29px;
+      border: $borderOnFindFriendsPage;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+
+      h1 {
+          font-family: $faceBookFontr;
+          font-weight: 800;
+          font-size: 14px;
+          color: $textOnFindFriendsGray;
+          margin-left: 15px;
+          margin-top: 23px;
+      }
+    }
+    .search-for-friends-lower-section{
+      p{
+        font-family: $faceBookFontr;
+        font-size: 12px;
+        color: $textColorOnFindFriendsPage;
+        line-height: 14px;
+        margin-top: 7px;
+        margin-left: 20px;
+      }
+    }
+    .search-for-friends-form{
+      display: flex;
+      flex-direction: column;
+      width: 268px;
+      margin-left: 15px;
+      h4{
+        margin-top: 15px;
+        font-size: 13px;
+        font-family: $faceBookFontr;
+        font-weight: 800;
+        color: $fbTextBlack;
+      }
+      input{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        &:hover{
+          cursor: auto;
+        }
+      }
+      input[placeholder] {
+        font-size: 12px;
+        color: $fbTextGray2;
+      }
+      textarea:focus, input:focus{
+    outline: none;
+}
+    }

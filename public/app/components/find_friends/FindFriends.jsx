@@ -96,8 +96,30 @@ export default class FindFriends extends React.Component {
 								<button>Find Friends</button>
 							</div>
 							</div>
-							<div>
-								<img src="../../../images/find_friends/search-for-friends.png"/>
+							<div className="search-for-friends-box">
+							<div className="search-for-friends-upper-section">
+								<h1>Search for Friends</h1>
+							</div>
+							<div className="search-for-friends-lower-section">
+							<p>Find friends from different parts of your life</p>
+							<div className="search-for-friends-form">
+							<h4>Name</h4>
+							<input placeholder="Search for someone" />
+							<h4>Hometown</h4>
+							<input placeholder="Enter a city" />
+							<h4>Current City</h4>
+							<input placeholder="Enter another city" />
+							<h4>High School</h4>
+							<input placeholder="Enter a high school" />
+							<h4>College or University</h4>
+							<input placeholder="Enter a college" />
+							<h4>Employer</h4>
+							<input placeholder="Enter another employer" />
+							<h4>Graduate School</h4>
+							<input placeholder="Enter a college" />
+							</div>
+							</div>
+								{/* <img src="../../../images/find_friends/search-for-friends.png"/> */}
 							</div>
 						</div>
 					</div>
