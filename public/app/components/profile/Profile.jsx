@@ -12,6 +12,7 @@ import ProfileFriends from './ProfileFriends.jsx';
 import ProfilePostStatus from './ProfilePostStatus.jsx';
 import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
+import ProfilePosted from './ProfilePosted.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
@@ -69,7 +70,8 @@ export default class Profile extends React.Component {
 									</div>
 								</div>
 								<div className="profile-right-content-div">
-									<ProfilePostStatus user={this.state.profileInfo}/>
+									<ProfilePostStatus user={this.state.profileInfo} />
+									<ProfilePosted user={this.state.user} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)} />
 									<ProfileStatusBox/>
 									<ProfileOldPosts/>
 									<ProfileBirthdayBox/>
