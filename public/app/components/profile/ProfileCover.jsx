@@ -42,10 +42,12 @@ export default class ProfileCover extends React.Component {
 							</div>
 						: <div className="profile-name-buttons">
 								{this.state.requestSent
-									? <button className="profile-update-info">Friend Request Sent</button>
+									? <button className="profile-friend-request-sent">Friend Request Sent</button>
 								: <button onClick={this.addFriend.bind(this)} className="profile-update-info">Add Friend</button>
+
 								}
-								<button className="profile-update-info">Send Message</button>
+								<button className="profile-send-message">Send Message</button>
+								<button className="profile-cover-elipsis"><img src="/images/profile/gray-elipsis.png"/></button>
 							</div>
 					}
 				</div>
