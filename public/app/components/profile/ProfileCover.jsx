@@ -15,7 +15,7 @@ export default class ProfileCover extends React.Component {
 		}
 		Axios.get('/api/sent/friend-requests', { request_sender_id: this.props.currentUser.facebook_id, requested_id: this.props.user.facebook_id}).then(r => {
 			if(r.data.length !== 0) {
-				this.setState({ requestSent: false });
+				this.setState({ requestSent: true });
 			}
 		})
 	}
