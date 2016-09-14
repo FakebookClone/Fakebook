@@ -9,25 +9,30 @@
     align-items: center;
 }
 
-.profile-master-body{
-  height: auto;
-  width: 1011px;
-
+.profile-master-body {
+    height: auto;
+    width: 1011px;
 }
 
-.profile-body-container{
+.profile-body-container {
     width: 851px;
 }
 
 .profile-body-header {
-  width: 100%;
-
+    width: 100%;
 }
 
 .profile-content-wrapper {
-  position: relative;
+    position: relative;
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: row;
+}
+
+.profile-gray-dot-endpage {
+    margin: 12px 0;
+    width: 510px;
+    display: flex;
+    justify-content: center;
 }
