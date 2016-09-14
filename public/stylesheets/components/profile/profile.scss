@@ -9,12 +9,10 @@
     align-items: center;
 }
 
-.profile-content-wrapper {
-  position: relative;
-    height: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+.profile-master-body{
+  height: auto;
+  width: 1011px;
+
 }
 
 .profile-body-container{
@@ -26,6 +24,10 @@
 
 }
 
-.profile-left-content-div {
-
+.profile-content-wrapper {
+  position: relative;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
