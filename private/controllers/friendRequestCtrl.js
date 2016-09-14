@@ -29,7 +29,7 @@ module.exports = {
     })
   },
   getSentFriendRequests: function(req, res) {
-    db.friendRequests.getSentFriendRequests([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.json(r); })
+    db.friendRequests.getSentFriendRequests([req.body.request_sender_id, req.body.requested_id], function(err, r) { console.log(r); res.json(r); })
   },
   deleteFriendRequest: function(req, res) {
     db.friendRequests.deleteFriendRequest([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.status(200).send('Deleted') });
