@@ -9,13 +9,12 @@
 
 .add-cover-wrapper {
     height: 28px;
-    width: 160px;
+    width: 148px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #1d2129;
-    border-radius: 1px;
+    justify-content: space-between;
+    position: absolute;
+    top: 17px;
+    left: 20px;
 
     &:hover {
         color: #cdccc8;
@@ -29,6 +28,9 @@
     opacity: 0.6;
     -webkit-transition: transform 100ms;
     transition: transform 100ms;
+    position: absolute;
+    top: 4px;
+    left: 4px;
 
     &:hover {
         -webkit-transform: scale3d(.75, .75, 1);
@@ -38,7 +40,6 @@
 
 .add-cover-text {
     color: #cdccc8;
-    padding-left: 13px;
     opacity: 0;
     font-family: $faceBookFonth;
     font-size: 12px;
@@ -46,6 +47,9 @@
     text-shadow: 0 0 3px rgba(0, 0, 0, .4);
     -webkit-transition: opacity 100ms;
     transition: opacity 100ms;
+    position: absolute;
+    top: 10px;
+    left: 35px;
 }
 
 .name-wrapper {
@@ -115,6 +119,6 @@
 }
 
 .add-cover-wrapper:hover .cover-camera-pic {
-  -webkit-transform: scale3d(.75, .75, 1);
-  transform: scale3d(.75, .75, 1);
+    -webkit-transform: scale3d(.75, .75, 1);
+    transform: scale3d(.75, .75, 1);
 }
