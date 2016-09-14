@@ -6,6 +6,7 @@
     height: 149px;
     width: 510px;
     background-color: $faceBookWhite;
+    border-bottom: $borderColorGrey;
 
     h1 {
         height: 34px;
@@ -57,5 +58,16 @@
       font-size: 14px;
       font-family: inherit;
   }
+}
+
+
+.lower-profile-button-container {
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: $faceBookWhite;
+  margin-top: 0;
+  height: 40px;
 }
 // <img src="/images/profile/white-up-triangle.png"/>
