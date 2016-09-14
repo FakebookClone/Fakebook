@@ -37,10 +37,14 @@
       background: linear-gradient($signUpButtonGradientOne, $signUpButtonGradientTwo);
       background-color: $signUpButtonBackgroundColor;
       box-shadow: inset 0 1px 1px $signUpButtonBoxShadow;
-      border-color: $signUpButtonBorderColorOne $signUpButtonBorderColorOne $signUpButtonBorderColorTwo;
+      border-color: $signUpButtonBorderColorOne;
       color: $faceBookWhite;
       font-size: 20px;
       border: black solid .5px;
+      &:hover{
+        cursor: pointer;
+        background: linear-gradient($signUpButtonGradientTwo, $signUpButtonGradientOne);
+      }
     }
 }
 .text-thanks-for-stopping-by {
@@ -102,6 +106,9 @@ select {
   margin-top: 3px;
   text-decoration: none;
   line-height: 12px;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 .radio-button-2 {
   margin-left: 20px;
@@ -114,6 +121,9 @@ select {
   a {
     text-decoration: none;
     color: $faceBookBlue;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
 .create-a-page {
@@ -122,6 +132,9 @@ select {
     text-decoration: none;
     color: $faceBookBlue;
     font-size: 16px;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   color: $textColorforCreatingAPageforOrganizations;
   font-size: 16px;
