@@ -79,6 +79,8 @@
 
 .profile-activity-log,
 .profile-cover-elipsis,
+.profile-friend-request-sent,
+.profile-send-message,
 .profile-update-info {
     height: 26px;
     background-color: #f6f7f9;
@@ -99,6 +101,12 @@
 .profile-update-info {
     width: 86px;
     margin-right: 12px;
+}
+
+.profile-friend-request-sent {}
+
+.profile-send-message {
+  border-right: 1px solid #ced0d4;
 }
 
 .profile-activity-log {
