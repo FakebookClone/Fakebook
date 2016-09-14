@@ -15,6 +15,7 @@ export default class Home extends React.Component {
 		super(props)
 		this.state = {
 			user: JSON.parse(localStorage.getItem('fakebook_user')),
+			posts: []
 		}
 	}
 
@@ -23,7 +24,12 @@ export default class Home extends React.Component {
 			browserHistory.push('/')
 		} else {
 			Axios.get(`/api/profile/${this.state.user.userID}`).then(r => {
-				this.setState({ user: r.data[0] });
+				var user = r.data[0];
+				Axios.get(`/api/friends/${user.facebook_id}`).then( r => {
+					Axios.post(`/api/posts/${user.facebook_id}`, { friends: r.data }).then( r => {
+						this.setState({ posts: r.data, user: user });
+					})
+				})
 			})
 		}
 	}
@@ -38,7 +44,7 @@ export default class Home extends React.Component {
 								<GlobalChat />
 								<div className="home-main-content-container">
 									<HomeLeft user={this.state.user} />
-									<HomeCenter user={this.state.user} />
+									<HomeCenter user={this.state.user} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
 									<HomeRight/>
 								</div>
 							</div>
@@ -47,5 +53,9 @@ export default class Home extends React.Component {
 				}
 			</div>
 		)
+	}
+
+	updatePosts(posts) {
+		this.setState({ posts: posts });
 	}
 }

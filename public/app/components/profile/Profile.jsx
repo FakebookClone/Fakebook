@@ -21,34 +21,41 @@ require('../../../stylesheets/components/profile/profile.scss');
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log(props.params.profile_id);
-		this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')), profileInfo: props.params.profile_id }
+		this.state = { currentUser: JSON.parse(localStorage.getItem('fakebook_user')), profileInfo: props.params.profile_id, sameUser: false, requestSent: false }
 	}
 
 	componentWillMount() {
-		if (!(this.state.user)) {
-			browserHistory.push('/')
-		} else {
-			Axios.get(`/api/profile/${this.state.user.userID}`).then(r => {
-				this.setState({ user: r.data[0] })
-			})
+		Axios.get(`/api/profile/${this.state.currentUser.userID}`).then(r => {
+			var user = r.data[0];
+			var sameUser = false;
 			Axios.get(`/api/profile/${this.state.profileInfo}`).then(r => {
-				this.setState({ profileInfo: r.data[0] })
+				var profileInfo = r.data[0];
+				if(user.facebook_id === r.data[0].facebook_id) {
+					var sameUser = true;
+				}
+				console.log(user.facebook_id);
+				console.log(profileInfo.facebook_id);
+				Axios.post('/api/sent/friend-requests', { request_sender_id: user.facebook_id, requested_id: profileInfo.facebook_id}).then(r => {
+					var requestSent = false;
+					if(r.data.length !== 0) {
+						requestSent = true;
+					}
+					this.setState({ currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent })
+				})
 			})
-		}
+		})
 	}
 
 	render() {
-		console.log('PROFILE INFO', this.state.profileInfo);
 		return (
 			<div>
-				<GlobalHeader user={this.state.user}/>
+				<GlobalHeader user={this.state.currentUser}/>
 
 				<div className="profile-body-wrapper">
 					<div className="profile-master-body">
 						<div className="profile-body-container">
 							<div className="profile-body-header">
-								<ProfileCover user={this.state.profileInfo} />
+								<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)} />
 								<ProfileAddPhoto user={this.state.profileInfo} />
 								<ProfileNav />
 							</div>
@@ -82,5 +89,9 @@ export default class Profile extends React.Component {
 				</div>
 			</div>
 		)
+	}
+
+	updateRequest() {
+		this.setState({ requestSent: true });
 	}
 }
