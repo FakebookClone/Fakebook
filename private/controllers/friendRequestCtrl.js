@@ -29,6 +29,11 @@ module.exports = {
     })
   },
   deleteFriendRequest: function(req, res) {
-    db.friendRequests.deleteFriendRequest([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.json(r); });
+    db.friendRequests.deleteFriendRequest([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.status(200).send('Deleted') });
+  },
+  acceptFriendRequest: function(req, res) {
+    db.friendRequests.acceptFriendRequest([req.body.requested_id, req.body.accepted_id], function(err, r) {
+      db.friendRequests.deleteFriendRequest([req.body.requested_id, req.body.accepted_id], function(err, r) { res.status(200).send('Accepted') });
+    })
   }
 }

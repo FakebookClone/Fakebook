@@ -17,7 +17,7 @@ export default class FriendRequest extends React.Component {
           <img className="friend-request-sender-picture" src={this.props.friendRequest.profile_pic} />
             <p className="friend-request-sender-name">{this.props.friendRequest.name}</p>
             <div className="friend-request-button-container">
-              <button className="confirm-button">Confirm</button>
+              <button onClick={this.acceptFriendRequest.bind(this)} className="confirm-button">Confirm</button>
               <button onClick={this.deleteFriendRequest.bind(this)} className="delete-request-button">Delete Request</button>
             </div>
         </div>
@@ -25,8 +25,16 @@ export default class FriendRequest extends React.Component {
     )
   }
 
+  acceptFriendRequest() {
+    Axios.post('/api/accept/friend-request', { requested_id: this.props.friendRequest.request_sender_id, accepted_id: this.props.friendRequest.requested_id }).then(r => {
+      Axios.get(`/api/friend-requests/${this.props.user.userID}`).then(r => {
+        this.props.updateFriendRequests(r.data);
+      })
+    })
+  }
+
   deleteFriendRequest() {
-    Axios.post('/api/friend-request', { request_sender_id: this.props.friendRequest.request_sender_id, requested_id: this.props.friendRequest.requested_id }).then(r => {
+    Axios.post('/api/delete/friend-request', { request_sender_id: this.props.friendRequest.request_sender_id, requested_id: this.props.friendRequest.requested_id }).then(r => {
       Axios.get(`/api/friend-requests/${this.props.user.userID}`).then(r => {
         this.props.updateFriendRequests(r.data);
       })
