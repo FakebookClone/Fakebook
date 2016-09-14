@@ -4,6 +4,8 @@ import FacebookLogin from 'react-facebook-login';
 import { browserHistory } from 'react-router';
 import Axios from 'axios';
 
+var config = require('./config.js');
+
 export default class LoginHeaderForm extends React.Component {
 	constructor() {
 		super()
@@ -21,6 +23,7 @@ export default class LoginHeaderForm extends React.Component {
 	}
 
 	render() {
+		console.log(config.appID);
 		return (
 			<div className="login-input-wrapper">
 				<div className="email-input-wrapper">
@@ -32,7 +35,7 @@ export default class LoginHeaderForm extends React.Component {
 					<input className="login-header-input-text" type="password" name="pass" tabIndex="2"/>
 					<a href="#">Forgot account?</a>
 				</div>
-        <FacebookLogin appId="1608022686157766" autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
+        <FacebookLogin appId={config.appID} autoLoad={false} fields="name,first_name,last_name,email,picture,cover" cssClass="login-button" textButton="Log in" callback={this.responseFacebook.bind(this)}/>
 			</div>
 		)
 	}
