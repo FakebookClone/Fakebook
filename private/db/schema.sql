@@ -11,7 +11,7 @@ CREATE TABLE profiles (
   first_name varchar(40),
   last_name varchar(40),
   email varchar(80),
-  cover VARCHAR(200)
+  cover VARCHAR(200) DEFAULT 'http://static1.squarespace.com/static/55fc0004e4b069a519961e2d/t/55fc06a8e4b043168701253c/1466862019287/?format=1000w'
 );
 
 CREATE TABLE friends (
@@ -58,4 +58,10 @@ CREATE TABLE shares (
   post_id INT,
   photo_id INT,
   share_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE friend_requests (
+  friend_request_id SERIAL PRIMARY KEY,
+  request_sender_id VARCHAR(20),
+  requested_id VARCHAR(20)
 );

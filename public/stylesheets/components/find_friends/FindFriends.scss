@@ -1,7 +1,7 @@
 @import '../../base/utilities';
 //main-wrapper
 .find-friends-main-wrapper {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-color: $backgroundColor;
     padding-top: 21px;
@@ -10,122 +10,138 @@
 }
 
 .find-friends-main-content-wrapper {
-    width: 1011px;
+    width: 980px;
     height: auto;
     display: flex;
     flex-direction: row;
 }
-//respond-to-your-friend-request-box
 
-.respond-to-your-friend-request-box {
+.friend-request-container {
     margin-right: 13px;
-    width: 665px;
-    height: 160px;
+    width: 667px;
+    height: 163px;
     background-color: $faceBookWhite;
     border: $borderOnFindFriendsPage;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     border-radius: 3px;
 }
-// .respond-to-your-friend-request-and-text-about-james {
-//   margin-left: 20px;
-// }
-.upper-box-div {
+
+.friend-request-top {
     font-family: $faceBookFontr;
-    margin-top: 23px;
-    margin-left: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 10px;
     line-height: 16px;
     font-family: $faceBookFontr;
-      p{
-        font-size: 14px;
-        font-weight: 600;
-      }
-      a{
-        font-size: 11px;
-        text-decoration: none;
-        color: $postBttnHoverBlue;
-      }
+    p{
+      font-size: 14px;
+      font-weight: 600;
+    }
+    a{
+      font-size: 11px;
+      text-decoration: none;
+      color: $postBttnHoverBlue;
+    }
 }
-.lower-box-div{
-  width: 665px;
+
+.friend-request-bottom {
+  width: 627px;
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  padding: 10px 20px;
+  position: relative;
+  align-items: center;
 }
 
-.container-for-image-and-information {
-    display: flex;
-    font-family: $faceBookFontr;
-    margin-left: 20px;
-    margin-top: 14px;
-    a {
-      text-decoration: none;
-    }
+.friend-request-sender-picture {
+  height: 75px;
+  width: 75px;
 }
-.text-about-person {
-  margin-top: 15px;
+
+.friend-request-sender-name {
   margin-left: 10px;
-  line-height: 18px;
-  a {
-    font-size: 14px;
-    font-weight: 900;
-    color: $postBttnHoverBlue;
-  }
+  font-size: 13px;
+  font-weight: bold;
+  color: #365899;
+  cursor: pointer;
 }
-.grad-info-wrapper {
-    color: $fbTextGray;
-    div {
-        display: flex;
-        flex-direction: row;
 
-        img {
-          height: 9px;
-          width: 13px;
-          margin-top: 4px;
-        }
-
-        p {
-          font-size: 12px;
-          margin-left: 5px;
-        }
-    }
-
-    p {
-      font-size: 12px;
-    }
-}
-.buttons{
+.friend-request-button-container {
+  width: 213px;
+  height: calc(100% - 20px);
   display: flex;
-  flex-direction: row;
-  margin-top: 50px;
-  margin-right: 20px;
+  align-items: center;
+  position: absolute;
+  right: 0px;
 }
-.confirm-button{
-  padding: 5px 8px 6px 8px;
-  p {
-    color: $faceBookWhite;
-    font-family: $facebookFontA;
-    font-size: 13px;
-    font-weight: 400;
-  }
-  background-color: $facebookButtonOnFindFriends;
-  margin-top: 1px;
-  border: none;
+
+.confirm-button {
+  border: 1px solid;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+  background-color: #4267b2;
+  border-color: #4267b2;
+  color: #FFF;
+  height: 24px;
+  cursor: pointer;
+}
+
+.delete-request-button {
+  border: 1px solid;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+  background-color: #f6f7f9;
+  border-color: #ced0d4;
+  color: #4b4f56;
+  height: 24px;
+  width: 106.38px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.no-friend-requests-container {
+  margin-right: 13px;
+  width: 667px;
+  height: 64px;
+  background-color: $faceBookWhite;
+  border: $borderOnFindFriendsPage;
+  display: flex;
+  flex-direction: column;
   border-radius: 3px;
 }
-.delete-request-button{
-  margin-left: 5px;
-  padding: 5px 8px 5px 8px;
-  border-radius: 3px;
-  border: none;
-  background-color: $deleteButtonOnFindFriends;
-  border: $buttonBorderGray;
+
+.no-friend-request-top {
+  font-family: $faceBookFontr;
+  padding: 15px;
+  line-height: 16px;
+  font-family: $faceBookFontr;
   p{
-    color: $color-of-word-photos-on-profile;
-    font-size: 12px;
-    font-family: $facebookFontA;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  a{
+    font-size: 11px;
+    text-decoration: none;
+    color: $postBttnHoverBlue;
   }
 }
 
