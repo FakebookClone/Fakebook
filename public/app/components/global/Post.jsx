@@ -133,7 +133,7 @@ export default class Posts extends React.Component {
 				<div className="lower-posted-div">
 					<div className="comment-input-section">
 						<div className="comment-profile-pic">
-							<img src={this.props.user.picture.data.url}/>
+							<img src={this.props.user.profile_pic}/>
 						</div>
 
 						<div className="input-name">

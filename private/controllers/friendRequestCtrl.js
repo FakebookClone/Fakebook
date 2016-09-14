@@ -28,6 +28,9 @@ module.exports = {
       }
     })
   },
+  getSentFriendRequests: function(req, res) {
+    db.friendRequests.getSentFriendRequests([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.json(r); })
+  },
   deleteFriendRequest: function(req, res) {
     db.friendRequests.deleteFriendRequest([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.status(200).send('Deleted') });
   },
@@ -35,5 +38,9 @@ module.exports = {
     db.friendRequests.acceptFriendRequest([req.body.requested_id, req.body.accepted_id], function(err, r) {
       db.friendRequests.deleteFriendRequest([req.body.requested_id, req.body.accepted_id], function(err, r) { res.status(200).send('Accepted') });
     })
+  },
+  addFriend: function(req, res) {
+    console.log(req.body);
+    db.friendRequests.addFriend([req.body.request_sender_id, req.body.requested_id], function(err, r) { res.status(200).send('Friend Request Sent'); })
   }
 }
