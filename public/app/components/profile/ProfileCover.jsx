@@ -24,6 +24,7 @@ export default class ProfileCover extends React.Component {
 		return (
 			<div className="profile-main-cover-wrapper">
 				<div className="add-cover-wrapper">
+				<input type="file" accept="image/*" onChange={this.addPhoto} className="add-cover-input" />
 					<div className="cover-camera-pic">
 						<img src="/images/profile/white-camera.png"/>
 					</div>
@@ -59,5 +60,19 @@ export default class ProfileCover extends React.Component {
 		Axios.post('/api/friend-request', { request_sender_id: this.state.currentUser.userID, requested_id: this.props.user.facebook_id }).then(r => {
 			this.setState({ requestSent: true });
 		})
+	}
+	addPhoto(e) {
+		const reader = new FileReader();
+    const file = e.target.files[0];
+
+    reader.onload = (upload) => {
+      this.setState({
+        file: {
+          imageBody: upload.target.result,
+          imageName: file.name,
+          imageExtension: file.type,
+          userEmail: 'webdev.jameslemire@gmail.com'
+        }
+      });
 	}
 }
