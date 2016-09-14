@@ -7,27 +7,18 @@ import HomePosted from './HomePosted.jsx';
 export default class HomeCenter extends React.Component {
   constructor() {
     super();
-    this.state = { posted: [] };
   }
 
   componentWillMount() {
-    Axios.get(`/api/friends/${this.props.user.userID}`).then( r => {
-      Axios.post(`/api/posts/${this.props.user.userID}`, { friends: r.data }).then( r => {
-        this.setState({ posted: r.data });
-      })
-    })
+
   }
 
   render() {
     return (
       <div className= "post container">
-        <HomePost user={this.props.user} updatePosted={this.updatePosted.bind(this)} />
-        <HomePosted user={this.props.user} posts={this.state.posted} updatePosted={this.updatePosted.bind(this)} />
+        <HomePost user={this.props.user} updatePosted={this.props.updatePosts} />
+        <HomePosted user={this.props.user} posts={this.props.posts} updatePosted={this.props.updatePosts} />
       </div>
     )
-  }
-
-  updatePosted(posts) {
-    this.setState({ posted: posts });
   }
 }
