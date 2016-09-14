@@ -67,10 +67,59 @@ export default class FindFriends extends React.Component {
 						</div> */}
 						<div>
 							<div className="add-personal-contacts-box">
-								<img src="../../../images/find_friends/add-personal-contacts.png"/>
+								{/* <img src="../../../images/find_friends/add-personal-contacts.png"/> */}
+								<div className="personal-contacts-top-section">
+									<h1>Add Personal Contacts</h1>
+								</div>
+								<div className="personal-contacts-lower-section">
+								<div className="personal-contacts-images">
+								<div className="personal-contacts-gmail">
+									<img src="../../../images/find_friends/find-friends-gmail.png"/>
+									</div>
+									<div className="personal-contacts-outlook">
+									<img src="../../../images/find_friends/find-friends-outlook.png"/>
+									</div>
+									<div className="personal-contacts-yahoo">
+									<img src="../../../images/find_friends/find-friends-yahoo1.png"/>
+                  </div>
+									<div className="personal-contacts-aol">
+									<img src="../../../images/find_friends/find-friends-aol1.png"/>
+									</div>
+									<div className="personal-contacts-comcast">
+									<img src="../../../images/find_friends/find-friends-comcast.png"/>
+									</div>
+									<div className="personal-contacts-email">
+									<img src="../../../images/find_friends/find-friends-email.png"/>
+									</div>
+								</div>
+								<p>Choose how you communicate with friends. <a href="#">See how it works</a> or <a href="#">manage imported contacts</a>.</p>
+								<button>Find Friends</button>
 							</div>
-							<div>
-								<img src="../../../images/find_friends/search-for-friends.png"/>
+							</div>
+							<div className="search-for-friends-box">
+							<div className="search-for-friends-upper-section">
+								<h1>Search for Friends</h1>
+							</div>
+							<div className="search-for-friends-lower-section">
+							<p>Find friends from different parts of your life</p>
+							<div className="search-for-friends-form">
+							<h4>Name</h4>
+							<input placeholder="Search for someone" />
+							<h4>Hometown</h4>
+							<input placeholder="Enter a city" />
+							<h4>Current City</h4>
+							<input placeholder="Enter another city" />
+							<h4>High School</h4>
+							<input placeholder="Enter a high school" />
+							<h4>College or University</h4>
+							<input placeholder="Enter a college" />
+							<h4>Employer</h4>
+							<input placeholder="Enter another employer" />
+							<h4>Graduate School</h4>
+							<input placeholder="Enter a college" />
+							</div>
+							</div>
+								{/* <img src="../../../images/find_friends/search-for-friends.png"/> */}
 							</div>
 						</div>
 					</div>
