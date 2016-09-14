@@ -16,12 +16,13 @@ import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
 import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
-require('../../../stylesheets/components/profile/Profile.scss');
+require('../../../stylesheets/components/profile/profile.scss');
 
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')) }
+		console.log(props.params.profile_id);
+		this.state = { user: JSON.parse(localStorage.getItem('fakebook_user')), profileInfo: props.params.profile_id }
 	}
 
 	componentWillMount() {
@@ -31,10 +32,14 @@ export default class Profile extends React.Component {
 			Axios.get(`/api/profile/${this.state.user.userID}`).then(r => {
 				this.setState({ user: r.data[0] })
 			})
+			Axios.get(`/api/profile/${this.state.profileInfo}`).then(r => {
+				this.setState({ profileInfo: r.data[0] })
+			})
 		}
 	}
 
 	render() {
+		console.log('PROFILE INFO', this.state.profileInfo);
 		return (
 			<div>
 				<GlobalHeader user={this.state.user}/>
@@ -43,9 +48,9 @@ export default class Profile extends React.Component {
 					<div className="profile-master-body">
 						<div className="profile-body-container">
 							<div className="profile-body-header">
-								<ProfileCover/>
-								<ProfileAddPhoto/>
-								<ProfileNav/>
+								<ProfileCover user={this.state.profileInfo} />
+								<ProfileAddPhoto user={this.state.profileInfo} />
+								<ProfileNav />
 							</div>
 							<div className="profile-content-wrapper">
 								<div className="profile-left-content-div">
@@ -57,7 +62,7 @@ export default class Profile extends React.Component {
 									</div>
 								</div>
 								<div className="profile-right-content-div">
-									<ProfilePostStatus user={this.state.user}/>
+									<ProfilePostStatus user={this.state.profileInfo}/>
 									<ProfileStatusBox/>
 									<ProfileOldPosts/>
 									<ProfileBirthdayBox/>

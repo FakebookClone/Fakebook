@@ -123,9 +123,9 @@ export default class HomePost extends React.Component {
 		if(this.state.file) {
 			console.log('Image upload logic here');
 			Axios.post(`/api/aws/upload`, { file: this.state.file }).then(r => {
-				Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: r.data, profile_id: this.props.user.id}).then( r => {
-					Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
-						Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+				Axios.post(`/api/post/${this.props.user.facebook_id}`, {post_text: this.state.post, post_image: r.data, profile_id: this.props.user.facebook_id}).then( r => {
+					Axios.get(`/api/friends/${this.props.user.facebook_id}`).then( r => {
+						Axios.post(`/api/posts/${this.props.user.facebook_id}`, { friends: r.data }).then( r => {
 							this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible, file: null })
 							this.props.updatePosted(r.data);
 						})
@@ -133,9 +133,9 @@ export default class HomePost extends React.Component {
 				})
 			})
 		} else {
-			Axios.post(`/api/post/${this.props.user.id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.id}).then( r => {
-				Axios.get(`/api/friends/${this.props.user.id}`).then( r => {
-					Axios.post(`/api/posts/${this.props.user.id}`, { friends: r.data }).then( r => {
+			Axios.post(`/api/post/${this.props.user.facebook_id}`, {post_text: this.state.post, post_image: null, profile_id: this.props.user.facebook_id}).then( r => {
+				Axios.get(`/api/friends/${this.props.user.facebook_id}`).then( r => {
+					Axios.post(`/api/posts/${this.props.user.facebook_id}`, { friends: r.data }).then( r => {
 						this.setState({ post: '', dimmerVisible: !this.state.dimmerVisible, closeVisible: !this.state.closeVisible })
 						this.props.updatePosted(r.data);
 					})
