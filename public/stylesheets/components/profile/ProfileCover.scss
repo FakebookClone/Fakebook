@@ -2,8 +2,9 @@
 
 .profile-main-cover-wrapper {
     width: 100%;
-    height: 315px;
+    min-height: 204px;
     background-color: #1d2129;
+    position: relative;
 }
 
 .add-cover-wrapper {
@@ -48,9 +49,12 @@
 }
 
 .name-wrapper {
-    padding-top: 113px;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    bottom: 12px;
+    left: 200px;
+    width: 76%;
 }
 
 .profile-name {
@@ -59,7 +63,6 @@
     text-shadow: 0 0 3px rgba(0, 0, 0, .4);
     font-size: 24px;
     line-height: 30px;
-    padding-left: 182px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
