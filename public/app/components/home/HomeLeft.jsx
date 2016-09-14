@@ -13,7 +13,7 @@ export default class HomeLeft extends React.Component {
 			<div className="home-left-column">
 				<ul>
 					<div className="left-div">
-						<li className="leftHover"><img src={this.props.user.picture.data.url}/>{this.props.user.name}</li>
+						<li className="leftHover"><img src={this.props.user.profile_pic}/>{this.props.user.name}</li>
 						<li className="leftHover"><img src={imageshome + 'edit-profile.png'}/>Edit Profile</li>
 					</div>
 

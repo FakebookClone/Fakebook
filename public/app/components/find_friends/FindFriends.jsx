@@ -13,6 +13,9 @@ export default class FindFriends extends React.Component {
 	}
 
 	componentWillMount() {
+		Axios.get(`/api/profile/${this.state.user.userID}`).then(r => {
+			this.setState({ user: r.data[0] });
+		})
 		Axios.get(`/api/friend-requests/${this.state.user.userID}`).then(r => {
 			this.setState({ friend_requests: r.data });
 		})
