@@ -61,6 +61,9 @@ export default class ProfilePostStatus extends React.Component {
 						{this.state.iconVisible === true
 							? <div className="lower-profile-icon-container">
 									<div>
+										<img src={imageshome + 'camera-profile-gray.png'}/>
+									</div>
+									<div>
 										<img src={imageshome + 'tag-people.png'}/>
 									</div>
 									<div>
@@ -68,6 +71,9 @@ export default class ProfilePostStatus extends React.Component {
 									</div>
 									<div>
 										<img src={imageshome + 'check-in2.png'}/>
+									</div>
+									<div>
+										<img src={imageshome + 'calendar-profile.png'}/>
 									</div>
 								</div>
 							: null

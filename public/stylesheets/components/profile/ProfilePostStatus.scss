@@ -11,10 +11,10 @@
   width: 510px;
   background: $faceBookWhite;
   border-radius: 2px;
-  border-bottom: $borderColorGrey;
+  border: $borderColorGrey;
   position: relative;
   z-index: 3;
-  height:auto;
+  height: auto;
 
 
     h1 {
@@ -87,9 +87,16 @@
   }
 }
 
+.lower-profile-container-bottom{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+}
+
 .lower-profile-icon-container {
     height: 40px;
-    width: 120px;
+    width: 200px;
     display: flex;
     flex-direction: row;
 
@@ -114,5 +121,7 @@
   background-color: $faceBookWhite;
   margin-top: 0;
   height: 40px;
+  width: 170px;
+  position: absolute;
 }
 // <img src="/images/profile/white-up-triangle.png"/>
