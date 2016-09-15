@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 require('../../../stylesheets/components/profile/ProfileNav.scss');
 
@@ -14,7 +15,7 @@ export default class ProfileNav extends React.Component {
 				<div className="profile-nav-wrapper">
 					<div className="profile-nav-first"></div>
 					<div className="profile-nav-timeline">Timeline</div>
-					<div className="profile-nav-about">About</div>
+				<div className="profile-nav-about"><Link to="about">About</Link></div>
 					<div className="profile-nav-friends">Friends</div>
 					<div className="profile-nav-photos">Photos</div>
 					<div className="profile-nav-more">More&nbsp;&nbsp;<i className="fa fa-caret-down"></i>
