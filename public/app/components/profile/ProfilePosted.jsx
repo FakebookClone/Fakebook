@@ -1,5 +1,5 @@
 import React from 'react';
-import Posts from '../global/Post.jsx';
+import Posts from '../global/Post/Post.jsx';
 var imageshome = './images/home/';
 
 require('../../../stylesheets/components/profile/ProfilePosted.scss');

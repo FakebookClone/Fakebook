@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-var imageshome = './images/home/';
+var imageshome = '/images/home/';
 
 require('../../../stylesheets/components/global/Comment.scss');
 require('../../../stylesheets/components/global/main.scss');
