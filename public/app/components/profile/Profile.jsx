@@ -10,7 +10,6 @@ import ProfileIntro from './ProfileIntro.jsx';
 import ProfilePhotos from './ProfilePhotos.jsx';
 import ProfileFriends from './ProfileFriends.jsx';
 import ProfilePostStatus from './ProfilePostStatus.jsx';
-import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
 import ProfilePosted from './ProfilePosted.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
