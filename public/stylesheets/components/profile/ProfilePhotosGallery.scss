@@ -101,10 +101,14 @@
         }
     }
 }
+.lower-section-wrapper{
+  width: 849px;
+  height: 346px;
+  background-color: $faceBookWhite;
+}
 .no-photos-to-show {
     font-size: 19px;
     font-family: $faceBookFontr;
-    text-align: center;
-    margin-top: 94px;
     color: $noPhotos-to-show-text-on-profile-photos;
+    margin-bottom: 80px;
 }

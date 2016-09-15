@@ -104,10 +104,14 @@
     font-weight: 600;
     padding-top: 2px;
 }
+.lower-section-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .no-friends-to-show {
     font-size: 19px;
     font-family: $faceBookFontr;
-    text-align: center;
-    margin-top: 94px;
+    margin-bottom: 80px;
     color: $noPhotos-to-show-text-on-profile-photos;
 }
