@@ -30,6 +30,7 @@ export default class Comment extends React.Component {
 
 				<div className="user-comment-container">
 					<div className="user-comment-edit-button tooltip">
+						<img src="" />
 						<span className="tooltiptext">Edit or delete this</span>
 					</div>
 
