@@ -40,5 +40,8 @@ module.exports = {
   },
   editPost: function(req, res) {
     db.posts.editPost([req.body.post, req.params.post_id], function(err, r) { res.status(200).send('edit success'); })
+  },
+  getProfilePosts: function(req, res) {
+    db.posts.getProfilePosts([req.params.profile_id], function(err, r) { res.json(r); })
   }
 }

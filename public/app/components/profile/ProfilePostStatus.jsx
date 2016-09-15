@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 
 require('../../../stylesheets/components/profile/ProfilePostStatus.scss');
+
 var imageshome = '/images/home/';
 var images = '/images/main/';
 
@@ -12,36 +13,76 @@ export default class ProfilePostStatus extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			post: ""
+			post: "",
+			dimmerVisible: false,
+			closeVisible: false,
+			iconVisible: false,
+			file: null,
+			processing: false,
+			uploaded_uri: null
 		}
 	}
 
 	render() {
 		return (
 			<div className="profile-post-status-wrapper">
-				<h1>
-					<span>
-						<img src="/images/profile/status-pencil.png"/>
-					</span>
-					<p>Status</p>
-					<span>
-						<img src="/images/profile/photo-video.png"/>
-					</span>
-					<p>Photo / Video</p>
-					<span>
-						<img src="/images/profile/flag-blue-profile.png"/>
-					</span>
-					<p>Life Event</p>
-				</h1>
-				<div className="mid-post-profile">
-					<div>
-						<img src={this.props.user.profile_pic}/>
+				{this.state.dimmerVisible
+					? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
+					: null
+}
+				<div className="profile-center-post-container">
+					<h1>
+						<span>
+							<img src="/images/profile/status-pencil.png"/>
+						</span>
+						<p>Status</p>
+						<span>
+							<img src="/images/profile/photo-video.png"/>
+						</span>
+						<p>Photo / Video</p>
+						<span>
+							<img src="/images/profile/flag-blue-profile.png"/>
+						</span>
+						<p>Life Event</p>
+
+						{this.state.closeVisible
+							? <div onClick={this.toggleDimmer.bind(this, true)} className="profileCloseDiv"><img src={imageshome + 'gray-x.png'}/></div>
+							: null
+}
+					</h1>
+					<div className="mid-post-profile">
+						<div>
+							<img src={this.props.user.profile_pic}/>
+						</div>
+						<textarea onClick={this.toggleDimmer.bind(this)} placeholder="What's on your mind?" className="profile-post-textarea" onChange={this.postCatcher.bind(this)} value={this.state.post}/>
 					</div>
-					<textarea className="profile-text-post" placeholder="What's on your mind?"/>
-				</div>
-				<div className="lower-profile-button-container">
-					<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
-					<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+					<div className="lower-profile-container-bottom">
+
+						{this.state.iconVisible === true
+							? <div className="lower-profile-icon-container">
+									<div>
+										<img src={imageshome + 'camera-profile-gray.png'}/>
+									</div>
+									<div>
+										<img src={imageshome + 'tag-people.png'}/>
+									</div>
+									<div>
+										<img src={imageshome + 'smiley2.png'}/>
+									</div>
+									<div>
+										<img src={imageshome + 'check-in2.png'}/>
+									</div>
+									<div>
+										<img src={imageshome + 'calendar-profile.png'}/>
+									</div>
+								</div>
+							: null
+}
+						<div className="lower-profile-button-container">
+							<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
+							<button className="post-bttn" onClick={this.post.bind(this)}>Post</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		)
@@ -110,6 +151,25 @@ export default class ProfilePostStatus extends React.Component {
 						this.props.updatePosted(r.data);
 					})
 				})
+			})
+		}
+	}
+
+	toggleDimmer(override) {
+		if (this.state.post == "" && !(this.state.file)) {
+			this.setState({
+				dimmerVisible: !this.state.dimmerVisible,
+				closeVisible: !this.state.closeVisible,
+				iconVisible: true
+			})
+		} else if (this.state.post !== "") {
+			this.setState({dimmerVisible: true, closeVisible: true});
+		}
+
+		if (override) {
+			this.setState({
+				dimmerVisible: !this.state.dimmerVisible,
+				closeVisible: !this.state.closeVisible
 			})
 		}
 	}

@@ -1,11 +1,11 @@
 import React from 'react';
 import Axios from 'axios';
-import Comment from './Comment.jsx';
+import Comment from '../Comment.jsx';
 import ToggleDisplay from 'react-toggle-display';
 var imageshome = './images/home/';
 
-require('../../../stylesheets/components/global/Post.scss');
-require('../../../stylesheets/components/global/main.scss');
+require('../../../../stylesheets/components/global/Post.scss');
+require('../../../../stylesheets/components/global/main.scss');
 var imageshome = '/images/home/';
 var images = '/images/main/';
 
