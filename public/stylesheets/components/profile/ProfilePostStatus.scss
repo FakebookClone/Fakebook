@@ -1,12 +1,21 @@
 @import '../../base/utilities';
 
 .profile-post-status-wrapper {
-    margin-top: 17px;
-    margin-left: 17px;
-    height: 149px;
-    width: 510px;
-    background-color: $faceBookWhite;
-    border-bottom: $borderColorGrey;
+      height: auto;
+}
+
+.profile-center-post-container{
+  margin-top: 17px;
+  margin-left: 17px;
+  min-height: 149px;
+  width: 510px;
+  background: $faceBookWhite;
+  border-radius: 2px;
+  border: $borderColorGrey;
+  position: relative;
+  z-index: 3;
+  height: auto;
+
 
     h1 {
         height: 34px;
@@ -15,6 +24,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        position: relative;
+        z-index: 3;
         background-color: $profilePostBackgroundColor;
         border-bottom: $borderColorGrey;
 
@@ -29,6 +40,21 @@
     }
 }
 
+.profileCloseDiv {
+    padding-right: 12px;
+    padding-bottom: 7px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+
+    img {
+        margin-top: 10px;
+        height: 17px;
+        width: 17px;
+    }
+}
+
+// Mid Post Div ***************
 .mid-post-profile{
   height: 73px;
   width: 510px;
@@ -47,7 +73,8 @@
       border: $profilePicBorderGray;
     }
   }
-  textarea{
+
+  .profile-post-textarea{
     padding-top: 11px;
       min-height: 20px;
       width: 400px;
@@ -60,6 +87,31 @@
   }
 }
 
+.lower-profile-container-bottom{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: space-between;
+}
+
+.lower-profile-icon-container {
+    height: 40px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+
+    div {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            background-color: $iconHover;
+        }
+    }
+}
 
 .lower-profile-button-container {
   right: 0px;
@@ -69,5 +121,7 @@
   background-color: $faceBookWhite;
   margin-top: 0;
   height: 40px;
+  width: 170px;
+  position: absolute;
 }
 // <img src="/images/profile/white-up-triangle.png"/>

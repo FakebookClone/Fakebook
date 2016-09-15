@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-var imageshome = './images/home/';
+var imageshome = '/images/home/';
 
 require('../../../stylesheets/components/global/Comment.scss');
 require('../../../stylesheets/components/global/main.scss');
@@ -30,6 +30,7 @@ export default class Comment extends React.Component {
 
 				<div className="user-comment-container">
 					<div className="user-comment-edit-button tooltip">
+						<img src="" />
 						<span className="tooltiptext">Edit or delete this</span>
 					</div>
 
