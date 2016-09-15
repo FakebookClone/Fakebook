@@ -22,78 +22,95 @@ require('../../../stylesheets/components/profile/profile.scss');
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { currentUser: JSON.parse(localStorage.getItem('fakebook_user')), profileInfo: props.params.profile_id, sameUser: false, requestSent: false }
+		this.state = {
+			currentUser: JSON.parse(localStorage.getItem('fakebook_user')),
+			profileInfo: props.params.profile_id,
+			sameUser: false,
+			requestSent: false,
+			posts: []
+		}
 	}
 
 	componentWillMount() {
-		Axios.get(`/api/profile/${this.state.currentUser.userID}`).then(r => {
-			var user = r.data[0];
-			var sameUser = false;
-			Axios.get(`/api/profile/${this.state.profileInfo}`).then(r => {
-				var profileInfo = r.data[0];
-				if(user.facebook_id === r.data[0].facebook_id) {
-					var sameUser = true;
-				}
-				console.log(user.facebook_id);
-				console.log(profileInfo.facebook_id);
-				Axios.post('/api/sent/friend-requests', { request_sender_id: user.facebook_id, requested_id: profileInfo.facebook_id}).then(r => {
-					var requestSent = false;
-					if(r.data.length !== 0) {
-						requestSent = true;
+			Axios.get(`/api/profile/${this.state.currentUser.userID}`).then(r => {
+				var user = r.data[0];
+				var sameUser = false;
+				var profileInfo = null;
+				var requestSent = null;
+				Axios.get(`/api/profile/${this.state.profileInfo}`).then(r => {
+					profileInfo = r.data[0];
+					if (user.facebook_id === r.data[0].facebook_id) {
+						var sameUser = true;
 					}
-					this.setState({ currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent })
+					Axios.post('/api/sent/friend-requests', {
+						request_sender_id: user.facebook_id,
+						requested_id: profileInfo.facebook_id
+					}).then(r => {
+						requestSent = false;
+						if (r.data.length !== 0) {
+							requestSent = true;
+						}
+					})
+					Axios.get(`/api/posts/${profileInfo.facebook_id}`).then(r => {
+						this.setState({currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent, posts: r.data})
+					})
 				})
 			})
-		})
-	}
+		}
 
-	render() {
-		return (
-			<div>
-				<GlobalHeader user={this.state.currentUser}/>
+		render() {
+			return (
+				<div>
+					<GlobalHeader user={this.state.currentUser}/>
 
-				<div className="profile-body-wrapper">
-					<div className="profile-master-body">
-						<div className="profile-body-container">
-							<div className="profile-body-header">
-								<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)} />
-								<ProfileAddPhoto user={this.state.profileInfo} />
-								<ProfileNav />
-							</div>
-							<div className="profile-content-wrapper">
-								<div className="profile-left-content-div">
-									<div>
-										<ProfileIntro/>
-										<ProfilePhotos/>
-										<ProfileFriends/>
-										<ProfileFooter/>
+					<div className="profile-body-wrapper">
+						<div className="profile-master-body">
+							<div className="profile-body-container">
+								<div className="profile-body-header">
+									<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)}/>
+									<ProfileAddPhoto user={this.state.profileInfo}/>
+									<ProfileNav/>
+								</div>
+								<div className="profile-content-wrapper">
+									<div className="profile-left-content-div">
+										<div>
+											<ProfileIntro/>
+											<ProfilePhotos/>
+											<ProfileFriends/>
+											<ProfileFooter/>
+										</div>
 									</div>
+									{this.state.profileInfo.facebook_id
+										? <div className="profile-right-content-div">
+												<ProfilePostStatus user={this.state.profileInfo}/>
+												<ProfilePosted user={this.state.profileInfo} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
+												<ProfileStatusBox/>
+												<ProfileOldPosts/>
+												<ProfileBirthdayBox/>
+												<img src="/images/profile/gray-dot.png"/>
+											</div>
+										: null
+									}
 								</div>
-								<div className="profile-right-content-div">
-									<ProfilePostStatus user={this.state.profileInfo} />
-									<ProfilePosted user={this.state.user} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)} />
-									<ProfileStatusBox/>
-									<ProfileOldPosts/>
-									<ProfileBirthdayBox/>
-									<img src="/images/profile/gray-dot.png"/>
-								</div>
+								<GlobalChat/>
 							</div>
-							<GlobalChat/>
-						</div>
-						<div>
-							<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
-							<ProfilePhotosGallery/>
-						</div>
-						<div>
-							<ProfileFriendsGallery/>
+							<div>
+								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+								<ProfilePhotosGallery/>
+							</div>
+							<div>
+								<ProfileFriendsGallery/>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		)
-	}
+			)
+		}
 
-	updateRequest() {
-		this.setState({ requestSent: true });
+		updateRequest() {
+			this.setState({requestSent: true});
+		}
+		updatePosts(posts) {
+			this.setState({posts: posts});
+		}
 	}
-}

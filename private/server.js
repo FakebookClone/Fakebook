@@ -31,6 +31,7 @@ app.get('/api/profile/:profile_id', profilesCtrl.getProfile);
 app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
 
 //Post Endpoints
+app.get('/api/posts/:profile_id', postsCtrl.getProfilePosts);
 app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);
 app.put('/api/post/:post_id', postsCtrl.editPost);
