@@ -11,7 +11,6 @@ export default class ProfilePosted extends React.Component {
 
 	render() {
 		return (
-
 			<div className="profilePostedUser">
 				{this.props.posts.length === 0
 					? <div className="profile-empty-div" />
