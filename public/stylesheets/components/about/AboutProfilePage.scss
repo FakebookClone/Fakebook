@@ -1,5 +1,10 @@
 @import '../../base/utilities';
 
+.about-view .global-header-wrapper .global-header-container {
+  justify-content: flex-start;
+}.header-right-div{
+  margin-left: 54px;
+}
 
 .about-profile-page-wrapper{
   width: 100%;

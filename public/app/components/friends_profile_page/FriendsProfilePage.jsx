@@ -35,7 +35,7 @@ export default class Friends extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="friends-view">
 				<GlobalHeader user={this.state.currentUser}/>
 				<div className="friends-profile-page-wrapper">
 					<div className="friends-profile-page-container">

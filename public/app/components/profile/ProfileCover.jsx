@@ -6,12 +6,14 @@ require('../../../stylesheets/components/profile/ProfileCover.scss');
 export default class ProfileCover extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = { coverPhoto: null};
 	}
 
 	render() {
 		return (
 			<div className="profile-main-cover-wrapper">
 				<div className="add-cover-wrapper">
+				<input type="file" accept="image/*" onChange={this.addPhoto.bind(this)} className="add-cover-input" />
 					<div className="cover-camera-pic">
 						<img src="/images/profile/white-camera.png"/>
 					</div>
@@ -46,5 +48,23 @@ export default class ProfileCover extends React.Component {
 		Axios.post('/api/friend-request', { request_sender_id: this.props.currentUser.facebook_id, requested_id: this.props.profile.facebook_id }).then(r => {
 			this.props.updateRequest();
 		})
+	}
+	addPhoto(e) {
+		const reader = new FileReader();
+    const file = e.target.files[0];
+		var fileUpload = {};
+    reader.onload = (upload) => {
+			fileUpload = {
+        imageBody: upload.target.result,
+        imageName: file.name,
+        imageExtension: file.type,
+        userEmail: this.props.profile.email
+      }
+			Axios.post('/api/aws/upload', {file: fileUpload}).then(r => {
+				console.log("data", r);
+				this.setState({ coverPhoto: r.data });
+			});
+		}
+		reader.readAsDataURL(file);
 	}
 }
