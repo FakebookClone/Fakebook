@@ -58,7 +58,7 @@ export default class Profile extends React.Component {
 
 		render() {
 			return (
-				<div>
+				<div className="profile-view">
 					<GlobalHeader user={this.state.currentUser}/>
 
 					<div className="profile-body-wrapper">
