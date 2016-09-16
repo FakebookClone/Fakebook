@@ -14,7 +14,7 @@ export default class LowPosted extends React.Component {
           </div>
 
           <div className="input-name">
-            <input className="new-comment-input" onChange={this.props.commentCatcher} placeholder="Write a comment..." value={this.props.comment} onKeyDown={this.postComment}/>
+            <input className="new-comment-input" onChange={this.props.commentCatcher} placeholder="Write a comment..." value={this.props.comment} onKeyDown={this.props.postComment}/>
 
             <div className="camera-img tooltip">
               <span className="tooltiptext">Attach a Photo or Video</span>
