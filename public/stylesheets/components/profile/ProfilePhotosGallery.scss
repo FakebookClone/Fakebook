@@ -10,12 +10,13 @@
 
 .upper-photos-section-wrapper {
     width: 848px;
-    height: 57px;
+    height: 83px;
     border: $main-container-profile-photo-border;
     border-width: 1px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: $profilePostBackgroundColor;
 }
 
 .photo-image-wrapper {
@@ -29,6 +30,7 @@
         margin-left: 7px;
         margin-top: 1px;
         color: $color-of-word-photos-on-profile;
+        font-weight: bolder;
     }
 
     img {
@@ -101,14 +103,77 @@
         }
     }
 }
+.parent-of-albums-p {
+  display: flex;
+  align-items: flex-end;
+  margin-left: -95px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $colorFontOnPhotos;
+}
+.white-arrow-image-photos {
+  margin-bottom: -13px;
+  margin-left: -30px;
+  img{
+    width: 14px;
+    height: 7px;
+  }
+}
 .lower-section-wrapper{
   width: 849px;
   height: 346px;
   background-color: $faceBookWhite;
 }
-.no-photos-to-show {
-    font-size: 19px;
-    font-family: $faceBookFontr;
-    color: $noPhotos-to-show-text-on-profile-photos;
-    margin-bottom: 80px;
+.wrapper-around-two-boxes {
+  display: flex;
+  align-items: flex-start;
 }
+.dotted-line-box {
+  width: 204px;
+  height: 239px;
+  border: dashed black thin;
+  border-radius: 4px;
+}
+.plus-and-create-album {
+  img {
+
+  }
+  p {
+
+  }
+}
+.timeline-photos-box {
+  width: 194px;
+  height: 194px;
+  border: solid black thin;
+  img {
+    height: 194px;
+    width: 194px;
+  }
+}
+.timeline-photos-box2 {
+  width: 194px;
+  height: 45px;
+  border: solid black thin;
+  a {
+    p {
+
+    }
+  }
+  // p {
+  //   font-size: 12px;
+  //   font-family: $faceBookFontr;
+  //   color: #C5C7CB;
+  // }
+  img {
+
+  }
+}
+
+// .no-photos-to-show {
+//     font-size: 19px;
+//     font-family: $faceBookFontr;
+//     color: $noPhotos-to-show-text-on-profile-photos;
+//     margin-bottom: 80px;
+// }
