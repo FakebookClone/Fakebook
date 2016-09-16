@@ -1,6 +1,5 @@
 import React from 'react';
 import Axios from 'axios';
-import ToggleDisplay from 'react-toggle-display';
 
 var imageshome = '/images/home/';
 var images = '/images/main/';

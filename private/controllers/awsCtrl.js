@@ -15,8 +15,6 @@ module.exports = {
   upload: function(req, res) {
     const buf = new Buffer(req.body.file.imageBody.replace(/^data:image\/\w+;base64,/, ''), 'base64');
     //replaces that bit with an empty string, and then tells it it's a base64 string
-
-
     //bucketName variable below creates a folder for each user
     const bucketName = 'bucket-fakebook/' + req.body.file.userEmail;
     const params = {
@@ -30,7 +28,9 @@ module.exports = {
     s3.upload(params, function(err, data) {
       console.log('THIS IS AN ERROR', err, 'THIS IS THE DATA', data);
       if (err) return res.status(500).send(err);
+      console.log(data.Location);
       res.status(200).json(data.Location); //save data to database?
     });
+
   }
 }

@@ -85,8 +85,8 @@ export default class Profile extends React.Component {
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>
 												<ProfileBirthdayBox/>
-												<div className="profile-bottom-dot">
-													<img src="/images/profile/gray-dot.png"/>
+												<div className="profile-gray-dot-endpage">
+												<img src="/images/profile/gray-dot.png"/>
 												</div>
 											</div>
 										: null
