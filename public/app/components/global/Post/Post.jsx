@@ -1,8 +1,14 @@
 import React from 'react';
 import Axios from 'axios';
 import Comment from '../Comment.jsx';
-import ToggleDisplay from 'react-toggle-display';
-var imageshome = './images/home/';
+import PostEditButton from './PostEditButton.jsx';
+import TopPosted from './TopPosted.jsx';
+import MidPosted from './MidPosted.jsx';
+import LikeSection from './LikeSection.jsx';
+import LikeSeperator from './LikeSeperator.jsx';
+import LowPosted from './LowPosted.jsx';
+import deleteConfirmation from './deleteConfirmation.jsx';
+import EditPost from './EditPost.jsx';
 
 require('../../../../stylesheets/components/global/Post.scss');
 require('../../../../stylesheets/components/global/main.scss');
@@ -48,80 +54,17 @@ export default class Posts extends React.Component {
 		return (
 			<div className="global-post-container">
 
-				<div className="post-edit-button">
-					{this.state.myPost
-						? <ul className="post-menu">
-								<li onClick={this.deletePost.bind(this)} className="post-menu-item">Delete</li>
-								<li className="post-menu-item">Turn off translations</li>
-								<div className="post-menu-seperator"></div>
-								<li className="post-menu-item">Save Post</li>
-								<li onClick={this.editPost.bind(this)} className="post-menu-item">Edit Post</li>
-								<li className="post-menu-item">Turn off notifications for this post</li>
-							</ul>
-						:	<ul className="post-menu-small">
-								<li className="post-menu-item">Save Post</li>
-								<div className="post-menu-seperator"></div>
-								<li className="post-menu-item">Turn on notifications for this item</li>
-								<div className="post-menu-seperator"></div>
-								<li className="post-menu-item">Report Post</li>
-						 </ul>
-					}
-				</div>
-
-				<div className="upper-posted-div">
-					<div className="user-profile-posted-div">
-						<img src={this.props.post.profile_pic}/>
-						<a href="#"><p>{this.props.post.name}</p></a>
-					</div>
-
-					<div className="posted-text-container">
-						<p className="posted-text">{this.props.post.post_text}</p>
-					</div>
-
-					{this.props.post.post_image
-						?	<div className="posted-image-container">
-								<img className="posted-image" src={this.props.post.post_image} />
-							</div>
-						: null
-					}
-
-				</div>
-				<div className="mid-posted-icon-div">
-					<div className="likePost" onClick={this.likePost.bind(this)}>
-						{this.state.iLiked
-							? <img src={imageshome + 'blue-like.png'}/>
-							: <img src={imageshome + 'gray-like.png'}/>
-						}
-						{this.state.iLiked
-							? <p className="blueLikes">Like</p>
-							: <p>Like</p>
-						}
-					</div>
-
-					<div className="commentPost">
-						<img src={imageshome + 'gray-comment-small.png'}/>
-						<p>Comment</p>
-					</div>
-
-					<div className="sharePost">
-						<img id="likeImg" src={imageshome + 'gray-share-small.png'}/>
-						<p>Share</p>
-					</div>
-
-				</div>
+				<PostEditButton myPost={this.state.myPost} deletePost={this.deletePost.bind(this)} editPost={this.editPost.bind(this)} />
+				<TopPosted post={this.props.post} />
+				<MidPosted post={this.props.post} iLiked={this.state.iLiked} likePost={this.likePost.bind(this)} />
 
 				{this.state.likes.length !== 0
-					? <div className="likesDiv">
-							<img src={imageshome + 'blue-like.png'}/>
-							<p>{this.state.likes.length}</p>
-						</div>
+					? <LikeSection likes={this.state.likes} />
 					: null
 				}
 
 				{this.state.likes.length !== 0
-					? <div className="likes-seperator-wrapper">
-							<div></div>
-						</div>
+					? <LikeSeperator />
 					: null
 				}
 
@@ -130,26 +73,7 @@ export default class Posts extends React.Component {
 				})}
 
 
-				<div className="lower-posted-div">
-					<div className="comment-input-section">
-						<div className="comment-profile-pic">
-							<img src={this.props.user.profile_pic}/>
-						</div>
-
-						<div className="input-name">
-							<input className="new-comment-input" onChange={this.commentCatcher.bind(this)} placeholder="Write a comment..." value={this.state.comment} onKeyDown={this.postComment.bind(this)}/>
-
-							<div className="camera-img tooltip">
-								<span className="tooltiptext">Attach a Photo or Video</span>
-							</div>
-
-							<div className="smiley-2 tooltip">
-								<span className="tooltiptext">Post a sticker</span>
-							</div>
-
-						</div>
-					</div>
-				</div>
+				<LowPosted user={this.props.user} commentCatcher={this.commentCatcher.bind(this)} comment={this.state.comment} postComment={this.postComment.bind(this)} />
 
 				{this.state.deleteConfirmation
 					?	<div onClick={this.cancelDelete.bind(this)} className="dimmer"></div>
@@ -157,20 +81,7 @@ export default class Posts extends React.Component {
 				}
 
 				{this.state.deleteConfirmation
-					? <div className="delete-confirmation-container">
-							<div className="delete-confirmation-top">
-								<p className="delete-confirmation-header">Delete Post</p>
-								<div onClick={this.cancelDelete.bind(this)} className="delete-confirmation-x-button"></div>
-							</div>
-							<div className="delete-confirmation-middle">
-								<p>This post will be deleted and you won't be able to find it anymore.<br />You can also edit this post, if you just want to change something.</p>
-							</div>
-							<div className="delete-confirmation-bottom">
-								<button onClick={this.cancelDelete.bind(this)} className="delete-confirmation-cancel-button">Cancel</button>
-								<button onClick={this.deletePostConfirmed.bind(this)} className="delete-confirmation-delete-button">Delete Post</button>
-								<button onClick={this.editPost.bind(this)} className="delete-confirmation-edit-button">Edit Post</button>
-							</div>
-						</div>
+					? <DeleteConfirmation cancelDelete={this.cancelDelete.bind(this)} deletePostConfirmed={this.deletePostConfirmed.bind(this)} editPost={this.editPost.bind(this)} />
 					: null
 				}
 
@@ -180,37 +91,7 @@ export default class Posts extends React.Component {
 				}
 
 				{this.state.editPost
-					? <div className="edit-post-container">
-							<div className="edit-post-top">
-								<p className="edit-post-header">Edit Post</p>
-								<div onClick={this.cancelEdit.bind(this)} className="edit-post-x-button"></div>
-							</div>
-							<div className="edit-post-middle">
-								<div className="post-container-middle">
-									<div className="imgStatusDiv">
-										<img src={this.props.user.profile_pic}/>
-									</div>
-									<div className="inputStatusDiv">
-										<textarea placeholder="What's on your mind?" className="home-post-textarea" onChange={this.editPostCatcher.bind(this)} value={this.state.editPostText} />
-											<div className="home-post-image-upload-container">
-												{this.props.post.post_image
-													? <img className="home-post-image-upload" src={this.props.post.post_image} />
-													: null
-												}
-											</div>
-									</div>
-								</div>
-
-								<div className="post-container-bottom">
-
-									<div className="lower-post-button-container">
-										<button className="fb-bttn"><img src={images + 'friendsbttn.png'}/></button>
-										<button className="post-bttn" onClick={this.editPostConfirmed.bind(this)}>Post</button>
-									</div>
-
-								</div>
-							</div>
-						</div>
+					? <EditPost user={this.props.user} cancelEdit={this.cancelEdit.bind(this)} editPostCatcher={this.editPostCatcher.bind(this)} editPostText={this.state.editPostText} post={this.props.post} editPostConfirmed={this.editPostConfirmed.bind(this)} />
 					: null
 				}
 
