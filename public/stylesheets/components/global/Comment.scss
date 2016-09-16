@@ -90,21 +90,105 @@
   }
 }
 
-.user-comment-container:hover .user-comment-edit-button {
+.user-comment-container:hover .user-comment-edit-button-container {
   display: inline-block;
 }
 
-.user-comment-edit-button {
+.user-comment-edit-button-container {
   display: none;
   position: absolute;
   right: 11px;
   top: 4px;
   width: 8px;
   height: 8px;
-  background: url("/images/comments/edit-pencil-light-gray.png");
+  cursor: pointer;
+}
 
-  &:hover {
-    cursor: pointer;
-    background: url("/images/comments/edit-pencil-dark-gray.png")
-  }
+.user-comment-edit-button {
+  top: -4px;
+  position: relative;
+}
+
+.user-comment-edit-button-container:hover .user-comment-edit-button {
+  background: url("/images/comments/edit-pencil-dark-gray.png")
+}
+
+.user-comment-edit-button-container .tooltiptext {
+  position: absolute;
+  bottom: 170%;
+  left: 50%;
+  margin-left: -60px;
+  z-index: 1;
+}
+
+.user-comment-container:hover .user-comment-hide-button-container {
+  display: inline-block;
+}
+
+.user-comment-hide-button-container {
+  display: none;
+  position: absolute;
+  right: 11px;
+  top: 4px;
+  width: 13px;
+  cursor: pointer;
+}
+
+.user-comment-hide-button {
+  width: 13px;
+}
+
+.user-comment-hide-button-container:hover .user-comment-hide-button {
+  background: url("/images/comments/comment-down-arrow-dark.png");
+  background-size: 14px;
+  background-repeat: no-repeat;
+}
+
+.user-comment-hide-button-container .tooltiptext {
+  position: absolute;
+  bottom: 109%;
+  left: 50%;
+  margin-left: -25px;
+  z-index: 1;
+  padding: 6px 3px;
+}
+
+.user-comment-hide-button-container .tooltiptext::after {
+  left: 20%;
+}
+
+.user-comment-container:hover .user-comment-delete-button-container {
+  display: inline-block;
+}
+
+.user-comment-delete-button-container {
+  display: none;
+  position: absolute;
+  right: 11px;
+  top: 4px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.user-comment-delete-button {
+  width: 10px;
+}
+
+.user-comment-delete-button-container:hover .user-comment-delete-button {
+  background: url("/images/comments/comment-x-dark-gray.png");
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+.user-comment-delete-button-container .tooltiptext {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -44px;
+  z-index: 1;
+  width: 88px;
+}
+
+.user-comment-delete-button-container .tooltiptext::after {
+  left: 50%;
 }

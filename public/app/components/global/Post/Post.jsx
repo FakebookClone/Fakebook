@@ -69,7 +69,7 @@ export default class Posts extends React.Component {
 				}
 
 				{this.state.postedComments.map((value) => {
-					return (<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
+					return (<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
 				})}
 
 

@@ -8,8 +8,8 @@ require('../../../stylesheets/components/global/main.scss');
 export default class Comment extends React.Component {
 
 	constructor() {
-		super()
-		this.state = { likes: [], iLiked: false }
+		super();
+		this.state = { likes: [], iLiked: false };
 	}
 
 	componentWillMount() {
@@ -22,17 +22,56 @@ export default class Comment extends React.Component {
 			}
 			this.setState({likes: r.data, iLiked: temp});
 		})
+
+		if(this.props.user.facebook_id === this.props.comment.profile_id) {
+			this.state.myComment = true;
+		} else {
+			this.state.myComment = false;
+		}
+
+		if(this.props.postID === this.props.user.facebook_id) {
+			this.state.myPost = true;
+		} else {
+			this.state.myPost = false;
+		}
 	}
 
 	render() {
+		console.log({thePostID: this.props.postID, theProfileID: this.props.comment.profile_id, myPost: this.state.myPost, myComment: this.state.myComment});
 		return (
 			<div className="user-comment-wrapper">
 
 				<div className="user-comment-container">
-					<div className="user-comment-edit-button tooltip">
-						<img src="" />
-						<span className="tooltiptext">Edit or delete this</span>
-					</div>
+
+						{this.state.myComment && this.state.myPost
+							? <div className="user-comment-edit-button-container tooltip">
+									<img className="user-comment-edit-button" src="/images/comments/edit-pencil-light-gray.png" />
+									<span className="tooltiptext">Edit or delete this</span>
+								</div>
+							: null
+						}
+						{this.state.myComment && !this.state.myPost
+							? <div className="user-comment-edit-button-container tooltip">
+									<img className="user-comment-edit-button" src="/images/comments/edit-pencil-light-gray.png" />
+									<span className="tooltiptext">Edit or delete this</span>
+								</div>
+							: null
+						}
+						{!this.state.myComment && this.state.myPost
+							? <div className="user-comment-delete-button-container tooltip">
+									<img className="user-comment-delete-button" src="/images/comments/comment-x-light-gray.png" />
+									<span className="tooltiptext">Remove this</span>
+								</div>
+							: null
+						}
+						{!this.state.myComment && !this.state.myPost
+							? <div className="user-comment-hide-button-container tooltip">
+									<img className="user-comment-hide-button" src="/images/comments/comment-down-arrow-light.png" />
+									<span className="tooltiptext">Hide or embed this</span>
+								</div>
+							: null
+						}
+
 
 					<div className="user-comment-profile-picture">
 						<img src={this.props.comment.profile_pic}/>
