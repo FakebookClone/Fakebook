@@ -1,0 +1,20 @@
+@import '../../base/utilities';
+
+
+.about-profile-page-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-profile-page-container{
+  height: auto;
+  width: 1011px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.about-profile-page-header{
+  width: 851px;
+}

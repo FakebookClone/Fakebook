@@ -1,0 +1,20 @@
+@import '../../base/utilities';
+
+
+.photos-profile-page-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.photos-profile-page-container{
+  height: auto;
+  width: 1011px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.photos-profile-page-header{
+  width: 851px;
+}
