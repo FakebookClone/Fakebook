@@ -1,5 +1,12 @@
 @import '../../base/utilities';
 
+
+.profile-view .global-header-wrapper .global-header-container {
+  justify-content: flex-start;
+}.header-right-div{
+  margin-left: 54px;
+}
+
 .profile-body-wrapper {
     background: $backgroundColor;
     min-height: 100vh;
