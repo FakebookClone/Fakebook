@@ -8,6 +8,7 @@ import Home from './components/home/Home.jsx';
 import Profile from './components/profile/Profile.jsx';
 import FindFriends from './components/find_friends/FindFriends.jsx';
 import About from './components/about/About.jsx';
+import Friends from './components/friends_profile_page/FriendsProfilePage.jsx';
 
 class FakebookApp extends React.Component {
   constructor() {
@@ -22,7 +23,8 @@ class FakebookApp extends React.Component {
         <Route path="/home" component={Home} />
         <Route path="/profile/:profile_id" component={Profile} />
         <Route path="/find_friends" component={FindFriends} />
-        <Route path="/about" component={About} />
+        <Route path="/about/:profile_id" component={About} />
+        <Route path="/friends/:profile_id" component={Friends} />
       </Router>
     )
   }
