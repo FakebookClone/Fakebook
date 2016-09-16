@@ -1,0 +1,20 @@
+@import '../../base/utilities';
+
+
+.friends-profile-page-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.friends-profile-page-container{
+  height: auto;
+  width: 1011px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.friends-profile-page-header{
+  width: 851px;
+}

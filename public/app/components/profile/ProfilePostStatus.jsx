@@ -25,10 +25,11 @@ export default class ProfilePostStatus extends React.Component {
 
 	render() {
 		return (
+
 			<div className="profile-post-status-wrapper">
-				{this.state.dimmerVisible
-					? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
-					: null
+			{this.state.dimmerVisible
+				? <div onClick={this.toggleDimmer.bind(this, false)} className="dimmer"></div>
+				: null
 }
 				<div className="profile-center-post-container">
 					<h1>

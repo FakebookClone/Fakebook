@@ -14,8 +14,6 @@ import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
 import ProfilePosted from './ProfilePosted.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
-import ProfilePhotosGallery from './ProfilePhotosGallery.jsx';
-import ProfileFriendsGallery from './ProfileFriendsGallery.jsx';
 
 require('../../../stylesheets/components/profile/profile.scss');
 
@@ -69,7 +67,7 @@ export default class Profile extends React.Component {
 								<div className="profile-body-header">
 									<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)}/>
 									<ProfileAddPhoto user={this.state.profileInfo}/>
-									<ProfileNav/>
+									<ProfileNav user={this.state.profileInfo}/>
 								</div>
 								<div className="profile-content-wrapper">
 									<div className="profile-left-content-div">
@@ -87,19 +85,14 @@ export default class Profile extends React.Component {
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>
 												<ProfileBirthdayBox/>
-												<img src="/images/profile/gray-dot.png"/>
+												<div className="profile-bottom-dot">
+													<img src="/images/profile/gray-dot.png"/>
+												</div>
 											</div>
 										: null
 									}
 								</div>
 								<GlobalChat/>
-							</div>
-							<div>
-								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
-								<ProfilePhotosGallery/>
-							</div>
-							<div>
-								<ProfileFriendsGallery/>
 							</div>
 						</div>
 					</div>

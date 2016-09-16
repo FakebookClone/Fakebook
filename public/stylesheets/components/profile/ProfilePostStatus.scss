@@ -1,17 +1,16 @@
 @import '../../base/utilities';
 
 .profile-post-status-wrapper {
-      height: auto;
+   margin-top: 17px;
+   height: auto;
 }
 
 .profile-center-post-container{
-  margin-top: 17px;
-  margin-left: 17px;
   min-height: 149px;
+  border-radius: 3px;
+  border: $borderColorGrey;
   width: 510px;
   background: $faceBookWhite;
-  border-radius: 2px;
-  border: $borderColorGrey;
   position: relative;
   z-index: 3;
   height: auto;
@@ -26,6 +25,8 @@
         align-items: center;
         position: relative;
         z-index: 3;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
         background-color: $profilePostBackgroundColor;
         border-bottom: $borderColorGrey;
 

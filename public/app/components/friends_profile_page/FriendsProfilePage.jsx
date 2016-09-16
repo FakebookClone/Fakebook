@@ -6,10 +6,12 @@ import GlobalHeader from '../global/GlobalHeader.jsx';
 import ProfileCover from '../profile/ProfileCover.jsx';
 import ProfileAddPhoto from '../profile/ProfileAddPhoto.jsx';
 import ProfileNav from '../profile/ProfileNav.jsx';
+import ProfilePhotosGallery from '../profile/ProfilePhotosGallery.jsx';
+import ProfileFriendsGallery from '../profile/ProfileFriendsGallery.jsx';
 
-require('../../../stylesheets/components/about/AboutProfilePage.scss');
+require('../../../stylesheets/components/friends_profile_page/FriendsProfilePage.scss');
 
-export default class About extends React.Component {
+export default class Friends extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -35,15 +37,22 @@ export default class About extends React.Component {
 		return (
 			<div>
 				<GlobalHeader user={this.state.currentUser}/>
-				<div className="about-profile-page-wrapper">
-					<div className="about-profile-page-container">
-						<div className="about-profile-page-header">
+				<div className="friends-profile-page-wrapper">
+					<div className="friends-profile-page-container">
+						<div className="friends-profile-page-header">
 							<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser}/>
 							<ProfileAddPhoto user={this.state.profileInfo}/>
 							<ProfileNav user={this.state.profileInfo}/>
 						</div>
-						<div className="about-Container">
-							<p>Hello From The About Page</p>
+
+						<div>
+							<div>
+								<ProfileFriendsGallery/>
+							</div>
+							<div>
+								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+								<ProfilePhotosGallery/>
+							</div>
 						</div>
 					</div>
 				</div>
