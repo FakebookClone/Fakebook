@@ -15,10 +15,10 @@ export default class ProfileNav extends React.Component {
 
 				<div className="profile-nav-wrapper">
 					<div className="profile-nav-first"></div>
-					<div className="profile-nav-timeline"><Link to={`/profile/${this.props.user.facebook_id}`}>Timeline</Link></div>
-					<div className="profile-nav-about"><Link to={`/about/${this.props.user.facebook_id}`}>About</Link></div>
-					<div className="profile-nav-friends"><Link to={`/friends/${this.props.user.facebook_id}`}>Friends</Link></div>
-					<div className="profile-nav-photos">Photos</div>
+					<Link to={`/profile/${this.props.user.facebook_id}`}><div className="profile-nav-timeline">Timeline</div></Link>
+					<Link to={`/about/${this.props.user.facebook_id}`}><div className="profile-nav-about">About</div></Link>
+					<Link to={`/friends/${this.props.user.facebook_id}`}><div className="profile-nav-friends">Friends</div></Link>
+					<Link to={`/photos/${this.props.user.facebook_id}`}><div className="profile-nav-photos">Photos</div></Link>
 					<div className="profile-nav-more">More&nbsp;&nbsp;<i className="fa fa-caret-down"></i>
 					</div>
 					<div className="profile-nav-last"></div>
