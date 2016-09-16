@@ -31,3 +31,19 @@
     display: flex;
     flex-direction: row;
 }
+
+.profile-right-content-div{
+  margin-left: 17px;
+}
+
+.profile-right-content-div .global-post-container{
+  border: $borderColorGrey;
+  width: 510px;
+}
+
+.profile-bottom-dot{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+}
