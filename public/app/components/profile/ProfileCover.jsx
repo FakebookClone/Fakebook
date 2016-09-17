@@ -9,9 +9,17 @@ export default class ProfileCover extends React.Component {
 		this.state = { coverPhoto: null};
 	}
 
+	componentWillMount() {
+		Axios.get(`/api/cover/${this.props.profile}`).then(r => {
+			this.setState({ coverPhoto: r.data[0].cover });
+		});
+	}
+
 	render() {
+		console.log('Cover Photo', this.state.coverPhoto);
 		return (
 			<div className="profile-main-cover-wrapper">
+			<img className="profile-cover-photo" src={this.state.coverPhoto} />
 				<div className="add-cover-wrapper">
 				<input type="file" accept="image/*" onChange={this.addPhoto.bind(this)} className="add-cover-input" />
 					<div className="cover-camera-pic">
@@ -60,7 +68,7 @@ export default class ProfileCover extends React.Component {
         imageExtension: file.type,
         userEmail: this.props.profile.email
       }
-			Axios.post('/api/aws/upload', {file: fileUpload}).then(r => {
+			Axios.post(`/api/aws/upload/${this.props.profile.facebook_id}`, {file: fileUpload}).then(r => {
 				console.log("data", r);
 				this.setState({ coverPhoto: r.data });
 			});

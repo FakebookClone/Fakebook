@@ -16,6 +16,7 @@ var friendsCtrl = require('./controllers/friendsCtrl.js');
 var commentsCtrl = require('./controllers/commentsCtrl.js');
 var likesCtrl = require('./controllers/likesCtrl.js');
 var awsCtrl = require('./controllers/awsCtrl.js');
+var coverCtrl = require('./controllers/coverCtrl.js');
 var friendRequestCtrl = require('./controllers/friendRequestCtrl.js');
 
 app.use(bodyParser.json({limit: '25mb'})); // default is 100KB;
@@ -29,6 +30,9 @@ app.post('/api/user/create/:facebook_id', usersCtrl.createUser);
 //Profile Endpoints
 app.get('/api/profile/:profile_id', profilesCtrl.getProfile);
 app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
+
+//Cover Photo Endpoints
+app.get('/api/cover/:facebook_id', coverCtrl.getCover);
 
 //Post Endpoints
 app.get('/api/posts/:profile_id', postsCtrl.getProfilePosts);
@@ -58,7 +62,7 @@ app.post('/api/accept/friend-request', friendRequestCtrl.acceptFriendRequest);
 app.post('/api/friend-request', friendRequestCtrl.addFriend);
 
 //Amazon Web Services Endpoints
-app.post('/api/aws/upload', awsCtrl.upload);
+app.post('/api/aws/upload/:profile_id', awsCtrl.upload);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public' });
