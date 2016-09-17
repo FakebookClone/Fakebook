@@ -33,7 +33,7 @@ export default class About extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="about-view">
 				<GlobalHeader user={this.state.currentUser}/>
 				<div className="about-profile-page-wrapper">
 					<div className="about-profile-page-container">

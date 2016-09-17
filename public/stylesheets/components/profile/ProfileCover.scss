@@ -7,6 +7,13 @@
     position: relative;
 }
 
+.profile-cover-photo {
+  width: 100%;
+  max-height: 315px;
+  min-height: 204px;
+
+}
+
 .add-cover-wrapper {
     height: 28px;
     width: 148px;
@@ -91,7 +98,6 @@
     font-size: 12px;
     font-weight: bold;
     border-style: none;
-    border-radius: 1px;
 
     &:hover {
         background-color: #e9ebee;
