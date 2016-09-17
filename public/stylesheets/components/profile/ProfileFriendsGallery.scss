@@ -8,7 +8,7 @@
     font-family: $faceBookFontr;
 }
 
-.upper-photos-section-wrapper {
+.upper-friends-section-wrapper {
     width: 848px;
     height: 57px;
     border: $main-container-profile-photo-border;
@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: $profilePostBackgroundColor;
 }
 
 .friends-image-wrapper {
@@ -29,6 +30,7 @@
         margin-left: 7px;
         margin-top: 1px;
         color: $color-of-word-photos-on-profile;
+        font-weight: 900;
     }
 
     img {
@@ -104,10 +106,15 @@
     font-weight: 600;
     padding-top: 2px;
 }
+.lower-section-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .no-friends-to-show {
     font-size: 19px;
     font-family: $faceBookFontr;
-    text-align: center;
-    margin-top: 94px;
+    margin-bottom: 80px;
     color: $noPhotos-to-show-text-on-profile-photos;
+    letter-spacing: 1.5px;
 }
