@@ -49,9 +49,7 @@ export default class Profile extends React.Component {
 							requestSent = true;
 						}
 					})
-					console.log('GETTING POSTS FOR PROFILE', profileInfo);
 					Axios.post(`/api/posts/${profileInfo.facebook_id}`).then(r => {
-						console.log('POSTS FOR PROFILE', r);
 						this.setState({currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent, posts: r.data})
 					})
 				})
