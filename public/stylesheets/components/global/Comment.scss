@@ -130,31 +130,32 @@
   position: absolute;
   right: 11px;
   top: 4px;
-  width: 13px;
+  width: 10px;
   cursor: pointer;
 }
 
 .user-comment-hide-button {
-  width: 13px;
+  width: 10px;
 }
 
 .user-comment-hide-button-container:hover .user-comment-hide-button {
-  background: url("/images/comments/comment-down-arrow-dark.png");
-  background-size: 14px;
+  background: url("/images/comments/comment-x-dark-gray.png");
+  background-size: 10px;
   background-repeat: no-repeat;
 }
 
 .user-comment-hide-button-container .tooltiptext {
   position: absolute;
-  bottom: 109%;
+  bottom: 122%;
   left: 50%;
-  margin-left: -25px;
+  margin-left: -36px;
   z-index: 1;
+  width: 68px;
   padding: 6px 3px;
 }
 
 .user-comment-hide-button-container .tooltiptext::after {
-  left: 20%;
+  left: 50%;
 }
 
 .user-comment-container:hover .user-comment-delete-button-container {
