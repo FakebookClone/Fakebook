@@ -28,8 +28,12 @@ module.exports = {
     s3.upload(params, function(err, data) {
       console.log('THIS IS AN ERROR', err, 'THIS IS THE DATA', data);
       if (err) return res.status(500).send(err);
-      console.log(data.Location);
-      res.status(200).json(data.Location); //save data to database?
+      console.log("data loc", data.Location);
+      console.log("req body file", req.body.file);
+      db.aws.addCoverPhoto([data.Location, req.params.profile_id], function (err, r) {
+        console.log(err);
+        res.status(200).json(data.Location); //save data to database?
+      });
     });
 
   }
