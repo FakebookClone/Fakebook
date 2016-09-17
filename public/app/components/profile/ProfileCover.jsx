@@ -16,7 +16,6 @@ export default class ProfileCover extends React.Component {
 	}
 
 	render() {
-		console.log('Cover Photo', this.state.coverPhoto);
 		return (
 			<div className="profile-main-cover-wrapper">
 			<img className="profile-cover-photo" src={this.state.coverPhoto} />

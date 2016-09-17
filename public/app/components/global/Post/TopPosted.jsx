@@ -6,6 +6,7 @@ export default class TopPosted extends React.Component {
   }
 
   render() {
+    console.log('Mapped post', this.props.post);
     return (
       <div className="upper-posted-div">
         <div className="user-profile-posted-div">

@@ -35,7 +35,6 @@ app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
 app.get('/api/cover/:facebook_id', coverCtrl.getCover);
 
 //Post Endpoints
-app.get('/api/posts/:profile_id', postsCtrl.getProfilePosts);
 app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);
 app.put('/api/post/:post_id', postsCtrl.editPost);
@@ -53,6 +52,7 @@ app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);
 app.post('/api/like/post/:post_id', likesCtrl.likePost);
 app.get('/api/likes/comment/:comment_id', likesCtrl.getCommentLikes);
 app.post('/api/like/comment/:comment_id', likesCtrl.likeComment);
+app.post('/profile/api/like/comment/:comment_id', likesCtrl.likeComment);
 
 //Friend Request Endpoints
 app.get('/api/friend-requests/:profile_id', friendRequestCtrl.getFriendRequests);

@@ -9,7 +9,6 @@ export default class ProfileNav extends React.Component {
 	}
 
 	render() {
-		console.log('PROFILE NAV USER', this.props.user);
 		return (
 			<div className="profile-main-nav-wrapper">
 

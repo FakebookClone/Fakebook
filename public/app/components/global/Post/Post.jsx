@@ -51,7 +51,6 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
-		console.log('Likes:', this.state.likes);
 		return (
 			<div className="global-post-container">
 
