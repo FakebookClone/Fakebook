@@ -56,6 +56,34 @@ export default class Profile extends React.Component {
 			})
 		}
 
+		componentWillReceiveProps(props) {
+			var currentUser = JSON.parse(localStorage.getItem('fakebook_user'));
+			Axios.get(`/api/profile/${currentUser.userID}`).then(r => {
+				var user = r.data[0];
+				var sameUser = false;
+				var profileInfo = null;
+				var requestSent = null;
+				Axios.get(`/api/profile/${props.params.profile_id}`).then(r => {
+					profileInfo = r.data[0];
+					if (user.facebook_id === r.data[0].facebook_id) {
+						var sameUser = true;
+					}
+					Axios.post('/api/sent/friend-requests', {
+						request_sender_id: user.facebook_id,
+						requested_id: profileInfo.facebook_id
+					}).then(r => {
+						requestSent = false;
+						if (r.data.length !== 0) {
+							requestSent = true;
+						}
+					})
+					Axios.post(`/api/posts/${profileInfo.facebook_id}`).then(r => {
+						this.setState({currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent, posts: r.data})
+					})
+				})
+			})
+		}
+
 		render() {
 			return (
 				<div className="profile-view">
@@ -84,7 +112,7 @@ export default class Profile extends React.Component {
 												<ProfilePosted user={this.state.profileInfo} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>
-												<ProfileBirthdayBox/>
+												<ProfileBirthdayBox user={this.state.profileInfo} />
 												<div className="profile-gray-dot-endpage">
 												<img src="/images/profile/gray-dot.png"/>
 												</div>
