@@ -15,6 +15,7 @@
 .profile-nav-wrapper {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .profile-nav-first,
@@ -24,34 +25,63 @@
 .profile-nav-photos,
 .profile-nav-timeline,
 .profile-nav-last {
-    font-family: $faceBookFonth;
-    font-size: 14px;
-    font-weight: bold;
-    color: #365899;
-    height: 43px;
-    border-left: 1px solid rgb(221, 223, 226);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-      background-color: #f6f7f9;
-    }
+  text-decoration: none;
+  font-family: $faceBookFonth;
+  font-size: 14px;
+  font-weight: bold;
+  color: #365899;
+  height: 43px;
+  border-left: 1px solid rgb(221, 223, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #f6f7f9;
+  }
+  position: relative;
+  cursor: pointer;
 }
 
-.profile-nav-timeline {
+.profile-nav-more:hover .profile-nav-more-menu-container {
+  display: flex;
+}
+
+.profile-nav-timeline-selected,
+.profile-nav-friends-selected,
+.profile-nav-about-selected,
+.profile-nav-photos-selected,
+.profile.nav-list {
+  text-decoration: none;
+  font-family: $faceBookFonth;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4b4f56;
+  height: 43px;
+  border-left: 1px solid rgb(221, 223, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-nav-timeline,
+.profile-nav-timeline-selected {
     width: 90px;
 }
 
-.profile-nav-about {
+.profile-nav-about,
+.profile-nav-about-selected {
     width: 74px;
 }
 
-.profile-nav-friends {
+.profile-nav-friends,
+.profile-nav-friends-selected {
     width: 85px;
 }
 
 .profile-nav-more,
-.profile-nav-photos {
+.profile-nav-photos,
+.profile-nav-photos-selected {
     width: 82px;
 }
 
@@ -67,4 +97,58 @@
   &:hover {
     background-color: inherit;
   }
+}
+
+.profile-nav-profile-selector {
+  position: absolute;
+  bottom: 0px;
+  left: 240px;
+}
+
+.profile-nav-about-selector {
+  position: absolute;
+  bottom: 0px;
+  left: 323px;
+}
+
+.profile-nav-friends-selector {
+  position: absolute;
+  bottom: 0px;
+  left: 404px;
+}
+
+.profile-nav-photos-selector {
+  position: absolute;
+  bottom: 0px;
+  left: 487px;
+}
+
+.profile-nav-more-menu-container {
+  position: absolute;
+  left: -1px;
+  bottom: -38px;
+  border: 1px solid #d3d6db;
+  width: 121px;
+  height: 36px;
+  background: $faceBookWhite;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-nav-more-menu-container ul li {
+  border: 0;
+    color: #3b5998;
+    display: block;
+    font-size: 11px;
+    -webkit-font-smoothing: auto;
+    font-weight: normal;
+    line-height: 23px;
+    padding: 0 17px;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+      background: #f6f7f9;
+    }
 }

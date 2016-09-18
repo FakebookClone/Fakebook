@@ -20,6 +20,7 @@ require('../../../stylesheets/components/profile/profile.scss');
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
+		console.log('PROPS', props);
 		this.state = {
 			currentUser: JSON.parse(localStorage.getItem('fakebook_user')),
 			profileInfo: props.params.profile_id,
@@ -95,7 +96,7 @@ export default class Profile extends React.Component {
 								<div className="profile-body-header">
 									<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)}/>
 									<ProfileAddPhoto user={this.state.profileInfo}/>
-									<ProfileNav user={this.state.profileInfo}/>
+									<ProfileNav user={this.state.profileInfo} selected='profile'/>
 								</div>
 								<div className="profile-content-wrapper">
 									<div className="profile-left-content-div">
