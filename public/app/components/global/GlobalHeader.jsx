@@ -48,9 +48,9 @@ export default class GlobalHeader extends React.Component {
 						</div>
 
 						<div className="header-nav-section">
-							<img src={images + 'friend_request_not_selected.png'}/>
-							<img src={images + 'messages_not_selected.png'}/>
-							<img src={images + 'notifications_not_selected.png'}/>
+							<img className="friend-request-img" src={images + 'friend_request_not_selected.png'}/>
+							<img className="messages-img" src={images + 'messages_not_selected.png'}/>
+							<img className="notifications-img" src={images + 'notifications_not_selected.png'}/>
 						</div>
 
 						<div className="header-lock-down-section">

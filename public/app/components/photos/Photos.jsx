@@ -45,11 +45,8 @@ export default class Friends extends React.Component {
 							<ProfileNav user={this.state.profileInfo} selected="photos" />
 						</div>
 
-						<div>
-							<div>
-								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+						<div className="profile-gallery-wrapper">
 								<ProfilePhotosGallery/>
-							</div>
 						</div>
 					</div>
 				</div>

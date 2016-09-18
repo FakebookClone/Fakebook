@@ -46,11 +46,10 @@ export default class Friends extends React.Component {
 						</div>
 
 						<div>
-							<div>
+							<div className="profile-gallery-wrapper">
 								<ProfileFriendsGallery/>
 							</div>
-							<div>
-								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
+							<div className="profile-gallery-wrapper">
 								<ProfilePhotosGallery/>
 							</div>
 						</div>
