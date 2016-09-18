@@ -34,6 +34,9 @@ app.post('/api/profile/create/:facebook_id', profilesCtrl.createProfile);
 //Cover Photo Endpoints
 app.get('/api/cover/:facebook_id', coverCtrl.getCover);
 
+//Large Profile Pic Endpoint
+app.get('/api/profile-pic-lg/:facebook_id', coverCtrl.getProfilePic);
+
 //Post Endpoints
 app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);

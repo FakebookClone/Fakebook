@@ -11,6 +11,7 @@ export default class ProfileCover extends React.Component {
 
 	componentWillMount() {
 		Axios.get(`/api/cover/${this.props.profile}`).then(r => {
+			console.log("cover response", r);
 			this.setState({ coverPhoto: r.data[0].cover });
 		});
 	}

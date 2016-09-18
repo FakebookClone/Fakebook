@@ -7,6 +7,7 @@ CREATE TABLE profiles (
   profile_id SERIAL PRIMARY KEY,
   facebook_id VARCHAR(20),
   profile_pic varchar(200),
+  profile_pic_lg varchar(200) default 'https://s3-us-west-2.amazonaws.com/bucket-fakebook%2Fdevmountain.clone%40gmail.com/default-large-profile.jpg',
   name varchar(80),
   first_name varchar(40),
   last_name varchar(40),
