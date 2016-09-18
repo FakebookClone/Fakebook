@@ -20,6 +20,9 @@ export default class Posts extends React.Component {
 		super(props)
 		this.state = {
 			postedComments: [],
+			hiddenComments: [],
+			showHiddenCommentsButton: false,
+			showHiddenComments: false,
 			comment: '',
 			likes: [],
 			iLiked: false,
@@ -37,7 +40,21 @@ export default class Posts extends React.Component {
 
 	componentWillMount() {
 		Axios.get(`/api/comments/${this.props.post.post_id}`).then(r => {
-			this.setState({postedComments: r.data});
+			var hidden = [];
+			var posted = [];
+			for(var i in r.data) {
+				if(r.data[i].hidden) {
+					hidden.push(r.data[i]);
+				} else {
+					posted.push(r.data[i]);
+				}
+			}
+
+			if(hidden.length > 0) {
+				this.setState({postedComments: posted, hiddenComments: hidden, showHiddenCommentsButton: true});
+			} else {
+				this.setState({postedComments: posted, hiddenComments: hidden, showHiddenCommentsButton: false});
+			}
 		});
 		Axios.get(`/api/likes/post/${this.props.post.post_id}`).then(r => {
 			var temp = false;
@@ -68,10 +85,32 @@ export default class Posts extends React.Component {
 					: null
 				}
 
-				{this.state.postedComments.map((value) => {
-					return (<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
-				})}
+				<div className="post-comments-container">
+					{this.state.postedComments.map((value) => {
+						return (
+							<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} />
+						)
+					})}
 
+					{this.state.showHiddenCommentsButton
+						? <div className="show-hidden-comments-wrapper">
+								<div className="show-hidden-comments-container tooltip">
+									<img onClick={this.toggleHiddenComments.bind(this)} className="show-hidden-comments-button" src="/images/comments/show-hidden-comments-button.png" />
+									<span className="tooltiptext">{this.state.hiddenComments.length} hidden</span>
+								</div>
+							</div>
+						: null
+					}
+
+					{this.state.hiddenComments.map(value => {
+						if(this.state.showHiddenComments) {
+							return (
+								<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} />
+							)
+						}
+					})}
+
+				</div>
 
 				<LowPosted user={this.props.user} commentCatcher={this.commentCatcher.bind(this)} comment={this.state.comment} postComment={this.postComment.bind(this)} />
 
@@ -174,5 +213,9 @@ export default class Posts extends React.Component {
 				})
 			})
 		})
+	}
+
+	toggleHiddenComments() {
+		this.setState({ showHiddenCommentsButton: !this.state.showHiddenCommentsButton, showHiddenComments: !this.state.showHiddenComments})
 	}
 }
