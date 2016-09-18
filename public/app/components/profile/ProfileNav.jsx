@@ -15,22 +15,22 @@ export default class ProfileNav extends React.Component {
 
 				<div className="profile-nav-wrapper">
 					<div className="profile-nav-first"></div>
-					<Link to={`/profile/${this.props.user.facebook_id}`}>
-						<div className="profile-nav-timeline">Timeline</div>
+					<Link className="profile-nav-timeline" to={`/profile/${this.props.user.facebook_id}`}>
+						<div>Timeline</div>
 					</Link>
-					<Link to={`/about/${this.props.user.facebook_id}`}>
-						<div className="profile-nav-about">About</div>
+					<Link className="profile-nav-about" to={`/about/${this.props.user.facebook_id}`}>
+						<div>About</div>
 					</Link>
-					<Link to={`/friends/${this.props.user.facebook_id}`}>
-						<div className="profile-nav-friends">Friends</div>
+					<Link className="profile-nav-friends" to={`/friends/${this.props.user.facebook_id}`}>
+						<div>Friends</div>
 					</Link>
-					<Link to={`/photos/${this.props.user.facebook_id}`}>
-						<div className="profile-nav-photos">Photos</div>
+					<Link className="profile-nav-photos" to={`/photos/${this.props.user.facebook_id}`}>
+						<div>Photos</div>
 					</Link>
 					<div className="more-button-container">
 						<div className="profile-nav-more">More&nbsp;&nbsp;<i className="fa fa-caret-down"></i>
-						<div className="more-button-hidden"></div>
 						</div>
+						<div className="more-button-hidden"><p>Manage Sections</p></div>
 					</div>
 					<div className="profile-nav-last"></div>
 				</div>

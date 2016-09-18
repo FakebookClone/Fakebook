@@ -8,9 +8,11 @@
 }
 
 .photos-profile-page-wrapper{
+  min-height: 95vh;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: $backgroundColor;
 }
 
 .photos-profile-page-container{
@@ -23,4 +25,5 @@
 
 .photos-profile-page-header{
   width: 851px;
+  margin-bottom: 18px;
 }

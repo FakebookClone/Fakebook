@@ -2,6 +2,7 @@
 
 
 .friends-profile-page-wrapper{
+  background-color: $backgroundColor;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -17,4 +18,5 @@
 
 .friends-profile-page-header{
   width: 851px;
+  margin-bottom: 18px;
 }
