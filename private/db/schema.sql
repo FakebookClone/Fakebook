@@ -67,3 +67,9 @@ CREATE TABLE friend_requests (
   request_sender_id VARCHAR(20),
   requested_id VARCHAR(20)
 );
+
+CREATE TABLE hidden_comments (
+  hidden_id SERIAL PRIMARY KEY,
+  comment_id INT,
+  profile_id VARCHAR(20)
+);

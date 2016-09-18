@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 var imageshome = '/images/home/';
 
@@ -11,8 +12,8 @@ export default class CommentLikeSection extends React.Component {
     if(this.props.hidden) {
       return (
         <div className="user-comment-like-container">
-          <p className="user-comment-like-text">Unhide</p>
-        </div>  
+          <p onClick={this.unHideComment.bind(this)} className="user-comment-like-text">Unhide</p>
+        </div>
       )
     } else {
       return (
@@ -30,5 +31,17 @@ export default class CommentLikeSection extends React.Component {
         </div>
       )
     }
+  }
+
+  unHideComment() {
+    console.log('Unhide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id);
+    Axios({
+      method: 'PUT',
+      url: '/api/comment/unhide',
+      data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id }
+    }).then(r => {
+      console.log('UPDATED COMMENTS', r.data);
+      this.props.refreshComments(r.data);
+    })
   }
 }

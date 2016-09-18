@@ -28,7 +28,8 @@ export default class Posts extends React.Component {
 			iLiked: false,
 			deleteConfirmation: false,
 			editPost: false,
-			editPostText: ''
+			editPostText: '',
+			refreshComments: false
 		};
 
 		if(this.props.user.facebook_id === this.props.post.profile_id) {
@@ -88,7 +89,7 @@ export default class Posts extends React.Component {
 				<div className="post-comments-container">
 					{this.state.postedComments.map((value) => {
 						return (
-							<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} />
+							<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} refreshComments={this.refreshComments.bind(this)} />
 						)
 					})}
 
@@ -105,7 +106,7 @@ export default class Posts extends React.Component {
 					{this.state.hiddenComments.map(value => {
 						if(this.state.showHiddenComments) {
 							return (
-								<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} />
+								<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} refreshComments={this.refreshComments.bind(this)} />
 							)
 						}
 					})}
@@ -226,5 +227,19 @@ export default class Posts extends React.Component {
 
 	toggleHiddenComments() {
 		this.setState({ showHiddenCommentsButton: !this.state.showHiddenCommentsButton, showHiddenComments: !this.state.showHiddenComments})
+	}
+
+	refreshComments(comments) {
+		console.log('REFRESHING COMMENTS', comments);
+		var hidden = [];
+		var posted = [];
+		for(var i in comments) {
+			if(comments[i].hidden) {
+				hidden.push(comments[i]);
+			} else {
+				posted.push(comments[i]);
+			}
+		}
+		this.setState({ postedComments: posted, hiddenComments: hidden });
 	}
 }

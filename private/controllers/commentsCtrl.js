@@ -8,9 +8,16 @@ module.exports = {
     })
   },
   postComment: function(req, res) {
-    console.log(req.params, req.body);
     db.comments.postComment([req.params.post_id, req.body.comment, req.body.profile_id], function(err, r) {
       db.comments.getComments([req.params.post_id], function(err, r) { res.json(r); });
+    })
+  },
+  hideComment: function(req, res) {
+    console.log('HIDE COMMENT HIT', req.body);
+    db.comments.unhideComment([req.body.comment_id], function(err, r) {
+      db.comments.getComments([req.body.post_id], function(err, r) {
+        res.json(r);
+      })
     })
   }
 }
