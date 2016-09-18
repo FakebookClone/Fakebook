@@ -31,6 +31,7 @@
   font-weight: bold;
   color: #365899;
   height: 43px;
+  border-left: 1px solid rgb(221, 223, 226);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +57,7 @@
   font-weight: bold;
   color: #4b4f56;
   height: 43px;
+  border-left: 1px solid rgb(221, 223, 226);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,31 +67,22 @@
 .profile-nav-timeline,
 .profile-nav-timeline-selected {
     width: 90px;
-    border-left: $navBarBorder;
 }
 
 .profile-nav-about,
 .profile-nav-about-selected {
     width: 74px;
-    border-left: $navBarBorder;
 }
 
 .profile-nav-friends,
 .profile-nav-friends-selected {
     width: 85px;
-    border-left: $navBarBorder;
 }
 
-.profile-nav-more{
-  height: 45px;
-  width: 82px;
-  border-left: $navBarBorder;
-  border-right: $navBarBorder;
-}
+.profile-nav-more,
 .profile-nav-photos,
 .profile-nav-photos-selected {
     width: 82px;
-    border-left: $navBarBorder;
 }
 
 .profile-nav-first {
@@ -130,41 +123,6 @@
   left: 487px;
 }
 
-<<<<<<< HEAD
-.more-wrapper{
-  cursor: pointer;
-  height: 75px;
-  width: 82px;
-  display: flex;
-  flex-direction: column;
-  &:hover{
-    z-index: 4;
-  }
-}
-
-.more-hidden-box{
-  z-index: -2;
-  margin: -2px;
-  height: 30px;
-  width: 107px;
-  border: $borderColorGrey;
-  background-color: $faceBookWhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  p{
-    height: 20px;
-    width: inherit;
-    font-family: $facebookFontA;
-    font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover{
-      background-color: $profilePostBackgroundColor;
-    }
-  }
-=======
 .profile-nav-more-menu-container {
   position: absolute;
   left: -1px;
@@ -193,5 +151,4 @@
     &:hover {
       background: #f6f7f9;
     }
->>>>>>> master
 }
