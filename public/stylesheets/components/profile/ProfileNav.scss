@@ -38,6 +38,12 @@
   &:hover {
     background-color: #f6f7f9;
   }
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-nav-more:hover .profile-nav-more-menu-container {
+  display: flex;
 }
 
 .profile-nav-timeline-selected,
@@ -55,6 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .profile-nav-timeline,
@@ -114,4 +121,34 @@
   position: absolute;
   bottom: 0px;
   left: 487px;
+}
+
+.profile-nav-more-menu-container {
+  position: absolute;
+  left: -1px;
+  bottom: -38px;
+  border: 1px solid #d3d6db;
+  width: 121px;
+  height: 36px;
+  background: $faceBookWhite;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-nav-more-menu-container ul li {
+  border: 0;
+    color: #3b5998;
+    display: block;
+    font-size: 11px;
+    -webkit-font-smoothing: auto;
+    font-weight: normal;
+    line-height: 23px;
+    padding: 0 17px;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+      background: #f6f7f9;
+    }
 }
