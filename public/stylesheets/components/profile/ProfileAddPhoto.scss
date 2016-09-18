@@ -11,19 +11,17 @@
     z-index: 1;
 }
 
-.add-cover-wrapper input {
-
-}
-
-.add-cover-input {
-    opacity: 0;
-    height: 28px;
-    width: 148px;
-    position: relative;
-    z-index: 12;
-    cursor: pointer;
-    padding-top: 31px;
-    box-sizing: border-box;
+.add-profile-pic {
+  opacity: 0;
+  height: 36px;
+  width: 160px;
+  position: absolute;
+  z-index: 12;
+  cursor: pointer;
+  padding-top: 36px;
+  box-sizing: border-box;
+  bottom: 1px;
+  left: 0;
 }
 
 .silhouette-add-photo {
@@ -42,9 +40,8 @@
     bottom: 0;
     display: flex;
     justify-content: flex-start;
-
     &:hover {
-        opacity: 1;
+      opacity: 1;
     }
 }
 

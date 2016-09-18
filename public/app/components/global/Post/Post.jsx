@@ -7,7 +7,7 @@ import MidPosted from './MidPosted.jsx';
 import LikeSection from './LikeSection.jsx';
 import LikeSeperator from './LikeSeperator.jsx';
 import LowPosted from './LowPosted.jsx';
-import deleteConfirmation from './deleteConfirmation.jsx';
+import DeleteConfirmation from './deleteConfirmation.jsx';
 import EditPost from './EditPost.jsx';
 
 require('../../../../stylesheets/components/global/Post.scss');
