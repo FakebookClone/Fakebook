@@ -8,7 +8,6 @@ export default class CommentLikeSection extends React.Component {
   }
 
   render() {
-    console.log(this.props.likes);
     return (
       <div className="user-comment-like-container">
         {this.props.iLiked

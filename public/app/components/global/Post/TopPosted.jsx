@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class TopPosted extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ export default class TopPosted extends React.Component {
       <div className="upper-posted-div">
         <div className="user-profile-posted-div">
           <img src={this.props.post.profile_pic}/>
-          <a href="#"><p>{this.props.post.name}</p></a>
+          <Link to={`/profile/${this.props.post.profile_id}`}><p>{this.props.post.name}</p></Link>
         </div>
 
         <div className="posted-text-container">

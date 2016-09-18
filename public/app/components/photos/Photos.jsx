@@ -42,7 +42,7 @@ export default class Friends extends React.Component {
 						<div className="photos-profile-page-header">
 							<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser}/>
 							<ProfileAddPhoto user={this.state.profileInfo}/>
-							<ProfileNav user={this.state.profileInfo}/>
+							<ProfileNav user={this.state.profileInfo} selected="photos" />
 						</div>
 
 						<div>

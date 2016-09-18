@@ -9,28 +9,48 @@ export default class ProfileNav extends React.Component {
 	}
 
 	render() {
-		console.log('PROFILE NAV USER', this.props.user);
 		return (
 			<div className="profile-main-nav-wrapper">
 
 				<div className="profile-nav-wrapper">
 					<div className="profile-nav-first"></div>
-					<Link className="profile-nav-timeline" to={`/profile/${this.props.user.facebook_id}`}>
-						<div>Timeline</div>
-					</Link>
-					<Link className="profile-nav-about" to={`/about/${this.props.user.facebook_id}`}>
-						<div>About</div>
-					</Link>
-					<Link className="profile-nav-friends" to={`/friends/${this.props.user.facebook_id}`}>
-						<div>Friends</div>
-					</Link>
-					<Link className="profile-nav-photos" to={`/photos/${this.props.user.facebook_id}`}>
-						<div>Photos</div>
-					</Link>
-					<div className="more-button-container">
-						<div className="profile-nav-more">More&nbsp;&nbsp;<i className="fa fa-caret-down"></i>
-						</div>
-						<div className="more-button-hidden"><p>Manage Sections</p></div>
+
+					{this.props.selected === 'profile'
+						? <img className="profile-nav-profile-selector" src="/images/profile-nav/nav-selected-arrow.png" />
+						: null
+					}
+					{this.props.selected === 'about'
+						? <img className="profile-nav-about-selector" src="/images/profile-nav/nav-selected-arrow.png" />
+						:	null
+					}
+					{this.props.selected === 'friends'
+						? <img className="profile-nav-friends-selector" src="/images/profile-nav/nav-selected-arrow.png" />
+						: null
+					}
+					{this.props.selected === 'photos'
+						? <img className="profile-nav-photos-selector" src="/images/profile-nav/nav-selected-arrow.png" />
+						: null
+					}
+
+					{this.props.selected === 'profile'
+						? <Link to={`/profile/${this.props.user.facebook_id}`} className="profile-nav-timeline-selected">Timeline</Link>
+						: <Link to={`/profile/${this.props.user.facebook_id}`} className="profile-nav-timeline">Timeline</Link>
+					}
+					{this.props.selected === 'about'
+						? <Link to={`/about/${this.props.user.facebook_id}`} className="profile-nav-about-selected">About</Link>
+						: <Link to={`/about/${this.props.user.facebook_id}`} className="profile-nav-about">About</Link>
+					}
+					{this.props.selected === 'friends'
+						? <Link to={`/friends/${this.props.user.facebook_id}`} className="profile-nav-friends-selected">Friends</Link>
+						: <Link to={`/friends/${this.props.user.facebook_id}`} className="profile-nav-friends">Friends</Link>
+					}
+					{this.props.selected === 'photos'
+						? <Link to={`/photos/${this.props.user.facebook_id}`} className="profile-nav-photos-selected">Photos</Link>
+						: <Link to={`/photos/${this.props.user.facebook_id}`} className="profile-nav-photos">Photos</Link>
+					}
+
+					<div className="profile-nav-more">More&nbsp;&nbsp;<i className="fa fa-caret-down"></i>
+
 					</div>
 					<div className="profile-nav-last"></div>
 				</div>
