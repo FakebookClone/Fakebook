@@ -94,8 +94,8 @@ export default class Posts extends React.Component {
 
 					{this.state.showHiddenCommentsButton
 						? <div className="show-hidden-comments-wrapper">
-								<div className="show-hidden-comments-container tooltip">
-									<img onClick={this.toggleHiddenComments.bind(this)} className="show-hidden-comments-button" src="/images/comments/show-hidden-comments-button.png" />
+								<div onClick={this.toggleHiddenComments.bind(this)} className="show-hidden-comments-container tooltip">
+									<img className="show-hidden-comments-button" src="/images/comments/show-hidden-comments-button.png" />
 									<span className="tooltiptext">{this.state.hiddenComments.length} hidden</span>
 								</div>
 							</div>
@@ -162,7 +162,16 @@ export default class Posts extends React.Component {
 				comment: this.state.comment,
 				profile_id: this.props.user.facebook_id
 			}).then(r => {
-				this.setState({postedComments: r.data, comment: ''})
+				var hidden = [];
+				var posted = [];
+				for(var i in r.data) {
+					if(r.data[i].hidden) {
+						hidden.push(r.data[i]);
+					} else {
+						posted.push(r.data[i]);
+					}
+				}
+				this.setState({postedComments: posted, hiddenComments: hidden, comment: ''})
 			})
 		}
 	}
