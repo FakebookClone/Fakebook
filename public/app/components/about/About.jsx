@@ -40,7 +40,7 @@ export default class About extends React.Component {
 						<div className="about-profile-page-header">
 							<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser}/>
 							<ProfileAddPhoto user={this.state.profileInfo}/>
-							<ProfileNav user={this.state.profileInfo}/>
+							<ProfileNav user={this.state.profileInfo} selected='about'/>
 						</div>
 						<div className="about-Container">
 							<p>Hello From The About Page</p>
