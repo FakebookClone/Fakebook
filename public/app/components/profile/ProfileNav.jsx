@@ -45,7 +45,10 @@ export default class ProfileNav extends React.Component {
 						: <Link to={`/friends/${this.props.user.facebook_id}`} className="profile-nav-friends">Friends</Link>
 					}
 					{this.props.selected === 'photos'
-						? <Link to={`/photos/${this.props.user.facebook_id}`} className="profile-nav-photos-selected">Photos</Link>
+						? <div className="more-wrapper">
+							<Link to={`/photos/${this.props.user.facebook_id}`} className="profile-nav-photos-selected">Photos</Link>
+							<div className="more-hidden-box">Manage Section</div>
+						</div>
 						: <Link to={`/photos/${this.props.user.facebook_id}`} className="profile-nav-photos">Photos</Link>
 					}
 
