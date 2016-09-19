@@ -11,8 +11,8 @@ require('../../../../stylesheets/components/global/main.scss');
 
 export default class Comment extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = { likes: [], iLiked: false };
 	}
 
@@ -56,7 +56,7 @@ export default class Comment extends React.Component {
 			return (
 				<div className="user-comment-wrapper">
 					<div className="user-comment-container">
-						<CommentEditButton myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
+						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
 						<CommentProfilePicture comment={this.props.comment} />
 						<CommentTextContainer comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
 					</div>

@@ -14,10 +14,8 @@ module.exports = {
   },
   hideComment: function(req, res) {
     console.log('HIDE COMMENT HIT', req.body);
-    db.comments.hideComment([req.body.comment_id, req.body.profile_id], function(req, res) {
-      db.comments.getComments([req.body.post_id], function(err, r) {
-        res.json(r);
-      })
+    db.comments.hideComment([req.body.comment_id, req.body.profile_id], function(err, r) {
+      db.comments.getComments([req.body.post_id], function(err, r) { res.json(r); })
     })
   },
   unhideComment: function(req, res) {
