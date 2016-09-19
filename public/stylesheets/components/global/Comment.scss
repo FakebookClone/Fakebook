@@ -7,11 +7,20 @@
   position: relative;
 }
 
-.user-comment-container {
+.user-comment-container,
+.user-comment-container-hidden {
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 8px;
   display: flex;
+  position: relative;
+}
+
+.user-comment-wrapper-hidden {
+  opacity: .5;
+  width: 100%;
+  height: auto;
+  background-color: #F6F7F9;
   position: relative;
 }
 
@@ -94,19 +103,31 @@
   display: inline-block;
 }
 
+.user-comment-edit-menu-carrot {
+  display: none;
+  position: absolute;
+  bottom: -12px;
+  height: 8px;
+  width: 16px;
+  z-index: 3;
+  left: -6px;
+}
+
 .user-comment-edit-button-container {
   display: none;
   position: absolute;
   right: 11px;
   top: 4px;
   width: 8px;
-  height: 8px;
-  cursor: pointer;
+  max-height: 9px !important;
 }
 
 .user-comment-edit-button {
   top: -4px;
   position: relative;
+  cursor: pointer;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .user-comment-edit-button-container:hover .user-comment-edit-button {
@@ -119,6 +140,40 @@
   left: 50%;
   margin-left: -60px;
   z-index: 1;
+}
+
+.user-comment-edit-menu-container {
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 3px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  width: 71px;
+  height: 60px;
+  position: absolute;
+  z-index: 2;
+  left: -49px;
+  bottom: -73px;
+  display: none;
+  align-items: center;
+}
+
+.user-comment-edit-menu-container ul li {
+  border: solid #fff;
+  border-width: 1px 0;
+  color: #1d2129;
+  font-family: inherit;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
+  line-height: 22px;
+  padding: 0 12px;
+
+  &:hover {
+    background-color: #4267b2;
+    border-color: #29487d;
+    color: #fff;
+  }
 }
 
 .user-comment-container:hover .user-comment-hide-button-container {
@@ -192,4 +247,11 @@
 
 .user-comment-delete-button-container .tooltiptext::after {
   left: 50%;
+}
+
+.comment-hidden-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #F6F7F9;
+  position: relative;
 }

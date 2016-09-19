@@ -36,7 +36,8 @@ CREATE TABLE comments (
   comment_image varchar(100),
   comment_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
   post_id INT,
-  profile_id VARCHAR(20)
+  profile_id VARCHAR(20),
+  hidden BOOLEAN DEFAULT false;
 );
 
 CREATE TABLE photos (
@@ -65,4 +66,10 @@ CREATE TABLE friend_requests (
   friend_request_id SERIAL PRIMARY KEY,
   request_sender_id VARCHAR(20),
   requested_id VARCHAR(20)
+);
+
+CREATE TABLE hidden_comments (
+  hidden_id SERIAL PRIMARY KEY,
+  comment_id INT,
+  profile_id VARCHAR(20)
 );
