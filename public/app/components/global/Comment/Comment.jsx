@@ -46,7 +46,7 @@ export default class Comment extends React.Component {
 			return (
 				<div className="user-comment-wrapper-hidden">
 					<div className="user-comment-container-hidden">
-						<CommentEditButton myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
+						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
 						<CommentProfilePicture comment={this.props.comment} />
 						<CommentTextContainer comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
 					</div>

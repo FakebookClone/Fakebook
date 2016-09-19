@@ -44,7 +44,7 @@ export default class Posts extends React.Component {
 			var hidden = [];
 			var posted = [];
 			for(var i in r.data) {
-				if(r.data[i].hidden) {
+				if(r.data[i].hidden && this.props.user.facebook_id == r.data[i].profile_id) {
 					hidden.push(r.data[i]);
 				} else {
 					posted.push(r.data[i]);
