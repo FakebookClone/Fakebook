@@ -9,7 +9,7 @@ export default class CommentTextContainer extends React.Component {
   render() {
     return (
       <div className="user-comment-text-container">
-        <div className="user-comment">
+        <div className="user-comment-hidden-container">
           <p><span className="user-comment-profile-name">{this.props.comment.name}</span><span className="user-comment-text"> {this.props.comment.comment_text}</span></p>
         </div>
 
