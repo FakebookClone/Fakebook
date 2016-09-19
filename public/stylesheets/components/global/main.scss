@@ -251,6 +251,7 @@ p {
 .friend-request-img,
 .messages-img,
 .notifications-img {
+  cursor: pointer;
   opacity: .6;
   &:hover {
     opacity: 1;
@@ -297,4 +298,76 @@ p {
     border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;
+}
+
+.friend-request-tooltip .tooltiptext {
+  bottom: -98%;
+  width: 104px;
+  height: 15px;
+  margin-left: -10px;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    margin-left: -44px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+}
+
+.messages-tooltip .tooltiptext {
+  bottom: -98%;
+  width: 71px;
+  height: 15px;
+  margin-left: -5px;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    margin-left: -28px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+}
+
+.notifications-tooltip .tooltiptext {
+  bottom: -98%;
+  width: 85px;
+  height: 15px;
+  margin-left: -8px;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    margin-left: -34px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+}
+
+.privacy-tooltip {
+  cursor: pointer;
+}
+
+.privacy-tooltip .tooltiptext {
+  bottom: -192%;
+  width: 116px;
+  height: 15px;
+  margin-left: -10px;
+  &::after {
+    content: " ";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    margin-left: -47px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
 }
