@@ -1,11 +1,13 @@
 @import '../../base/utilities';
 
+
 .friends-profile-page-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    background-color: #e9ebee;
+    background-color: $backgroundColor;
+
 }
 
 .friends-profile-page-container {
@@ -15,6 +17,8 @@
     flex-direction: column;
 }
 
+
 .friends-profile-page-header {
     width: 851px;
+
 }
