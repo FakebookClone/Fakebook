@@ -20,7 +20,7 @@ export default class Comment extends React.Component {
 		Axios.get(`/api/likes/comment/${this.props.comment.comment_id}`).then(r => {
 			var iLiked = false;
 			for(var i in r.data) {
-				if(r.data[i].profile_id == this.props.user.id) {
+				if(r.data[i].profile_id == this.props.user.facebook_id) {
 					iLiked = true;
 				}
 			}
@@ -49,7 +49,7 @@ export default class Comment extends React.Component {
 					<div className="user-comment-container-hidden">
 						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} refreshComments={this.props.refreshComments} />
 						<CommentProfilePicture comment={this.props.comment} />
-						<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+						<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={false} likes={0} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
 					</div>
 				</div>
 			)
@@ -68,7 +68,13 @@ export default class Comment extends React.Component {
 
 	likeComment() {
 		Axios.post(`api/like/comment/${this.props.comment.comment_id}`, {profile_id: this.props.user.facebook_id}).then(r => {
-			this.setState({likes: r.data, iLiked: !this.state.iLiked});
+			var iLiked = false;
+			for(var i in r.data) {
+				if(r.data[i].profile_id == this.props.user.facebook_id) {
+					iLiked = true;
+				}
+			}
+			this.setState({likes: r.data, iLiked: iLiked});
 		})
 	}
 
