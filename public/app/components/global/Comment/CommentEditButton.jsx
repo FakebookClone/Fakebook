@@ -85,7 +85,7 @@ export default class CommentEditButton extends React.Component {
       url: '/api/comment/hide',
       data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id, profile_id: this.props.user.facebook_id }
     }).then(r => {
-      console.log('UPDATED COMMENTS', r.data);
+      // console.log('UPDATED COMMENTS', r.data);
       this.props.refreshComments(r.data);
     })
   }

@@ -236,7 +236,7 @@ export default class Posts extends React.Component {
 	}
 
 	refreshComments(comments) {
-		console.log('REFRESHING COMMENTS', comments);
+		// console.log('REFRESHING COMMENTS', comments);
 		var comments = comments;
 		// console.log('All comments', comments);
 		Axios.get(`/api/comments/hidden/${this.props.user.facebook_id}`).then( r => {
