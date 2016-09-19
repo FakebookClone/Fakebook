@@ -14,6 +14,7 @@ import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
 import ProfilePosted from './ProfilePosted.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
+import ProfileFooterBottom from './ProfileFooterBottom.jsx';
 
 require('../../../stylesheets/components/profile/profile.scss');
 
@@ -121,6 +122,7 @@ export default class Profile extends React.Component {
 										: null
 									}
 								</div>
+								<ProfileFooterBottom />
 								<GlobalChat/>
 							</div>
 						</div>

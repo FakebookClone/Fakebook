@@ -202,6 +202,7 @@ p {
         max-width: 30px;
         margin-top: 12px;
         margin-left: 13px;
+        opacity: .6;
     }
 }
 
@@ -231,12 +232,29 @@ p {
     margin-left: 18px;
     max-height: 12px;
     max-width: 17px;
+    opacity: .6;
+    &:hover {
+      opacity: 1;
+    }
 }
 
 .down-arrow {
     margin-left: 12px;
     max-height: 8px;
     max-width: 10px;
+    opacity: .6;
+    &:hover {
+      opacity: 1;
+    }
+}
+
+.friend-request-img,
+.messages-img,
+.notifications-img {
+  opacity: .6;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* --- TOOLTIPS --- */

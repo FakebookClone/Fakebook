@@ -8,6 +8,7 @@ import ProfileAddPhoto from '../profile/ProfileAddPhoto.jsx';
 import ProfileNav from '../profile/ProfileNav.jsx';
 import ProfilePhotosGallery from '../profile/ProfilePhotosGallery.jsx';
 import ProfileFriendsGallery from '../profile/ProfileFriendsGallery.jsx';
+import ProfileFooterBottom from '../profile/ProfileFooterBottom.jsx';
 
 require('../../../stylesheets/components/friends_profile_page/FriendsProfilePage.scss');
 
@@ -42,18 +43,17 @@ export default class Friends extends React.Component {
 						<div className="friends-profile-page-header">
 							<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser}/>
 							<ProfileAddPhoto user={this.state.profileInfo}/>
-							<ProfileNav user={this.state.profileInfo} selected="friends" />
-						</div>
-
-						<div>
+							<ProfileNav user={this.state.profileInfo} selected="friends"/>
 							<div>
-								<ProfileFriendsGallery/>
-							</div>
-							<div>
-								<p>The ProfilePhotosGallery is what shows when Photos is clicked, hiding most others.</p>
-								<ProfilePhotosGallery/>
+								<div className="profile-gallery-wrapper">
+									<ProfileFriendsGallery/>
+								</div>
+								<div className="profile-gallery-wrapper">
+									<ProfilePhotosGallery/>
+								</div>
 							</div>
 						</div>
+						<ProfileFooterBottom/>
 					</div>
 				</div>
 			</div>

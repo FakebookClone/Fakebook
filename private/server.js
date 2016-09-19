@@ -49,6 +49,8 @@ app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
 //Comment Endpoints
 app.get('/api/comments/:post_id', commentsCtrl.getComments);
 app.post('/api/comment/:post_id', commentsCtrl.postComment);
+app.put('/api/comment/hide', commentsCtrl.hideComment);
+app.put('/api/comment/unhide', commentsCtrl.unhideComment);
 
 //Like Endpoints
 app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);
@@ -65,7 +67,8 @@ app.post('/api/accept/friend-request', friendRequestCtrl.acceptFriendRequest);
 app.post('/api/friend-request', friendRequestCtrl.addFriend);
 
 //Amazon Web Services Endpoints
-app.post('/api/aws/upload/:profile_id', awsCtrl.upload);
+app.post('/api/aws/upload-cover/:profile_id', awsCtrl.uploadCover);
+app.post('/api/aws/upload-profile/:profile_id', awsCtrl.uploadProfile);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public' });

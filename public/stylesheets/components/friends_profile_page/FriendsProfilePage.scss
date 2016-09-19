@@ -1,22 +1,28 @@
 @import '../../base/utilities';
 
 
-.friends-profile-page-wrapper{
-  background-color: $backgroundColor;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.friends-profile-page-container{
-  height: auto;
-  width: 1011px;
-  display: flex;
-  flex-direction: column;
+.friends-profile-page-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: $backgroundColor;
 
 }
 
+.friends-profile-page-container {
+    height: auto;
+    width: 1011px;
+    display: flex;
+    flex-direction: column;
+}
+
+<<<<<<< HEAD
 .friends-profile-page-header{
   width: 851px;
   margin-bottom: 18px;
+=======
+.friends-profile-page-header {
+    width: 851px;
+>>>>>>> master
 }

@@ -224,6 +224,10 @@
     margin-bottom: 5px;
   }
 }
+
+.post-comments-container {
+  background: #F6F7F9;
+}
 // Comments Div ****************
 .lower-posted-div {
   width: 100%;
@@ -519,4 +523,33 @@
     background: url('/images/posts/cancel-delete-dark-gray-x.png');
     cursor: pointer;
   }
+}
+
+.show-hidden-comments-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #F6F7F9;
+  align-items: center;
+  height: 24px;
+  position: relative;
+}
+
+.show-hidden-comments-container {
+  height: 10px;
+  width: 13px;
+  padding-top: 14px;
+  cursor: pointer;
+}
+
+.show-hidden-comments-container .tooltiptext {
+  bottom: 73%;
+  width: 70px;
+  margin-left: -35px;
+}
+
+.show-hidden-comments-button {
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
 }
