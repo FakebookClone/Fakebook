@@ -3,6 +3,7 @@ import Axios from 'axios';
 import CommentEditButton from './CommentEditButton.jsx';
 import CommentProfilePicture from './CommentProfilePicture.jsx';
 import CommentTextContainer from './CommentTextContainer.jsx';
+import CommentHidden from './CommentHidden.jsx';
 
 var imageshome = '/images/home/';
 require('../../../../stylesheets/components/global/Comment.scss');
@@ -41,16 +42,27 @@ export default class Comment extends React.Component {
 
 	render() {
 		// console.log({thePostID: this.props.postID, theProfileID: this.props.comment.profile_id, myPost: this.state.myPost, myComment: this.state.myComment});
-		return (
-			<div className="user-comment-wrapper">
-
-				<div className="user-comment-container">
-					<CommentEditButton myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
-					<CommentProfilePicture comment={this.props.comment} />
-					<CommentTextContainer comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} />
+		if(this.props.comment.hidden) {
+			return (
+				<div className="user-comment-wrapper-hidden">
+					<div className="user-comment-container-hidden">
+						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
+						<CommentProfilePicture comment={this.props.comment} />
+						<CommentTextContainer comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+					</div>
 				</div>
-			</div>
-		)
+			)
+		} else {
+			return (
+				<div className="user-comment-wrapper">
+					<div className="user-comment-container">
+						<CommentEditButton myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} />
+						<CommentProfilePicture comment={this.props.comment} />
+						<CommentTextContainer comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+					</div>
+				</div>
+			)
+		}
 	}
 
 	likeComment() {
@@ -58,4 +70,6 @@ export default class Comment extends React.Component {
 			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
 	}
+
+
 }
