@@ -14,12 +14,14 @@ import ProfileStatusBox from './ProfileStatusBox.jsx';
 import ProfileOldPosts from './ProfileOldPosts.jsx';
 import ProfilePosted from './ProfilePosted.jsx';
 import ProfileBirthdayBox from './ProfileBirthdayBox.jsx';
+import ProfileFooterBottom from './ProfileFooterBottom.jsx';
 
 require('../../../stylesheets/components/profile/profile.scss');
 
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
+		console.log('PROPS', props);
 		this.state = {
 			currentUser: JSON.parse(localStorage.getItem('fakebook_user')),
 			profileInfo: props.params.profile_id,
@@ -49,7 +51,35 @@ export default class Profile extends React.Component {
 							requestSent = true;
 						}
 					})
-					Axios.get(`/api/posts/${profileInfo.facebook_id}`).then(r => {
+					Axios.post(`/api/posts/${profileInfo.facebook_id}`).then(r => {
+						this.setState({currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent, posts: r.data})
+					})
+				})
+			})
+		}
+
+		componentWillReceiveProps(props) {
+			var currentUser = JSON.parse(localStorage.getItem('fakebook_user'));
+			Axios.get(`/api/profile/${currentUser.userID}`).then(r => {
+				var user = r.data[0];
+				var sameUser = false;
+				var profileInfo = null;
+				var requestSent = null;
+				Axios.get(`/api/profile/${props.params.profile_id}`).then(r => {
+					profileInfo = r.data[0];
+					if (user.facebook_id === r.data[0].facebook_id) {
+						var sameUser = true;
+					}
+					Axios.post('/api/sent/friend-requests', {
+						request_sender_id: user.facebook_id,
+						requested_id: profileInfo.facebook_id
+					}).then(r => {
+						requestSent = false;
+						if (r.data.length !== 0) {
+							requestSent = true;
+						}
+					})
+					Axios.post(`/api/posts/${profileInfo.facebook_id}`).then(r => {
 						this.setState({currentUser: user, profileInfo: profileInfo, sameUser: sameUser, requestSent: requestSent, posts: r.data})
 					})
 				})
@@ -67,7 +97,7 @@ export default class Profile extends React.Component {
 								<div className="profile-body-header">
 									<ProfileCover profile={this.state.profileInfo} currentUser={this.state.currentUser} sameUser={this.state.sameUser} requestSent={this.state.requestSent} updateRequest={this.updateRequest.bind(this)}/>
 									<ProfileAddPhoto user={this.state.profileInfo}/>
-									<ProfileNav user={this.state.profileInfo}/>
+									<ProfileNav user={this.state.profileInfo} selected='profile'/>
 								</div>
 								<div className="profile-content-wrapper">
 									<div className="profile-left-content-div">
@@ -84,7 +114,7 @@ export default class Profile extends React.Component {
 												<ProfilePosted user={this.state.profileInfo} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>
-												<ProfileBirthdayBox/>
+												<ProfileBirthdayBox user={this.state.profileInfo} />
 												<div className="profile-gray-dot-endpage">
 												<img src="/images/profile/gray-dot.png"/>
 												</div>
@@ -92,6 +122,7 @@ export default class Profile extends React.Component {
 										: null
 									}
 								</div>
+								<ProfileFooterBottom />
 								<GlobalChat/>
 							</div>
 						</div>

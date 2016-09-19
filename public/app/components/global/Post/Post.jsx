@@ -1,13 +1,13 @@
 import React from 'react';
 import Axios from 'axios';
-import Comment from '../Comment.jsx';
+import Comment from '../Comment/Comment.jsx';
 import PostEditButton from './PostEditButton.jsx';
 import TopPosted from './TopPosted.jsx';
 import MidPosted from './MidPosted.jsx';
 import LikeSection from './LikeSection.jsx';
 import LikeSeperator from './LikeSeperator.jsx';
 import LowPosted from './LowPosted.jsx';
-import deleteConfirmation from './deleteConfirmation.jsx';
+import DeleteConfirmation from './deleteConfirmation.jsx';
 import EditPost from './EditPost.jsx';
 
 require('../../../../stylesheets/components/global/Post.scss');
@@ -69,7 +69,7 @@ export default class Posts extends React.Component {
 				}
 
 				{this.state.postedComments.map((value) => {
-					return (<Comment user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
+					return (<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
 				})}
 
 
@@ -129,7 +129,7 @@ export default class Posts extends React.Component {
 	}
 
 	likePost() {
-		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.id}).then(r => {
+		Axios.post(`/api/like/post/${this.props.post.post_id}`, {profile_id: this.props.user.facebook_id}).then(r => {
 			this.setState({likes: r.data, iLiked: !this.state.iLiked});
 		})
 	}

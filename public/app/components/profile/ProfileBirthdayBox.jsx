@@ -12,12 +12,12 @@ export default class ProfileBirthdayBox extends React.Component {
 			<div className="profile-birthday-box-wrapper">
 				<div className="profile-birthday-top-row-wrapper">
 					<div>
-						<img className="profile-user-image" src="/images/main/silhouette.jpg"/>
+						<img className="profile-user-image" src={this.props.user.profile_pic} />
 
 					</div>
 					<div className="profile-birthday-name-icons-wrapper">
           <div>
-            <p className="profile-birthday-user">Fakebook Clone</p>
+            <p className="profile-birthday-user">{this.props.user.name}</p>
           </div>
 
 						<div>

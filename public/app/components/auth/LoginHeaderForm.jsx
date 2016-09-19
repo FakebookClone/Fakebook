@@ -16,9 +16,11 @@ export default class LoginHeaderForm extends React.Component {
 
   responseFacebook(response) {
     localStorage.setItem('fakebook_user', JSON.stringify(response));
-		Axios.post(`/api/user/create/${response.id}`).then( r => {
-			Axios.post(`/api/profile/create/${response.id}`, {name: response.name, first_name: response.first_name, last_name: response.last_name, email: response.email, profile_pic: response.picture.data.url});
-			browserHistory.push('/home');
+		console.log('Facebook Response', response);
+		Axios.post(`/api/user/create/${response.userID}`).then( r => {
+			Axios.post(`/api/profile/create/${response.id}`, {name: response.name, first_name: response.first_name, last_name: response.last_name, email: response.email, profile_pic: response.picture.data.url}).then(r => {
+				browserHistory.push('/home');
+			});
 		});
 	}
 

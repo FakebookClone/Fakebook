@@ -11,6 +11,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #e9ebee;
+  height: 100vh;
 }
 
 .photos-profile-page-container{
@@ -23,4 +25,8 @@
 
 .photos-profile-page-header{
   width: 851px;
+}
+
+.profile-gallery-wrapper {
+  margin-top: 17px;
 }
