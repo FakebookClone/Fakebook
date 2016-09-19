@@ -47,7 +47,7 @@ export default class ProfilePhoto extends React.Component {
 				imageExtension: file.type,
 				userEmail: this.props.user.email
 			}
-			Axios.post(`/api/aws/upload/${this.props.user.facebook_id}`, {file: fileUpload}).then(r => {
+			Axios.post(`/api/aws/upload-profile/${this.props.user.facebook_id}`, {file: fileUpload}).then(r => {
 				console.log("data", r);
 				this.setState({ profilePic: r.data });
 			});

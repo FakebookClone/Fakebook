@@ -6,6 +6,7 @@ import GlobalHeader from '../global/GlobalHeader.jsx';
 import ProfileCover from '../profile/ProfileCover.jsx';
 import ProfileAddPhoto from '../profile/ProfileAddPhoto.jsx';
 import ProfileNav from '../profile/ProfileNav.jsx';
+import ProfileFooterBottom from '../profile/ProfileFooterBottom.jsx';
 
 require('../../../stylesheets/components/about/AboutProfilePage.scss');
 
@@ -42,9 +43,10 @@ export default class About extends React.Component {
 							<ProfileAddPhoto user={this.state.profileInfo}/>
 							<ProfileNav user={this.state.profileInfo} selected='about'/>
 						</div>
-						<div className="about-Container">
+						<div className="profile-gallery-wrapper">
 							<p>Hello From The About Page</p>
 						</div>
+						<ProfileFooterBottom />
 					</div>
 				</div>
 			</div>

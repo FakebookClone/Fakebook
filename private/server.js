@@ -67,7 +67,8 @@ app.post('/api/accept/friend-request', friendRequestCtrl.acceptFriendRequest);
 app.post('/api/friend-request', friendRequestCtrl.addFriend);
 
 //Amazon Web Services Endpoints
-app.post('/api/aws/upload/:profile_id', awsCtrl.upload);
+app.post('/api/aws/upload-cover/:profile_id', awsCtrl.uploadCover);
+app.post('/api/aws/upload-profile/:profile_id', awsCtrl.uploadProfile);
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', { root: '../public' });
