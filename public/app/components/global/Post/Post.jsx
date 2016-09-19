@@ -74,7 +74,7 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
-		console.log({posted: this.state.postedComments, hidden: this.state.hiddenComments});
+		// console.log({posted: this.state.postedComments, hidden: this.state.hiddenComments});
 		return (
 			<div className="global-post-container">
 

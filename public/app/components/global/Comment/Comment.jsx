@@ -41,7 +41,7 @@ export default class Comment extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.comment);
+		// console.log(this.props.comment);
 		// console.log({thePostID: this.props.postID, theProfileID: this.props.comment.profile_id, myPost: this.state.myPost, myComment: this.state.myComment});
 		if(this.props.comment.hidden) {
 			return (
