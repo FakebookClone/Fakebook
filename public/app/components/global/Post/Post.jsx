@@ -41,21 +41,26 @@ export default class Posts extends React.Component {
 
 	componentWillMount() {
 		Axios.get(`/api/comments/${this.props.post.post_id}`).then(r => {
-			var hidden = [];
-			var posted = [];
-			for(var i in r.data) {
-				if(r.data[i].hidden && this.props.user.facebook_id == r.data[i].profile_id) {
-					hidden.push(r.data[i]);
-				} else {
-					posted.push(r.data[i]);
+			var comments = r.data;
+			// console.log('All comments', comments);
+			Axios.get(`/api/comments/hidden/${this.props.user.facebook_id}`).then( r => {
+				var hidden_IDs = r.data;
+				var hidden = [];
+				var showHidden = false;
+				// console.log('Hidden comment IDs', hidden_IDs);
+				for(var i in comments) {
+					if(hidden_IDs.indexOf(comments[i].comment_id) !== -1) {
+						if( !(showHidden) ) {
+							showHidden = true;
+						}
+						comments[i].hidden = true;
+						var comment = comments.splice(i, 1)[0];
+						hidden.push(comment);
+					}
 				}
-			}
 
-			if(hidden.length > 0) {
-				this.setState({postedComments: posted, hiddenComments: hidden, showHiddenCommentsButton: true});
-			} else {
-				this.setState({postedComments: posted, hiddenComments: hidden, showHiddenCommentsButton: false});
-			}
+				this.setState({ postedComments: comments, hiddenComments: hidden, showHiddenCommentsButton: showHidden })
+			})
 		});
 		Axios.get(`/api/likes/post/${this.props.post.post_id}`).then(r => {
 			var temp = false;
@@ -69,6 +74,7 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
+		console.log({posted: this.state.postedComments, hidden: this.state.hiddenComments});
 		return (
 			<div className="global-post-container">
 
@@ -231,15 +237,25 @@ export default class Posts extends React.Component {
 
 	refreshComments(comments) {
 		console.log('REFRESHING COMMENTS', comments);
-		var hidden = [];
-		var posted = [];
-		for(var i in comments) {
-			if(comments[i].hidden) {
-				hidden.push(comments[i]);
-			} else {
-				posted.push(comments[i]);
+		var comments = comments;
+		// console.log('All comments', comments);
+		Axios.get(`/api/comments/hidden/${this.props.user.facebook_id}`).then( r => {
+			var hidden_IDs = r.data;
+			var hidden = [];
+			var showHidden = false;
+			// console.log('Hidden comment IDs', hidden_IDs);
+			for(var i in comments) {
+				if(hidden_IDs.indexOf(comments[i].comment_id) !== -1) {
+					if( !(showHidden) ) {
+						showHidden = true;
+					}
+					comments[i].hidden = true;
+					var comment = comments.splice(i, 1)[0];
+					hidden.push(comment);
+				}
 			}
-		}
-		this.setState({ postedComments: posted, hiddenComments: hidden });
+
+			this.setState({ postedComments: comments, hiddenComments: hidden, showHiddenCommentsButton: showHidden })
+		})
 	}
 }

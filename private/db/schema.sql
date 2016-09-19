@@ -37,7 +37,7 @@ CREATE TABLE comments (
   comment_time TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
   post_id INT,
   profile_id VARCHAR(20),
-  hidden BOOLEAN DEFAULT false;
+  hidden BOOLEAN default false;
 );
 
 CREATE TABLE photos (
