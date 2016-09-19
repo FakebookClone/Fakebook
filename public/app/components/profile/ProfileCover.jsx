@@ -68,7 +68,7 @@ export default class ProfileCover extends React.Component {
         imageExtension: file.type,
         userEmail: this.props.profile.email
       }
-			Axios.post(`/api/aws/upload/${this.props.profile.facebook_id}`, {file: fileUpload}).then(r => {
+			Axios.post(`/api/aws/upload-cover/${this.props.profile.facebook_id}`, {file: fileUpload}).then(r => {
 				console.log("data", r);
 				this.setState({ coverPhoto: r.data });
 			});
