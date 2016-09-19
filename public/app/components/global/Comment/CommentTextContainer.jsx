@@ -13,7 +13,7 @@ export default class CommentTextContainer extends React.Component {
           <p><span className="user-comment-profile-name">{this.props.comment.name}</span><span className="user-comment-text"> {this.props.comment.comment_text}</span></p>
         </div>
 
-        <CommentLikeSection iLiked={this.props.iLiked} likes={this.props.likes} likeComment={this.props.likeComment} />
+        <CommentLikeSection user={this.props.user} comment={this.props.comment} iLiked={this.props.iLiked} likes={this.props.likes} likeComment={this.props.likeComment} hidden={this.props.hidden} refreshComments={this.props.refreshComments} />
       </div>
     )
   }

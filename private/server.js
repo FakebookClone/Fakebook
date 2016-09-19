@@ -48,7 +48,10 @@ app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
 
 //Comment Endpoints
 app.get('/api/comments/:post_id', commentsCtrl.getComments);
+app.get('/api/comments/hidden/:profile_id', commentsCtrl.getHiddenComments);
 app.post('/api/comment/:post_id', commentsCtrl.postComment);
+app.put('/api/comment/hide', commentsCtrl.hideComment);
+app.put('/api/comment/unhide', commentsCtrl.unhideComment);
 
 //Like Endpoints
 app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);

@@ -20,12 +20,16 @@ export default class Posts extends React.Component {
 		super(props)
 		this.state = {
 			postedComments: [],
+			hiddenComments: [],
+			showHiddenCommentsButton: false,
+			showHiddenComments: false,
 			comment: '',
 			likes: [],
 			iLiked: false,
 			deleteConfirmation: false,
 			editPost: false,
-			editPostText: ''
+			editPostText: '',
+			refreshComments: false
 		};
 
 		if(this.props.user.facebook_id === this.props.post.profile_id) {
@@ -37,7 +41,26 @@ export default class Posts extends React.Component {
 
 	componentWillMount() {
 		Axios.get(`/api/comments/${this.props.post.post_id}`).then(r => {
-			this.setState({postedComments: r.data});
+			var comments = r.data;
+			// console.log('All comments', comments);
+			Axios.get(`/api/comments/hidden/${this.props.user.facebook_id}`).then( r => {
+				var hidden_IDs = r.data;
+				var hidden = [];
+				var showHidden = false;
+				// console.log('Hidden comment IDs', hidden_IDs);
+				for(var i in comments) {
+					if(hidden_IDs.indexOf(comments[i].comment_id) !== -1) {
+						if( !(showHidden) ) {
+							showHidden = true;
+						}
+						comments[i].hidden = true;
+						var comment = comments.splice(i, 1)[0];
+						hidden.push(comment);
+					}
+				}
+
+				this.setState({ postedComments: comments, hiddenComments: hidden, showHiddenCommentsButton: showHidden })
+			})
 		});
 		Axios.get(`/api/likes/post/${this.props.post.post_id}`).then(r => {
 			var temp = false;
@@ -51,6 +74,7 @@ export default class Posts extends React.Component {
 	}
 
 	render() {
+		// console.log({posted: this.state.postedComments, hidden: this.state.hiddenComments});
 		return (
 			<div className="global-post-container">
 
@@ -68,10 +92,32 @@ export default class Posts extends React.Component {
 					: null
 				}
 
-				{this.state.postedComments.map((value) => {
-					return (<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value}/>)
-				})}
+				<div className="post-comments-container">
+					{this.state.postedComments.map((value) => {
+						return (
+							<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} refreshComments={this.refreshComments.bind(this)} />
+						)
+					})}
 
+					{this.state.showHiddenCommentsButton
+						? <div className="show-hidden-comments-wrapper">
+								<div onClick={this.toggleHiddenComments.bind(this)} className="show-hidden-comments-container tooltip">
+									<img className="show-hidden-comments-button" src="/images/comments/show-hidden-comments-button.png" />
+									<span className="tooltiptext">{this.state.hiddenComments.length} hidden</span>
+								</div>
+							</div>
+						: null
+					}
+
+					{this.state.hiddenComments.map(value => {
+						if(this.state.showHiddenComments) {
+							return (
+								<Comment postID={this.props.post.profile_id} user={this.props.user} key={'comment_container_' + value.comment_id} comment={value} refreshComments={this.refreshComments.bind(this)} />
+							)
+						}
+					})}
+
+				</div>
 
 				<LowPosted user={this.props.user} commentCatcher={this.commentCatcher.bind(this)} comment={this.state.comment} postComment={this.postComment.bind(this)} />
 
@@ -123,7 +169,16 @@ export default class Posts extends React.Component {
 				comment: this.state.comment,
 				profile_id: this.props.user.facebook_id
 			}).then(r => {
-				this.setState({postedComments: r.data, comment: ''})
+				var hidden = [];
+				var posted = [];
+				for(var i in r.data) {
+					if(r.data[i].hidden) {
+						hidden.push(r.data[i]);
+					} else {
+						posted.push(r.data[i]);
+					}
+				}
+				this.setState({postedComments: posted, hiddenComments: hidden, comment: ''})
 			})
 		}
 	}
@@ -173,6 +228,34 @@ export default class Posts extends React.Component {
 					this.props.updatePosted(r.data);
 				})
 			})
+		})
+	}
+
+	toggleHiddenComments() {
+		this.setState({ showHiddenCommentsButton: !this.state.showHiddenCommentsButton, showHiddenComments: !this.state.showHiddenComments})
+	}
+
+	refreshComments(comments) {
+		// console.log('REFRESHING COMMENTS', comments);
+		var comments = comments;
+		// console.log('All comments', comments);
+		Axios.get(`/api/comments/hidden/${this.props.user.facebook_id}`).then( r => {
+			var hidden_IDs = r.data;
+			var hidden = [];
+			var showHidden = false;
+			// console.log('Hidden comment IDs', hidden_IDs);
+			for(var i in comments) {
+				if(hidden_IDs.indexOf(comments[i].comment_id) !== -1) {
+					if( !(showHidden) ) {
+						showHidden = true;
+					}
+					comments[i].hidden = true;
+					var comment = comments.splice(i, 1)[0];
+					hidden.push(comment);
+				}
+			}
+
+			this.setState({ postedComments: comments, hiddenComments: hidden, showHiddenCommentsButton: showHidden })
 		})
 	}
 }
