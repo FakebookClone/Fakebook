@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import {Link, browserHistory} from 'react-router';
 
 var images = '	/images/main/';
 require('../../../stylesheets/components/global/main.scss');
@@ -43,20 +43,29 @@ export default class GlobalHeader extends React.Component {
 
 						<div className="header-friends-redirect">
 							<Link className="header-friends-link" to="/find_friends">
-							<p>Find Friends</p>
+								<p>Find Friends</p>
 							</Link>
 						</div>
 
 						<div className="header-nav-section">
-							<img className="friend-request-img" src={images + 'friend_request_not_selected.png'}/>
-							<img className="messages-img" src={images + 'messages_not_selected.png'}/>
-							<img className="notifications-img" src={images + 'notifications_not_selected.png'}/>
+							<div className="friend-request-tooltip tooltip">
+								<img className="friend-request-img" src={images + 'friend_request_not_selected.png'}/>
+								<span className="tooltiptext">Friend Requests</span>
+							</div>
+							<div className="messages-tooltip tooltip">
+								<img className="messages-img" src={images + 'messages_not_selected.png'}/>
+								<span className="tooltiptext">Messages</span>
+							</div>
+							<div className="notifications-tooltip tooltip">
+								<img className="notifications-img" src={images + 'notifications_not_selected.png'}/>
+								<span className="tooltiptext">Notifications</span>
+							</div>
 						</div>
-
 						<div className="header-lock-down-section">
 							<div className="header-lock-down-img">
-								<div>
+								<div className="privacy-tooltip tooltip">
 									<img className="lock" src={images + 'lock_not_selected.png'}/>
+									<span className="tooltiptext">Privacy Shortcuts</span>
 								</div>
 								<div>
 									<img className="down-arrow" src={images + 'down_arrow_not_selected.png'}/>
