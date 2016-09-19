@@ -7,6 +7,7 @@ import ProfileCover from '../profile/ProfileCover.jsx';
 import ProfileAddPhoto from '../profile/ProfileAddPhoto.jsx';
 import ProfileNav from '../profile/ProfileNav.jsx';
 import ProfileFooterBottom from '../profile/ProfileFooterBottom.jsx';
+import ProfilePhotosGallery from '../profile/ProfilePhotosGallery.jsx';
 
 require('../../../stylesheets/components/about/AboutProfilePage.scss');
 
@@ -44,8 +45,9 @@ export default class About extends React.Component {
 							<ProfileNav user={this.state.profileInfo} selected='about'/>
 						</div>
 						<div className="profile-gallery-wrapper">
-							<p>Hello From The About Page</p>
+							<img className="about-profile-image" src="/images/profile/about-page.png" />
 						</div>
+						<ProfilePhotosGallery />
 						<ProfileFooterBottom />
 					</div>
 				</div>
