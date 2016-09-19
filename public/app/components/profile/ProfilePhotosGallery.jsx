@@ -31,6 +31,7 @@ export default class ProfilePhotosGallery extends React.Component {
 				</div>
 				<div className="lower-section-wrapper">
 					{/* <h1 className="no-photos-to-show">No Photos to Show</h1> */}
+					<div className="wrapper-around-two-boxes">
 					<div className="dotted-line-box">
 						<div className="plus-and-create-album">
 							<img src="/images/profile/gray-plus.png" />
@@ -43,10 +44,13 @@ export default class ProfilePhotosGallery extends React.Component {
 						</div>
 						<div className="timeline-photos-box2">
 							<a href="#"><p>Timeline Photos</p></a>
-							<p>Empty</p>
-							<img src="/images/profile/gears-light-grey.png" />
+							<div className = "empty-and-gears">
+							<p className="empty">Empty</p>
+							<img src="/images/profile/gears-gray.png" />
+							</div>
 						</div>
           </div>
+					</div>
 				</div>
 			</div>
 		)

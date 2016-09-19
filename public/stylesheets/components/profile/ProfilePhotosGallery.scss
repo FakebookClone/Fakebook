@@ -127,26 +127,43 @@
 }
 .wrapper-around-two-boxes {
   display: flex;
+  flex-direction: row;
+  width: 819px;
+  height: 316px;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 .dotted-line-box {
   width: 204px;
   height: 239px;
-  border: dashed black thin;
+  border: dashed #7F7F7F thin;
   border-radius: 4px;
+  margin-right: 13px;
 }
 .plus-and-create-album {
+  width: 204px;
+  height: 239px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   img {
-
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
   }
   p {
-
+    text-decoration: none;
+    font-family: $faceBookFontr;
+    color: #CCCCCC;
+    font-size: 18px;
+    font-weight: lighter;
   }
 }
 .timeline-photos-box {
   width: 194px;
   height: 194px;
-  border: solid black thin;
+  border: solid #B3BBC9 thin;
   img {
     height: 194px;
     width: 194px;
@@ -155,22 +172,39 @@
 .timeline-photos-box2 {
   width: 194px;
   height: 45px;
-  border: solid black thin;
+  border: solid #E9EBEE thin;
   a {
+    text-decoration: none;
+    color: #526FA7;
+    // text-decoration: none;
+    // font-family: $faceBookFontr;
+    // font-size: 11px;
     p {
-
+      // font-family: $faceBookFontr;
+      // font-size: 11px;
     }
   }
-  // p {
-  //   font-size: 12px;
-  //   font-family: $faceBookFontr;
-  //   color: #C5C7CB;
-  // }
-  img {
+  p {
+    font-size: 12px;
+    margin-left: 7px;
+    margin-top: 7px;
+    font-family: inherit;
 
   }
+  img {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    margin-top: 8px;
+  }
 }
-
+.empty-and-gears{
+  display: flex;
+  justify-content: space-between;
+}
+.empty {
+  color: #B6B8BD;
+}
 // .no-photos-to-show {
 //     font-size: 19px;
 //     font-family: $faceBookFontr;
