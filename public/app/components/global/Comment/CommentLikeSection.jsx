@@ -34,13 +34,13 @@ export default class CommentLikeSection extends React.Component {
   }
 
   unHideComment() {
-    console.log('Unhide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id);
+    // console.log('Unhide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id);
     Axios({
       method: 'PUT',
       url: '/api/comment/unhide',
-      data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id }
+      data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id, profile_id: this.props.user.facebook_id }
     }).then(r => {
-      console.log('UPDATED COMMENTS', r.data);
+      // console.log('UPDATED COMMENTS', r.data);
       this.props.refreshComments(r.data);
     })
   }

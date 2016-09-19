@@ -1,1 +1,1 @@
-UPDATE comments SET hidden = false WHERE comment_id = $1;
+DELETE FROM hidden_comments WHERE comment_id = $1 AND profile_id = $2;

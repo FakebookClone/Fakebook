@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 export default class CommentEditButton extends React.Component {
   constructor() {
@@ -6,7 +7,6 @@ export default class CommentEditButton extends React.Component {
   }
 
   render() {
-    console.log(this.props.user);
     return (
       <div>
         {this.props.myComment && this.props.myPost
@@ -79,14 +79,14 @@ export default class CommentEditButton extends React.Component {
   }
 
   hideComment() {
-    console.log('Hide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id, 'for profile', this.props.currentUser);
-    // Axios({
-    //   method: 'PUT',
-    //   url: '/api/comment/unhide',
-    //   data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id }
-    // }).then(r => {
-    //   console.log('UPDATED COMMENTS', r.data);
-    //   this.props.refreshComments(r.data);
-    // })
+    // console.log('Hide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id, 'for profile', this.props.user.facebook_id);
+    Axios({
+      method: 'PUT',
+      url: '/api/comment/hide',
+      data: { comment_id: this.props.comment.comment_id, post_id: this.props.comment.post_id, profile_id: this.props.user.facebook_id }
+    }).then(r => {
+      // console.log('UPDATED COMMENTS', r.data);
+      this.props.refreshComments(r.data);
+    })
   }
 }

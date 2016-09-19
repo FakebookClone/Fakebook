@@ -46,7 +46,9 @@ export default class Friends extends React.Component {
 							<ProfileNav user={this.state.profileInfo} selected="photos" />
 						</div>
 
+
 						<div className="profile-gallery-wrapper">
+
 								<ProfilePhotosGallery/>
 						</div>
 						<ProfileFooterBottom/>
