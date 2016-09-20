@@ -1,14 +1,27 @@
 import React from 'react';
 import Axios from 'axios';
+import RemoveConfirmation from './RemoveConfirmation.jsx';
 
 export default class CommentEditButton extends React.Component {
   constructor() {
     super()
+    this.state = { removeConfirmation: false }
   }
 
   render() {
     return (
       <div>
+
+        {this.state.removeConfirmation
+          ? <div onClick={this.removeConfirmation.bind(this)} className='dimmer'></div>
+          : null
+        }
+
+        {this.state.removeConfirmation
+          ? <RemoveConfirmation />
+          : null
+        }
+
         {this.props.myComment && this.props.myPost
           ? <div className="user-comment-edit-button-container tooltip">
               <img className="user-comment-edit-menu-carrot" src="/images/comments/edit-menu-carrot.png" />
@@ -39,7 +52,7 @@ export default class CommentEditButton extends React.Component {
         }
         {!this.props.myComment && this.props.myPost
           ? <div className="user-comment-delete-button-container tooltip">
-              <img className="user-comment-delete-button" src="/images/comments/comment-x-light-gray.png" />
+              <img onClick={this.removeConfirmation.bind(this)} className="user-comment-delete-button" src="/images/comments/comment-x-light-gray.png" />
               <span className="tooltiptext">Remove this</span>
             </div>
           : null
@@ -88,5 +101,9 @@ export default class CommentEditButton extends React.Component {
       // console.log('UPDATED COMMENTS', r.data);
       this.props.toggleHideComment();
     })
+  }
+
+  removeConfirmation() {
+    this.setState({ removeConfirmation: !this.state.removeConfirmation })
   }
 }
