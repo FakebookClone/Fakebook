@@ -24,7 +24,6 @@ export default class ProfilePostStatus extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user);
 		return (
 
 			<div className="profile-post-status-wrapper">

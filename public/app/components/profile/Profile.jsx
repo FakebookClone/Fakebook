@@ -21,7 +21,6 @@ require('../../../stylesheets/components/profile/profile.scss');
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log('PROPS', props);
 		this.state = {
 			currentUser: JSON.parse(localStorage.getItem('fakebook_user')),
 			profileInfo: props.params.profile_id,
