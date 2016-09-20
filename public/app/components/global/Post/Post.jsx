@@ -163,6 +163,11 @@ export default class Posts extends React.Component {
 		this.setState({comment: e.target.value})
 	}
 
+	focusComment() {
+		var x = document.getElementsByClassName("input-name");
+		x.getElementsByClassName("new-comment-input")[0].focus();
+	}
+
 	postComment(e) {
 		if (e.keyCode === 13) {
 			Axios.post(`/api/comment/${this.props.post.post_id}`, {

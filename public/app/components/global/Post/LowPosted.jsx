@@ -13,7 +13,7 @@ export default class LowPosted extends React.Component {
             <img src={this.props.user.profile_pic}/>
           </div>
 
-          <div className="input-name">
+          <div className="input-name" onClick={this.props.focusComment}>
             <input className="new-comment-input" onChange={this.props.commentCatcher} placeholder="Write a comment..." value={this.props.comment} onKeyDown={this.props.postComment}/>
 
             <div className="camera-img tooltip">
