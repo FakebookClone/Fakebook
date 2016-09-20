@@ -34,7 +34,7 @@ export default class ProfilePhotosGallery extends React.Component {
 					<div className="wrapper-around-two-boxes">
 					<div className="dotted-line-box">
 						<div className="plus-and-create-album">
-							<img src="/images/profile/gray-plus.png" />
+							<img src="/images/profile/plus-large-gray.png" />
 							<p>Create Album</p>
 						</div>
 					</div>

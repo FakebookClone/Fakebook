@@ -122,10 +122,11 @@
 }
 .lower-section-wrapper{
   width: 849px;
-  height: 346px;
+  height: 315px;
   background-color: $faceBookWhite;
 }
 .wrapper-around-two-boxes {
+  padding-top: 30px;
   display: flex;
   flex-direction: row;
   width: 819px;
