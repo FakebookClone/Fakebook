@@ -54,7 +54,7 @@ export default class HomeRight extends React.Component {
 						<div className="trending-wrapper">
 							<div className="trending-text-container">
 								<a href="#" className="trending-text-div">Rocket League</a>
-								<p>800<span>k </span>
+								<p>100<span>b </span>
 									people talking about this</p>
 							</div>
 							<span className="x-false-delete-container">

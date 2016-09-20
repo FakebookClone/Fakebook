@@ -37,6 +37,13 @@ export default class FindFriends extends React.Component {
 						</div>
 						: null
 					}
+
+					{this.state.friend_requests.map( (friend_request, i) => {
+						return (
+							<FriendRequest user={this.state.user} key={'friend_request_' + i} friendRequest={friend_request} updateFriendRequests={this.updateFriendRequests.bind(this)} />
+						)
+					})}
+					
 					<div>
 					<img src="/images/find_friends/find-friends-list.png" className="people-you-may-know-img" />
 					</div>
@@ -65,13 +72,6 @@ export default class FindFriends extends React.Component {
 
 					</div>
 					<div className="find-friends-right-wrapper">
-
-					{this.state.friend_requests.map( (friend_request, i) => {
-						return (
-							<FriendRequest user={this.state.user} key={'friend_request_' + i} friendRequest={friend_request} updateFriendRequests={this.updateFriendRequests.bind(this)} />
-						)
-					})}
-
 					<div>
 					<div className="add-personal-contacts-box">
 					{/* <img src="../../../images/find_friends/add-personal-contacts.png"/> */}

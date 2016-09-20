@@ -31,7 +31,6 @@ export default class MidPosted extends React.Component {
           <img id="likeImg" src={imageshome + 'gray-share-small.png'}/>
           <p>Share</p>
         </div>
-
       </div>
     )
   }

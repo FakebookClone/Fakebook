@@ -13,7 +13,7 @@ export default class Comment extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { likes: [], iLiked: false };
+		this.state = { likes: [], iLiked: false, hidden: false };
 	}
 
 	componentWillMount() {
@@ -43,26 +43,32 @@ export default class Comment extends React.Component {
 	render() {
 		// console.log(this.props.comment);
 		// console.log({thePostID: this.props.postID, theProfileID: this.props.comment.profile_id, myPost: this.state.myPost, myComment: this.state.myComment});
-		if(this.props.comment.hidden) {
+		if(this.state.hidden) {
 			return (
-				<div className="user-comment-wrapper-hidden">
-					<div className="user-comment-container-hidden">
-						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} refreshComments={this.props.refreshComments} />
-						<CommentProfilePicture comment={this.props.comment} />
-						<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={false} likes={0} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
-					</div>
-				</div>
+				<CommentHidden comment={this.props.comment} toggleHideComment={this.toggleHideComment.bind(this)}  />
 			)
 		} else {
-			return (
-				<div className="user-comment-wrapper">
-					<div className="user-comment-container">
-						<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} refreshComments={this.props.refreshComments} />
-						<CommentProfilePicture comment={this.props.comment} />
-						<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+			if(this.props.comment.hidden) {
+				return (
+					<div className="user-comment-wrapper-hidden">
+						<div className="user-comment-container-hidden">
+							<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} toggleHideComment={this.toggleHideComment.bind(this)} />
+							<CommentProfilePicture comment={this.props.comment} />
+							<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={false} likes={0} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+						</div>
 					</div>
-				</div>
-			)
+				)
+			} else {
+				return (
+					<div className="user-comment-wrapper">
+						<div className="user-comment-container">
+							<CommentEditButton user={this.props.user} myComment={this.state.myComment} myPost={this.state.myPost} comment={this.props.comment} toggleHideComment={this.toggleHideComment.bind(this)} />
+							<CommentProfilePicture comment={this.props.comment} />
+							<CommentTextContainer user={this.props.user} comment={this.props.comment} likeComment={this.likeComment.bind(this)} iLiked={this.state.iLiked} likes={this.state.likes} hidden={this.props.comment.hidden} refreshComments={this.props.refreshComments} />
+						</div>
+					</div>
+				)
+			}
 		}
 	}
 
@@ -78,5 +84,8 @@ export default class Comment extends React.Component {
 		})
 	}
 
+	toggleHideComment() {
+		this.setState({ hidden: !this.state.hidden })
+	}
 
 }

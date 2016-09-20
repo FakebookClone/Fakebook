@@ -4,6 +4,14 @@ import Axios from 'axios';
 export default class FriendRequest extends React.Component {
   constructor() {
     super();
+    this.state = { requestedFriend: {} }
+  }
+
+  componentWillMount() {
+    Axios.get(`/api/profile/${this.props.friendRequest.requested_id}`).then(r => {
+      console.log(r.data);
+      this.setState({ requestedFriend: r.data[0] })
+    })
   }
 
   render() {
@@ -14,7 +22,7 @@ export default class FriendRequest extends React.Component {
           <a href="#">View Send Requests</a>
         </div>
         <div className="friend-request-bottom">
-          <img className="friend-request-sender-picture" src={this.props.friendRequest.profile_pic} />
+          <img className="friend-request-sender-picture" src={this.state.requestedFriend.profile_pic_lg} />
             <p className="friend-request-sender-name">{this.props.friendRequest.name}</p>
             <div className="friend-request-button-container">
               <button onClick={this.acceptFriendRequest.bind(this)} className="confirm-button">Confirm</button>

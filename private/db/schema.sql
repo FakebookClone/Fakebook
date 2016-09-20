@@ -6,7 +6,7 @@ CREATE TABLE users (
 CREATE TABLE profiles (
   profile_id SERIAL PRIMARY KEY,
   facebook_id VARCHAR(20),
-  profile_pic varchar(200) defualt 'https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-1/c14.0.48.48/p48x48/10354686_10150004552801856_220367501106153455_n.jpg?oh=459b9f8',
+  profile_pic varchar(200) default 'https://s3-us-west-2.amazonaws.com/bucket-fakebook/james.lemire.programmer%40gmail.com/profile-silhouette-small.jpg',
   profile_pic_lg varchar(200) default 'https://s3-us-west-2.amazonaws.com/bucket-fakebook%2Fdevmountain.clone%40gmail.com/default-large-profile.jpg',
   name varchar(80),
   first_name varchar(40),
