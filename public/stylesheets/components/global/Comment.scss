@@ -255,3 +255,21 @@
   background-color: #F6F7F9;
   position: relative;
 }
+
+.user-inform-hidden-container {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 12px;
+  padding-top: 8px;
+
+  ul li {
+    display: inline-block;
+    margin-right: 3px;
+    margin-top: 5px;
+    color: $faceBookBlue;
+    cursor: pointer;
+  }
+}
