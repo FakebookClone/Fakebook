@@ -553,3 +553,102 @@
   bottom: 0;
   cursor: pointer;
 }
+
+.remove-post-container {
+  width: 100%;
+  min-height: 133px;
+  border-radius: 3px;
+  background: #fff;
+  position: absolute;
+  z-index: 3;
+  top: -355px;
+  left: 0px;
+}
+
+.remove-post-top {
+  height: 19px;
+    font-weight: bold;
+    background-color: #f6f7f9;
+    border-radius: 3px 3px 0 0;
+    color: #1d2129;
+    line-height: 19px;
+    padding: 10px 12px;
+    position: relative;
+    font-size: 14px;
+    font-family: inherit;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.remove-post-header {
+  display: inline-block;
+}
+
+.remove-post-x-button {
+  display: inline-block;
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  height: 10px;
+  width: 10px;
+  background: url("/images/posts/cancel-delete-light-gray-x.png");
+  background-repeat: no-repeat;
+}
+
+.remove-post-middle {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: inherit;
+}
+
+.remove-post-bottom {
+  margin: 0px 12px;
+  height: 49px;
+  border-top: 1px solid #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.remove-post-cancel-button {
+  border: 1px solid;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+  background-color: #f6f7f9;
+  border-color: #ced0d4;
+  color: #4b4f56;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.remove-post-delete-button {
+  border: 1px solid;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+  background-color: #4267B2;
+  border-color: #365899;
+  color: #FFF;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}

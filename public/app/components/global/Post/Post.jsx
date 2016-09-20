@@ -148,6 +148,8 @@ export default class Posts extends React.Component {
 							if( $(e.target).hasClass('post-edit-button') ) {
 								$(e.target).children('.post-menu').css('display', 'inline-block');
 								$(e.target).children('.post-menu-small').css('display', 'inline-block');
+							} else if( $(e.target).hasClass('commentPost') ) {
+								$('.new-comment-input').next().focus();
 							} else {
 								$('.post-menu').css('display', 'none');
 								$('.post-menu-small').css('display', 'none');
