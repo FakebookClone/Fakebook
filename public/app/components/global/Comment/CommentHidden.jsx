@@ -9,7 +9,6 @@ export default class CommentHidden extends React.Component {
 
   componentWillMount() {
     Axios.get(`/api/profile/${this.props.comment.profile_id}`).then(r => {
-      console.log(r.data);
       this.setState({ user: r.data[0] });
     })
   }

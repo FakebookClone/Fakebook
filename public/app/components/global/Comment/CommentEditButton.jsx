@@ -92,7 +92,7 @@ export default class CommentEditButton extends React.Component {
   }
 
   hideComment() {
-    // console.log('Hide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id, 'for profile', this.props.user.facebook_id);
+    console.log('Hide comment fired for comment', this.props.comment.comment_id, 'on post', this.props.comment.post_id, 'for profile', this.props.user.facebook_id);
     Axios({
       method: 'PUT',
       url: '/api/comment/hide',
