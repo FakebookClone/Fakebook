@@ -54,6 +54,10 @@ p {
         height: 22px;
         border-radius: 3px;
         border: none;
+        cursor: text !important;
+        outline: none;
+        color: #1d1219;
+        font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
     }
 
     button {
@@ -64,6 +68,8 @@ p {
         background-color: $faceBookWhite;
         border: none;
         border-radius: 3px;
+        cursor: pointer;
+        outline: none;
         i {
             font-size: 16px;
             font-weight: normal;
