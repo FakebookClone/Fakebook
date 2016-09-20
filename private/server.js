@@ -42,6 +42,7 @@ app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);
 app.put('/api/post/:post_id', postsCtrl.editPost);
 app.delete('/api/post/:post_id', postsCtrl.deletePost);
+app.get('/api/posts/:profile_id', postsCtrl.getProfilePosts);
 
 //Friend Endpoints
 app.get('/api/friends/:profile_id', friendsCtrl.getFriends);

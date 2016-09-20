@@ -10,9 +10,7 @@ export default class ProfilePhoto extends React.Component {
 	}
 
 	componentWillMount() {
-		console.log(this.props.user);
 		Axios.get(`/api/profile-pic-lg/${this.props.user}`).then(r => {
-			console.log("response profilepic", r);
 			this.setState({ profilePic: r.data[0].profile_pic_lg });
 		});
 	}

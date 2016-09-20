@@ -110,7 +110,7 @@ export default class Profile extends React.Component {
 									</div>
 									{this.state.profileInfo.facebook_id
 										? <div className="profile-right-content-div">
-												<ProfilePostStatus user={this.state.profileInfo}/>
+												<ProfilePostStatus user={this.state.profileInfo} updatePosted={this.updatePosts.bind(this)}/>
 												<ProfilePosted user={this.state.profileInfo} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>
