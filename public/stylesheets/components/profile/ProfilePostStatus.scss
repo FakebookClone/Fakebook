@@ -37,10 +37,42 @@
         p {
             padding-left: 5px;
             font-size: 12px;
+            font-weight: bolder;
+            color: $color-of-word-photos-on-profile;
+            padding-right: 6px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-right: $borderColorDarkGrey;
+            margin-right: -2px;
+        }
+        a {
+          text-decoration: none;
+          margin-left: 4px;
+          font-size: 12px;
+          font-weight: bolder;
+          font-family: $faceBookFontr;
+          color: $postBttnHoverBlue;
         }
     }
 }
+.status-and-image-profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  img {
+    width: 15px;
+    height: 8px;
+    margin-top: -20px;
+  }
+}
+.flag-profile {
+  border: gray solid thin;
+  padding-left: 6px;
+}
+.photo-and-video-profilepage {
+  color: red;
+}
 .profileCloseDiv {
     padding-right: 12px;
     padding-bottom: 7px;

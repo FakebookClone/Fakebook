@@ -40,11 +40,11 @@ export default class ProfilePostStatus extends React.Component {
 						<span>
 							<img src="/images/profile/photo-video.png"/>
 						</span>
-						<p>Photo / Video</p>
+						<p class="photo-and-video-profilepage"><a href="#">Photo / Video</a></p>
 						<span>
-							<img src="/images/profile/flag-blue-profile.png"/>
+							<img class="flag-profile" src="/images/profile/flag-blue-profile.png"/>
 						</span>
-						<p>Life Event</p>
+						<a href="#" class="life-event">Life Event</a>
 
 						{this.state.closeVisible
 							? <div onClick={this.toggleDimmer.bind(this, true)} className="profileCloseDiv"><img src={imageshome + 'gray-x.png'}/></div>
