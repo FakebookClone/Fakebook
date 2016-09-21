@@ -561,8 +561,9 @@
   background: #fff;
   position: absolute;
   z-index: 3;
-  top: -355px;
+  top: -126px;
   left: 0px;
+  opacity: 1 !important;
 }
 
 .remove-post-top {
@@ -592,6 +593,7 @@
   width: 10px;
   background: url("/images/posts/cancel-delete-light-gray-x.png");
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .remove-post-middle {
@@ -630,6 +632,7 @@
   display: flex;
   align-items: center;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .remove-post-delete-button {
@@ -651,4 +654,5 @@
   height: 22px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }

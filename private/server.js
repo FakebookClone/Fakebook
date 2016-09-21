@@ -53,6 +53,7 @@ app.get('/api/comments/hidden/:profile_id', commentsCtrl.getHiddenComments);
 app.post('/api/comment/:post_id', commentsCtrl.postComment);
 app.put('/api/comment/hide', commentsCtrl.hideComment);
 app.put('/api/comment/unhide', commentsCtrl.unhideComment);
+app.delete('/api/comment/:comment_id/:post_id', commentsCtrl.deleteComment);
 
 //Like Endpoints
 app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);
