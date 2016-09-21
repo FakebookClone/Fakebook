@@ -21,7 +21,6 @@ require('../../../stylesheets/components/profile/profile.scss');
 export default class Profile extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log('PROPS', props);
 		this.state = {
 			currentUser: JSON.parse(localStorage.getItem('fakebook_user')),
 			profileInfo: props.params.profile_id,
@@ -110,7 +109,7 @@ export default class Profile extends React.Component {
 									</div>
 									{this.state.profileInfo.facebook_id
 										? <div className="profile-right-content-div">
-												<ProfilePostStatus user={this.state.profileInfo}/>
+												<ProfilePostStatus user={this.state.profileInfo} updatePosted={this.updatePosts.bind(this)}/>
 												<ProfilePosted user={this.state.profileInfo} posts={this.state.posts} updatePosts={this.updatePosts.bind(this)}/>
 												<ProfileStatusBox/>
 												<ProfileOldPosts/>

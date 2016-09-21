@@ -42,6 +42,7 @@ app.post('/api/posts/:profile_id', postsCtrl.getPosts);
 app.post('/api/post/:profile_id', postsCtrl.createPost);
 app.put('/api/post/:post_id', postsCtrl.editPost);
 app.delete('/api/post/:post_id', postsCtrl.deletePost);
+app.get('/api/posts/:profile_id', postsCtrl.getProfilePosts);
 
 //Friend Endpoints
 app.get('/api/friends/:profile_id', friendsCtrl.getFriends);
@@ -52,6 +53,7 @@ app.get('/api/comments/hidden/:profile_id', commentsCtrl.getHiddenComments);
 app.post('/api/comment/:post_id', commentsCtrl.postComment);
 app.put('/api/comment/hide', commentsCtrl.hideComment);
 app.put('/api/comment/unhide', commentsCtrl.unhideComment);
+app.delete('/api/comment/:comment_id/:post_id', commentsCtrl.deleteComment);
 
 //Like Endpoints
 app.get('/api/likes/post/:post_id', likesCtrl.getPostLikes);

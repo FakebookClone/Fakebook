@@ -18,7 +18,7 @@ export default class CommentEditButton extends React.Component {
         }
 
         {this.state.removeConfirmation
-          ? <RemoveConfirmation />
+          ? <RemoveConfirmation comment={this.props.comment} cancelRemove={this.removeConfirmation.bind(this)} refreshComments={this.props.refreshComments} />
           : null
         }
 
@@ -30,7 +30,7 @@ export default class CommentEditButton extends React.Component {
               <div className="user-comment-edit-menu-container">
                 <ul className="user-comment-edit-menu">
                   <li>Edit...</li>
-                  <li>Delete...</li>
+                  <li onClick={this.removeConfirmation.bind(this)} >Delete...</li>
                 </ul>
               </div>
             </div>
@@ -44,7 +44,7 @@ export default class CommentEditButton extends React.Component {
               <div className="user-comment-edit-menu-container">
                 <ul className="user-comment-edit-menu">
                   <li>Edit...</li>
-                  <li>Delete...</li>
+                  <li onClick={this.removeConfirmation.bind(this)} >Delete...</li>
                 </ul>
               </div>
             </div>
