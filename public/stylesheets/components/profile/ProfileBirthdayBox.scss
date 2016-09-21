@@ -58,16 +58,19 @@
 }
 
 .profile-birthday-user {
-    color: $postBttnHoverBlue;
-    font-family: $faceBookFonth;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
+  color: $postBttnHoverBlue;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.38;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  
+  &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+  }
 }
